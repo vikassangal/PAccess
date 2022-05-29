@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.18\2010-11-11-12046.xml">
+  <changeSet id="C21547A6-F4E0-43A0-9F85-0EFD6AF5BDEE" author="Smitha.Krishnamurthy">
+    <comment>
+      Add new rule definitions for SR 1098 - Add birth time to Demographics information
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="473" />
+      <column name="Description" value="Birth time" />
+      <column name="Type" value="PatientAccess.Rules.BirthTimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+   
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="473" />
+    </insert>
+     
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="473" />
+    </insert>
+    
+      
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="RuleId" valueNumeric="473" />
+    </insert>
+    
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=473</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=473</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId=473</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

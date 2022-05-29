@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx?wsdl" filename="SecurityService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx?disco" filename="SecurityService.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

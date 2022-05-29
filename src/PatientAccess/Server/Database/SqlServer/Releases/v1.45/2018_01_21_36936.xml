@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.45\2018_01_21_36936.xml">
+
+  <changeSet id="134DDA4A-7AC6-410F-AA36-8F3A689D8218" author="Hemant.Kumar">
+
+    <comment>
+      Add SignedOverMedicareHICNumberRequired rule to transfer activity to make HIC field as required
+    </comment>
+
+    <comment>
+      Insert SignedOverMedicareHICNumberRequired(438) to Contexts (9,24,25) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="438" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="438" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="438" />
+    </insert>
+   
+  </changeSet>
+
+</databaseChangeLog>

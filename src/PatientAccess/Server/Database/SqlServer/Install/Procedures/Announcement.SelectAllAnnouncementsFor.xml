@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Announcement.SelectAllAnnouncementsFor.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Announcement.SelectAllAnnouncementsFor
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Announcement.SelectAllAnnouncementsFor  
+         @CurrentDate datetime,
+         @FacilitiesList varchar(max)
+      AS 
+      BEGIN
+
+        SELECT 
+	        Announcements.Id, 
+	        Announcements.StopDate, 
+	        Announcements.Description, 
+          Announcements.Author, 
+	        Announcements.SaveDate,
+	        AnnouncementsToRolesToFacilities.FacilityId,
+	        AnnouncementsToRolesToFacilities.RoleId
+        FROM 
+	        Announcement.AnnouncementsToRolesToFacilities,
+	        Announcement.Announcements
+        WHERE
+          StopDate &gt;= @CurrentDate
+          AND
+	        FacilityId IN ( SELECT item from Utility.ArrayToTable(Utility.StringToArray(@FacilitiesList,',')) )
+          AND
+          Announcements.Id = AnnouncementsToRolesToFacilities.AnnouncementId	        
+        ORDER BY
+	        Announcements.Id,
+	        FacilityId,
+	        RoleId
+          
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Announcement.SelectAllAnnouncementsFor TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Announcement.SelectAllAnnouncementsFor FROM db_apionly;
+      DROP PROCEDURE Announcement.SelectAllAnnouncementsFor;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

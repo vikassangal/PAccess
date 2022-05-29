@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.18\2011-03-01-13959.xml">
+  <changeSet id="E873C443-4CB5-472A-8E76-437DC2963EAA" author="Smitha.Krishnamurthy">
+    <comment>
+      Update PersonPhoneAreaCode and Phone Number description
+    </comment>
+    
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Area code" />
+      <where>Id=480</where>
+    </update>
+    
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Phone number" />
+      <where>Id=481</where>
+    </update>
+    
+    <rollback>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value= "Person area code"  />
+        <where>Id=480</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value= "Person phone number"  />
+        <where>Id=481</where>
+      </update>
+     
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

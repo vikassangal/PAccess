@@ -1,0 +1,33 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\FusNote.SelectAllFusActivityCodes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create FusNote.SelectAllActivityCodes
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE FusNote.SelectAllActivityCodes
+      AS  
+      BEGIN
+      
+        SELECT
+          ActivityCode, 
+          Description, 
+          NoteType, 
+          DefaultWorklistDays, 
+          MaxWorklistDays, 
+          Writeable
+        FROM 
+          FusNote.ActivityCodes
+        ORDER BY
+          ActivityCode
+        
+      END;
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON FusNote.SelectAllActivityCodes TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON FusNote.SelectAllActivityCodes FROM db_apionly;
+      DROP PROCEDURE FusNote.SelectAllActivityCodes;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Logging.SaveLogEntry.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Logging.SaveLogEntry
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE Logging.SaveLogEntry
+        @Host VARCHAR(255) = 'Unknown',
+        @Date DATETIME = NULL,
+        @Thread VARCHAR(255) = 'Unknown',
+        @Level VARCHAR(50) = 'Unknown',
+        @Logger VARCHAR(255) = 'Unknown',
+        @Message VARCHAR(max),
+        @SourceLocation VARCHAR(512) = 'Unknown',
+        @Exception VARCHAR(max) = NULL
+      AS
+      BEGIN
+
+        INSERT INTO
+          Logging.Events
+        ( Host,
+          Date,
+          Thread,
+          Level,
+          Logger,
+          Message,
+          SourceLocation,
+          Exception )
+        VALUES
+        ( @Host,
+          @Date,
+          @Thread,
+          @Level,
+          @Logger,
+          @Message,
+          @SourceLocation,
+          @Exception )
+        
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Logging.SaveLogEntry TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Logging.SaveLogEntry FROM db_apionly;
+      DROP PROCEDURE Logging.SaveLogEntry;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

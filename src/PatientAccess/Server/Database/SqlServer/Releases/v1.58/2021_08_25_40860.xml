@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.58\2021_08_25_40860.xml">
+
+  <changeSet  id="1FB19633-EE53-476A-AF25-800E253493E5" author="naveen.manral" context="Model">
+       
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Share with Health Information Exchange" />
+      <where>Id=536</where>
+    </update>
+       
+  </changeSet>
+  <changeSet id="D9D45B38-DE87-4954-90D1-99BD43E5BBD4" author= "naveen.manral" context="Prod">
+       
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Share with Health Information Exchange" />
+      <where>Id=536</where>
+    </update>
+       
+  </changeSet>
+</databaseChangeLog>
+
+

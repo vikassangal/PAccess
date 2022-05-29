@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.54\2020_10_29_2592.xml">
+
+  <changeSet id="B2057CCD-A7BE-4276-A312-FED884EAD119" author="Smitha.Krishnamurthy">
+
+
+    <comment>
+      SR11595- PAS-Remove Hospital Communication Field
+    </comment>
+
+    <comment>
+      Data changes for Task 40663
+    </comment>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="MBI number" />
+      <column name="Type" value="PatientAccess.Rules.BenVerMBI" />
+      <where>Id=226</where>
+    </update>
+ 
+    <rollback>
+
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>

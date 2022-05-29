@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.25\2012-29-09-23425.xml">
+  <changeSet id="C633E608-C2D4-4BB2-9D99-6D886544710D" author="Smitha.Krishnamurthy">
+    <comment>
+      SR 346 related rules - add MSP Required Rule to Transfer ER to outpatient context and 
+      Transfer Outpatient to ER patient activity
+    </comment>
+   
+  
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="408" />
+    </insert>
+ 
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="408" />
+    </insert>
+    
+    </changeSet>
+</databaseChangeLog>

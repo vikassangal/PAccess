@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-10-07-5152.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for October 2009
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RAUTD'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCPRE'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPNES'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RSC2A'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RSDON'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RSPON'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RSRCH'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RAUTD" />
+      <column name="Description" value="PRE-AUTHORIZATION DENIED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCPRE" />
+      <column name="Description" value="CALLED PATIENT RE:" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPNES" />
+      <column name="Description" value="PATIENT NOT ELIGIBLE FOR SERVICE" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RSC2A" />
+      <column name="Description" value="REG SUPV COMPLETED 2ND ATTEMPT POS" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RSDON" />
+      <column name="Description" value="SCHED DIAG AND ORDER DO NOT MATCH" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RSPON" />
+      <column name="Description" value="SCHED PROC AND ORDER DO NOT MATCH" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RSRCH" />
+      <column name="Description" value="CLINICAL RESEARCH ACCOUNT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="7" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RAUTD'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCPRE'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPNES'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RSC2A'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RSDON'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RSPON'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RSRCH'</where>
+      </delete>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

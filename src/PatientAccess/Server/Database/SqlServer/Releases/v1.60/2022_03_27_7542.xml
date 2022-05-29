@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.60\2022_03_27_7542.xml">
+  <changeSet id="556DB556-AA67-442D-8FF2-C25FCA890D24" author="abhijeet.hambir">
+    <comment>
+		Delete ViWeb.DeleteVIwebAccessToken
+	</comment>
+    <createProcedure>
+		CREATE PROCEDURE [ViWeb].[DeleteVIwebAccessToken]
+		@key varchar(100)
+		AS
+		BEGIN
+		SET NOCOUNT ON;
+		Delete from ViWeb.ViwebAccessToken where [key]=@key
+		END
+	</createProcedure>
+    <sql>
+		GRANT EXECUTE ON ViWeb.DeleteVIwebAccessToken TO db_apionly;
+	</sql>
+    <rollback>
+		REVOKE EXECUTE ON ViWeb.DeleteVIwebAccessToken FROM db_apionly;
+		DROP PROCEDURE ViWeb.DeleteVIwebAccessToken;
+	</rollback>
+  </changeSet>
+</databaseChangeLog>

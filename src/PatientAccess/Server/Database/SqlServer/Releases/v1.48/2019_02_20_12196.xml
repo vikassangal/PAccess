@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.48\2019_02_20_12196.xml">
+
+  <changeSet id="7ccf8d72-8bd0-4441-8a80-8a5d40b37c09-01" author="Rajesh.Rajasekaran">
+
+
+    <comment>
+      SR12196- Modify description of the PatientPortalOptInRequired rule(507) to Patient Opt-In to Patient Portal
+    </comment>
+
+
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Patient Opt-In to Patient Portal" />
+      <where>Id=507</where>
+    </update>
+
+    <comment>
+      SR12196- Add AuthorizeAdditionalPortalUserRequired Rule to form and activities
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="530" />
+      <column name="Description" value="Authorize Additional Patient Portal Users" />
+      <column name="Type" value="PatientAccess.Rules.AuthorizeAdditionalPortalUserRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      Add rule 530 to ContextRules to Rules for contexts 7,9,10,13,21
+    </comment>
+
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="530" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="530" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="530" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="530" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="530" />
+    </insert>
+
+    <comment>
+      Add rule 530 to CompositeRulesToRules for composite rules 211,213,477
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="530" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="213" />
+      <column name="Ruleid" valueNumeric="530" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="530" />
+    </insert>
+     
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Security.Roles.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Security.Roles
+    </comment>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="1" />
+      <column name="Name" value="SystemAdmin" />
+      <column name="Description" value="System Administrator" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="2" />
+      <column name="Name" value="RegistrationAdministrator" />
+      <column name="Description" value="Registration Administrator" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="3" />
+      <column name="Name" value="PatientInquiryUser" />
+      <column name="Description" value="Patient Inquiry User" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="4" />
+      <column name="Name" value="FinancialUser" />
+      <column name="Description" value="Financial User" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="5" />
+      <column name="Name" value="RegistrationUser" />
+      <column name="Description" value="Registration User" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="6" />
+      <column name="Name" value="ClinicalUser" />
+      <column name="Description" value="Clinical User" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="7" />
+      <column name="Name" value="CreditReportViewer" />
+      <column name="Description" value="Credit Report Viewer" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="8" />
+      <column name="Name" value="HousekeepingUser" />
+      <column name="Description" value="Housekeeping User" />
+    </insert>
+    <insert schemaName="Security" tableName="Roles">
+      <column name="Id" valueNumeric="9" />
+      <column name="Name" value="Scheduler" />
+      <column name="Description" value="Scheduler" />
+    </insert>
+    <rollback>
+      delete from Security.Roles where Id in (1,2,3,4,5,6,7,8,9);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

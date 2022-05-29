@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Worklist.WorklistsToRules.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Worklist.WorklistsToRules Table
+    </comment>
+    <createTable schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="RuleId" type="int">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_WorklistsToRules" schemaName="Worklist" tableName="WorklistsToRules" columnNames="WorklistId,RuleId" />
+  </changeSet>
+</databaseChangeLog>

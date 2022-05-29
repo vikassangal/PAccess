@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.24\2012-04-30-20714.xml">
+
+  <changeSet id="B7C5B942-B052-4EB9-8041-EFB126DA08E0" author="Ahmed Chaudhary">
+
+    <comment>Remove the AdmitTimeRequired rule and add the the AdmitTimePreferred rule for the ShortPreRegistrationActivity (Preregister Diagnostic Outpatient) activity</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 And RuleId = 59 </where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="494" />
+    </insert>
+    
+    <comment>Add the the AdmitTimePreferred rule for the OnShortDemographics Composite rule</comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="494" />
+    </insert>
+    
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 20  And RuleId = 494 </where>
+      </delete>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="20" />
+        <column name="Ruleid" valueNumeric="59" />
+      </insert>
+      
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 482 And RuleId = 494 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+</databaseChangeLog>

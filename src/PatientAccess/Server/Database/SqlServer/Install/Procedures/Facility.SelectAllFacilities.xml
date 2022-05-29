@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Facility.SelectAllFacilities.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create Facility.SelectAllFacilities
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Facility.SelectAllFacilities  
+      AS 
+      BEGIN
+      
+        SELECT 
+           Id, 
+           HospitalCode, 
+           Name, 
+           ServerId, 
+           DatabaseName, 
+           ModType, 
+           FollowupUnitId, 
+           UtcOffset, 
+           DstOffset, 
+           OrderComm, 
+           TenetCare, 
+           Reregister, 
+           TaxId AS FederalTaxID, 
+           UseUscMrn AS UsesUscMrn, 
+           MedicaidIssuedDateRequired
+        FROM 
+          Facility.Facilities
+        WHERE
+          IsEnabled = 'Y'
+        ORDER BY 
+          Name
+
+      END;
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Facility.SelectAllFacilities TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Facility.SelectAllFacilities FROM db_apionly;
+      DROP PROCEDURE Facility.SelectAllFacilities;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

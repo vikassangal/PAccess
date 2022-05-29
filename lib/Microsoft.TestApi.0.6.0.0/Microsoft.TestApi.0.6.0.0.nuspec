@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.TestApi</id>
+    <version>0.6.0.0</version>
+    <title>Microsoft.TestApi</title>
+    <authors>nithins</authors>
+    <owners>nithins</owners>
+    <licenseUrl>http://testapi.codeplex.com/license</licenseUrl>
+    <projectUrl>http://testapi.codeplex.com/</projectUrl>
+    <iconUrl>http://www.codeplex.com/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>TestApi is a library of test and utility APIs that enables developers and testers to create testing tools and automated tests for .NET and Win32 applications. TestApi provides a set of common test building blocks -- types, data-structures and algorithms -- in a simple, layered, componentized and documented stack.</description>
+    <summary>TestApi is a library of test and utility APIs that enables developers and testers to create testing tools and automated tests for .NET and Win32 applications.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>Microsoft Testing TestApi Test WPF .NET API</tags>
+  </metadata>
+</package>

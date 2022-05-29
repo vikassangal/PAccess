@@ -1,0 +1,1429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics.Win.UltraWinGrid.v5.2.Design</name>
+    </assembly>
+    <members>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.AppearanceBrowserPageControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.AppearanceBrowserPageControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.BandsAndColumnsPageControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.BandsAndColumnsPageControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.BandsAndColumnsPageControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.ColumnEditorPageControl">
+            <summary>
+            Summary description for ColumnEditorPageControl.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.ColumnEditorPageControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.ColumnEditorPageControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.ColumnEditorPageControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.DataPropertiesSurrogate.DataPropertiesSurrogateConverter">
+            <summary>
+            Type converter for the DataPropertiesSurrogate class.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetsManager">
+            <summary>
+            Provides information about folders that store presets and methods for getting Presets files for specific types.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsManager.INVALID_PRESETNAME_CHARACTERS">
+            <summary>
+            Returns a string containing the characters that are invalid in a Preset name.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.#ctor">
+            <summary>
+            PresetsManager Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.CreateStandardDefaultPresetValueInRegistry">
+            <summary>
+            Creates the registry value which stores the file path of the default preset file, if it does not already exist.
+            It also writes the file path of the standard default preset file to the newly created value.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetStandardFolderSearchOption">
+            <summary>
+            Gets the search option for the built-in Standard folder from the Registry.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetCustomFolderSearchOption">
+            <summary>
+            Gets the search option for the built-in Custom folder from the Registry.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetPresetsFiles(System.String,Infragistics.Win.PresetType,Infragistics.Win.UltraWinGrid.Design.PresetsPlatform,System.Boolean)">
+            <summary>
+            Returns an ArrayList of PresetInfo objects for the specified 'target type name' on the specified presets platform (i.e., Win or Web)
+            </summary>
+            <remarks>
+            This method looks for presets files in the standard folders.  To find presets files in alternate folders use the overload that takes an array of DirectoryInfo or PresetInfo objects.
+            </remarks>
+            <param name="requestedTargetTypeName">A string representation of the type of the component whose Presets folder is to be returned</param>
+            <param name="requestedPresetType">The type of presets to return, i.e., Appearance or Behavior</param>
+            <param name="requestedPresetsPlatform">The platform (i.e., Win or Web) that the component runs on</param>
+            <param name="isCustom">Specify 'true' to return files containing Custom presets or 'false' to return files containing 'Standard' presets.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetPresetsFiles(System.String,Infragistics.Win.PresetType,Infragistics.Win.UltraWinGrid.Design.PresetFolderInfo[])">
+            <summary>
+            Returns an ArrayList of PresetInfo objects for the specified 'target type name' in the specified list of PresetFolderInfos.
+            </summary>
+            <remarks>
+            This method looks for presets files in a specified list of folders represented by a list of PresetFolderInfo objects.  To find presets files in the standard folders use the overload that takes the requested preset platform and an 'IsCustom' flag.
+            </remarks>
+            <param name="requestedTargetTypeName">A string representation of the type of the component whose Presets folder is to be returned</param>
+            <param name="requestedPresetType">The type of presets to return, i.e., Appearance or Behavior</param>
+            <param name="presetFolderInfos">An array of PresetFolderInfo objects for each folder to be searched.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetPresetsFiles(System.String,Infragistics.Win.PresetType,System.IO.DirectoryInfo[])">
+            <summary>
+            Returns an ArrayList of PresetInfo objects for the specified 'target type name' in the specified list of DirectoryInfos.
+            </summary>
+            <remarks>
+            This method looks for presets files in a specified list of DirectoryInfos.
+            </remarks>
+            <param name="requestedTargetTypeName">A string representation of the type of the component whose Presets folder is to be returned</param>
+            <param name="requestedPresetType">The type of presets to return, i.e., Appearance or Behavior</param>
+            <param name="folders">An array of DirectoryInfo objects for each folder to be searched.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetPresetsFolderForType(System.String,Infragistics.Win.UltraWinGrid.Design.PresetsPlatform,System.Boolean)">
+            <summary>
+            Returns a DirectoryInfo object for the specified 'target type name' on the specified presets platform (i.e., Win or Web)
+            </summary>
+            <param name="targetTypeName">A string representation of the type of the component whose Presets folder is to be returned</param>
+            <param name="presetsPlatform">The platform (i.e., Win or Web) that the component runs on</param>
+            <param name="isCustom">Specify 'true' to return the folder containing Custom presets or 'false' to return the folder containing 'Standard' presets.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.GetUserDefinedPresetsFolders(System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns an array of PresetFolderInfo objects for each user defined presets folder value found in the specified registry key.
+            </summary>
+            <param name="registryKey">The registry key that contains the values for user defined presets folders</param>
+            <param name="onlyIncludeActiveFolders">True to include only those folders marked as active by the user, false to include all user defined presets folders</param>
+            <param name="onlyIncludeValidFolders">True to include only those folders which actually exist, false to include all user defined presets folders whether they exist or not</param>
+            <param name="removeRegValueForIncludedFolders">True to remove the registry value for each folder that is returned in the list, false to leave all values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.IsDefaultPreset(System.String)">
+            <summary>
+            Returns true if the specified path to a Preset file is the path to the default Preset used by the UltraGrid.
+            </summary>
+            <param name="filePath">The full file path of a Preset file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.IsPresetInStandardFolder(Infragistics.Win.UltraWinGrid.Design.PresetInfo,Infragistics.Win.UltraWinGrid.Design.PresetsPlatform,System.String)">
+            <summary>
+            Returns true if the specified PresetInfo is stored in the Standard folder for the specified target type.
+            </summary>
+            <param name="presetInfo">A PresetInfo for the Preset whose location is being verified.</param>
+            <param name="presetsPlatform">The platform type </param>
+            <param name="targetTypeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.IsPresetNameValid(System.String)">
+            <summary>
+            Returns true if the specified Preset name contains valid characters.
+            </summary>
+            <param name="presetName">The Preset name to evaluate</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.SavePreset(Infragistics.Win.ISupportPresets,Infragistics.Win.PresetType,System.IO.DirectoryInfo,System.String,System.String,Infragistics.Win.UltraWinGrid.Design.PresetsFileExistsOption,Infragistics.Win.UltraWinGrid.Design.PresetsFileExistsOption,Infragistics.Win.UltraWinGrid.Design.PresetsFileReadOnlyOption,System.Boolean)">
+            <summary>
+            Saves a Preset with the specified information
+            </summary>
+            <param name="targetControl">The control for which the Preset is being saved.</param>
+            <param name="presetType">The type of the Preset.</param>
+            <param name="presetsFolder">The folder in which to save the preset</param>
+            <param name="presetName">The name of the Preset</param>
+            <param name="presetDescription">The description of the Preset</param>
+            <param name="fileExistsOption">Specifies the action to be taken if a file with the same name already exists in the destination folder.</param>
+            <param name="readOnlyFileExistsOption">Specifies the action to be taken if a read-only file with the same name already exists in the destination folder.</param>
+            <param name="readOnlyOption">Specifies whether to mark the Preset file being saved as Read Only.</param>
+            <param name="displaySuccessfulMessage">True to display a message when the Preset is successfully saved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.SetCustomFolderSearchOption(System.Boolean)">
+            <summary>
+            Updates the registry key that contains the search option for the built-in Custom folder.
+            </summary>
+            <param name="shouldSearch"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsManager.SetStandardFolderSearchOption(System.Boolean)">
+            <summary>
+            Updates the registry key that contains the search option for the built-in Standard folder.
+            </summary>
+            <param name="shouldSearch"></param>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetsManager.DefaultPresetFilePath">
+            <summary>
+            Gets/sets the file path of the default Preset used by the UltraGrid.  If no default Preset exists,
+            this property returns null.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetsManager.DefaultPresetFolderLiteral">
+            <summary>
+            Returns the literal displayed in the user interface to represent the default preset folder.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetsManager.IsDefaultPresetValueInRegistry">
+            <summary>
+            Returns true if the value for the default Preset used by the UltraGrid exists in the Registry.
+            This will return true even if the value exists but has an empty data string associated with it.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetsManager.PresetsRegistryKey">
+            <summary>
+            Returns a string representing the registry key in HKEY_CLASSES_ROOT used store information about Presets across all products.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetsManager.PresetsUserOptionsRegistryKey">
+            <summary>
+            Returns a string representing the registry key in HKEY_CURRENT_USER used store information about Presets options for the current user.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetsManager.TabIndexOfDefaultPreset">
+            <summary>
+            Gets/sets the index of the TabPage which contains the default preset which is applied to new grids created at design-time.
+            This property will return -1 if the default preset is the "DEFAULT" setting.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetInfo">
+            <summary>
+            File and other info about a particular preset.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetInfo.GetDefault(Infragistics.Win.PresetType)">
+            <summary>
+            Returns an instance of PresetInfo that represents default values for the specified PresetType.
+            </summary>
+            <param name="presetType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetInfo.FileInfo">
+            <summary>
+            Returns a FileInfo object for the preset file.
+            </summary>
+            <remarks>
+            Note that if this PresetInfo represents the default values for the PresetType, this property will return null.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetInfo.Description">
+            <summary>
+            Returns the description of the preset.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetInfo.IsDefaultPreset">
+            <summary>
+            Returns true if this PresetInfo represents the default values for the PresetType.
+            </summary>
+            <remarks>
+            Note that if set to true, FileInfo will return null.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetInfo.Name">
+            <summary>
+            Returns the name of the preset.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetInfo.PresetType">
+            <summary>
+            Returns the type of the preset.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetFolderInfo">
+            <summary>
+            Holds information about a Presets folder
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetFolderInfo.#ctor(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="directoryInfo"></param>
+            <param name="isActive"></param>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetFolderInfo.DirectoryInfo">
+            <summary>
+            Returns a DirectoryInfo object that describes the Presets folder
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.PresetFolderInfo.IsActive">
+            <summary>
+            Returns true if the Presets folder is active.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.DirtyPresetsPromptDialog">
+            <summary>
+            Summary description for DirtyPresetsPromptDialog.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.DirtyPresetsPromptDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.DirtyPresetsPromptDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.DirtyPresetsPromptDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.EditPresetDialog">
+            <summary>
+            Summary description for EditPresetDialog.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.EditPresetDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.EditPresetDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.EditPresetDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.EditSchemaDialog">
+            <summary>
+            Summary description for EditSchema.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.EditSchemaDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.EditSchemaDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.EditSchemaDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.EditSchemaSaveOptionsDialog">
+            <summary>
+            Summary description for EditSchemaSaveOptionsDialog.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.EditSchemaSaveOptionsDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.EditSchemaSaveOptionsDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.EditSchemaSaveOptionsDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.FeaturePickerPageControl">
+            <summary>
+            Summary description for FeaturePickerPageControl.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FeaturePickerPageControl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FeaturePickerPageControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FeaturePickerPageControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.FeaturePickerPageControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.FinderTool">
+            <summary>
+            FinderTool
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Win.UltraWinGrid.Design.FinderTool"/>
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.Dispose(System.Boolean)">
+            <summary>
+            Invoked when the control is disposed
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when a mouse button is pressed on the control
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when the mouse is moved
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Invoked when a mouse button is release.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Invoked when the control must be rendered
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnCaptureStarted(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Used to invoke the <see cref="F:Infragistics.Win.UltraWinGrid.Design.FinderTool.CaptureStarted"/> event
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnCaptureEnded(System.EventArgs)">
+            <summary>
+            Used to invoke the <see cref="F:Infragistics.Win.UltraWinGrid.Design.FinderTool.CaptureEnded"/> event
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.OnCapturedControl(Infragistics.Win.UltraWinGrid.Design.FinderControlEventArgs)">
+            <summary>
+            Used to invoke the <see cref="F:Infragistics.Win.UltraWinGrid.Design.FinderTool.CapturedControl"/> event
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.ControlFromPoint(System.Drawing.Point)">
+            <summary>
+            Returns a <see cref="T:System.Windows.Forms.Control"/> located at the specified screen coordinates.
+            </summary>
+            <param name="pt">Point in screen coordinates</param>
+            <returns>A control or null.</returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderTool.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>
+            Invoked when the position or size of the control has changed.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="specified"></param>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.FinderTool.CaptureStarted">
+            <summary>
+            Event invoked when capture has started
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.FinderTool.CaptureEnded">
+            <summary>
+            Event invoked when the capture has ended
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.FinderTool.CapturedControl">
+            <summary>
+            Event invoked during a capture when the mouse is moved.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.FinderControlEventArgs">
+            <summary>
+            Event arguments class
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.FinderControlEventArgs.#ctor(System.Windows.Forms.Control,System.Drawing.Point)">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Win.UltraWinGrid.Design.FinderControlEventArgs"/>
+            </summary>
+            <param name="control"></param>
+            <param name="pt">Screen location that was processed</param>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.FinderControlEventArgs.DisplayRectangle">
+            <summary>
+            Returns or sets the rectangle in screen coordinates used to indicate the located control. 
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.FinderControlEventArgs.ScreenLocation">
+            <summary>
+            Returns the location that was processed in screen coordinates.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.FinderControlEventHandler">
+            <summary>
+            Delegate for the control located event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl">
+            <summary>
+            Summary description for the groups and Levels page control.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl.#ctor(Infragistics.Win.UltraWinGrid.UltraGridBand)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl.ApplyChanges">
+            <summary>
+            Method invoked when the apply button has been pressed.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl.Initialize(Infragistics.Win.UltraWinGrid.UltraGridBand)">
+            <summary>
+            Initializes the control with the specified band.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.GroupsAndLevelsPageControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IGWebBrowser.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Win.UltraWinGrid.Design.IGWebBrowser"/>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents">
+            <summary>
+            Web Browser Control Events (old)
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.BeforeNavigate(System.String,System.Int32,System.String,System.Object@,System.String,System.Boolean@)">
+            <summary>
+            Fired when a new hyperlink is being navigated to.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.NavigateComplete(System.String)">
+            <summary>
+            Fired when the document being navigated to becomes visible and enters the navigation stack.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.StatusTextChange(System.String)">
+            <summary>
+            Statusbar text changed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.ProgressChange(System.Int32,System.Int32)">
+            <summary>
+            Fired when download progress is updated.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.DownloadComplete">
+            <summary>
+            Download of page complete.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.CommandStateChange(System.Int32,System.Boolean)">
+            <summary>
+            The enabled state of a command changed")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.DownloadBegin">
+            <summary>
+            Download of a page started.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.NewWindow(System.String,System.Int32,System.String,System.Object@,System.String,System.Boolean@)">
+            <summary>
+            Fired when a new window should be created.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.TitleChange(System.String)">
+            <summary>
+            Document title changed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.FrameBeforeNavigate(System.String,System.Int32,System.String,System.Object@,System.String,System.Boolean@)">
+            <summary>
+            Fired when a new hyperlink is being navigated to in a frame.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.FrameNavigateComplete(System.String)">
+            <summary>
+            Fired when a new hyperlink is being navigated to in a frame.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.FrameNewWindow(System.String,System.Int32,System.String,System.Object@,System.String,System.Boolean@)">
+            <summary>
+            Fired when a new window should be created.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.Quit(System.Boolean@)">
+            <summary>
+            Fired when application is quiting.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.WindowMove">
+            <summary>
+            Fired when window has been moved.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.WindowResize">
+            <summary>
+            Fired when window has been sized.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.WindowActivate">
+            <summary>
+            Fired when window has been activated.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents.PropertyChange(System.String)">
+            <summary>
+            Fired when the PutProperty method has been called.")]
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2">
+            <summary>
+            Web Browser Control events interface
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.StatusTextChange(System.String)">
+            <summary>
+            Statusbar text changed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.ProgressChange(System.Int32,System.Int32)">
+            <summary>
+            Fired when download progress is updated.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.CommandStateChange(System.Int32,System.Boolean)">
+            <summary>
+            The enabled state of a command changed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.DownloadBegin">
+            <summary>
+            Download of a page started.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.DownloadComplete">
+            <summary>
+            Download of page complete.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.TitleChange(System.String)">
+            <summary>
+            Document title changed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.PropertyChange(System.String)">
+            <summary>
+            Fired when the PutProperty method has been called.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.BeforeNavigate2(System.Object@,System.Object@,System.Object@,System.Object@,System.Object@,System.Object@,System.Boolean@)">
+            <summary>
+            Fired before navigate occurs in the given WebBrowser (window or frameset element). The processing of this navigation may be modified.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.NewWindow2(System.Object@,System.Boolean@)">
+            <summary>
+            A new, hidden, non-navigated WebBrowser window is needed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.NavigateComplete2(System.Object@,System.Object@)">
+            <summary>
+            Fired when the document being navigated to becomes visible and enters the navigation stack.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.DocumentComplete(System.Object@,System.Object@)">
+            <summary>
+            Fired when the document being navigated to reaches ReadyState_Complete.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnQuit">
+            <summary>
+            Fired when application is quiting.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnVisible(System.Boolean)">
+            <summary>
+            Fired when the window should be shown/hidden")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnToolBar(System.Boolean)">
+            <summary>
+            Fired when the toolbar  should be shown/hidden")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnMenuBar(System.Boolean)">
+            <summary>
+            Fired when the menubar should be shown/hidden")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnStatusBar(System.Boolean)">
+            <summary>
+            Fired when the statusbar should be shown/hidden")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnFullScreen(System.Boolean)">
+            <summary>
+            Fired when fullscreen mode should be on/off")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.OnTheaterMode(System.Boolean)">
+            <summary>
+            Fired when theater mode should be on/off")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.WindowSetResizable(System.Boolean)">
+            <summary>
+            Fired when the host window should allow/disallow resizing")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.WindowSetLeft(System.Int32)">
+            <summary>
+            Fired when the host window should change its Left coordinate")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.WindowSetTop(System.Int32)">
+            <summary>
+            Fired when the host window should change its Top coordinate")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.WindowSetWidth(System.Int32)">
+            <summary>
+            Fired when the host window should change its width")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.WindowSetHeight(System.Int32)">
+            <summary>
+            Fired when the host window should change its height")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.WindowClosing(System.Boolean,System.Boolean@)">
+            <summary>
+            Fired when the WebBrowser is about to be closed by script")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.ClientToHostWindow(System.Int32@,System.Int32@)">
+            <summary>
+            Fired to request client sizes be converted to host window sizes")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.SetSecureLockIcon(System.Int32)">
+            <summary>
+            Fired to indicate the security level of the current web page contents")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.FileDownload(System.Boolean@,System.Boolean)">
+            <summary>
+            Fired to indicate the File Download dialog is opening")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.NavigateError(System.Object@,System.Object@,System.Object@,System.Object@,System.Boolean@)">
+            <summary>
+            Fired when a binding error occurs (window or frameset element).")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.PrintTemplateInstantiation(System.Object@)">
+            <summary>
+            Fired when a print template is instantiated.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.PrintTemplateTeardown(System.Object@)">
+            <summary>
+            Fired when a print template destroyed.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.UpdatePageStatus(System.Object@,System.Object@,System.Object@)">
+            <summary>
+            Fired when a page is spooled. When it is fired can be changed by a custom template.")]
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.IWebBrowserEvents2.PrivacyImpactedStateChange(System.Boolean)">
+            <summary>
+            Fired when the global privacy impacted state changes")]
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.LayoutPickerControl">
+            <summary>
+            Summary description for LayoutPickerControl.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.LayoutPickerControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.LayoutPickerControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.LayoutPickerControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.LayoutPickerControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.LayoutPickerControl.SelectedLayoutSourceChanged">
+            <summary>
+            Event raised when the SelectedLayoutSourceOption changes.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.ManageLayoutsPageControl">
+            <summary>
+            Summary description for ManageLayoutsPageControl.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.ManageLayoutsPageControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.ManageLayoutsPageControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.ManageLayoutsPageControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.ManageLayoutsPageControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PreferencesDialog">
+            <summary>
+            Summary description for PreferencesDialog.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PreferencesDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PreferencesDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PreferencesDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetsPlatform">
+            <summary>
+            The platform (i.e., Win or Web) that the presets apply to.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsPlatform.Win">
+            <summary>
+            Preset is for a Win component.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsPlatform.Web">
+            <summary>
+            Preset is for a Web component.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetsFileExistsOption">
+            <summary>
+            List of options for how to deal with a 'File Exists' condition when saving a Preset.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileExistsOption.Overwrite">
+            <summary>
+            Overwrite the existing file with no prompt.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileExistsOption.Prompt">
+            <summary>
+            Prompt the user to determine if the file should be overwritten
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileExistsOption.Skip">
+            <summary>
+            Don't save the Preset and don't prompt.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetsFileReadOnlyOption">
+            <summary>
+            List of options for determing whether to mark a saved Preset as Read Only.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileReadOnlyOption.MakeReadOnly">
+            <summary>
+            Set the ReadOnly attribute of the Preset file being saved.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileReadOnlyOption.MatchReadOnlyAttributeOfExistingFileElseNotReadOnly">
+            <summary>
+            Set the ReadOnly attribute of the Preset file being saved if it is overwriting an existing Preset file and the existing file has its ReadOnly attribute set.
+            If there is no existing PresetFile, do not set the ReadOnly attribute.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileReadOnlyOption.MatchReadOnlyAttributeOfExistingFileElseReadOnly">
+            <summary>
+            Set the ReadOnly attribute of the Preset file being saved if it is overwriting an existing Preset file and the existing file has its ReadOnly attribute set.
+            If there is no existing PresetFile, set the ReadOnly attribute.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsFileReadOnlyOption.DontMakeReadOnly">
+            <summary>
+            Don't set the ReadOnly attribute of the Preset file being saved.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.PresetsOptionsDialog">
+            <summary>
+            PresetsOptionsDialog for saving property settings as a preset and checking the Infragistics WebSite for new presets.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.PresetsOptionsDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsOptionsDialog.#ctor(Infragistics.Win.ISupportPresets,Infragistics.Win.PresetType,Infragistics.Win.UltraWinGrid.Design.PresetsPlatform,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="targetControl">The control that implements ISupportPresets whose presets are being saved.</param>
+            <param name="initialPresetType">The initial value for Preset Type in the dialog</param>
+            <param name="presetsPlatform">Indicates whether the presets are Win or Web presets</param>
+            <param name="userDefinedFoldersRegKey">A string representing the registry key under HKEY_CURRRENT_USER that contains a list of registry values for each user defined folder to be searched for Presets files.  The values will be automatically updated by the dialog as the user adds/removes folders.</param>
+            <param name="showSaveSettingsAsPresetTab">True to show the 'Save Current Control Settings as a Preset' tab, false to hide it.</param>
+            <param name="showUserDefinedFoldersTab">True to show the 'User Defined Presets Folders' tab, false to hide it.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsOptionsDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.PresetsOptionsDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.QuickStartControl">
+            <summary>
+            Summary description for QuickStartControl.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.QuickStartControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.QuickStartControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.QuickStartPreviousStepWarningDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.QuickStartPreviousStepWarningDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.QuickStartPreviousStepWarningDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.Resources">
+            <summary>
+            Exposes a <see cref="T:Infragistics.Shared.ResourceCustomizer"/> instance for this assembly. 
+            </summary>
+            <seealso cref="P:Infragistics.Win.UltraWinGrid.Design.Resources.Customizer"/> 
+            <seealso cref="T:Infragistics.Shared.ResourceCustomizer"/> 
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.Resources.Customizer">
+            <summary>
+            Returns the <see cref="T:Infragistics.Shared.ResourceCustomizer"/> for this assembly.
+            </summary>
+            <seealso cref="T:Infragistics.Shared.ResourceCustomizer"/> 
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerColumnListControl">
+            <summary>
+            RowLayoutDesignerColumnListControl.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerColumnListControl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerColumnListControl.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerColumnListControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.ListBoxDrawItemUIElement">
+            <summary>
+            ListBoxDrawItemUIElement
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerDialog">
+            <summary>
+            RowLayoutDesignerDialog.  Host Dialog for RowLayoutPageControl
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerDialog.#ctor(Infragistics.Win.UltraWinGrid.UltraGridBand,Infragistics.Win.UltraWinGrid.Design.UltraGridDesignerDialog)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerDialog.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerSaveLayoutDialog">
+            <summary>
+            Summary description for RowLayoutDesignerSaveLayoutDialog.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerSaveLayoutDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerSaveLayoutDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutDesignerSaveLayoutDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.DesignerDataAreaUIElement.VerifyChildElements(Infragistics.Win.ControlUIElementBase,System.Boolean)">
+            <summary>
+            Called during a drawing operation to ensure that all child
+            elements are created and positioned properly. If the ChildElementsDirty
+            flag is true then the default implementation will call
+            positionChildElements and reset the flag 
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.DesignerDataAreaUIElement.RowLayoutDesignerElement">
+            <summary>
+            Indicates whether this element is being used for row layout designer element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControlUIElement.Cursor">
+            <summary>
+            Returns the cursor that is to be used for this control.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl">
+            <summary>
+            RowLayoutGridControl class
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>
+            Overridden.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl.OnResize(System.EventArgs)">
+            <summary>
+            Called when grid itself resizes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl.Dispose(System.Boolean)">
+            <summary>
+            Overridden. Disposes of the object.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overridden. Invoked when the control should render itself.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl.ControlUIElement">
+            <summary>
+            Associated Control UIElement object
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.RowLayoutGridControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.AdornerContainerUIElement.Adjustable">
+            <summary>
+            Returns true if this element can be moved or resized by the user
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.ResizeAdornerUIElement.Infragistics#Win#IToolTipItem#GetToolTipInfo(System.Drawing.Point,Infragistics.Win.UIElement,Infragistics.Win.UIElement,Infragistics.Win.ToolTipInfo)">
+            <summary>
+            Invoked when the tooltip information for an element is required.
+            </summary>
+            <param name="mousePosition">Current mouse position</param>
+            <param name="element">Element for which the tooltip will be displayed</param>
+            <param name="previousToolTipElement">Previous element that the tooltip was displayed for or null.</param>
+            <param name="toolTipInfo">Default ToolTipInfo structure initialized based on the mouse position. The structure may be modified and returned from the method.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.SpanResizeAdornerUIElement.Infragistics#Win#IToolTipItem#GetToolTipInfo(System.Drawing.Point,Infragistics.Win.UIElement,Infragistics.Win.UIElement,Infragistics.Win.ToolTipInfo)">
+            <summary>
+            Invoked when the tooltip information for an element is required.
+            </summary>
+            <param name="mousePosition">Current mouse position</param>
+            <param name="element">Element for which the tooltip will be displayed</param>
+            <param name="previousToolTipElement">Previous element that the tooltip was displayed for or null.</param>
+            <param name="toolTipInfo">Default ToolTipInfo structure initialized based on the mouse position. The structure may be modified and returned from the method.</param>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.RowLayoutPageControl">
+            <summary>
+            RowLayoutPageControl
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutPageControl.#ctor(Infragistics.Win.UltraWinGrid.UltraGridBand)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="band"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutPageControl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutPageControl.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinGrid.Design.RowLayoutPageControl.DirtyStateChanged">
+            <summary>
+            Event raised when the control's dirty state changes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.RowLayoutPageControl.TreeToolTipManager.Infragistics#Win#IToolTipItem#GetToolTipInfo(System.Drawing.Point,Infragistics.Win.UIElement,Infragistics.Win.UIElement,Infragistics.Win.ToolTipInfo)">
+            <summary>
+            Invoked when the tooltip information for an element is required.
+            </summary>
+            <param name="mousePosition">Current mouse position</param>
+            <param name="element">Element for which the tooltip will be displayed</param>
+            <param name="previousToolTipElement">Previous element that the tooltip was displayed for or null.</param>
+            <param name="toolTipInfo">Default ToolTipInfo structure initialized based on the mouse position. The structure may be modified and returned from the method.</param>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.SelectDataSourceDialog">
+            <summary>
+            Summary description for SelectDataSourceDialog.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinGrid.Design.SelectDataSourceDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.SelectDataSourceDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.SelectDataSourceDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Shared.LocalizedCategoryAttribute.GetLocalizedString(System.String)">
+            <summary>
+            Returns the localized category name
+            </summary>
+            <param name="value">Name of the category to retreive</param>
+            <returns>The localized string value</returns>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.StartButtonUIElement">
+            <summary>
+            Summary description for StartButtonUIElement.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.StartButtonUIElement.InitAppearance(Infragistics.Win.AppearanceData@,Infragistics.Win.AppearancePropFlags@)">
+            <summary>
+            Initializes the appearance for the element.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.StartButtonUIElement.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called the mouse is released
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.StartButtonUIElement.ButtonStyle">
+            <summary>
+            Gets the button style for the element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.StartButtonUIElement.Cursor">
+            <summary>
+            Returns the cursor that should be used when the mouse 
+            is over the element.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.UltraComboDesigner">
+            <summary>
+            Designer functinality for Combo control (mainly to prevent
+            user from resizing vertically)
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner">
+            <summary>
+            Designer class for the UltraWinGrid/UltraWinDropDown controls.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the designer with the specified component.
+            </summary>
+            <param name="component">Component the designer is working with.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.InternalGetService(System.Type)">
+            <summary>
+            Returns a service of the requested type.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.GetHitTest(System.Drawing.Point)">
+            <summary>
+            Determines if the point clicked upon should be handled by the control
+            or the designer.
+            </summary>
+            <param name="point">Screen coordinates</param>
+            <returns>True if the control should handle the mousedown. Otherwise false to let the designer process the message.</returns>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.OnSetComponentDefaults">
+            <summary>
+            Sets the default properties for the component.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.Dispose(System.Boolean)">
+            <summary>
+            Invoked when the designer is disposed
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.Verbs">
+            <summary>
+            Adds the about verb to the collection
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.UltraGridDesigner.InternalDesignerChangeNotificationsDisabled">
+            <summary>
+            Returns a service of the requested type.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraComboDesigner.#ctor">
+            <summary>
+            Initializes a new <b>UltraComboDesigner</b>
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinGrid.Design.UltraComboDesigner.SelectionRules">
+            <summary>
+            overridden property
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.UltraGridDesignerDialog">
+            <summary>
+            Summary description for UltraGridDesignerDialog.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesignerDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridDesignerDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinGrid.Design.UltraGridLayoutWizard">
+            <summary>
+            UltraGrid Layout Wizard.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridLayoutWizard.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridLayoutWizard.#ctor(Infragistics.Win.UltraControlDesigner)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="designer">UltraGridDesigner</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridLayoutWizard.#ctor(Infragistics.Win.UltraWinGrid.UltraGridBase)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="gridBase">UltraWinGrid control</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridLayoutWizard.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinGrid.Design.UltraGridLayoutWizard.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraLabelEx">
+            <summary>
+            UltraLabelExStyle Class
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraLabelEx.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraLabelEx.ResolveAppearance(Infragistics.Win.AppearanceData@,Infragistics.Win.AppearancePropFlags@)">
+            <summary>
+            Resolve's the control's appearance.
+            </summary>
+            <param name="appearance"></param>
+            <param name="requestedProps"></param>
+        </member>
+        <member name="P:Infragistics.Win.UltraLabelEx.Style">
+            <summary>
+            Returns/sets the UltraLabelEx's style
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraLabelExStyle">
+            <summary>
+            UltraLabelExStyle enumeration
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraLabelExStyle.Default">
+            <summary>
+            Default style
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraLabelExStyle.Office2003OutlookNavPaneCurrentGroupHeader">
+            <summary>
+            Office2003OutlookNavPaneCurrentGroupHeader style
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraLabelExStyle.Office2003OutlookNavPaneGroupHeader">
+            <summary>
+            Office2003OutlookNavPaneGroupHeader style
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.13\2009-10-20-5293.xml">
+  <changeSet id="1" author="Jon.Lent" context="Local,Dev,Test">
+    <comment>
+      Change UTC offset for DHF from -5 to -6 in Dev and Test
+    </comment>
+    <update schemaName="Facility" tableName="Facilities">
+      <column name="UtcOffset" value="-6" />
+      <where>HospitalCode='DHF'</where>
+    </update>
+  </changeSet>
+</databaseChangeLog>

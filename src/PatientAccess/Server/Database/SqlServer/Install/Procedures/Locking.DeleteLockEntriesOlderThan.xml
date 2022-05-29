@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Locking.DeleteLockEntriesOlderThan.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Locking.DeleteLockEntriesOlderThan
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE Locking.DeleteLockEntriesOlderThan
+        @MaxAgeInMinutes int = 20
+      AS
+      BEGIN
+
+        DECLARE @CurrentTimeStamp dateTime
+        
+        SET @CurrentTimeStamp = CURRENT_TIMESTAMP
+        
+        DELETE FROM 
+          OfflineLocks 
+        WHERE 
+          DATEDIFF(minute, TimePrint, @CurrentTimeStamp) > @MaxAgeInMinutes
+
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Locking.DeleteLockEntriesOlderThan TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Locking.DeleteLockEntriesOlderThan FROM db_apionly;
+      DROP PROCEDURE Locking.DeleteLockEntriesOlderThan;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

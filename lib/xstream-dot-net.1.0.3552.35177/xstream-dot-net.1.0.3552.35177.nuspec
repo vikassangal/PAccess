@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>xstream-dot-net</id>
+    <version>1.0.3552.35177</version>
+    <title>XStream.Net</title>
+    <authors>petmongrels; scottjamescowan</authors>
+    <owners>petmongrels; scottjamescowan</owners>
+    <projectUrl>http://code.google.com/p/xstream-dot-net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>XStream.Net is the .Net version of Joe Walnes' XStream for Java. It is a simple library for serialisation/deserialisation to &amp; from xml. The original code for this project was taken from Arne Vandamme's weblog which was a port of XStream for Java.</description>
+    <summary>XStream.Net is the .Net version of Joe Walnes' XStream for Java. It is a simple library for serialisation/deserialisation to &amp; from xml. The original code for this project was taken from Arne Vandamme</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="nunit" />
+    </dependencies>
+  </metadata>
+</package>

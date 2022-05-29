@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<quartz version="1.0" verwrite-existing-jobs="true" xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Configuration generated for Local on Trunk (2021-10-04T14:43:07+05:30) -->
+  <job>
+    <job-detail>
+      <name>PurgeOldOnlinePreregistrationSubmissions</name>
+      <group>Messaging</group>
+      <description>Purge online preregistration submissions with admit date older than x days. The value of x is specified in the web.config file</description>
+      <job-type>PatientAccess.Jobs.PurgeOldOnlinePreregistrationSubmissions, PatientAccess.AppServer</job-type>
+      <volatile>false</volatile>
+      <durable>false</durable>
+      <recover>true</recover>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>PurgeOldOnlinePreregistrationSubmissionsTrigger</name>
+        <group>Messaging</group>
+        <description>Purge old online preregistration submissions every midnight</description>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <volatile>false</volatile>
+        <job-name>PurgeOldOnlinePreregistrationSubmissions</job-name>
+        <job-group>Messaging</job-group>
+        <cron-expression>59 59 23 * * ?</cron-expression>
+      </cron>
+    </trigger>
+  </job>
+  <job>
+    <job-detail>
+      <name>PurgeOrphanLocks</name>
+      <group>Locking</group>
+      <description>Purge application locks older than 20 minutes</description>
+      <job-type>PatientAccess.Jobs.SqlServerJob, PatientAccess.AppServer</job-type>
+      <volatile>false</volatile>
+      <durable>false</durable>
+      <recover>true</recover>
+      <job-data-map>
+        <entry>
+          <key>ConnectionName</key>
+          <value>ConnectionString</value>
+        </entry>
+        <entry>
+          <key>CommandText</key>
+          <value>EXECUTE Locking.DeleteLockEntriesOlderThan 20</value>
+        </entry>
+      </job-data-map>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>PurgeLocksTrigger</name>
+        <group>Locking</group>
+        <description>Purge locks every 5 minutes</description>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <volatile>false</volatile>
+        <job-name>PurgeOrphanLocks</job-name>
+        <job-group>Locking</job-group>
+        <cron-expression>0 0/5 * * * ?</cron-expression>
+      </cron>
+    </trigger>
+  </job>
+  <job>
+    <job-detail>
+      <name>PurgeLogFiles</name>
+      <group>Logging</group>
+      <description>Purge application log entries older than 2 weeks</description>
+      <job-type>PatientAccess.Jobs.SqlServerJob, PatientAccess.AppServer</job-type>
+      <volatile>false</volatile>
+      <durable>true</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>ConnectionName</key>
+          <value>ConnectionString</value>
+        </entry>
+        <entry>
+          <key>CommandText</key>
+          <value>EXECUTE Logging.DeleteLogEntriesOlderThan 14</value>
+        </entry>
+      </job-data-map>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>PurgeLogsTrigger</name>
+        <group>Logging</group>
+        <description>Purge logs every midnight</description>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <volatile>false</volatile>
+        <job-name>PurgeLogFiles</job-name>
+        <job-group>Logging</job-group>
+        <cron-expression>59 59 23 * * ?</cron-expression>
+      </cron>
+    </trigger>
+  </job>
+  <job>
+    <job-detail>
+      <name>PurgeCrashDumps</name>
+      <group>CrashDump</group>
+      <description>Purge crashdump entries older than 2 weeks</description>
+      <job-type>PatientAccess.Jobs.SqlServerJob, PatientAccess.AppServer</job-type>
+      <volatile>false</volatile>
+      <durable>true</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>ConnectionName</key>
+          <value>ConnectionString</value>
+        </entry>
+        <entry>
+          <key>CommandText</key>
+          <value>EXECUTE CrashDump.DeleteCrashReportsOlderThan 14</value>
+        </entry>
+      </job-data-map>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>PurgeCrashDumpTrigger</name>
+        <group>CrashDump</group>
+        <description>Purge dumps every midnight</description>
+        <misfire-instruction>DoNothing</misfire-instruction>
+        <volatile>false</volatile>
+        <job-name>PurgeCrashDumps</job-name>
+        <job-group>CrashDump</job-group>
+        <cron-expression>59 59 23 * * ?</cron-expression>
+      </cron>
+    </trigger>
+  </job>
+</quartz>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.45\2017_12_04_11595.xml">
+
+  <changeSet id="51BFAFA6-8F95-4118-A6AD-9B17089F7145" author="Hemant.Kumar">
+
+    <comment>
+      SR 11595 – PAS – COS, Email and Opt-In Rules
+    </comment>
+    
+    <comment>
+      Delete  EmailAddressRequired(508) from CompositeRulesToRules table(198-OnPatientDemographicsForm)
+    </comment>
+     <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 198 AND RuleId = 508</where>
+    </delete>
+    
+    <comment>
+      Delete  EmailAddressRequired(508) from CompositeRulesToRules table(482-OnShortDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 AND RuleId = 508</where>
+    </delete>
+    
+    <comment>
+      Delete  EmailAddressPreferred(512) from CompositeRulesToRules table(198-OnPatientDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 198 AND RuleId = 512</where>
+    </delete>
+    
+    <comment>
+      Delete  EmailAddressPreferred(512) from CompositeRulesToRules table(482-OnShortDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 AND RuleId = 512</where>
+    </delete>
+    
+    <comment>
+      Delete  EmailReasonRequired(518) from CompositeRulesToRules table(198-OnPatientDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 198 AND RuleId = 518</where>
+    </delete>
+    
+    <comment>
+      Delete  EmailReasonRequired(518) from CompositeRulesToRules table(482-OnShortDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 AND RuleId = 518</where>
+    </delete>
+    
+    <comment>
+      Delete  EmailReasonPreferred(524) from CompositeRulesToRules table(198-OnPatientDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 198 AND RuleId = 524</where>
+    </delete>
+    
+    <comment>
+      Delete  PatientPortalOptInRequired(507) from CompositeRulesToRules table(198-OnPatientDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 198 AND RuleId = 507</where>
+    </delete>
+    
+    <comment>
+      Delete  HospitalCommunicationOptInRequired(517) from CompositeRulesToRules table(198-OnPatientDemographicsForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 198 AND RuleId = 517</where>
+    </delete>
+    
+      <comment>
+        Add EmailAddressRequired rule (508) to Onregulatory compositeRule(211) table  and OnshortRegulatory composite rule(477) in the CompositeRulesToRules table
+      </comment>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="211" />
+        <column name="Ruleid" valueNumeric="508" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="477" />
+        <column name="Ruleid" valueNumeric="508" />
+      </insert>
+    
+    <comment>
+      Add  EmailAddressPreferred(512) to Onregulatory compositeRule(211) table  and OnshortRegulatory composite rule(477) in the CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="512" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="512" />
+    </insert>
+
+    <comment>
+      Add EmailReasonRequired(518) to Onregulatory compositeRule(211) table  and OnshortRegulatory composite rule(477) in the CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="518" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="518" />
+    </insert>
+    
+    <comment>
+      Add EmailReasonPreferred(524) to Onregulatory compositeRule(211) table in the CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="524" />
+    </insert>
+    
+    <comment>
+      Add PatientPortalOptInRequired(507) to Onregulatory compositeRule(211) table in the CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+    <comment>
+      Add HospitalCommunicationOptInRequired(517) to Onregulatory compositeRule(211) table in the CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="517" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

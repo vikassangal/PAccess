@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.61\2021_12_17_3704.xml">
+
+	<changeSet  id="9E78E5C6-F636-43F0-BF1B-8513C02A71FB" author="Abhijeet.Hambir" context="Local,Dev,Test" >
+		<comment>
+			Load data for DOFR.ServiceCategory Table for ICE and DEL
+		</comment>
+		<sql>
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'BC', N'MAMMOGRAM DIAGNOSTIC', N'MAMMO DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'BC', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'BC', N'MAMMOGRAM SCREENING', N'MAMMO SCRN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'C9', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CA', N'CARDIO VERSION', N'CARDIOVERS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CA', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CA', N'NEUROLOGY EEG/EMG', N'NEURO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CA', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CC', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CE', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CE', N'CARDIO VERSION', N'CARDIO VER');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CH', N'CHEMOTHERAPY', N'CHEMO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CL', N'CATH LAB', N'CATH LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'CT', N'CT', N'CT');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'DB', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'DC', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'EH', N'EMPLOYEE HEALTH SERVICES', N'EMP HLTH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'EL', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'EO', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'ER', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'ES', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'GI', N'ENDOSCOPIC STUDIES', N'ENDO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'GI', N'GI LAB - GASTROENTEROLOGY', N'GI LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'HF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'HO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'IF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'LA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'LA', N'SPECIMEN', N'SPECIMEN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'MR', N'MRI', N'MRI');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'N/A', N'AUTOLOGOUS BLOOD', N'AUTO BLD');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'N/A', N'RADIATION THERAPY', N'RAD THRPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'NM', N'NUCLEAR MEDICINE', N'NUC MED');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'OM', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'OM', N'INFUSION THERAPY', N'INFUSION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'OM', N'IV THERAPY', N'IV THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'OM', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'OP', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PN', N'OB Stress Test / Monitoring', N'OB CHECK');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PS', N'EPIDURAL INJECTION', N'EPIDRL INJ');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PS', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PS', N'RADIOLOGY SPECIAL PROCEDURE', N'RAD SP PRC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'PT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'RA', N'PET SCAN', N'PETSCAN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'RA', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'RE', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'RT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SC', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SC', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SC', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SO', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SO', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SP', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'SP', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'TH', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'US', N'ULTRA SOUND', N'ULTRASOUND');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'VO', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'VP', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'WC', N'WOUND CARE', N'WOUND CARE');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'XS', N'PRE OP', N'PRE-OP');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'98', N'XT', N'PRE OP', N'PRE-OP');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'BC', N'MAMMOGRAM DIAGNOSTIC', N'MAMMO DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'BC', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'BC', N'MAMMOGRAM SCREENING', N'MAMMO SCRN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'C9', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CA', N'CARDIO VERSION', N'CARDIOVERS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CA', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CA', N'NEUROLOGY EEG/EMG', N'NEURO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CA', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CC', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CE', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CE', N'CARDIO VERSION', N'CARDIO VER');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CH', N'CHEMOTHERAPY', N'CHEMO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CL', N'CATH LAB', N'CATH LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'CT', N'CT', N'CT');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'DB', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'DC', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'EH', N'EMPLOYEE HEALTH SERVICES', N'EMP HLTH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'EL', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'EO', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'ER', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'ES', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'GI', N'ENDOSCOPIC STUDIES', N'ENDO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'GI', N'GI LAB - GASTROENTEROLOGY', N'GI LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'HF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'HO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'IF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'LA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'LA', N'SPECIMEN', N'SPECIMEN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'MR', N'MRI', N'MRI');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'N/A', N'AUTOLOGOUS BLOOD', N'AUTO BLD');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'N/A', N'RADIATION THERAPY', N'RAD THRPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'NM', N'NUCLEAR MEDICINE', N'NUC MED');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'OM', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'OM', N'INFUSION THERAPY', N'INFUSION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'OM', N'IV THERAPY', N'IV THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'OM', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'OP', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PN', N'OB Stress Test / Monitoring', N'OB CHECK');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PS', N'EPIDURAL INJECTION', N'EPIDRL INJ');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PS', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PS', N'RADIOLOGY SPECIAL PROCEDURE', N'RAD SP PRC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'PT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'RA', N'PET SCAN', N'PETSCAN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'RA', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'RE', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'RT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SC', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SC', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SC', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SO', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SO', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SP', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'SP', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'TH', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'US', N'ULTRA SOUND', N'ULTRASOUND');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'VO', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'VP', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'WC', N'WOUND CARE', N'WOUND CARE');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'XS', N'PRE OP', N'PRE-OP');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'6', N'XT', N'PRE OP', N'PRE-OP');
+
+		</sql>
+		<rollback>
+			<sql>
+				DELETE FROM [DOFR].[ServiceCategory] WHERE [FacilityId] in (98,6);
+			</sql>
+		</rollback>
+	</changeSet>
+
+	<changeSet  id="D1038245-09F4-4499-9242-D28AE78A438C" author="Abhijeet.Hambir" context="Model" >
+		<comment>
+			Load data for DOFR.ServiceCategory Table for FVX
+		</comment>
+		<sql>
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'BC', N'MAMMOGRAM DIAGNOSTIC', N'MAMMO DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'BC', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'BC', N'MAMMOGRAM SCREENING', N'MAMMO SCRN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'C9', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CA', N'CARDIO VERSION', N'CARDIOVERS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CA', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CA', N'NEUROLOGY EEG/EMG', N'NEURO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CA', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CC', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CE', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CE', N'CARDIO VERSION', N'CARDIO VER');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CH', N'CHEMOTHERAPY', N'CHEMO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CL', N'CATH LAB', N'CATH LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'CT', N'CT', N'CT');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'DB', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'DC', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'EH', N'EMPLOYEE HEALTH SERVICES', N'EMP HLTH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'EL', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'EO', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'ER', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'ES', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'GI', N'ENDOSCOPIC STUDIES', N'ENDO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'GI', N'GI LAB - GASTROENTEROLOGY', N'GI LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'HF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'HO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'IF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'LA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'LA', N'SPECIMEN', N'SPECIMEN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'MR', N'MRI', N'MRI');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'N/A', N'AUTOLOGOUS BLOOD', N'AUTO BLD');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'N/A', N'RADIATION THERAPY', N'RAD THRPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'NM', N'NUCLEAR MEDICINE', N'NUC MED');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'OM', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'OM', N'INFUSION THERAPY', N'INFUSION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'OM', N'IV THERAPY', N'IV THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'OM', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'OP', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PN', N'OB Stress Test / Monitoring', N'OB CHECK');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PS', N'EPIDURAL INJECTION', N'EPIDRL INJ');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PS', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PS', N'RADIOLOGY SPECIAL PROCEDURE', N'RAD SP PRC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'PT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'RA', N'PET SCAN', N'PETSCAN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'RA', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'RE', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'RT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SC', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SC', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SC', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SO', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SO', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SP', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'SP', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'TH', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'US', N'ULTRA SOUND', N'ULTRASOUND');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'VO', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'VP', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'WC', N'WOUND CARE', N'WOUND CARE');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'XS', N'PRE OP', N'PRE-OP');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'978', N'XT', N'PRE OP', N'PRE-OP');
+
+		</sql>
+		<rollback>
+			<sql>
+				DELETE FROM [DOFR].[ServiceCategory] WHERE [FacilityId] in (978);
+			</sql>
+		</rollback>
+	</changeSet>
+
+	<changeSet  id="48F54899-69F0-4FA1-B461-7A81026A6E32" author="Abhijeet.Hambir" context="Prod" >
+		<comment>
+			Load data for DOFR.ServiceCategory Table for FVR
+		</comment>
+		<sql>
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'BC', N'MAMMOGRAM DIAGNOSTIC', N'MAMMO DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'BC', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'BC', N'MAMMOGRAM SCREENING', N'MAMMO SCRN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'C9', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CA', N'CARDIO VERSION', N'CARDIOVERS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CA', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CA', N'NEUROLOGY EEG/EMG', N'NEURO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CA', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CC', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CE', N'CARDIOPULMONARY', N'CARDIOPULM');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CE', N'CARDIO VERSION', N'CARDIO VER');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CH', N'CHEMOTHERAPY', N'CHEMO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CL', N'CATH LAB', N'CATH LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'CT', N'CT', N'CT');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'DB', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'DC', N'EDUCATION - DIABETIC AND NUTRITIONAL', N'EDUCATION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'EH', N'EMPLOYEE HEALTH SERVICES', N'EMP HLTH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'EL', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'EO', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'ER', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'ES', N'EMERGENCY ROOM VISITS', N'EMERG');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'GI', N'ENDOSCOPIC STUDIES', N'ENDO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'GI', N'GI LAB - GASTROENTEROLOGY', N'GI LAB');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'HF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'HO', N'OBSERVATION', N'OBSERV');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'IF', N'CLINIC VISITS', N'CLINIC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'LA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'LA', N'SPECIMEN', N'SPECIMEN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'MR', N'MRI', N'MRI');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'N/A', N'AUTOLOGOUS BLOOD', N'AUTO BLD');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'N/A', N'RADIATION THERAPY', N'RAD THRPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'NM', N'NUCLEAR MEDICINE', N'NUC MED');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'OM', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'OM', N'INFUSION THERAPY', N'INFUSION');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'OM', N'IV THERAPY', N'IV THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'OM', N'ONCOLOGY', N'ONCOLOGY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'OP', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PA', N'LAB/PATHOLOGY', N'LAB PATH');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PN', N'OB Stress Test / Monitoring', N'OB CHECK');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PR', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PS', N'EPIDURAL INJECTION', N'EPIDRL INJ');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PS', N'NEEDLE BIOPSY', N'NEEDLE BX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PS', N'RADIOLOGY SPECIAL PROCEDURE', N'RAD SP PRC');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'PT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'RA', N'PET SCAN', N'PETSCAN');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'RA', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'RE', N'ROUTINE DIAGNOSTIC', N'ROUTINE DX');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'RT', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SC', N'BLOOD TRANSFUSION', N'BLD TRANS');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SC', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SC', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SO', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SO', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SP', N'LITHOTRIPSY', N'LITHO');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'SP', N'OUTPATIENT SURGERY', N'OP SURGERY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'TH', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'US', N'ULTRA SOUND', N'ULTRASOUND');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'VO', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'VP', N'REHABILITATION THERAPY (PT/OT/ST/CARDIAC/PULMONARY/RESPIRATORY)', N'THERAPY');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'WC', N'WOUND CARE', N'WOUND CARE');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'XS', N'PRE OP', N'PRE-OP');
+			INSERT [DOFR].[ServiceCategory] ([FacilityId], [ClinicCode], [ServiceCategory],[ServiceCategoryCode]) VALUES (N'778', N'XT', N'PRE OP', N'PRE-OP');
+
+		</sql>
+		<rollback>
+			<sql>
+				DELETE FROM [DOFR].[ServiceCategory] WHERE [FacilityId] in (978);
+			</sql>
+		</rollback>
+	</changeSet>
+	
+</databaseChangeLog>
+

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.17\2010-09-22-11199.xml">
+
+  <changeSet id="B2A0E20C-DD87-4E60-A701-B0CCCECF1120" author="Deepa.Raju">
+    <comment>
+      Add missing (Last 10 days, Last 3 days and Yesterday)  SelectionRanges;
+    </comment>
+
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 5 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 6 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 7 </where>
+    </delete>
+
+
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="7" />
+    </insert>
+
+
+    <rollback>
+
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 5 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 6 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 7 </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

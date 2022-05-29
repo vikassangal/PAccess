@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Insurance.ProductTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Insurance.ProductTypes
+    </comment>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="1" />
+      <column name="Description" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="2" />
+      <column name="Description" value="PPO" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="3" />
+      <column name="Description" value="POS" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="4" />
+      <column name="Description" value="HMO" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="5" />
+      <column name="Description" value="EPO" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="6" />
+      <column name="Description" value="Medicare supplement" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="7" />
+      <column name="Description" value="Medicare HMO" />
+    </insert>
+    <insert schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" valueNumeric="8" />
+      <column name="Description" value="Indemnity" />
+    </insert>
+    <rollback>
+      DELETE FROM Insurance.ProductTypes WHERE Id BETWEEN 1 and 8;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

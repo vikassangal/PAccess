@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Functions\Utility.ArrayItemAt.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Utility.ArrayItemAt()      
+    </comment>
+    <createProcedure><![CDATA[
+      /*
+        TSQL String Array Workbench
+        16 March 2008
+        by Robyn Page and Phil Factor
+        http://www.simple-talk.com/sql/t-sql-programming/tsql-string-array-workbench/
+      
+        Gets the specified value of an item from an array created by 
+        Utility.StringToArray      
+      */
+
+      CREATE FUNCTION Utility.ArrayItemAt( @TheArray xml, @index int	)
+      RETURNS varchar(max)
+      AS
+      BEGIN
+      return (select element.value('item[1]', 'VARCHAR(max)')
+          FROM @TheArray.nodes('/stringarray/element[position()=sql:variable("@index")]') array(element))
+
+      END
+    ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Utility.ArrayItemAt TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Utility.ArrayItemAt FROM db_apionly;
+      DROP PROCEDURE Utility.ArrayItemAt;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

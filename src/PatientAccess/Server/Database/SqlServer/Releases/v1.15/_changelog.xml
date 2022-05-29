@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.15\_changelog.xml">
+
+  <include relativeToChangelogFile="true" file="2010-02-19-7497.xml" />
+  <include relativeToChangelogFile="true" file="2010-02-18-7499.xml" />
+  <include relativeToChangelogFile="true" file="2010-03-19-7927.xml" />
+  <include relativeToChangelogFile="true" file="2010-03-30-8052.xml" />
+  <include relativeToChangelogFile="true" file="2010-04-16-8408.xml" />
+  <include relativeToChangelogFile="true" file="2010-05-25-9004.xml" />
+  <include relativeToChangelogFile="true" file="2010-05-25-9007.xml" />
+ 
+
+</databaseChangeLog>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.23\2012-01-30-10460.xml">
+
+  <changeSet id="86EA3CD6-4E88-4E25-9C57-65D32DFDD284" author="Yusef.Saraby">
+
+    <comment>make the appointment field required for the admit new born activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="332" />
+      <column name="ContextId" valueNumeric="10" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=332 And ContextId=10 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="A907A5F6-9387-42A0-96DE-F6F8CAE3CE5A" author="Yusef.Saraby">
+
+    <comment>make the preop date required for the admit new born activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="455" />
+      <column name="ContextId" valueNumeric="10" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=455 And ContextId=10 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="5EEC38A2-6C49-4CFE-AFBB-1DA3FF508C1D" author="Yusef.Saraby">
+
+    <comment>remove the PreopDatePreferred rule for the admit new born activities</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 And RuleId = 500 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="Ruleid" valueNumeric="500" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="C3A1A2D7-FCE1-47AA-9622-163E2FB0726C" author="Yusef.Saraby">
+
+    <comment>make the bloodless field required for the admit newborn activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="217" />
+      <column name="ContextId" valueNumeric="10" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=217 And ContextId=10 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="6E3658B1-45EB-446A-AEF6-BC906F24A260" author="Yusef.Saraby">
+
+    <comment>remove the BloodlessPreferred rule for the admit new born activities</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 And RuleId = 499 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="Ruleid" valueNumeric="499" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="03CC0D1F-C500-47F0-8477-F7BFCB1C64C7" author="Yusef.Saraby">
+
+    <comment>add the PreopDateRequired rule for the admit new born activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="420" />
+      <column name="ContextId" valueNumeric="10" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=420 And ContextId=10 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="6CF97F4F-C72B-4132-B86F-FE494FB75840" author="Yusef.Saraby">
+
+    <comment>remove the NPPSignedOnDatePreferred rule for the admit new born activities</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 And RuleId = 501 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="Ruleid" valueNumeric="501" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="4D8BA289-CBE0-4D38-8F4E-326ECB75589E" author="Yusef.Saraby">
+
+    <comment>Add the NPPVersionRequired rule for the admit Newborn activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="49" />
+      <column name="ContextId" valueNumeric="10" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=49 And ContextId=10 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="C9C82346-75DB-400C-BE02-D2663330359E" author="Yusef.Saraby">
+
+    <comment>remove the NPPVersionPreferred rule for the admit new born activities</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 And RuleId = 502 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="Ruleid" valueNumeric="502" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="27804E80-6FF2-4908-ADB2-9A2386F206F0" author="Yusef.Saraby">
+
+    <comment>add the CosSignedRequired rule for the admit new born activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="50" />
+      <column name="ContextId" valueNumeric="10" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=50 And ContextId=10 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="89E01DB4-9819-490A-81B4-2CF352057673" author="Yusef.Saraby">
+
+    <comment>remove the COSSignedPreferred rule for the admit new born activities</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 And RuleId = 397 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="Ruleid" valueNumeric="397" />
+      </insert>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Worklist.Settings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Worklist.Settings
+    </comment>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="W" />
+      <column name="SelectionRangeId" value="2" />
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/25/2006 12:00:00 AM" />
+      <column name="EndDate" value="04/25/2006 12:00:00 AM" />
+      <column name="SortedColumn" valueNumeric="2" />
+      <column name="SortedColumnDirection" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="0" />
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="F" />
+      <column name="EndLetters" value="M" />
+      <column name="SelectionRangeId" value="1" />
+      <column name="WorklistId" valueNumeric="9" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" value="05/10/2005 02:30:12 PM" />
+      <column name="EndDate" value="05/10/2005 02:30:12 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="C" />
+      <column name="EndLetters" value="G" />
+      <column name="SelectionRangeId" value="1" />
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="UserId" value="3" />
+      <column name="StartDate" value="05/12/2005 12:37:07 PM" />
+      <column name="EndDate" value="05/12/2005 12:37:07 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="C" />
+      <column name="EndLetters" value="G" />
+      <column name="SelectionRangeId" value="1" />
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="UserId" value="3" />
+      <column name="StartDate" value="05/12/2005 12:37:07 PM" />
+      <column name="EndDate" value="05/12/2005 12:37:07 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="4" />
+      <column name="WorklistId" valueNumeric="0" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="0" />
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="B" />
+      <column name="SelectionRangeId" value="9" />
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="7" />
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/20/2006 12:00:00 AM" />
+      <column name="EndDate" value="04/20/2006 12:00:00 AM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/03/2006 02:53:10 PM" />
+      <column name="EndDate" value="04/03/2006 02:53:10 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/18/2006 04:56:56 PM" />
+      <column name="EndDate" value="04/18/2006 04:56:56 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/03/2006 02:53:10 PM" />
+      <column name="EndDate" value="04/03/2006 02:53:10 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/03/2006 12:00:00 AM" />
+      <column name="EndDate" value="04/03/2006 12:00:00 AM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="F" />
+      <column name="EndLetters" value="M" />
+      <column name="SelectionRangeId" value="9" />
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" value="04/26/2006 02:06:39 PM" />
+      <column name="EndDate" value="04/26/2006 02:06:39 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="C" />
+      <column name="EndLetters" value="G" />
+      <column name="SelectionRangeId" value="9" />
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" value="04/26/2006 02:06:39 PM" />
+      <column name="EndDate" value="04/26/2006 02:06:39 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="C" />
+      <column name="EndLetters" value="G" />
+      <column name="SelectionRangeId" value="1" />
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" value="04/26/2006 02:06:39 PM" />
+      <column name="EndDate" value="04/26/2006 02:06:39 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="B" />
+      <column name="SelectionRangeId" value="1" />
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="UserId" value="3" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="3" />
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="5" />
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="5" />
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="5" />
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <rollback>
+      delete from Worklist.Settings where UserId in (9999999, 1, 2, 3, 4, 5, 6);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

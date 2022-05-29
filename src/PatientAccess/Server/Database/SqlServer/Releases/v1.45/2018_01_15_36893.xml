@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.45\2018_01_15_36893.xml">
+
+  <changeSet id="D33B57C1-2226-4741-9723-FCB2CB763898" author="Hemant.Kumar">
+
+    <comment>
+      Defect - 36893 Replace Medicare HIC number to HIC number
+    </comment>
+    
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="HIC number" />
+      <where>Id=438</where>
+    </update>
+       
+  </changeSet>
+
+</databaseChangeLog>

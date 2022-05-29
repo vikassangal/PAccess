@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestObjects>
+  <TestObject id="TestIntegratedEDVGetBenefitsValidationResponse">
+    <PatientAccess.BenefitsValidation5010Proxy.BenefitsValidation5010Request assembly="PatientAccess.AppServer">
+<customerId>1</customerId>
+<customerIdField>1</customerIdField>
+<hspcd>T38</hspcd>
+<hspcdField>T38</hspcdField>
+<userId>KENNETH MCKENZIE</userId>
+<userIdField>KENNETH MCKENZIE</userIdField>
+<beginServiceDate>20060611</beginServiceDate>
+<beginServiceDateField>20060611</beginServiceDateField>
+<endServiceDate>20060611</endServiceDate>
+<endServiceDateField>20060611</endServiceDateField>
+<patient>
+<dateOfBirth>19300704</dateOfBirth>
+<firstName>JASMINE</firstName>
+<lastName>TEA</lastName>
+<middleName>G</middleName>
+<relationshipToSubscriber>34</relationshipToSubscriber>
+<sex>F</sex>
+<ssn>999999999</ssn>
+</patient>
+<patientField>
+	<dateOfBirthField>19300704</dateOfBirthField>
+	<firstNameField>JASMINE</firstNameField>
+	<lastNameField>TEA</lastNameField>
+	<middleNameField>G</middleNameField>
+	<relationshipToSubscriberField>34</relationshipToSubscriberField>
+	<sexField>F</sexField>
+	<ssnField>999999999</ssnField>
+</patientField>
+<subscriberField>
+	<cardIssueDateField />
+	<dateOfBirthField>19700704</dateOfBirthField>
+	<firstNameField>JASMINE</firstNameField>
+	<groupIdField />
+	<lastNameField>TEA</lastNameField>
+	<memberIdField>123456</memberIdField>
+	<middleNameField />
+	<planIdField>070Q2</planIdField>
+	<sexField>F</sexField>
+	<ssnField />
+	<stateField>TX</stateField>
+	<zipField />
+</subscriberField>
+    </PatientAccess.BenefitsValidation5010Proxy.BenefitsValidation5010Request>    
+  </TestObject>
+</TestObjects>

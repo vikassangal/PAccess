@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.18\2011-02-16-13468.xml">
+
+  <changeSet id="2C19FA63-52E3-4E1D-A90F-A91ADA2E35C3" author="Sharanabasappa.Vitha">
+    <comment>
+      FUS Activity Code changes for February 2011-Added for BBIID Activity Code
+    </comment>
+    
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ELIG VERIFICATION PENDING" />
+      <where>ActivityCode='BBIID'</where>
+    </update>
+
+    <!--Rollback-->
+    <rollback>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="ELIG Verification Pending from Fac" />
+        <where>ActivityCode='BBIID'</where>
+      </update>   
+      
+    </rollback>
+  </changeSet>
+</databaseChangeLog>
+

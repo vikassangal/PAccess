@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\..\lib\NUnit3TestAdapter.4.2.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\..\..\..\lib\NUnit3TestAdapter.4.2.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>PatientAccessClientTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/PatientAccessClientTests/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\PatientAccessClientTests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\PatientAccessClientTests.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.SHDocVw, Version=1.1.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\AxInterop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SharpZipLib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinDataSource.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinDataSource.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinDataSource.v5.2.Design, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinDataSource.v5.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinGrid.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinGrid.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinGrid.v5.2.Design, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinGrid.v5.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinPrintPreviewDialog.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinPrintPreviewDialog.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinToolbars.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinToolbars.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\lib\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\WINDOWS\assembly\GAC\stdole\7.0.3300.0__b03f5f7f11d50a3a\stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.RegularExpressions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TestApiCore">
+      <HintPath>..\..\..\..\lib\Microsoft.TestApi.0.6.0.0\lib\net40\TestApiCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xstream.Core">
+      <HintPath>..\..\..\..\lib\xstream-dot-net.1.0.3552.35177\lib\net20\Xstream.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Solution Items\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ResearchStudyBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ServerTimeSnapshotTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteLeftOrStayedBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteResearchStudyBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\TimeBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\SelectedAccountForTransferOutToInTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\AdmitNewbornActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\ShortRegistrationActivityPreferredFieldsTest.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\UCPostMSERegisterActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\UCPreMSERegisterActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\PreRegistrationActivityPreferredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\EditPreMseActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\PreAdmitNewbornActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\PostMSERegisterActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\PreMSERegisterActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\RuleTestHelper.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\ShortPreRegistrationActivityFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\ShortRegistrationActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\PreRegistrationActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\RegistrationActivityRequiredFieldsTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\UI\RuleIds.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ActivityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ConditionCodeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ConsentedResearchStudyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ProductionFacilityNameMapperTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SSNFactoryForSouthCarolinaTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\RGAPMFusNoteFormatterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\OccurrenceCodeComparerByCodeAndDateTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PatientNameFormatterForCensusReportsTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ShortPreRegistrationWithOfflineActivityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\MedicareSecondaryPayorTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SSNFactoryForBaylorTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\LeftOrStayedTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ModelProxyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PreAdmitNewbornActivityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PreAdmitNewbornWithOfflineActivityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ResearchStudyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SocialSecurityNumberStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SSNFactoryTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TestFacilityNameMapperTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Persistence\RFCMOFusNoteTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AdmitDateWithin90DaysFutureDateTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AdmitTimePreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AdmittingPhysicianPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AdditionalRaceCodesFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AuthorizePortalUserFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\CellPhoneConsentFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MailingAddressPhonePreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AuthorizeAdditionalPortalUsersRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PullPriorVisitInsuranceToPreMseFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AutoCompleteNoLiabilityDueFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\COBReceivedAndIMFMReceivedFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\COBReceivedRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmailAddressValidationTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorDateOfBirthFeaturemanagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorDateOfBirthRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorDateOfBirthPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\HIEShareDataPresenterFactoryTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\IMFMReceivedRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MBINumberPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MBINumberRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MonthlyDueDateRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AlternateCareFacilityRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AttendingPhysicianPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\BirthTimePreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\BirthTimeRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\ClinicalTrialsFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\AttendingPhysicianRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MonthlyDueDateFeatureManagerrTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmailReasonFeaturemanagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmailReasonRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EMPIFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorEmailAddressRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorEmailAddressPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmailAddressFeartureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmailAddressPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorConsentPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\COSSignedRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmailAddressRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\GuarantorConsentRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\HIEConsentFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MaritalStatusRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\HospitalCommunicationFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\HospitalCommunicationOptInRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MaskedEditTextBoxBuilderTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\HospitalServicePreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\LocationPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\MSPQuestionaireRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PatientNameFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PatientPortalOptInFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PatientPortalOptInRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PrimaryCarePhysicianRequiredFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PrimaryCarePhysicianRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\ReferringPhysicianPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\ResearchStudyExpirationCalculatorTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\ShareHIEDataFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PrimaryCarePhysicianForPreMseFeatureManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\EmergencyToInPatientTransferCodeManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\ServicesAuthorizedPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\ModeOfArrivalRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\NonStaffPhysicianNPIRequiredtests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\OtherLanguageRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\RightCareRightPlaceRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PatientInClinicalstudyPreferredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\PatientInClinicalstudyRequiredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\UnknownGuarantorSSNStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Rules\UnknownSocialSecurityNumberStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\AccountViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\AddressViews\EmailAddressPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\ClinicalViews\ClinicalTrialsPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\ClinicalViews\RightCareRightPlacePresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\EmploymentViewPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\FakeMaskedEditTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\RequiredFieldsSummaryViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\SSNViewPopulatorTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\ErrorMessageDisplayHandlerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\MaskedEditTextBoxTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\MessageDisplayStateManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\SsnPresenterTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\Unit\PatientAccess\UI\DemographicsViews\BirthTimePresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DemographicsViews\DemographicsEmploymentPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DemographicsViews\DemographicsViewPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DemographicsViews\EthnicityViewPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DemographicsViews\PatientNamePresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DemographicsViews\RaceViewPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\AlternateCareFacilityPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\DiagnosisViewPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TimeAndLocationBoundConditionTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\PatientPortal\PatientPortalOptInPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\Specialized\ClinicalTrialsBoardPatientAccessViewTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\AbstractBrokerInterfaceTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\AccountProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\BrokerFactoryTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\CoveredGroupPlansLoadertests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\CrashReporting\CrashReportTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\FacilityBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\GuarantorSearchCriteriaTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\OccurrenceCodesLoaderTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\PatientProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\PatientSearchCriteriaTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\PhysicianPatientsSearchCriteriaTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\PhysicianSearchCriteriaTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerInterfaces\PlansLoaderTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\AddressBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\AdmitSourceBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\DemographicsBrokerProxyTest.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\FinancialClassesBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\HSVBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\LocationPBARBrokerProxyTest.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ModeOfArrivalBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\OccurrenceCodeBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\PatientBrokerProxyTest.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ReAdmitCodeBrokerProxyTest.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ReferralSourceBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ReferralTypeBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\RuleBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\ScheduleCodeBrokerProxyTest.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\BrokerProxies\SSNBrokerProxyTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteAbstractBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteAccountPBARBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteBenefitsCategoryPBARBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteConditionOfServiceBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteConfidentialCodePBARBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteFacilityFlagPBARBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteNPPVersionPBARBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteOccurrenceCodePBARBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteRoleBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteTypeOfProductBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteTypeOfVerificationRuleBrokerTests.cs" />
+    <Compile Include="Tests\Integration\PatientAccess\Persistence\RemoteWorklistBrokerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AbstractProviderTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AccidentTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AccomodationTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AccountTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AddressTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AdmitNewbornActivityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AdmitSourceTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AgeEntitlementTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AgeTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\AnnouncementTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\BedTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\BenefitsCategoryDetailsTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\BenefitsCategoryTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\BillingInformationTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\BrokerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ClinicTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CodedReferenceValueTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CommercialCoverageTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CommercialInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ConditionOfServiceTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ConditionTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ConfidentialCodeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ConfidentialityStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ContactPointTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\COSSignedFusNoteFormatterTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CountyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CoverageDefaultsTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CoverageForCommercialOtherTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CoverageOrderTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CoverageTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CreditCardPaymentTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CreditCardProviderTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CreditReportTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CreditValidationResponseTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CrimeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\CurrencyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\DiagnosisTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\DischargeStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\DriversLicenseTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\EmailAddressTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\EmergencyContactTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\EmploymentStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\EmploymentTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\EthnicityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\FacilityDeterminedFlagTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\FacilityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\FusFormatterStrategyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\GovernmentMedicaidCoverageTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\GovernmentMedicaidInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\GovernmentMedicareCoverageTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\GovernmentMedicareInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\GovernmentOtherCoverageTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\GovernmentOtherInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\HospitalClinicTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\HospitalServiceTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\IAccountTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\IllnessTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\InformationReceivedSourceTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\InsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\InsuranceTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\LanguageTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\LocationTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\MaritalStatusTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\MedicalGroupIPATests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ModeOfArrivalTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\MoneyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\NameValuePairTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\NursingStationTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\OccuranceCodeManagerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\OccurrenceCodeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\OtherInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\OtherPayorTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\AdmittingPhysicianTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\AttendingPhysicianTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\CoveredGroupTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\EmployerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\GuarantorTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\InsuredTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\NameTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\OrganizationTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\PatientTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\PersonTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\PhoneNumberTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\PhysicianRoleTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\Parties\PhysicianTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PassportTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PatientSearchResponseTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PatientSearchResultTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PaymentAmountTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PaymentMethodTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PaymentTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PlaceOfWorshipTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\PregnancyTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\RaceTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ReferenceValueTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\ReligionTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\RoomTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SelfPayInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SocialSecurityNumberTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SpecialityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\SpecialProgramTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TimePeriodFlagTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TransferInToOutActivityTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TypeOfAccidentTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TypeOfContactPointTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TypeOfProductTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\TypeOfVerificationRuleTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\UserTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\VisitTypeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\WorkersCompensationInsurancePlanTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\WorkersCompFusFormatterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\WorklistSelectionRangeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\WorklistTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\YesNoFlagTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\Domain\YesNotApplicableTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CommonControls\PatientTypeHSVLocationViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CrashReporting\CrashReporterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CrashReporting\CrashReportStoreTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\CrashReporting\ScreenCaptureToolTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\DiagnosisViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\Specialized\ClinicalTrialsBoardDiagnosisViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\ESRDPage\ESRDEntitlement2Tests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\ExceptionManagement\ApplicationExceptionHandlerOnThreadExceptionTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\Factories\ViewFactoryTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\GuarantorViews\GuarantorDateOfBirthPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\HelperClasses\PbarHelperTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\DiagnosisViews\EDLogsPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\InsuranceViews\MBIPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\InsuranceViews\MspEvaluateFinancialClassesView.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\InsuranceViews\FindAPlanViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\InsuranceViews\FinancialClassesViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\MedicareSecondaryPayor\AgeEntitlementPage1Tests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\MedicareSecondaryPayor\LiabilityInsurerPageTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\NewbornViews\NewbornPreRegistrationPrensenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\NewEmployersManagement\EmployerHelperTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\NewEmployersManagement\EmployerUtilities.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\NewEmployersManagement\NewEmployersManagementPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\PatientAccessViewTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\Unit\PatientAccess\UI\PatientSearch\CommandButtonManagerTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\PatientSearch\PatientAccountViewPresenterTest.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\PatientSearch\PatientsAccountsViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\PhysicianSearchViews\PhysicianSearchFormViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\PhysicianSearchViews\PhysicianServiceTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\AuthorizePortalUserPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\COBReceivedAndIMFMReceivedPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\COSHandlerTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\HIEConsentPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\HIEShareDataPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\HospitalCommunicationOptInPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\AuthorizeAdditionalPortalUsersPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\RegulatoryViews\RightToRestrictPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatientTransferTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\TransferViews\TransferOutpatientToERpatientPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\TransferViews\TransferEmergencyToOutpatientPresenterTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\TransferViews\TransferInPatToOutPatGetTransferDateTimeTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\TransferViews\TransferOutPatToInPatStep3ViewTests.cs" />
+    <Compile Include="Tests\Unit\PatientAccess\UI\TransferViews\TransferOutPatToInPatViewPresenterTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Client\WinForms\PatientAccess.WinForms.csproj">
+      <Project>{D1654860-0C3F-4180-9D1D-2E80454DBA85}</Project>
+      <Name>PatientAccess.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\PatientAccess.Common.csproj">
+      <Project>{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}</Project>
+      <Name>PatientAccess.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Server\AppServer\PatientAccess.AppServer.csproj">
+      <Project>{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}</Project>
+      <Name>PatientAccess.AppServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\Generate.proj" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\App.config.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\lib\NUnit3TestAdapter.4.2.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\lib\NUnit3TestAdapter.4.2.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+  <Import Project="..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\..\..\..\lib\Microsoft.NET.Test.Sdk.17.0.0\build\net40\Microsoft.NET.Test.Sdk.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.35\2015_03_05_32266.xml">
+  
+  <changeSet id="C460E7C2-0656-4A00-AC6F-D9C44F14BF9F" author="Srilakshmi.Sudharshan" context="Local,Dev,Test">
+
+    <comment>
+      Delete DHF and ICE from Facility.FacilityExtendedSettings to disable EMPI Enabled feature
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 54 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 98 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="54" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="98" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="36C73A24-6BA3-4E24-9B97-A25486E495D8" author="Srilakshmi.Sudharshan" context="Model">
+
+    <comment>
+      Delete DHF and PRV from Facility.FacilityExtendedSettings to disable EMPI Enabled feature
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 54 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 390 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="354" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="390" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="C2CCF936-0E09-46D5-841F-D3CD8AA07355" author="Srilakshmi.Sudharshan" context="Prod">
+
+    <comment>
+      Delete PRV-390,PXX-990,SIE-40,SIX-940,SES-324,SPT-924 from Facility.FacilityExtendedSettings to disable EMPI Enabled feature
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 390 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 990 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 40 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 940 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 324 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 924 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="390" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="990" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="40" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="940" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="324" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="924" />
+        <column name="Name" value="EMPIEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+  
+</databaseChangeLog>

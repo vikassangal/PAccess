@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.16\2010-05-06-4302.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Remove CompositeRule for InsuranceAuthorizationRequiredPreferred
+    </comment>
+     <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId=142 and CompositeRuleId = 204 </where>
+     </delete>
+    
+     <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId=142 and CompositeRuleId = 205 </where>
+     </delete>
+           
+      <rollback>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="204" />
+        <column name="RuleId" valueNumeric="142" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="205" />
+        <column name="RuleId" valueNumeric="142" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

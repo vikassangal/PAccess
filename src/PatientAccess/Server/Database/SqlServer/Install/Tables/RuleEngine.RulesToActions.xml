@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\RuleEngine.RulesToActions.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.RulesToActions Table
+    </comment>
+    <createTable schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_RulesActionsToActions_Rules" references="RuleEngine.Rules(Id)" deleteCascade="true" />
+      </column>
+      <column name="ActionId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_RulesActionsToActions_Actions" references="RuleEngine.Actions(Id)" deleteCascade="true" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_RulesActions" schemaName="RuleEngine" tableName="RulesToActions" columnNames="RuleId,ActionId" />
+    <createIndex indexName="IX_ActionId" schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="ActionId" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns3="http://domain.webservice.cie" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://patientaccess.webservice.cie" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:tns2="http://domain.patientaccess.webservice.cie" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns4="http://fusnote.domain.webservice.cie" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns5="http://domain.ecare.webservice.hdi" xmlns:impl="http://patientaccess.webservice.cie" targetNamespace="http://patientaccess.webservice.cie" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://domain.patientaccess.webservice.cie">
+      <xsd:import namespace="http://domain.ecare.webservice.hdi" />
+      <xsd:import namespace="http://domain.webservice.cie" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ConnectionSpecRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSHospitalRequest">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ConnectionSpecRequest" nillable="true" type="tns2:ConnectionSpecRequest" />
+      <xsd:complexType name="ConnectionSpecification">
+        <xsd:sequence>
+          <xsd:element name="hubName" nillable="true" type="xsd:string" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="ipAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="hospitalCode" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConnectionSpecification" nillable="true" type="tns2:ConnectionSpecification" />
+      <xsd:complexType name="PBARAvailabilityRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSHospitalRequest">
+            <xsd:sequence>
+              <xsd:element name="onlineUpCheck" type="xsd:boolean" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="PBARAvailabilityRequest" nillable="true" type="tns2:PBARAvailabilityRequest" />
+      <xsd:complexType name="FUSNote">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns5:FUSNote">
+            <xsd:sequence>
+              <xsd:element name="amount1" nillable="true" type="soapenc:decimal" />
+              <xsd:element name="amount2" nillable="true" type="soapenc:decimal" />
+              <xsd:element name="date1" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="date2" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="noteType" nillable="true" type="xsd:string" />
+              <xsd:element name="workListDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="extensionMonth" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://domain.webservice.cie">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="WSHospitalRequest" abstract="true">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSRequest">
+            <xsd:sequence>
+              <xsd:element name="hospitalCode" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="WSRequest" abstract="true">
+        <xsd:sequence>
+          <xsd:element name="clientGUID" nillable="true" type="xsd:string" />
+          <xsd:element name="userID" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="WSPatientSpecificRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSHospitalRequest">
+            <xsd:sequence>
+              <xsd:element name="accountNumber" nillable="true" type="xsd:string" />
+              <xsd:element name="medicalRecordNumber" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://patientaccess.webservice.cie">
+      <xsd:import namespace="http://domain.patientaccess.webservice.cie" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:element name="getPBARAvailabilityForReturn" type="xsd:boolean" />
+      <xsd:element name="postFUSNoteForReturn" type="xsd:boolean" />
+      <xsd:complexType name="ArrayOf_xsd_nillable_string">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns2_nillable_FUSNote">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns2:FUSNote[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ArrayOf_tns2_nillable_FUSNote" nillable="true" type="impl:ArrayOf_tns2_nillable_FUSNote" />
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://fusnote.domain.webservice.cie">
+      <xsd:import namespace="http://domain.webservice.cie" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="PostFUSNoteRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSHospitalRequest">
+            <xsd:sequence>
+              <xsd:element name="accountNumber" nillable="true" type="xsd:string" />
+              <xsd:element name="activityCode" nillable="true" type="xsd:string" />
+              <xsd:element name="amount1" nillable="true" type="soapenc:decimal" />
+              <xsd:element name="amount2" nillable="true" type="soapenc:decimal" />
+              <xsd:element name="date1" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="date2" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="extensionMonth" nillable="true" type="xsd:string" />
+              <xsd:element name="remarks" nillable="true" type="xsd:string" />
+              <xsd:element name="serviceDateTime" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="workListDate" nillable="true" type="xsd:dateTime" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="PostFUSNoteRequest" nillable="true" type="tns4:PostFUSNoteRequest" />
+      <xsd:complexType name="ReadFUSNotesRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSPatientSpecificRequest">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ReadFUSNotesRequest" nillable="true" type="tns4:ReadFUSNotesRequest" />
+      <xsd:complexType name="ExtendedRemarksFUSNoteRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns4:RemarksFUSNoteRequest">
+            <xsd:sequence>
+              <xsd:element name="amount1" nillable="true" type="soapenc:decimal" />
+              <xsd:element name="amount2" nillable="true" type="soapenc:decimal" />
+              <xsd:element name="date1" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="date2" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="workListDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="extensionMonth" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RemarksFUSNoteRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns4:FUSNoteRequest">
+            <xsd:sequence>
+              <xsd:element name="remarks" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="FUSNoteRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:WSHospitalRequest">
+            <xsd:sequence>
+              <xsd:element name="accountNumber" nillable="true" type="xsd:string" />
+              <xsd:element name="activityCode" nillable="true" type="xsd:string" />
+              <xsd:element name="serviceDateTime" nillable="true" type="xsd:dateTime" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:intf="http://patientaccess.webservice.cie" targetNamespace="http://domain.ecare.webservice.hdi">
+      <xsd:import namespace="http://patientaccess.webservice.cie" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="FUSNote">
+        <xsd:sequence>
+          <xsd:element name="activityCode" nillable="true" type="xsd:string" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="entryDateTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="keyedBy" nillable="true" type="xsd:string" />
+          <xsd:element name="medicalRecordNumbers" nillable="true" type="impl:ArrayOf_xsd_nillable_string" />
+          <xsd:element name="remarks" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getFUSNotesForRequest">
+    <wsdl:part name="arg_0_3" type="tns4:ReadFUSNotesRequest" />
+  </wsdl:message>
+  <wsdl:message name="getConnectionSpecForRequest">
+    <wsdl:part name="arg_0_0" type="tns2:ConnectionSpecRequest" />
+  </wsdl:message>
+  <wsdl:message name="getConnectionSpecForResponse">
+    <wsdl:part name="getConnectionSpecForReturn" type="tns2:ConnectionSpecification" />
+  </wsdl:message>
+  <wsdl:message name="getPBARAvailabilityForRequest">
+    <wsdl:part name="arg_0_1" type="tns2:PBARAvailabilityRequest" />
+  </wsdl:message>
+  <wsdl:message name="postFUSNoteForRequest">
+    <wsdl:part name="arg_0_2" type="tns4:PostFUSNoteRequest" />
+  </wsdl:message>
+  <wsdl:message name="postFUSNoteForResponse">
+    <wsdl:part name="postFUSNoteForReturn" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getPBARAvailabilityForResponse">
+    <wsdl:part name="getPBARAvailabilityForReturn" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getFUSNotesForResponse">
+    <wsdl:part name="getFUSNotesForReturn" type="impl:ArrayOf_tns2_nillable_FUSNote" />
+  </wsdl:message>
+  <wsdl:portType name="PatientAccess">
+    <wsdl:operation name="getConnectionSpecFor" parameterOrder="arg_0_0">
+      <wsdl:input name="getConnectionSpecForRequest" message="impl:getConnectionSpecForRequest" />
+      <wsdl:output name="getConnectionSpecForResponse" message="impl:getConnectionSpecForResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPBARAvailabilityFor" parameterOrder="arg_0_1">
+      <wsdl:input name="getPBARAvailabilityForRequest" message="impl:getPBARAvailabilityForRequest" />
+      <wsdl:output name="getPBARAvailabilityForResponse" message="impl:getPBARAvailabilityForResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="postFUSNoteFor" parameterOrder="arg_0_2">
+      <wsdl:input name="postFUSNoteForRequest" message="impl:postFUSNoteForRequest" />
+      <wsdl:output name="postFUSNoteForResponse" message="impl:postFUSNoteForResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getFUSNotesFor" parameterOrder="arg_0_3">
+      <wsdl:input name="getFUSNotesForRequest" message="impl:getFUSNotesForRequest" />
+      <wsdl:output name="getFUSNotesForResponse" message="impl:getFUSNotesForResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PatientAccessSoapBinding" type="impl:PatientAccess">
+    <wsaw:UsingAddressing wsdl:required="false" xmlns:wsaw="http://www.w3.org/2006/02/addressing/wsdl" />
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getConnectionSpecFor">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getConnectionSpecForRequest">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getConnectionSpecForResponse">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPBARAvailabilityFor">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPBARAvailabilityForRequest">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getPBARAvailabilityForResponse">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postFUSNoteFor">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="postFUSNoteForRequest">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="postFUSNoteForResponse">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFUSNotesFor">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getFUSNotesForRequest">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getFUSNotesForResponse">
+        <wsdlsoap:body use="encoded" namespace="http://patientaccess.webservice.cie" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatientAccessService">
+    <wsdl:port name="PatientAccess" binding="impl:PatientAccessSoapBinding">
+      <wsdlsoap:address location="http://hdi.testtenethealth.net:80/HDI_3_11/PatientAccess" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

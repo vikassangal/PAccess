@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-02-23-13721.xml">
+  
+  <changeSet id="7CAD1802-DDA1-4D79-AEAC-B4A6AE39F6DE" author="Smitha.Krishnamurthy">
+              
+                <comment>
+                  SR1190 – TO DO List item is not generated when 'Unknown' is selected in 'SSN Status' drop-down
+                </comment>
+                <comment>
+                  UnknownSocialSecurityNumberStatus(417)
+                </comment>
+    
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                <where>ContextId = 21 and RuleId = 417</where>     
+                </delete>
+    
+                <insert schemaName="RuleEngine" tableName="ContextsToRules">
+                  <column name="ContextId" valueNumeric="21" />
+                  <column name="RuleId" valueNumeric="417" />
+                </insert>
+                
+                <comment>
+                  UnknownGuarantorSSNStatus(17)
+                </comment>
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 21 and RuleId = 17</where>
+                </delete>
+                  
+                <insert schemaName="RuleEngine" tableName="ContextsToRules">
+                  <column name="ContextId" valueNumeric="21" />
+                  <column name="RuleId" valueNumeric="17" />
+                </insert>
+                  
+              
+                <rollback>
+                  <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                    <where>ContextId = 21 and RuleId = 17</where>
+                  </delete>
+
+                  <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                    <where>ContextId = 21 and RuleId = 417 </where>
+                  </delete>
+                </rollback>
+
+  </changeSet>
+</databaseChangeLog>

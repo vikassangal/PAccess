@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.RuleEngine.Contexts.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load RuleEngine.Contexts
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="1" />
+      <column name="Type" value="WorklistPreRegistration" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="2" />
+      <column name="Type" value="WorklistPostRegistration" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="3" />
+      <column name="Type" value="WorklistInsuranceVerification" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="4" />
+      <column name="Type" value="WorklistPatientLiability" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="5" />
+      <column name="Type" value="WorklistEmergencyDeparmentRegistration" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="6" />
+      <column name="Type" value="WorklistNoShow" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="7" />
+      <column name="Type" value="PatientAccess.Domain.RegistrationActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="8" />
+      <column name="Type" value="PatientAccess.Domain.PreRegistrationActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="9" />
+      <column name="Type" value="PatientAccess.Domain.TransferOutToInActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="10" />
+      <column name="Type" value="PatientAccess.Domain.AdmitNewbornActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="11" />
+      <column name="Type" value="AddressEntry" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="12" />
+      <column name="Type" value="PatientAccess.Domain.PreMSERegisterActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="13" />
+      <column name="Type" value="PatientAccess.Domain.PostMSERegistrationActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="14" />
+      <column name="Type" value="BenefitsValidation" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="15" />
+      <column name="Type" value="PatientAccess.Domain.TransferInToOutActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="16" />
+      <column name="Type" value="PatientAccess.Domain.TransferActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="17" />
+      <column name="Type" value="PatientAccess.Domain.TransferBedSwapActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="18" />
+      <column name="Type" value="PatientAccess.Domain.CancelInpatientStatusActivity" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="19" />
+      <column name="Type" value="LocationFields" />
+    </insert>
+    <rollback>
+      delete from RuleEngine.Contexts where Id between 1 and 19;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

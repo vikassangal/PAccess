@@ -1,0 +1,54 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="urn:BenefitsValidation5010Service/types">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <typ:initiate>
+         <BenefitsValidation5010Request_1>
+            <customerId>1</customerId>
+            <hspcd>DHF</hspcd>
+            <userId>Test User</userId>
+            <beginServiceDate>20100810</beginServiceDate>
+            <endServiceDate>20100810</endServiceDate>
+            <patient>
+               <dateOfBirth>19521010</dateOfBirth>
+               <firstName>Subscriber</firstName>
+               <lastName>Test</lastName>
+               <middleName>A</middleName>
+               <relationshipToSubscriber>18</relationshipToSubscriber>
+               <sex>F</sex>
+               <ssn/>
+            </patient>
+            <subscriber>
+               <cardIssueDate/>
+               <dateOfBirth>19321010</dateOfBirth>
+               <firstName>Subscriber</firstName>
+               <groupId></groupId>
+               <lastName>Test</lastName>
+               <memberId>W123456789</memberId>
+               <middleName/>
+               <planId>WZ836</planId>
+               <sex>F</sex>
+               <ssn/>
+               <state>TX</state>
+               <zip/>
+            </subscriber>
+            <!--Zero or more repetitions:-->
+            <diagnosisCodes>
+               <diagnosisCode/>
+               <diagnosisCodeType/>
+            </diagnosisCodes>
+            <!--Zero or more repetitions:-->
+            <eligibilityOrBenefitInquiries>
+               <diagnosisCodePointer1/>
+               <diagnosisCodePointer2/>
+               <diagnosisCodePointer3/>
+               <diagnosisCodePointer4/>
+               <!--Zero or more repetitions:-->
+               <serviceTypeCodes>30</serviceTypeCodes>
+               <subscriberSpendDownAmount/>
+               <subscriberSpendDownTotalBilledAmount/>
+            </eligibilityOrBenefitInquiries>
+
+         </BenefitsValidation5010Request_1>
+      </typ:initiate>
+   </soapenv:Body>
+</soapenv:Envelope>

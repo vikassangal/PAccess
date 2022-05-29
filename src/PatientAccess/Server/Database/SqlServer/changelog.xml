@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\changelog.xml">
+  <!-- Base Installation Objects -->
+  <include relativeToChangelogFile="true" file="Install/Security/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Install/Tables/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Install/Data/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Install/Functions/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Install/Procedures/_changelog.xml" />
+  <!-- Tag the installed version -->
+  <changeSet id="1" author="Jon.Lent">
+    <tagDatabase tag="1.11" />
+  </changeSet>
+  <!-- Per-release Changes-->
+  <include relativeToChangelogFile="true" file="Releases/v1.12/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.13/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.14/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.15/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.16/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.17/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.18/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.19/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.20/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.21/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.22/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.23/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.24/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.25/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.26/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.27/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.28/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.30/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.31/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.32/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.34/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.35/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.36/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.37/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.38/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.40/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.41/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.42/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.43/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.44/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.45/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.46/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.47/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.48/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.49/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.50/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.52/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.54/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.55/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.58/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.59/_changelog.xml" />
+	<include relativeToChangelogFile="true" file="Releases/v1.60/_changelog.xml" />
+  <include relativeToChangelogFile="true" file="Releases/v1.61/_changelog.xml" />
+</databaseChangeLog>

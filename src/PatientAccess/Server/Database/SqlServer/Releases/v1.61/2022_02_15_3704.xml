@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_02_15_3704.xml">
+
+	<changeSet id="E3BF6482-C016-4454-9429-22DBA817EBB3" author="Abhijeet.Hambir">
+		<comment>
+			Add Fus Note for DOFRP Activity code 
+		</comment>
+
+		<insert schemaName="FusNote" tableName="ActivityCodes">
+			<column name="ActivityCode" value="DOFRP" />
+			<column name="Description" value="DIVISION OF FIN RESP PLN CODE SELEC" />
+			<column name="NoteType" valueNumeric="7" />
+			<column name="DefaultWorklistDays" valueNumeric="0" />
+			<column name="MaxWorklistDays" valueNumeric="0" />
+			<column name="Writeable" value="N" />
+		</insert>
+
+	</changeSet>
+
+</databaseChangeLog>

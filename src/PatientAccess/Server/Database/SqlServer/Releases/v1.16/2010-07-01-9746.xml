@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.16\2010-07-01-9746.xml">
+
+  <changeSet id="7F375507-D5F3-4D51-A8B2-F581C3F12CA1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for July 2010 - Special Distribution
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ROILS'</where>
+    </delete>
+
+    
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ROILS" />
+      <column name="Description" value="ILLNESS RESULT OF GULF OIL SPILL" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ROILS'</where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:s0="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetFacilityDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FacilityID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartialName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacilityDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacilityDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildFacilities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParentHspCD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildFacilitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChildFacilitiesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrgTypeCD" type="s:string" />
+      <s:element name="LevelCD" type="s:string" />
+      <s:element name="AllFacilitiesUnderLevelResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppID" type="s:int" />
+      <s:element name="HspCode" type="s:string" />
+      <s:element name="FacilityStatusCD" type="s:string" />
+      <s:element name="FacilityTypeCD" type="s:string" />
+      <s:element name="GetApplicationFacilityDataResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacilitiesForLevelParentsOnlyResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacilitiesForLevelResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacilityList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="typeCodes" type="s0:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="statusCodes" type="s0:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFacilityListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacilityListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacilityListInteractive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="typeCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="statusCodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacilityListInteractiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacilityListInteractiveResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveFacilitiesListInteractive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="typeCodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveFacilitiesListInteractiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveFacilitiesListInteractiveResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrganizationTypeCD" type="s:string" />
+      <s:element name="CorporateLevelListResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CorporateLevelAndFacilityListResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppIDorName" type="s:string" />
+      <s:element name="ShowAffiliationFrom" type="s:string" />
+      <s:element name="CorporateLevelAndFacilityApplicationListResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CFDBApplicationListResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="historyID" type="s:int" />
+      <s:element name="GetHistoryXMLResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HspCD" type="s:string" />
+      <s:element name="GetFacilityAddressesResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacilityPhonesResult">
+        <s:complexType mixed="true">
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </types>
+  <message name="GetFacilityDetailsSoapIn">
+    <part name="parameters" element="s0:GetFacilityDetails" />
+  </message>
+  <message name="GetFacilityDetailsSoapOut">
+    <part name="parameters" element="s0:GetFacilityDetailsResponse" />
+  </message>
+  <message name="GetChildFacilitiesSoapIn">
+    <part name="parameters" element="s0:GetChildFacilities" />
+  </message>
+  <message name="GetChildFacilitiesSoapOut">
+    <part name="parameters" element="s0:GetChildFacilitiesResponse" />
+  </message>
+  <message name="AllFacilitiesUnderLevelSoapIn">
+    <part name="OrgTypeCD" element="s0:OrgTypeCD" />
+    <part name="LevelCD" element="s0:LevelCD" />
+  </message>
+  <message name="AllFacilitiesUnderLevelSoapOut">
+    <part name="AllFacilitiesUnderLevelResult" element="s0:AllFacilitiesUnderLevelResult" />
+  </message>
+  <message name="GetApplicationFacilityDataSoapIn">
+    <part name="AppID" element="s0:AppID" />
+    <part name="HspCode" element="s0:HspCode" />
+    <part name="FacilityStatusCD" element="s0:FacilityStatusCD" />
+    <part name="FacilityTypeCD" element="s0:FacilityTypeCD" />
+  </message>
+  <message name="GetApplicationFacilityDataSoapOut">
+    <part name="GetApplicationFacilityDataResult" element="s0:GetApplicationFacilityDataResult" />
+  </message>
+  <message name="FacilitiesForLevelParentsOnlySoapIn">
+    <part name="OrgTypeCD" element="s0:OrgTypeCD" />
+    <part name="LevelCD" element="s0:LevelCD" />
+  </message>
+  <message name="FacilitiesForLevelParentsOnlySoapOut">
+    <part name="FacilitiesForLevelParentsOnlyResult" element="s0:FacilitiesForLevelParentsOnlyResult" />
+  </message>
+  <message name="FacilitiesForLevelSoapIn">
+    <part name="OrgTypeCD" element="s0:OrgTypeCD" />
+    <part name="LevelCD" element="s0:LevelCD" />
+  </message>
+  <message name="FacilitiesForLevelSoapOut">
+    <part name="FacilitiesForLevelResult" element="s0:FacilitiesForLevelResult" />
+  </message>
+  <message name="GetFacilityListSoapIn">
+    <part name="parameters" element="s0:GetFacilityList" />
+  </message>
+  <message name="GetFacilityListSoapOut">
+    <part name="parameters" element="s0:GetFacilityListResponse" />
+  </message>
+  <message name="GetFacilityListInteractiveSoapIn">
+    <part name="parameters" element="s0:GetFacilityListInteractive" />
+  </message>
+  <message name="GetFacilityListInteractiveSoapOut">
+    <part name="parameters" element="s0:GetFacilityListInteractiveResponse" />
+  </message>
+  <message name="GetActiveFacilitiesListInteractiveSoapIn">
+    <part name="parameters" element="s0:GetActiveFacilitiesListInteractive" />
+  </message>
+  <message name="GetActiveFacilitiesListInteractiveSoapOut">
+    <part name="parameters" element="s0:GetActiveFacilitiesListInteractiveResponse" />
+  </message>
+  <message name="CorporateLevelListSoapIn">
+    <part name="OrganizationTypeCD" element="s0:OrganizationTypeCD" />
+  </message>
+  <message name="CorporateLevelListSoapOut">
+    <part name="CorporateLevelListResult" element="s0:CorporateLevelListResult" />
+  </message>
+  <message name="CorporateLevelAndFacilityListSoapIn">
+    <part name="OrganizationTypeCD" element="s0:OrganizationTypeCD" />
+  </message>
+  <message name="CorporateLevelAndFacilityListSoapOut">
+    <part name="CorporateLevelAndFacilityListResult" element="s0:CorporateLevelAndFacilityListResult" />
+  </message>
+  <message name="CorporateLevelAndFacilityApplicationListSoapIn">
+    <part name="OrganizationTypeCD" element="s0:OrganizationTypeCD" />
+    <part name="AppIDorName" element="s0:AppIDorName" />
+    <part name="ShowAffiliationFrom" element="s0:ShowAffiliationFrom" />
+  </message>
+  <message name="CorporateLevelAndFacilityApplicationListSoapOut">
+    <part name="CorporateLevelAndFacilityApplicationListResult" element="s0:CorporateLevelAndFacilityApplicationListResult" />
+  </message>
+  <message name="CFDBApplicationListSoapIn" />
+  <message name="CFDBApplicationListSoapOut">
+    <part name="CFDBApplicationListResult" element="s0:CFDBApplicationListResult" />
+  </message>
+  <message name="GetHistoryXMLSoapIn">
+    <part name="historyID" element="s0:historyID" />
+  </message>
+  <message name="GetHistoryXMLSoapOut">
+    <part name="GetHistoryXMLResult" element="s0:GetHistoryXMLResult" />
+  </message>
+  <message name="GetFacilityAddressesSoapIn">
+    <part name="HspCD" element="s0:HspCD" />
+  </message>
+  <message name="GetFacilityAddressesSoapOut">
+    <part name="GetFacilityAddressesResult" element="s0:GetFacilityAddressesResult" />
+  </message>
+  <message name="GetFacilityPhonesSoapIn">
+    <part name="HspCD" element="s0:HspCD" />
+  </message>
+  <message name="GetFacilityPhonesSoapOut">
+    <part name="GetFacilityPhonesResult" element="s0:GetFacilityPhonesResult" />
+  </message>
+  <message name="GetFacilityDetailsHttpGetIn">
+    <part name="HspCD" type="s:string" />
+    <part name="FacilityID" type="s:string" />
+    <part name="PartialName" type="s:string" />
+  </message>
+  <message name="GetFacilityDetailsHttpGetOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="GetChildFacilitiesHttpGetIn">
+    <part name="ParentHspCD" type="s:string" />
+  </message>
+  <message name="GetChildFacilitiesHttpGetOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="AllFacilitiesUnderLevelHttpGetIn">
+    <part name="OrgTypeCD" type="s:string" />
+    <part name="LevelCD" type="s:string" />
+  </message>
+  <message name="AllFacilitiesUnderLevelHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetApplicationFacilityDataHttpGetIn">
+    <part name="AppID" type="s:string" />
+    <part name="HspCode" type="s:string" />
+    <part name="FacilityStatusCD" type="s:string" />
+    <part name="FacilityTypeCD" type="s:string" />
+  </message>
+  <message name="GetApplicationFacilityDataHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="FacilitiesForLevelParentsOnlyHttpGetIn">
+    <part name="OrgTypeCD" type="s:string" />
+    <part name="LevelCD" type="s:string" />
+  </message>
+  <message name="FacilitiesForLevelParentsOnlyHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="FacilitiesForLevelHttpGetIn">
+    <part name="OrgTypeCD" type="s:string" />
+    <part name="LevelCD" type="s:string" />
+  </message>
+  <message name="FacilitiesForLevelHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityListInteractiveHttpGetIn">
+    <part name="typeCodes" type="s:string" />
+    <part name="statusCodes" type="s:string" />
+  </message>
+  <message name="GetFacilityListInteractiveHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetActiveFacilitiesListInteractiveHttpGetIn">
+    <part name="typeCodes" type="s:string" />
+  </message>
+  <message name="GetActiveFacilitiesListInteractiveHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="CorporateLevelListHttpGetIn">
+    <part name="OrganizationTypeCD" type="s:string" />
+  </message>
+  <message name="CorporateLevelListHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="CorporateLevelAndFacilityListHttpGetIn">
+    <part name="OrganizationTypeCD" type="s:string" />
+  </message>
+  <message name="CorporateLevelAndFacilityListHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="CorporateLevelAndFacilityApplicationListHttpGetIn">
+    <part name="OrganizationTypeCD" type="s:string" />
+    <part name="AppIDorName" type="s:string" />
+    <part name="ShowAffiliationFrom" type="s:string" />
+  </message>
+  <message name="CorporateLevelAndFacilityApplicationListHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="CFDBApplicationListHttpGetIn" />
+  <message name="CFDBApplicationListHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetHistoryXMLHttpGetIn">
+    <part name="historyID" type="s:string" />
+  </message>
+  <message name="GetHistoryXMLHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityAddressesHttpGetIn">
+    <part name="HspCD" type="s:string" />
+  </message>
+  <message name="GetFacilityAddressesHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityPhonesHttpGetIn">
+    <part name="HspCD" type="s:string" />
+  </message>
+  <message name="GetFacilityPhonesHttpGetOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityDetailsHttpPostIn">
+    <part name="HspCD" type="s:string" />
+    <part name="FacilityID" type="s:string" />
+    <part name="PartialName" type="s:string" />
+  </message>
+  <message name="GetFacilityDetailsHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="GetChildFacilitiesHttpPostIn">
+    <part name="ParentHspCD" type="s:string" />
+  </message>
+  <message name="GetChildFacilitiesHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="AllFacilitiesUnderLevelHttpPostIn">
+    <part name="OrgTypeCD" type="s:string" />
+    <part name="LevelCD" type="s:string" />
+  </message>
+  <message name="AllFacilitiesUnderLevelHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="GetApplicationFacilityDataHttpPostIn">
+    <part name="AppID" type="s:string" />
+    <part name="HspCode" type="s:string" />
+    <part name="FacilityStatusCD" type="s:string" />
+    <part name="FacilityTypeCD" type="s:string" />
+  </message>
+  <message name="GetApplicationFacilityDataHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="FacilitiesForLevelParentsOnlyHttpPostIn">
+    <part name="OrgTypeCD" type="s:string" />
+    <part name="LevelCD" type="s:string" />
+  </message>
+  <message name="FacilitiesForLevelParentsOnlyHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="FacilitiesForLevelHttpPostIn">
+    <part name="OrgTypeCD" type="s:string" />
+    <part name="LevelCD" type="s:string" />
+  </message>
+  <message name="FacilitiesForLevelHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityListInteractiveHttpPostIn">
+    <part name="typeCodes" type="s:string" />
+    <part name="statusCodes" type="s:string" />
+  </message>
+  <message name="GetFacilityListInteractiveHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="GetActiveFacilitiesListInteractiveHttpPostIn">
+    <part name="typeCodes" type="s:string" />
+  </message>
+  <message name="GetActiveFacilitiesListInteractiveHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="CorporateLevelListHttpPostIn">
+    <part name="OrganizationTypeCD" type="s:string" />
+  </message>
+  <message name="CorporateLevelListHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="CorporateLevelAndFacilityListHttpPostIn">
+    <part name="OrganizationTypeCD" type="s:string" />
+  </message>
+  <message name="CorporateLevelAndFacilityListHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="CorporateLevelAndFacilityApplicationListHttpPostIn">
+    <part name="OrganizationTypeCD" type="s:string" />
+    <part name="AppIDorName" type="s:string" />
+    <part name="ShowAffiliationFrom" type="s:string" />
+  </message>
+  <message name="CorporateLevelAndFacilityApplicationListHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="CFDBApplicationListHttpPostIn" />
+  <message name="CFDBApplicationListHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="GetHistoryXMLHttpPostIn">
+    <part name="historyID" type="s:string" />
+  </message>
+  <message name="GetHistoryXMLHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityAddressesHttpPostIn">
+    <part name="HspCD" type="s:string" />
+  </message>
+  <message name="GetFacilityAddressesHttpPostOut">
+    <part name="Body" />
+  </message>
+  <message name="GetFacilityPhonesHttpPostIn">
+    <part name="HspCD" type="s:string" />
+  </message>
+  <message name="GetFacilityPhonesHttpPostOut">
+    <part name="Body" />
+  </message>
+  <portType name="CFDBLookupServiceSoap">
+    <operation name="GetFacilityDetails">
+      <documentation>Facility Details WebMethod</documentation>
+      <input message="s0:GetFacilityDetailsSoapIn" />
+      <output message="s0:GetFacilityDetailsSoapOut" />
+    </operation>
+    <operation name="GetChildFacilities">
+      <documentation>Child Facilities WebMethod</documentation>
+      <input message="s0:GetChildFacilitiesSoapIn" />
+      <output message="s0:GetChildFacilitiesSoapOut" />
+    </operation>
+    <operation name="AllFacilitiesUnderLevel">
+      <documentation>All facilities belonging to a given hierarchy level and its sublevels.</documentation>
+      <input message="s0:AllFacilitiesUnderLevelSoapIn" />
+      <output message="s0:AllFacilitiesUnderLevelSoapOut" />
+    </operation>
+    <operation name="GetApplicationFacilityData">
+      <documentation>All Application Facilities filtered by HspCD, AppID, Fac status or TypeCD</documentation>
+      <input message="s0:GetApplicationFacilityDataSoapIn" />
+      <output message="s0:GetApplicationFacilityDataSoapOut" />
+    </operation>
+    <operation name="FacilitiesForLevelParentsOnly">
+      <documentation>Facilities belonging to a given hierarchy level, only top level facilities included.</documentation>
+      <input message="s0:FacilitiesForLevelParentsOnlySoapIn" />
+      <output message="s0:FacilitiesForLevelParentsOnlySoapOut" />
+    </operation>
+    <operation name="FacilitiesForLevel">
+      <documentation>Facilities belonging to a given hierarchy level.</documentation>
+      <input message="s0:FacilitiesForLevelSoapIn" />
+      <output message="s0:FacilitiesForLevelSoapOut" />
+    </operation>
+    <operation name="GetFacilityList">
+      <documentation>Facility List</documentation>
+      <input message="s0:GetFacilityListSoapIn" />
+      <output message="s0:GetFacilityListSoapOut" />
+    </operation>
+    <operation name="GetFacilityList">
+      <documentation>Facility List for comma separated list of type codes and status codes.</documentation>
+      <input name="GetFacilityListInteractive" message="s0:GetFacilityListInteractiveSoapIn" />
+      <output name="GetFacilityListInteractive" message="s0:GetFacilityListInteractiveSoapOut" />
+    </operation>
+    <operation name="GetActiveFacilitiesListInteractive">
+      <documentation>List of Active facilities for comma separated list of type codes.</documentation>
+      <input message="s0:GetActiveFacilitiesListInteractiveSoapIn" />
+      <output message="s0:GetActiveFacilitiesListInteractiveSoapOut" />
+    </operation>
+    <operation name="CorporateLevelList">
+      <documentation>Corporate hierarchy levels for a given hierarchy type. (Leaving OrganizationTypeCD blank returns current Operation Hierarchy.)</documentation>
+      <input message="s0:CorporateLevelListSoapIn" />
+      <output message="s0:CorporateLevelListSoapOut" />
+    </operation>
+    <operation name="CorporateLevelAndFacilityList">
+      <documentation>Corporate hierarchy levels and facilities for a given hierarchy type. (Leaving OrganizationTypeCD blank returns current Operation Hierarchy.)</documentation>
+      <input message="s0:CorporateLevelAndFacilityListSoapIn" />
+      <output message="s0:CorporateLevelAndFacilityListSoapOut" />
+    </operation>
+    <operation name="CorporateLevelAndFacilityApplicationList">
+      <documentation>Hierarchy levels and facilities for a given hierarchy type and applicationid or name.(Leaving OrganizationTypeCD blank returns current Operation Hierarchy, ShowAffiliationFrom can be F for Facility or AF for AppFacility, meaning it follows the parent child relationship as it is defined in Facility or in Application)</documentation>
+      <input message="s0:CorporateLevelAndFacilityApplicationListSoapIn" />
+      <output message="s0:CorporateLevelAndFacilityApplicationListSoapOut" />
+    </operation>
+    <operation name="CFDBApplicationList">
+      <documentation>Web Service to provide list of CFDB Applications</documentation>
+      <input message="s0:CFDBApplicationListSoapIn" />
+      <output message="s0:CFDBApplicationListSoapOut" />
+    </operation>
+    <operation name="GetHistoryXML">
+      <documentation>Web Service to retrieve the History XML given the ID</documentation>
+      <input message="s0:GetHistoryXMLSoapIn" />
+      <output message="s0:GetHistoryXMLSoapOut" />
+    </operation>
+    <operation name="GetFacilityAddresses">
+      <documentation>Web Service to retrieve the Facility Addresses</documentation>
+      <input message="s0:GetFacilityAddressesSoapIn" />
+      <output message="s0:GetFacilityAddressesSoapOut" />
+    </operation>
+    <operation name="GetFacilityPhones">
+      <documentation>Web Service to retrieve the Facility Phones</documentation>
+      <input message="s0:GetFacilityPhonesSoapIn" />
+      <output message="s0:GetFacilityPhonesSoapOut" />
+    </operation>
+  </portType>
+  <portType name="CFDBLookupServiceHttpGet">
+    <operation name="GetFacilityDetails">
+      <documentation>Facility Details WebMethod</documentation>
+      <input message="s0:GetFacilityDetailsHttpGetIn" />
+      <output message="s0:GetFacilityDetailsHttpGetOut" />
+    </operation>
+    <operation name="GetChildFacilities">
+      <documentation>Child Facilities WebMethod</documentation>
+      <input message="s0:GetChildFacilitiesHttpGetIn" />
+      <output message="s0:GetChildFacilitiesHttpGetOut" />
+    </operation>
+    <operation name="AllFacilitiesUnderLevel">
+      <documentation>All facilities belonging to a given hierarchy level and its sublevels.</documentation>
+      <input message="s0:AllFacilitiesUnderLevelHttpGetIn" />
+      <output message="s0:AllFacilitiesUnderLevelHttpGetOut" />
+    </operation>
+    <operation name="GetApplicationFacilityData">
+      <documentation>All Application Facilities filtered by HspCD, AppID, Fac status or TypeCD</documentation>
+      <input message="s0:GetApplicationFacilityDataHttpGetIn" />
+      <output message="s0:GetApplicationFacilityDataHttpGetOut" />
+    </operation>
+    <operation name="FacilitiesForLevelParentsOnly">
+      <documentation>Facilities belonging to a given hierarchy level, only top level facilities included.</documentation>
+      <input message="s0:FacilitiesForLevelParentsOnlyHttpGetIn" />
+      <output message="s0:FacilitiesForLevelParentsOnlyHttpGetOut" />
+    </operation>
+    <operation name="FacilitiesForLevel">
+      <documentation>Facilities belonging to a given hierarchy level.</documentation>
+      <input message="s0:FacilitiesForLevelHttpGetIn" />
+      <output message="s0:FacilitiesForLevelHttpGetOut" />
+    </operation>
+    <operation name="GetFacilityList">
+      <documentation>Facility List for comma separated list of type codes and status codes.</documentation>
+      <input name="GetFacilityListInteractive" message="s0:GetFacilityListInteractiveHttpGetIn" />
+      <output name="GetFacilityListInteractive" message="s0:GetFacilityListInteractiveHttpGetOut" />
+    </operation>
+    <operation name="GetActiveFacilitiesListInteractive">
+      <documentation>List of Active facilities for comma separated list of type codes.</documentation>
+      <input message="s0:GetActiveFacilitiesListInteractiveHttpGetIn" />
+      <output message="s0:GetActiveFacilitiesListInteractiveHttpGetOut" />
+    </operation>
+    <operation name="CorporateLevelList">
+      <documentation>Corporate hierarchy levels for a given hierarchy type. (Leaving OrganizationTypeCD blank returns current Operation Hierarchy.)</documentation>
+      <input message="s0:CorporateLevelListHttpGetIn" />
+      <output message="s0:CorporateLevelListHttpGetOut" />
+    </operation>
+    <operation name="CorporateLevelAndFacilityList">
+      <documentation>Corporate hierarchy levels and facilities for a given hierarchy type. (Leaving OrganizationTypeCD blank returns current Operation Hierarchy.)</documentation>
+      <input message="s0:CorporateLevelAndFacilityListHttpGetIn" />
+      <output message="s0:CorporateLevelAndFacilityListHttpGetOut" />
+    </operation>
+    <operation name="CorporateLevelAndFacilityApplicationList">
+      <documentation>Hierarchy levels and facilities for a given hierarchy type and applicationid or name.(Leaving OrganizationTypeCD blank returns current Operation Hierarchy, ShowAffiliationFrom can be F for Facility or AF for AppFacility, meaning it follows the parent child relationship as it is defined in Facility or in Application)</documentation>
+      <input message="s0:CorporateLevelAndFacilityApplicationListHttpGetIn" />
+      <output message="s0:CorporateLevelAndFacilityApplicationListHttpGetOut" />
+    </operation>
+    <operation name="CFDBApplicationList">
+      <documentation>Web Service to provide list of CFDB Applications</documentation>
+      <input message="s0:CFDBApplicationListHttpGetIn" />
+      <output message="s0:CFDBApplicationListHttpGetOut" />
+    </operation>
+    <operation name="GetHistoryXML">
+      <documentation>Web Service to retrieve the History XML given the ID</documentation>
+      <input message="s0:GetHistoryXMLHttpGetIn" />
+      <output message="s0:GetHistoryXMLHttpGetOut" />
+    </operation>
+    <operation name="GetFacilityAddresses">
+      <documentation>Web Service to retrieve the Facility Addresses</documentation>
+      <input message="s0:GetFacilityAddressesHttpGetIn" />
+      <output message="s0:GetFacilityAddressesHttpGetOut" />
+    </operation>
+    <operation name="GetFacilityPhones">
+      <documentation>Web Service to retrieve the Facility Phones</documentation>
+      <input message="s0:GetFacilityPhonesHttpGetIn" />
+      <output message="s0:GetFacilityPhonesHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="CFDBLookupServiceHttpPost">
+    <operation name="GetFacilityDetails">
+      <documentation>Facility Details WebMethod</documentation>
+      <input message="s0:GetFacilityDetailsHttpPostIn" />
+      <output message="s0:GetFacilityDetailsHttpPostOut" />
+    </operation>
+    <operation name="GetChildFacilities">
+      <documentation>Child Facilities WebMethod</documentation>
+      <input message="s0:GetChildFacilitiesHttpPostIn" />
+      <output message="s0:GetChildFacilitiesHttpPostOut" />
+    </operation>
+    <operation name="AllFacilitiesUnderLevel">
+      <documentation>All facilities belonging to a given hierarchy level and its sublevels.</documentation>
+      <input message="s0:AllFacilitiesUnderLevelHttpPostIn" />
+      <output message="s0:AllFacilitiesUnderLevelHttpPostOut" />
+    </operation>
+    <operation name="GetApplicationFacilityData">
+      <documentation>All Application Facilities filtered by HspCD, AppID, Fac status or TypeCD</documentation>
+      <input message="s0:GetApplicationFacilityDataHttpPostIn" />
+      <output message="s0:GetApplicationFacilityDataHttpPostOut" />
+    </operation>
+    <operation name="FacilitiesForLevelParentsOnly">
+      <documentation>Facilities belonging to a given hierarchy level, only top level facilities included.</documentation>
+      <input message="s0:FacilitiesForLevelParentsOnlyHttpPostIn" />
+      <output message="s0:FacilitiesForLevelParentsOnlyHttpPostOut" />
+    </operation>
+    <operation name="FacilitiesForLevel">
+      <documentation>Facilities belonging to a given hierarchy level.</documentation>
+      <input message="s0:FacilitiesForLevelHttpPostIn" />
+      <output message="s0:FacilitiesForLevelHttpPostOut" />
+    </operation>
+    <operation name="GetFacilityList">
+      <documentation>Facility List for comma separated list of type codes and status codes.</documentation>
+      <input name="GetFacilityListInteractive" message="s0:GetFacilityListInteractiveHttpPostIn" />
+      <output name="GetFacilityListInteractive" message="s0:GetFacilityListInteractiveHttpPostOut" />
+    </operation>
+    <operation name="GetActiveFacilitiesListInteractive">
+      <documentation>List of Active facilities for comma separated list of type codes.</documentation>
+      <input message="s0:GetActiveFacilitiesListInteractiveHttpPostIn" />
+      <output message="s0:GetActiveFacilitiesListInteractiveHttpPostOut" />
+    </operation>
+    <operation name="CorporateLevelList">
+      <documentation>Corporate hierarchy levels for a given hierarchy type. (Leaving OrganizationTypeCD blank returns current Operation Hierarchy.)</documentation>
+      <input message="s0:CorporateLevelListHttpPostIn" />
+      <output message="s0:CorporateLevelListHttpPostOut" />
+    </operation>
+    <operation name="CorporateLevelAndFacilityList">
+      <documentation>Corporate hierarchy levels and facilities for a given hierarchy type. (Leaving OrganizationTypeCD blank returns current Operation Hierarchy.)</documentation>
+      <input message="s0:CorporateLevelAndFacilityListHttpPostIn" />
+      <output message="s0:CorporateLevelAndFacilityListHttpPostOut" />
+    </operation>
+    <operation name="CorporateLevelAndFacilityApplicationList">
+      <documentation>Hierarchy levels and facilities for a given hierarchy type and applicationid or name.(Leaving OrganizationTypeCD blank returns current Operation Hierarchy, ShowAffiliationFrom can be F for Facility or AF for AppFacility, meaning it follows the parent child relationship as it is defined in Facility or in Application)</documentation>
+      <input message="s0:CorporateLevelAndFacilityApplicationListHttpPostIn" />
+      <output message="s0:CorporateLevelAndFacilityApplicationListHttpPostOut" />
+    </operation>
+    <operation name="CFDBApplicationList">
+      <documentation>Web Service to provide list of CFDB Applications</documentation>
+      <input message="s0:CFDBApplicationListHttpPostIn" />
+      <output message="s0:CFDBApplicationListHttpPostOut" />
+    </operation>
+    <operation name="GetHistoryXML">
+      <documentation>Web Service to retrieve the History XML given the ID</documentation>
+      <input message="s0:GetHistoryXMLHttpPostIn" />
+      <output message="s0:GetHistoryXMLHttpPostOut" />
+    </operation>
+    <operation name="GetFacilityAddresses">
+      <documentation>Web Service to retrieve the Facility Addresses</documentation>
+      <input message="s0:GetFacilityAddressesHttpPostIn" />
+      <output message="s0:GetFacilityAddressesHttpPostOut" />
+    </operation>
+    <operation name="GetFacilityPhones">
+      <documentation>Web Service to retrieve the Facility Phones</documentation>
+      <input message="s0:GetFacilityPhonesHttpPostIn" />
+      <output message="s0:GetFacilityPhonesHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="CFDBLookupServiceSoap" type="s0:CFDBLookupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetFacilityDetails">
+      <soap:operation soapAction="http://tempuri.org/GetFacilityDetails" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetChildFacilities">
+      <soap:operation soapAction="http://tempuri.org/GetChildFacilities" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="AllFacilitiesUnderLevel">
+      <soap:operation soapAction="AllFacilitiesUnderLevel" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetApplicationFacilityData">
+      <soap:operation soapAction="GetApplicationFacilityData" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="FacilitiesForLevelParentsOnly">
+      <soap:operation soapAction="FacilitiesForLevelParentsOnly" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="FacilitiesForLevel">
+      <soap:operation soapAction="FacilitiesForLevel" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetFacilityList">
+      <soap:operation soapAction="http://tempuri.org/GetFacilityList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetFacilityList">
+      <soap:operation soapAction="http://tempuri.org/GetFacilityListInteractive" style="document" />
+      <input name="GetFacilityListInteractive">
+        <soap:body use="literal" />
+      </input>
+      <output name="GetFacilityListInteractive">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetActiveFacilitiesListInteractive">
+      <soap:operation soapAction="http://tempuri.org/GetActiveFacilitiesListInteractive" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelList">
+      <soap:operation soapAction="CorporateLevelList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelAndFacilityList">
+      <soap:operation soapAction="CorporateLevelAndFacilityList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelAndFacilityApplicationList">
+      <soap:operation soapAction="CorporateLevelAndFacilityApplicationList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CFDBApplicationList">
+      <soap:operation soapAction="CFDBApplicationList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetHistoryXML">
+      <soap:operation soapAction="GetHistoryXML" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetFacilityAddresses">
+      <soap:operation soapAction="GetFacilityAddresses" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetFacilityPhones">
+      <soap:operation soapAction="GetFacilityPhones" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="CFDBLookupServiceHttpGet" type="s0:CFDBLookupServiceHttpGet">
+    <http:binding verb="GET" />
+    <operation name="GetFacilityDetails">
+      <http:operation location="/GetFacilityDetails" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetChildFacilities">
+      <http:operation location="/GetChildFacilities" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="AllFacilitiesUnderLevel">
+      <http:operation location="/AllFacilitiesUnderLevel" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetApplicationFacilityData">
+      <http:operation location="/GetApplicationFacilityData" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="FacilitiesForLevelParentsOnly">
+      <http:operation location="/FacilitiesForLevelParentsOnly" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="FacilitiesForLevel">
+      <http:operation location="/FacilitiesForLevel" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetFacilityList">
+      <http:operation location="/GetFacilityListInteractive" />
+      <input name="GetFacilityListInteractive">
+        <http:urlEncoded />
+      </input>
+      <output name="GetFacilityListInteractive">
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetActiveFacilitiesListInteractive">
+      <http:operation location="/GetActiveFacilitiesListInteractive" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelList">
+      <http:operation location="/CorporateLevelList" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelAndFacilityList">
+      <http:operation location="/CorporateLevelAndFacilityList" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelAndFacilityApplicationList">
+      <http:operation location="/CorporateLevelAndFacilityApplicationList" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CFDBApplicationList">
+      <http:operation location="/CFDBApplicationList" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetHistoryXML">
+      <http:operation location="/GetHistoryXML" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetFacilityAddresses">
+      <http:operation location="/GetFacilityAddresses" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetFacilityPhones">
+      <http:operation location="/GetFacilityPhones" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="CFDBLookupServiceHttpPost" type="s0:CFDBLookupServiceHttpPost">
+    <http:binding verb="POST" />
+    <operation name="GetFacilityDetails">
+      <http:operation location="/GetFacilityDetails" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetChildFacilities">
+      <http:operation location="/GetChildFacilities" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="AllFacilitiesUnderLevel">
+      <http:operation location="/AllFacilitiesUnderLevel" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetApplicationFacilityData">
+      <http:operation location="/GetApplicationFacilityData" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="FacilitiesForLevelParentsOnly">
+      <http:operation location="/FacilitiesForLevelParentsOnly" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="FacilitiesForLevel">
+      <http:operation location="/FacilitiesForLevel" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetFacilityList">
+      <http:operation location="/GetFacilityListInteractive" />
+      <input name="GetFacilityListInteractive">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output name="GetFacilityListInteractive">
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetActiveFacilitiesListInteractive">
+      <http:operation location="/GetActiveFacilitiesListInteractive" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelList">
+      <http:operation location="/CorporateLevelList" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelAndFacilityList">
+      <http:operation location="/CorporateLevelAndFacilityList" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CorporateLevelAndFacilityApplicationList">
+      <http:operation location="/CorporateLevelAndFacilityApplicationList" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="CFDBApplicationList">
+      <http:operation location="/CFDBApplicationList" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetHistoryXML">
+      <http:operation location="/GetHistoryXML" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetFacilityAddresses">
+      <http:operation location="/GetFacilityAddresses" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+    <operation name="GetFacilityPhones">
+      <http:operation location="/GetFacilityPhones" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:content part="Body" type="text/xml" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CFDBLookupService">
+    <port name="CFDBLookupServiceSoap" binding="s0:CFDBLookupServiceSoap">
+      <soap:address location="http://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx" />
+    </port>
+    <port name="CFDBLookupServiceHttpGet" binding="s0:CFDBLookupServiceHttpGet">
+      <http:address location="http://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx" />
+    </port>
+    <port name="CFDBLookupServiceHttpPost" binding="s0:CFDBLookupServiceHttpPost">
+      <http:address location="http://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx" />
+    </port>
+  </service>
+</definitions>

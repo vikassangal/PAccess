@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Worklist.Worklists.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Worklist.Worklists
+    </comment>
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="1" />
+      <column name="Name" value="Preregistration" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="2" />
+      <column name="Name" value="Postregistration" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="3" />
+      <column name="Name" value="Insurance Verification" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="4" />
+      <column name="Name" value="Patient Liability" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="5" />
+      <column name="Name" value="Pre-MSE" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="6" />
+      <column name="Name" value="No Show" />
+    </insert>
+    <rollback>
+      DELETE FROM Worklist.Worklists WHERE Id BETWEEN 1 and 6;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

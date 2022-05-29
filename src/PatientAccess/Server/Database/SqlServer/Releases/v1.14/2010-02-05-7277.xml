@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2010-02-05-7277.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for February 2010
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RINFO'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RINFO" />
+      <column name="Description" value="NEED ADDTL INFO FROM DR/PT/INS" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="21" />
+      <where>ActivityCode='ADEN1'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CAPAB'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CAPDB'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="NoteType" valueNumeric="10" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CAPIP'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="21" />
+      <where>ActivityCode='CREMC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-NMC LC REQ RVW/APPRVL ALJ" />
+      <where>ActivityCode='MRAAJ'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-REQ INTERNAL LC ALJ RVW" />
+      <where>ActivityCode='MRAC3'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-REQ INTERNAL LC ACR RVW" />
+      <where>ActivityCode='MRAC4'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-REQ INTERNAL UDC RVW" />
+      <where>ActivityCode='MRAC5'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-NMC LC REQ RVW/APPROVAL ACR" />
+      <where>ActivityCode='MRACC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-NMC LC RVW/APPROVAL UDC" />
+      <where>ActivityCode='MRACD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-LC DENIES NEXT LVL APPEAL" />
+      <where>ActivityCode='MRALD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="21" />
+      <where>ActivityCode='RCREV'</where>
+    </update>
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RINFO'</where>
+      </delete>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="21" />
+        <where>ActivityCode='ADEN1'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='CAPAB'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='CAPDB'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="NoteType" valueNumeric="10" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='CAPIP'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="21" />
+        <where>ActivityCode='CREMC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - NMC QS REQ RVW/APPRVL ALJ" />
+        <where>ActivityCode='MRAAJ'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - NMC REQ ALJ RVW MED NEC/CLNCL" />
+        <where>ActivityCode='MRAC3'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - NMC REQ ACR RVW MED NEC/CLNCL" />
+        <where>ActivityCode='MRAC4'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="NMC REQ UDC RVW MED NEC/CLINICAL" />
+        <where>ActivityCode='MRAC5'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - NMC QS REQ RVW/APPROVAL ACR" />
+        <where>ActivityCode='MRACC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - NMC QS REQ RVW/APPROVAL UDC" />
+        <where>ActivityCode='MRACD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - LC PA DENIES ACR" />
+        <where>ActivityCode='MRALD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="21" />
+        <where>ActivityCode='RCREV'</where>
+      </update>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

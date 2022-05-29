@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.24\2012-05-17-21620.xml">
+
+  <changeSet id="79E5AD74-9728-4464-B66F-954BAC6D125A" author="Nereid.Tavares">
+    <comment>Make Birth Time field required for the Pre-MSE</comment>
+
+    <comment>Add the "PatientAccess.Rules.BirthTimeRequired" rule to "PatientAccess.Rules.OnPreMSEDemographicsForm"</comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="RuleId" valueNumeric="473" />
+      <column name="CompositeRuleId" valueNumeric="338" />
+    </insert>
+
+    <comment>Remove the "PatientAccess.Rules.OnPatientDemographicsForm" rule from the Pre-MSE context</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=198 And ContextId=12 </where>
+    </delete>
+    
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId=473 And CompositeRuleId=338 </where>
+      </delete>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="198" />
+        <column name="ContextId" valueNumeric="12" />
+      </insert>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.38\2015_11_23_10596.xml">
+  <changeSet id="3395C45B-3374-4845-8AA2-3FE915DB64FA" author="Leelavathi.Vanniya" context="Local,Dev,Test">
+    <comment>Load Facility.FacilityExtendedSettings for UCCRegistration in facilities. Only DHF is enabled in iTest</comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="UCCRegistrationEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+  </changeSet>
+  <changeSet id="734B5066-06BA-48F0-A773-A5535ED22782" author="leelavathi.vanniya" context="Model">
+    <comment>Load Facility.FacilityExtendedSettings. Only DHF is enabled in Model</comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="UCCRegistrationEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+  </changeSet>
+  <changeSet id="20C19D71-8BD9-438A-9E5D-891C9543DF9D" author="leelavathi.vanniya" context="Prod">
+    <comment>Load Facility.FacilityExtendedSettings. The entries are for production facilities and their corresponding training facilities. (CYF : 369 , CYX : 969 , HNW  : 358 and HNX : 958  )</comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="369" />
+      <column name="Name" value="UCCRegistrationEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="969" />
+      <column name="Name" value="UCCRegistrationEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="358" />
+      <column name="Name" value="UCCRegistrationEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="958" />
+      <column name="Name" value="UCCRegistrationEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+</databaseChangeLog>

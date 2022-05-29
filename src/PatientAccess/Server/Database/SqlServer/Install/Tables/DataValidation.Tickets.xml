@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\DataValidation.Tickets.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create DataValidation.Tickets Table
+    </comment>
+    <createTable schemaName="DataValidation" tableName="Tickets">
+      <column name="Id" type="varchar(36)">
+        <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="PK_Tickets" />
+      </column>
+      <column name="TicketTypeId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_Tickets_TicketTypes" references="DataValidation.TicketTypes(Id)" />
+      </column>
+      <column name="FacilityId" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="ResultsAreAvailable" type="char(1)">
+        <constraints nullable="false" />
+      </column>
+      <column name="InitiatedOnDate" type="datetime">
+        <constraints nullable="false" />
+      </column>
+      <column name="AccountNumber" type="int" />
+      <column name="MedicalRecordNumber" type="int" />
+      <column name="Viewed" type="char(1)" defaultValue="N" />
+      <column name="FusNoteSent" type="char(1)" />
+    </createTable>
+    <createIndex indexName="IX_AccountNumber_MedicalRecordNumber" schemaName="DataValidation" tableName="Tickets">
+      <column name="AccountNumber" />
+      <column name="MedicalRecordNumber" />
+    </createIndex>
+    <createIndex indexName="IX_InitiatedOnDate_AccountNumber" schemaName="DataValidation" tableName="Tickets">
+      <column name="InitiatedOnDate" />
+      <column name="AccountNumber" />
+    </createIndex>
+    <createIndex indexName="IX_TicketTypeId" schemaName="DataValidation" tableName="Tickets">
+      <column name="TicketTypeId" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

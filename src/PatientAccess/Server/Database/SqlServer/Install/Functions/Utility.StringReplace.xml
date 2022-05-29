@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Functions\Utility.StringReplace.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Utility.StringReplace()      
+    </comment>
+    <createProcedure><![CDATA[
+      /*
+        TSQL String Array Workbench
+        16 March 2008
+        by Robyn Page and Phil Factor
+        http://www.simple-talk.com/sql/t-sql-programming/tsql-string-array-workbench/
+      
+        This function returns a string or an array with all occurrences of search
+        in subject replaced with the given replace value. 
+
+        Parameters
+        Utility.StringReplace() takes a value from each array and uses them to do search AND
+        replace on subject . If replace has fewer values than search , then an empty
+        string is used for the rest of replacement values. If search is an array and 
+        replace is a string, then this replacement string is used for every value 
+        of search . 
+
+        Their elements are processed first to last. 
+        This function returns a string with the replaced values. 
+      */
+      CREATE FUNCTION Utility.StringReplace( @Search XML,
+                                             @replace XML,
+                                             @Subject VARCHAR(MAX) )
+      RETURNS VARCHAR(MAX)
+      AS 
+      BEGIN
+      --turn any simple strings into xml fragments with a single element
+          IF CHARINDEX('<stringarray>', CONVERT(VARCHAR(MAX), @Search)) = 0 
+             SELECT   @Search = '<stringarray><element><seqno>1</seqno><item>'
+                    + CONVERT(VARCHAR(MAX), @search)
+                    + '</item></element></stringarray>'
+          IF CHARINDEX('<stringarray>', CONVERT(VARCHAR(MAX), @Replace)) = 0 
+             SELECT   @Replace = '<stringarray><element><seqno>1</seqno><item>'
+                    + CONVERT(VARCHAR(MAX), @Replace)
+                    + '</item></element></stringarray>'
+          DECLARE @substitutions TABLE
+             (
+              [TheOrder] INT,
+              [FROM] VARCHAR(200),
+              [to] VARCHAR(200)
+             )
+          DECLARE @MaxTo VARCHAR(2000)
+      --because we want to allow fewer substitution values than search vaues
+      --as in the PHP version, it is a bit more complex.
+          INSERT   INTO @substitutions
+                   ([TheOrder], [FROM], [to])
+                   SELECT   f.Seqno, [from], [to]
+                   FROM     ( SELECT    x.y.value('item[1]', 'VARCHAR(200)') AS [from],
+                                    x.y.value('seqno[1]', 'INT') AS seqno
+                          FROM      @Search.nodes('//stringarray/element') AS x ( y )
+                        ) f LEFT OUTER JOIN ( SELECT    x.y.value('item[1]',
+                                                              'VARCHAR(200)') AS [to],
+                                                    x.y.value('seqno[1]', 'INT') AS seqno
+                                          FROM      @Replace.nodes('//stringarray/element')
+                                                    AS x ( y )
+                                        ) g
+                            ON f.seqno = g.seqno
+      --first we want to get the last substitution value as a default.
+          SELECT   @Maxto = COALESCE([to], '')
+          FROM     @substitutions
+          WHERE    theOrder = ( SELECT MAX([TheOrder])
+                             FROM   @substitutions
+                             WHERE  [to] IS NOT NULL
+                           )
+      --and we get a nice set-based replacement query as a result
+          SELECT   @Subject = REPLACE(@Subject, [from], COALESCE([to], @Maxto))
+          FROM     @Substitutions
+      --neat, huh?
+          RETURN @Subject
+       END
+    ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Utility.StringReplace TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Utility.StringReplace FROM db_apionly;
+      DROP PROCEDURE Utility.StringReplace;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

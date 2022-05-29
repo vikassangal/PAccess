@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.RuleEngine.CompositeRules.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load RuleEngine.CompositeRules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="13" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.DemographicsRequired" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="45" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.DemographicsPreferred" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="218" />
+      <column name="Description" value="Complete missing address fields" />
+      <column name="Type" value="PatientAccess.Rules.AddressFieldsRequired" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="198" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.OnPatientDemographicsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="199" />
+      <column name="Description" value="Complete missing fields on the Insured form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnInsuredFormForPrimaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="200" />
+      <column name="Description" value="Complete missing fields on the Employment form" />
+      <column name="Type" value="PatientAccess.Rules.OnEmploymentForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="201" />
+      <column name="Description" value="Complete missing fields on the Diagnosis form" />
+      <column name="Type" value="PatientAccess.Rules.OnDiagnosisForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="202" />
+      <column name="Description" value="Complete missing fields on the Clinical form" />
+      <column name="Type" value="PatientAccess.Rules.OnClinicalForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="203" />
+      <column name="Description" value="Complete missing fields on the Insurance form" />
+      <column name="Type" value="PatientAccess.Rules.OnInsuranceForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="204" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnPayorDetailsFormForPrimaryPayor" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="205" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnPayorDetailsFormForSecondaryPayor" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="207" />
+      <column name="Description" value="Complete missing fields on the Insured form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnInsuredFormForSecondaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="208" />
+      <column name="Description" value="Complete missing fields on the Guarantor form" />
+      <column name="Type" value="PatientAccess.Rules.OnGuarantorForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="209" />
+      <column name="Description" value="Complete missing fields on the Billing form" />
+      <column name="Type" value="PatientAccess.Rules.OnBillingForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="210" />
+      <column name="Description" value="Complete missing fields on the Contacts form" />
+      <column name="Type" value="PatientAccess.Rules.OnContactsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="211" />
+      <column name="Description" value="Complete missing fields on the Regulatory form" />
+      <column name="Type" value="PatientAccess.Rules.OnRegulatoryForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="212" />
+      <column name="Description" value="Complete missing fields on the Contact &amp; Diagnosis form" />
+      <column name="Type" value="PatientAccess.Rules.OnContactAndDiagnosisForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="213" />
+      <column name="Description" value="Complete missing fields on the Transfer To form" />
+      <column name="Type" value="PatientAccess.Rules.OnTransferToForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="214" />
+      <column name="Description" value="Complete missing fields on the Physicians form" />
+      <column name="Type" value="PatientAccess.Rules.OnPhysiciansForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="232" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnDemographics" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="233" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnPayorDetailsFormForPrimaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="234" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnPayorDetailsFormForSecondaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="235" />
+      <column name="Description" value="Complete missing fields on the Insured form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnInsuredFormForPrimaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="236" />
+      <column name="Description" value="Complete missing fields on the Insured form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnInsuredFormForSecondaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="338" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.OnPreMSEDemographicsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="429" />
+      <column name="Description" value="Complete missing fields on the AuthorizationForm For Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnAuthorizationFormForPrimaryCoverage" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="430" />
+      <column name="Description" value="Complete missing fields on the AuthorizationForm For Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnAuthorizationFormForSecondaryCoverage" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="435" />
+      <column name="Description" value="Location Fields Required" />
+      <column name="Type" value="PatientAccess.Rules.LocationFieldsRequired" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="441" />
+      <column name="Description" value="Complete missing fields on the Verification form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnVerificationFormForPrimaryCoverage" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="442" />
+      <column name="Description" value="Complete missing fields on the Verification form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnVerificationFormForSecondaryCoverage" />
+    </insert>
+    <rollback>
+      delete from RuleEngine.CompositeRules where Id in (13,45,218,198,199,200,201,202,203,204,205,207,208,209,210,211,212,213,214,232,233,234,235,236,338,429,430,435,441,442);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Security.SelectAllRoles.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create Security.SelectAllRoles
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Security.SelectAllRoles
+      AS    
+      BEGIN
+
+      SELECT 
+        Id AS Oid, 
+        Name AS Code, 
+        Description
+      FROM 
+        Security.Roles
+      ORDER BY 
+        COALESCE( Description,' ')
+     
+     END;
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Security.SelectAllRoles TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Security.SelectAllRoles FROM db_apionly;
+      DROP PROCEDURE Security.SelectAllRoles;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

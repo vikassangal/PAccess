@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-11-16194.xml">
+
+  <changeSet id="BBD0885D-182F-4BC2-AF4F-991FCA4607E7" author="Ahmed.Chaudhary" context="Prod">
+
+    <preConditions onFail="MARK_RAN">
+      <sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'FaceSheetSsnShouldBeMasked' and FacilityId in (649)</sqlCheck>
+    </preConditions>
+    
+    <comment>
+      Enable SSN masking in Facesheets for the facility BAYLOR MEDICAL CENTER CARROLLTON (DBC, 649) in Production
+    </comment> 
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="649" />
+      <column name="Name" value="FaceSheetSsnShouldBeMasked" />
+      <column name="Value" value="True" />
+    </insert>    
+
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'FaceSheetSsnShouldBeMasked' and FacilityId in ( 649 ) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+
+  <changeSet id="A9439D2A-58B8-48C2-989D-576BCD0164D6" author="Ahmed.Chaudhary" context="Prod">
+
+    <preConditions onFail="MARK_RAN">
+      <sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'FaceSheetSsnShouldBeMasked' and FacilityId in (907)</sqlCheck>
+    </preConditions>
+    
+    <comment>
+      Enable SSN masking in Facesheets for the training facility BAYLOR MED CENTER TEST HOSPITAL (TRX, 907) in Production
+    </comment>    
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="907" />
+      <column name="Name" value="FaceSheetSsnShouldBeMasked" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'FaceSheetSsnShouldBeMasked' and FacilityId in ( 907 ) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+
+
+  <changeSet id="A7758606-91C8-4A6F-9B16-218D273CDBF1" author="Ahmed.Chaudhary" context="Local,Dev,Test,Model">    
+
+    <preConditions onFail="MARK_RAN">
+      <sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'FaceSheetSsnShouldBeMasked' and FacilityId in (54)</sqlCheck>
+    </preConditions>
+
+    <comment>
+      Enable SSN masking in Facesheets for the facility DHF (54) in the development, test and model office enviroments
+    </comment>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="FaceSheetSsnShouldBeMasked" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'FaceSheetSsnShouldBeMasked' and FacilityId in (54) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>

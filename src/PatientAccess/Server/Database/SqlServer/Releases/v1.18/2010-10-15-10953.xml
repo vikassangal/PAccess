@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2010-10-15-10953.xml">
+  
+  <changeSet id="79E4F559-9771-49FC-91FD-15320560E096" author="Smitha.Krishnamurthy">
+    <comment>
+      Add AreaCodeRequiresPhoneNumber rule to OnPreMSeDemographics Composite rule
+      Fix for defect 10953 - Able to  register a Pre Mse account with area code and with out phone number
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="338" />
+      <column name="RuleId" valueNumeric="440" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=338 and RuleId = 440</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2009-12-11-6232.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for December 2009
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCRPL'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCRPS'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPREX'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RTFOF'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCRPL" />
+      <column name="Description" value="RIGHT CARE RIGHT PLACE LEFT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="7" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCRPS" />
+      <column name="Description" value="RIGHT CARE RIGHT PLACE STAYED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="7" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPREX" />
+      <column name="Description" value="PRE-EXISTING COND EXISTS" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RTFOF" />
+      <column name="Description" value="TRANSFER FROM OTH FACILITY" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCRPL'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCRPS'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPREX'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RTFOF'</where>
+      </delete>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

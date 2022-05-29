@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.48\2019_01_29_38705.xml">
+  
+  <changeSet id="5636D99B-4E6D-4F78-A409-626DECC88BE6" author="RangaRajaRajesh.Rajasekaran" context="Model">
+    <comment>
+      Load Facility.FacilityExtendedSettings.  FLX((945)  to enable in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="945" />
+      <column name="Name" value="IsPatientPortalOptInEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

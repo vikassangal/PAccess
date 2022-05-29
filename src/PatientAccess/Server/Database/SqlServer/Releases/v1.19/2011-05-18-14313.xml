@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.19\2011-05-18-14313.xml">
+
+  <changeSet id="B6962292-72F2-48ED-86C0-6F53413271EC" author="Smitha.Krishnamurthy">
+
+    <comment>
+      Add BillingAddressPreferred(186) , WorkersCompPolicyNumberPreferred(188) , 
+      InsurancePlanSSNPreferred(194) , MedicareHICNumberPreferred (215)  for
+      OnPayorDetailsFormForSecondaryPayor(205) composite rule
+      Delete WorkersCompEmpSupervisorPreferred(190) from Prereg(8) and Short Prereg context(20)
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 205 and RuleId in ( 186, 188, 194, 215 ) </where>
+    </delete>
+
+    
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="205" />
+      <column name="RuleId" valueNumeric="186" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="205" />
+      <column name="RuleId" valueNumeric="188" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="205" />
+      <column name="RuleId" valueNumeric="194" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="205" />
+      <column name="RuleId" valueNumeric="215" />
+    </insert>
+
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 190</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 190</where>
+    </delete>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 205 and RuleId in ( 186, 188, 194, 215 ) </where>
+      </delete>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="20" />
+        <column name="RuleId" valueNumeric="190" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="190" />
+      </insert>
+      
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

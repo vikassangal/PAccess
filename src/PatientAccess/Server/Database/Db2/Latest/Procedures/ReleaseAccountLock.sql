@@ -1,0 +1,26 @@
+--  Generate SQL 
+--  Version:                   	V5R3M0 040528 
+--  Generated on:              	02/27/07 07:44:35 
+--  Relational Database:       	DVLG 
+--  Standards Option:          	DB2 UDB iSeries   
+
+SET PATH *LIBL ; 
+
+CREATE PROCEDURE PACCESS/RELEASEACCOUNTLOCK ( 
+	IN P_FACILITY_ID INTEGER , 
+	IN P_ACCOUNT_NUMBER VARCHAR(9) ) 
+	DYNAMIC RESULT SETS 1 
+	LANGUAGE SQL 
+	SPECIFIC PACCESS/RELACCLOCK 
+	NOT DETERMINISTIC 
+	MODIFIES SQL DATA 
+	CALLED ON NULL INPUT 
+
+	P1 : BEGIN 
+					 		 
+		DELETE 
+		FROM	NQHRLFP 
+		WHERE	LFHSP#	= P_FACILITY_ID 
+		AND	LFKEY	= P_ACCOUNT_NUMBER ; 		 
+
+		END P1  ; 

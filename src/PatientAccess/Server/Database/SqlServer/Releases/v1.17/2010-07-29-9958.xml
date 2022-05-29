@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.17\2010-07-29-9958.xml">
+
+  <changeSet id="01662246-A063-473B-95B1-47F948548E0D" author="Deepa.Raju">
+    <comment>
+      Add new WorklistID (7) for Online PreRegistration; 
+      Map Worklist to SelectionRanges;
+      Add Worklist Settings for the new WorklistID.
+    </comment>
+
+    <delete schemaName="Worklist" tableName="Settings">
+      <where> WorklistId = 7 and UserId in (9999999, 1, 2, 3, 4, 5, 6) </where>
+    </delete>
+
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 1 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 2 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 3 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 4 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 8 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <where> WorklistId = 7 and SelectionRangeId = 9 </where>
+    </delete>
+    
+    <delete schemaName="Worklist" tableName="Worklists">
+      <where> Id = 7 </where>
+    </delete>
+
+    
+    <insert schemaName="Worklist" tableName="Worklists">
+      <column name="Id" valueNumeric="7" />
+      <column name="Name" value="Online Preregistration" />
+    </insert>
+
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="3" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="4" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="UserId" value="5" />
+      <column name="StartDate" value="04/03/2006 02:53:10 PM" />
+      <column name="EndDate" value="04/03/2006 02:53:10 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="F" />
+      <column name="EndLetters" value="M" />
+      <column name="SelectionRangeId" value="9" />
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="UserId" value="1" />
+      <column name="StartDate" value="04/26/2006 02:06:39 PM" />
+      <column name="EndDate" value="04/26/2006 02:06:39 PM" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="B" />
+      <column name="SelectionRangeId" value="1" />
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="UserId" value="3" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="3" />
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="3" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+
+
+  <rollback>
+      <delete schemaName="Worklist" tableName="Settings">
+        <where> WorklistId = 7 and UserId in (9999999, 1, 2, 3, 4, 5, 6) </where>
+      </delete>
+    
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 1 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 2 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 3 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 4 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 8 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+        <where> WorklistId = 7 and SelectionRangeId = 9 </where>
+      </delete>
+    
+      <delete schemaName="Worklist" tableName="Worklists">
+        <where> Id = 7 </where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

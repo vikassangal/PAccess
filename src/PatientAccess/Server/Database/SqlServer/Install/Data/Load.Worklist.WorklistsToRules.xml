@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Worklist.WorklistsToRules.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Worklist.WorklistsToRules
+    </comment>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="RuleId" valueNumeric="17" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="RuleId" valueNumeric="18" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="RuleId" valueNumeric="19" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="RuleId" valueNumeric="20" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="RuleId" valueNumeric="21" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="RuleId" valueNumeric="417" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="26" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="27" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="28" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="246" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="247" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="248" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="249" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="RuleId" valueNumeric="30" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="RuleId" valueNumeric="31" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="RuleId" valueNumeric="32" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="RuleId" valueNumeric="326" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="RuleId" valueNumeric="409" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="RuleId" valueNumeric="23" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="RuleId" valueNumeric="24" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="423" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="424" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="425" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="426" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="427" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToRules">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="RuleId" valueNumeric="428" />
+    </insert>
+    <rollback>
+      delete from Worklist.WorklistsToRules where WorklistId=2 and RuleId=17;
+      delete from Worklist.WorklistsToRules where WorklistId=2 and RuleId=18;
+      delete from Worklist.WorklistsToRules where WorklistId=2 and RuleId=19;
+      delete from Worklist.WorklistsToRules where WorklistId=2 and RuleId=20;
+      delete from Worklist.WorklistsToRules where WorklistId=2 and RuleId=21;
+      delete from Worklist.WorklistsToRules where WorklistId=2 and RuleId=417;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=26;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=27;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=28;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=246;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=247;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=248;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=249;
+      delete from Worklist.WorklistsToRules where WorklistId=4 and RuleId=30;
+      delete from Worklist.WorklistsToRules where WorklistId=4 and RuleId=31;
+      delete from Worklist.WorklistsToRules where WorklistId=4 and RuleId=32;
+      delete from Worklist.WorklistsToRules where WorklistId=4 and RuleId=326;
+      delete from Worklist.WorklistsToRules where WorklistId=4 and RuleId=409;
+      delete from Worklist.WorklistsToRules where WorklistId=5 and RuleId=23;
+      delete from Worklist.WorklistsToRules where WorklistId=6 and RuleId=24;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=423;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=424;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=425;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=426;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=427;
+      delete from Worklist.WorklistsToRules where WorklistId=3 and RuleId=428;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

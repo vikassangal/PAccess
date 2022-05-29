@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-02-22-13685.xml">
+  
+  <changeSet id="0062833C-6000-45C2-A004-8C2264598CC3" author="Smitha.Krishnamurthy">
+                <comment>
+                  Defect 13685  - SR1190 – 'Admit Time' is not shown as a required field while creating a short prereg patient
+                </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 59</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 59</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 and RuleId = 59</where>
+    </delete>
+
+
+        <insert schemaName="RuleEngine" tableName="ContextsToRules">
+          <column name="ContextId" valueNumeric="21" />
+          <column name="RuleId" valueNumeric="59" />
+        </insert>
+        <insert schemaName="RuleEngine" tableName="ContextsToRules">
+          <column name="ContextId" valueNumeric="20" />
+          <column name="RuleId" valueNumeric="59" />
+        </insert>
+               
+        <comment>
+          Add AdmitTime rules to OnShortDemographicsForm (482) composite rule
+        </comment>
+        <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+          <column name="CompositeRuleId" valueNumeric="482" />
+          <column name="RuleId" valueNumeric="59" />
+        </insert>       
+    
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 20 and RuleId = 59</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 21 and RuleId = 59</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 482 and RuleId = 59</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

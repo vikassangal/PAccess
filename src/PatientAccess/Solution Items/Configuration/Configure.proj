@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Main" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+  <PropertyGroup>
+    <SolutionRoot>$(MSBuildProjectDirectory)\..\..</SolutionRoot>
+    <ToolsDirectory>$(SolutionRoot)\..\..\tools</ToolsDirectory>
+    <TasksDirectory>$(ToolsDirectory)\tasks</TasksDirectory>
+  </PropertyGroup>
+    
+  <Import Project="$(TasksDirectory)\MSBuild.ExtensionPack.tasks"/>
+
+  <!-- Which configurations do we want to generate? -->
+  <ItemGroup>
+    <GenerationOption Include="1">
+      <Name>All</Name>
+      <DisplayName>All Configurations</DisplayName>
+    </GenerationOption>
+    <GenerationOption Include="2">
+      <Name>Client</Name>
+      <DisplayName>Only User Client Configurations</DisplayName>
+    </GenerationOption>
+    <GenerationOption Include="3">
+      <Name>Server</Name>
+      <DisplayName>Only Server Configurations</DisplayName>
+    </GenerationOption>
+    <GenerationOption Include="4">
+      <Name>Tests</Name>
+      <DisplayName>Only Test Configurations</DisplayName>
+    </GenerationOption>    
+  </ItemGroup>
+
+  <!-- 
+  This is the list of branch names in the Patient Access repository
+  -->
+  <ItemGroup>
+    <Branches Include="1">
+      <Name>Trunk</Name>
+      <DisplayName>Trunk</DisplayName>
+    </Branches>
+    <Branches Include="2">
+      <Name>Support</Name>
+      <DisplayName>Support</DisplayName>
+    </Branches>
+  </ItemGroup>
+
+  <!--
+  This is the list of environments to which the application can be deployed
+  -->
+  <ItemGroup>
+    <Environments Include="1">
+      <Name>Local</Name>
+      <DisplayName>Local</DisplayName>
+    </Environments>
+    <Environments Include="2">
+      <Name>Dev</Name>
+      <DisplayName>Development</DisplayName>
+    </Environments>
+    <Environments Include="3">
+      <Name>Test</Name>
+      <DisplayName>Test</DisplayName>
+    </Environments>
+    <Environments Include="4">
+      <Name>Model</Name>
+      <DisplayName>Model</DisplayName>
+    </Environments>
+    <Environments Include="5">
+      <Name>Beta</Name>
+      <DisplayName>Beta</DisplayName>
+    </Environments>
+    <Environments Include="6">
+      <Name>Prod</Name>
+      <DisplayName>Production</DisplayName>
+    </Environments>
+  </ItemGroup>
+  
+  <Target Name="Main">
+
+    <Message Text="Generating Solution-Level Configurations:" />
+    
+    <!-- Prompt for a configuration scope -->
+    <Message Text="    [@(GenerationOption)] %(GenerationOption.DisplayName)" Condition="$(GenerationOption)==''"/>
+    <MSBuild.ExtensionPack.UI.Console TaskAction="ReadLine" UserPrompt="Which configurations files do you want to generate?:" Condition="$(GenerationOption)==''">
+      <Output TaskParameter="UserResponse" PropertyName="GenerationOptionNumber"/>
+    </MSBuild.ExtensionPack.UI.Console>
+    <Microsoft.Build.Tasks.FindInList List="@(GenerationOption)" ItemSpecToFind="$(GenerationOptionNumber)" Condition="$(GenerationOption)==''">
+      <Output TaskParameter="ItemFound" ItemName="SelectedGenerationOption" />
+    </Microsoft.Build.Tasks.FindInList>
+    <CreateProperty Value="%(SelectedGenerationOption.Name)" Condition="$(GenerationOption)==''">
+      <Output TaskParameter="Value" PropertyName="GenerationOption" />
+    </CreateProperty>
+
+    <!-- Prompt for a branch -->
+    <Message Text="    [@(Branches)] %(Branches.DisplayName)" Condition="$(Branch)==''"/>
+    <MSBuild.ExtensionPack.UI.Console TaskAction="ReadLine" UserPrompt="Please choose a source branch number:" Condition="$(Branch)==''">
+      <Output TaskParameter="UserResponse" PropertyName="BranchNumber"/>
+    </MSBuild.ExtensionPack.UI.Console>
+    <Microsoft.Build.Tasks.FindInList List="@(Branches)" ItemSpecToFind="$(BranchNumber)" Condition="$(Branch)==''">
+      <Output TaskParameter="ItemFound" ItemName="SelectedBranch" />
+    </Microsoft.Build.Tasks.FindInList>
+    <CreateProperty Value="%(SelectedBranch.Name)" Condition="$(Branch)==''">
+      <Output TaskParameter="Value" PropertyName="Branch" />
+    </CreateProperty>
+
+    <!-- Prompt for an environment -->
+    <Message Text="    [@(Environments)] %(Environments.DisplayName)" Condition="$(Environment)==''"/>
+    <MSBuild.ExtensionPack.UI.Console TaskAction="ReadLine" UserPrompt="Please choose an environment number:" Condition="$(Environment)==''">
+      <Output TaskParameter="UserResponse" PropertyName="EnvironmentNumber"/>
+    </MSBuild.ExtensionPack.UI.Console>
+    <Microsoft.Build.Tasks.FindInList List="@(Environments)" ItemSpecToFind="$(EnvironmentNumber)" Condition="$(Environment)==''">
+      <Output TaskParameter="ItemFound" ItemName="SelectedEnvironment" />
+    </Microsoft.Build.Tasks.FindInList>
+    <CreateProperty Value="%(SelectedEnvironment.Name)" Condition="$(Environment)==''">
+      <Output TaskParameter="Value" PropertyName="Environment" />
+    </CreateProperty>
+
+    <MSBuild Projects="$(SolutionRoot)\Server\AppServer\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Server\AppServer\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Server')"  />
+
+    <MSBuild Projects="$(SolutionRoot)\Server\WorklistProcessor\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Server\WorklistProcessor\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Server')"  />
+
+    <MSBuild Projects="$(SolutionRoot)\Client\AppStart\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Client\AppStart\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Client')"  />
+    
+    <MSBuild Projects="$(SolutionRoot)\Client\WinForms\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Client\WinForms\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Client')"  />
+
+    <MSBuild Projects="$(SolutionRoot)\Client\ClientInstaller\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Client\ClientInstaller\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Client')"  />
+             
+    <MSBuild Projects="$(SolutionRoot)\Tests\PatientAccessClientTests\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Tests\PatientAccessClientTests\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Tests')"  />
+
+    <MSBuild Projects="$(SolutionRoot)\Tests\PatientAccessServerTests\Configuration\Generate.proj"
+             Properties="Branch=$(Branch);Environment=$(Environment)"
+             Condition="Exists('$(SolutionRoot)\Tests\PatientAccessServerTests\Configuration\Generate.proj') And ($(GenerationOption)=='All' Or $(GenerationOption)=='Tests')"  />
+
+  </Target>
+  
+</Project>

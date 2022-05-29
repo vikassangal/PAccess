@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\RuleEngine.SelectActionWorklistMappings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.SelectActionsWorklistMappings
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE RuleEngine.SelectActionsWorklistMappings
+      AS
+      BEGIN
+
+        SELECT 
+          Actions.Id AS ActionId, 
+          Worklists.Id AS WorklistId, 
+          Worklists.Name AS WorklistName
+        FROM 
+          RuleEngine.Actions
+        LEFT OUTER JOIN 
+          RuleEngine.RulesToActions ON RulesToActions.ActionId = Actions.Id
+        LEFT OUTER JOIN 
+          Worklist.WorklistsToRules ON RulesToActions.RuleId = WorklistsToRules.RuleId 
+        LEFT OUTER JOIN 
+          Worklist.Worklists ON WorklistsToRules.WorklistId = Worklists.Id
+        ORDER BY 
+          RulesToActions.ActionId
+        
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.SelectActionsWorklistMappings TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.SelectActionsWorklistMappings FROM db_apionly;
+      DROP PROCEDURE RuleEngine.SelectActionsWorklistMappings;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

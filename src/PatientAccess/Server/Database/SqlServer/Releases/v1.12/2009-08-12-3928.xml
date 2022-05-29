@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-08-12-3928.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for August 2009
+    </comment>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RFPMI" />
+      <column name="Description" value="FAC PROVIDED MISSING INFORMATION" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RFPMI'</where>
+      </delete>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

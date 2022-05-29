@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<!--link rel="stylesheet" href="../styles/style1.css" type="text/css" /-->
+		<style type="text/css"> <!-- body { color:#000000; background-color:#ffffff; text-align:center; margin:10px; }
+	.TopPanel { background-color:#666666; width:612px; height:35px; margin-bottom:3px; }
+	.TopPanel .CompanyName { font:normal bold 12px Helvetica, Arial, sans-serif; color:#ffffff; padding-left:5px; padding-right:20px;  text-align:left; }
+	.TopPanel .CompanyAddress { font:normal normal 9px Tahoma; color:#ffffff; padding-right:20px; }
+	.TopPanel .FiledBy { font:normal normal 9px Tahoma; color:#ffffff; padding-right:20px; padding-left:5px; }
+	.TopPanel .BottomLeftText { font:normal normal 10px Tahoma; color:#ffffff; text-align:right; }
+	.TopPanel .BottomRightText { font:normal bold 10px Tahoma; color:#ffffff; text-align:right; padding-right:5px; }
+	.MiddlePanel_Heading { background-color:#666666; font:normal bold 10px Tahoma; color:#ffffff; height:12px; padding-left:5px; text-align:left; }
+	.MiddlePanel_SubHeading { background-color:#ffffff; font:normal bold 10px Tahoma; color:#000000; padding-left:249px; text-align:left; height:20px; }
+	.PatientName{ background-color:#666666; font:normal bold 9px Tahoma; color:#ffffff; padding-left:30px; text-align:left; }
+	.MiddlePanel_Spacing { background-color:#ffffff; height:8px; font-size:4px; }
+	.MiddlePanel_Content { background-color:#ffffff; color:#ffffff; padding:4px 0px 4px 3px; }
+	.MiddlePanel_Content1 { background-color:#ebebeb; color:#ffffff; padding:4px 0px 4px 3px; }
+	.TabularForm1 { table-layout:fixed; }
+	.TabularForm1 th { font:normal bold 10px Tahoma; color:#000000; text-align:left; /* padding-left:5px; */ padding:1px 0px 0px 0px; text-align:left; }
+	.TabularForm1 td { font:normal normal 10px Tahoma; color:#000000; padding: 1px 5px 0px 5px; text-align:left; }
+	--></style>
+	</head>
+	<body>
+		<table border="0" cellspacing="0" cellpadding="0" class="TopPanel" width="612" align="center"
+			ID="Table1">
+			<tr>
+				<td align="left"><span class="CompanyName" id="lblFacilityName"></span><span class="CompanyAddress" id="lblFacilityAddress"></span>
+				</td>
+			</tr>
+			<tr>
+				<td align="left"><span class="FiledBy">Filed by: <span id="lblCurrentDateTime"></span></span><span class="BottomRightText"><span id="lblSystemMessage"></span>
+					</span></td>
+			</tr>
+		</table>
+		<table width="612" border="0" cellspacing="0" cellpadding="0" align="center" ID="Table2">
+			<tr>
+				<td class="MiddlePanel_Heading">DEMOGRAPHICS</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table3">
+						<tr>
+							<th width="85">
+								Patient Name:</th>
+							<td width="214"><b><span id="lblPatientName"></span></b></td>
+							<th width="103">
+								Marital status:</th>
+							<td><span id="lblPatientMaritalStatus"></span></td>
+						</tr>
+						<tr>
+							<th width="85">
+								Admit date:</th>
+							<td width="214"><span id="lblAdmitDate"></span></td>
+							<th width="103">
+								Race:</th>
+							<td><span id="lblPatientRace"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Account:</th>
+							<td><span id="lblAccount"></span></td>
+							<th>
+								Language:</th>
+							<td><span id="lblPatientLanguage"></span></td>
+						</tr>
+						<tr>
+							<th>
+								MRN:</th>
+							<td><span id="lblMRN"></span></td>
+						</tr>
+						<tr>
+							<th>
+								SSN:</th>
+							<td><span id="lblPatientSSN"></span></td>
+						</tr>
+						<tr>
+							<th>
+								DOB:</th>
+							<td><span id="lblPatientDOB"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Age:</th>
+							<td><span id="lblPatientAge"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Gender:</th>
+							<td><span id="lblPatientGender"></span></td>
+							<th>
+								NPP Version:</th>
+							<td><span id="lblNPP"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Mailing address:</th>
+							<td><span id="lblPatientMailingAddress"></span></td>
+						</tr>
+						<tr>
+							<th>
+					            City/ State/ Zip:</th>
+					        <td><span id="lblPatientMailingCityStreetZip"></span></td>
+					    </tr>
+					    <tr>
+					        <th>
+					            Phone:</th>
+					        <td><span id="lblPatintMailingPhone"></span></td>
+					    </tr>
+                        <tr>
+                            <th>
+                                Cell:
+                            </th>
+                            <td><span id="lblPatientsCellPhone"></span></td>
+                            <th>
+                                Email address:
+                            </th>
+                            <td><span id="lblPatientsEmail"></span></td>
+                        </tr>
+
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Heading">DIAGNOSIS / CLINICAL</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content1">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table4">
+						<tr>
+							<th width="105">
+								Patient type:</th>
+							<td width="194"><span id="lblVisitType"></span></td>
+							<th width="103">
+								Clinic 1:</th>
+							<td><span id="lblClinic1"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Hospital service:</th>
+							<td><span id="lblHospitalService"></span></td>
+							<th>
+								Clinic 2:</th>
+							<td><span id="lblClinic2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Admit source:</th>
+							<td><span id="lblAdmitSource"></span></td>
+							<th>
+								Clinic 3:</th>
+							<td><span id="lblClinic3"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Chief complaint:</th>
+							<td><span id="lblChiefComplaint"></span></td>
+							<th>
+								Clinic 4:</th>
+							<td><span id="lblClinic4"></span></td>
+						</tr>
+						<tr>
+							<th>
+								&nbsp;</th>
+							<td>&nbsp;</td>
+							<th>
+								Clinic 5:</th>
+							<td><span id="lblClinic5"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Comments:</th>
+							<td colspan="3"><span id="lblComments"></span></td>
+						</tr>
+						<tr>
+							<th>
+								&nbsp;</th>
+							<td colspan="3"><span id="lblComments2"></span></td>
+						</tr>
+					<tr>
+                        	 <th width="105">
+                              	  Prior Visit:
+                              </th>
+                                	<td width="194"><span id="lblPriorVisit"></span></td>
+                              <th>
+                                	Prior Hospital:
+                              </th>
+                           		 <td><span id="lblPriorHospital"></span></td>
+                             </tr>
+                             <tr>
+                        	      <th>
+                        		        From/To Date:
+                         	   </th>
+                        		    <td><span id="lblPriorVisitFromTo"></span></td>
+                           </tr>
+
+                    </table>
+				</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table5">
+			            <tr>
+				            <td colspan="4"> </td>
+			            </tr>
+						<tr>
+							<th width="105">
+								Referring physician:</th>
+							<td width="194"><span id="lblReferringPhysisian"></span></td>
+							<th width="103">
+								Phone:</th>
+							<td><span id="lblReferringPhysicianPhone"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Admitting physician:</th>
+							<td><span id="lblAdmittingPhysician"></span></td>
+							<th>
+								Phone:</th>
+							<td><span id="lblAdmittingPhysicianPhone"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Attending physician:</th>
+							<td><span id="lblAttendingPhysician"></span></td>
+							<th>
+								Phone:</th>
+							<td><span id="lblAttendingPhysicianPhone"></span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Heading">INSURANCE</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content1">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table6">
+						<tr>
+							<th width="105">
+								Financial class:</th>
+							<td width="194"><span id="lblFinacialClass"></span></td>
+							<th width="103">
+								IPA:</th>
+							<td><span id="lblIPA"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Payor priority:</th>
+							<td><span id="lblPayorPriority"></span></td>
+							<th>
+								Payor priority:</th>
+							<td><span id="lblPayorPriority2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Plan ID:</th>
+							<td><span id="lblPlanId"></span></td>
+							<th>
+								Plan ID:</th>
+							<td><span id="lblPlanId2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Payor name:</th>
+							<td><span id="lblPayorName"></span></td>
+							<th>
+								Payor name:</th>
+							<td><span id="lblPayorName2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Plan name:</th>
+							<td><span id="lblPlanName"></span></td>
+							<th>
+								Plan name:</th>
+							<td><span id="lblPlanName2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Insured:</th>
+							<td><span id="lblInsured"></span></td>
+							<th>
+								Insured:</th>
+							<td><span id="lblInsured2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Patient is insured's:</th>
+							<td><span id="lblInsuredRelationship"></span></td>
+							<th>
+								Patient is insured's:
+							</th>
+							<td><span id="lblInsuredRelationship2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Gender</th>
+							<td><span id="lblGender"></span></td>
+							<th>
+								Gender:</th>
+							<td><span id="lblGender2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								<span id="lblInslbl">Cert/SSN/ID</span>:</th>
+							<td><span id="lblInsvalue"></span></td>
+							<th>
+								<span id="lblInslbl2">Cert/SSN/ID</span>:</th>
+							<td><span id="lblInsvalue2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Group number:</th>
+							<td><span id="lblGroupNumber"></span></td>
+							<th>
+								Group number:</th>
+							<td><span id="lblGroupNumber2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Tracking:</th>
+							<td><span id="lblTracking"></span></td>
+							<th>
+								Tracking:</th>
+							<td><span id="lblTracking2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Authorization:</th>
+							<td><span id="lblAuthorization"></span></td>
+							<th>
+								Authorization:</th>
+							<td><span id="lblAuthorization2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Billing c/o name:</th>
+							<td><span id="lblBillingCOName"></span></td>
+							<th>
+								Billing c/o name:</th>
+							<td><span id="lblBillingCOName2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Billing name:</th>
+							<td><span id="lblBillingName"></span></td>
+							<th>
+								Billing name:</th>
+							<td><span id="lblBillingName2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Address:</th>
+							<td><span id="lblBillingAddress"></span></td>
+							<th>
+								Address:</th>
+							<td><span id="lblBillingAddress2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								City/State/Zip:</th>
+							<td><span id="lblBillingCityStateZip"></span></td>
+							<th>
+								City/State/Zip:</th>
+							<td><span id="lblBillingCityStateZip2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Phone:</th>
+							<td><span id="lblBillingPhone"></span></td>
+							<th>
+								Phone:</th>
+							<td><span id="lblBillingPhone2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Employer:</th>
+							<td><span id="lblInsuredEmployer"></span></td>
+							<th>
+								Employer:</th>
+							<td><span id="lblInsuredEmployer2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Address:</th>
+							<td><span id="lblInsuredAddress"></span></td>
+							<th>
+								Address:</th>
+							<td><span id="lblInsuredAddress2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								City/State/Zip:</th>
+							<td><span id="lblInsuredCityStateZip"></span></td>
+							<th>
+								City/State/Zip:</th>
+							<td><span id="lblInsuredCityStateZip2"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Phone:</th>
+							<td><span id="lblInsuredPhone"></span></td>
+							<th>
+								Phone:</th>
+							<td><span id="lblInsuredPhone2"></span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Heading">GUARANTOR</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table7">
+						<tr>
+							<th width="115">
+								Guarantor:</th>
+							<td width="184"><span id="lblGuarantor"></span></td>
+							<th width="103">
+								Address:</th>
+							<td><span id="lblGuarantorAddress"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Patient is guarantor's:</th>
+							<td><span id="lblPatientIsGuaranor"></span></td>
+							<th width="103">
+								City/State/Zip:</th>
+							<td><span id="lblGuarantorCityStreetZip"></span></td>
+						</tr>
+					    <tr>
+					        <th>
+					            SSN:</th>
+					        <td><span id="lblGuarantorSSN"></span></td>
+					        <th>
+					            Phone:</th>
+					        <td><span id="lblGuarantorPhone"></span></td>
+					    </tr>
+                        	<tr>
+							<th>
+								Cell:</th>
+							<td><span id="lblCell"></span></td>
+							<th>
+								Cell Phone Consent:</th>
+							<td><span id="lblCellConsent"></span></td>
+						</tr>
+						</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Heading">CONTACTS</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content1">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table9">
+						<tr>
+							<th width="105">
+								Emerg contact:</th>
+							<td width="194"><span id="lblContact1"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Contact is patient's:</th>
+							<td><span id="lblRelation1"></span></td>
+						</tr>
+						<tr>
+							<th>
+								Phone:</th>
+							<td><span id="lblContact1Phone"></span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+             <tr>
+				<td class="MiddlePanel_Heading">REGULATORY</td>
+			</tr>
+			<tr>
+				<td class="MiddlePanel_Content1">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TabularForm1" ID="Table10">
+						 <tr>
+							<th width="205">
+								Patient Requested Right To Restrict:</th>
+							<td><span id="lblRightToRestrict"></span></td>
+						</tr>
+					 </table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

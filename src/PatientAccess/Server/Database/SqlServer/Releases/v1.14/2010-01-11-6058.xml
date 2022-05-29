@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2010-01-11-6058.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy" context="Local,Dev,Test,Model,Prod">
+    <comment>
+      Load Facility.FacilityExtendedSettings for RCRP enabled Facilities.
+      DHF facility does not exist in Beta. So a separate changeset was
+      created to exclude it.
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="2" author="Ahmed.Chaudhary" context="Local,Dev,Test,Prod">
+    <comment>
+      Load Facility.FacilityExtendedSettings for RCRP enabled Facilities. 
+      Delray facility does not exist in Model. So a separate changeset was
+      created to exclude it.
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="6" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="3" author="Smitha.Krishnamurthy" context="Model">
+    <comment>
+      Load Facility.FacilityExtendedSettings
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="354" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="382" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="324" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+  
+  <changeSet id="4" author= "Smitha.Krishnamurthy" context="Prod">
+    <comment>
+      Load Facility.FacilityExtendedSettings. The entries are for Production
+      facilities and their corresponding Training facilities.
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="906" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="308" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="908" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="154" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="711" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="689" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="382" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="982" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="990" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="40" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="940" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="324" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="924" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="798" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="998" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="354" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="954" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="391" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="991" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="824" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+</databaseChangeLog>

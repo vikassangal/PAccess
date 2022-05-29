@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2010 Dell Services, Inc. All Rights Reserved
+
+This source and information are the confidential property of Dell. Do not
+distribute any portion of the code to any party outside of Dell or
+its susidiaries.
+-->
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.14\2010-03-15-7626.xml">
+  <!--
+  These changes will only go into the production environment
+  -->
+  <changeSet id="970643f0-5b5c-4405-9304-32fce9bf165c" author="Jon.Lent" context="Prod">
+    <comment>Add SRX and SRM facilities</comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="72" />
+      <column name="HospitalCode" value="SRM" />
+      <column name="Name" value="SAN RAMON REGIONAL MEDICAL CTR" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/15/2010 9:38:58 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="172" />
+      <column name="HospitalCode" value="SRX" />
+      <column name="Name" value="SAN RAMON TRAINING FACILITY" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/15/2010 9:38:58 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id IN (72,172)
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

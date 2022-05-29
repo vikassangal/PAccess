@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\RuleEngine.CompositeRulesToRules.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.CompositeRulesToRules Table
+    </comment>
+    <createTable schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_CompositeRulesToRules_CompositeRules" references="RuleEngine.Rules(Id)" deleteCascade="false" />
+      </column>
+      <column name="RuleId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_CompositeRulesToRules_Rules" references="RuleEngine.Rules(Id)" deleteCascade="true" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_CompositeRulesToRules" schemaName="RuleEngine" tableName="CompositeRulesToRules" columnNames="CompositeRuleId,RuleId" />
+    <createIndex indexName="IX_RuleId" schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="RuleId" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

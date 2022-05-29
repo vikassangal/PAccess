@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\DataValidation.UpdateAvailability.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create DataValidation.UpdateAvailability
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE DataValidation.UpdateAvailability  
+       @TicketId varchar(36),
+       @IsAvailable char(1),
+       @SuccessfulUpdate int OUTPUT
+      AS 
+      BEGIN
+
+        SET @SuccessfulUpdate = 0
+
+        IF EXISTS( SELECT Id FROM DataValidation.Tickets WHERE Id = @TicketId )
+          BEGIN
+
+            UPDATE 
+              DataValidation.Tickets
+            SET 
+              ResultsAreAvailable = @IsAvailable
+            WHERE 
+              Id = @TicketId
+
+            IF @@ROWCOUNT &gt; 0
+               SET @SuccessfulUpdate = 1
+
+         END
+      ELSE 
+         BEGIN
+
+            SET @SuccessfulUpdate = 1
+
+            INSERT INTO 
+              DataValidation.Tickets
+            (
+               FacilityId, 
+               Id, 
+               ResultsAreAvailable, 
+               InitiatedOnDate, 
+               TicketTypeId
+            )
+            VALUES 
+            (
+                999, 
+                @TicketId, 
+                @IsAvailable, 
+                CURRENT_TIMESTAMP, 
+                0
+            )
+
+         END
+
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON DataValidation.UpdateAvailability TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON DataValidation.UpdateAvailability FROM db_apionly;
+      DROP PROCEDURE DataValidation.UpdateAvailability;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

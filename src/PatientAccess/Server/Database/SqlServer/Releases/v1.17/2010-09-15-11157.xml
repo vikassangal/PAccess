@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.17\2010-09-15-11157.xml">
+
+  <changeSet id="E2092659-ED43-4C28-9631-5F1BDFAD9A8C" author="Deepa.Raju">
+    <comment>
+      FUS Activity Code changes for September 2010
+    </comment>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="NEWBORN INSTRUCTION LETTER" />
+      <where>ActivityCode='CNBIL'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB DENIAL FINAL REVIEW" />
+      <where>ActivityCode='CWDFR'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB DENIAL REFUND REQUST" />
+      <where>ActivityCode='CWDRR'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB OPEN PAYOR COMMUNIC" />
+      <where>ActivityCode='CWOPC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB PENDING CHECK NUMBER" />
+      <where>ActivityCode='CWPCN'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB PEND PAYOR RESPONSE" />
+      <where>ActivityCode='CWPPR'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB PENDING REF APPROVAL" />
+      <where>ActivityCode='CWPRA'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CREDIT REP WEB REQ ADDITIONAL INFO" />
+      <where>ActivityCode='CWRAI'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CHARITY REQUEST APPROVED" />
+      <where>ActivityCode='MWCHA'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY018'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY023'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY095'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY12A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY12B'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY12C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY12D'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY13A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY13B'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY13C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY13D'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY14A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY14B'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY14C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY14D'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY16C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY16D'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY17A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY17B'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY17C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY17D'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18B'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18D'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18E'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18F'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18G'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY18H'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY19A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY19B'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY19C'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='PY19D'</where>
+    </update>
+    
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="N" />
+      <where>ActivityCode='RCANC'</where>
+    </update>
+
+
+    <rollback>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="NEWBORN INSTRUCTION LETTER" />
+        <where>ActivityCode='CNBIL'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB DENIAL FINAL REVIEW" />
+        <where>ActivityCode='CWDFR'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB DENIAL REFUND REQUST" />
+        <where>ActivityCode='CWDRR'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB OPEN PAYOR COMMUNIC" />
+        <where>ActivityCode='CWOPC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB PENDING CHECK NUMBER" />
+        <where>ActivityCode='CWPCN'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB PEND PAYOR RESPONSE" />
+        <where>ActivityCode='CWPPR'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB PENDING REF APPROVAL" />
+        <where>ActivityCode='CWPRA'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CREDIT REP WEB REQ ADDITIONAL INFO" />
+        <where>ActivityCode='CWRAI'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CHARITY REQUEST APPROVED" />
+        <where>ActivityCode='MWCHA'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY018'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY023'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY095'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY12A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY12B'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY12C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY12D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY13A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY13B'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY13C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY13D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY14A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY14B'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY14C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY14D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="7" />
+        <column name="MaxWorklistDays" valueNumeric="7" />
+        <where>ActivityCode='PY16C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="7" />
+        <column name="MaxWorklistDays" valueNumeric="7" />
+        <where>ActivityCode='PY16D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY17A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY17B'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY17C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY17D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18B'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18E'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18F'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18G'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY18H'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY19A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY19B'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY19C'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='PY19D'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RCANC'</where>
+      </update>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

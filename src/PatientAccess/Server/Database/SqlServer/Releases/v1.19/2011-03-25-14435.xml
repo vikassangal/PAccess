@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.19\2011-03-25-14435.xml">
+  
+  <changeSet id="6CE42557-A41A-4C6D-8105-C7379B8916DC" author="Deepa.Raju">
+    
+    <comment>
+      SR1282 - Add new ContextsToRules mappings for AlternateCareFacilityRequired(461)
+                to Pre-MSE(12), Transfer Out-In(9) and In-Out(15) activities
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where> RuleId=461 and ContextId in (9, 12, 15) </where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="15" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+
+    
+    <comment>
+      SR1282 - Add new CompositeRulesToRules mappings for AlternateCareFacilityRequired(461) to
+                OnContactDiagnosisForm(212) and Transfer Out-In(213) activities
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where> RuleId=461 and CompositeRuleId in (212, 213) </where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="212" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="213" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+
+    
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where> RuleId=461 and ContextId in (9, 12, 15) </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where> RuleId=461 and CompositeRuleId in (212, 213) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

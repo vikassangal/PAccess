@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-15_16304.xml">
+  
+  <changeSet id="7AAEFBDE-764A-4866-92A9-2C1D5F0C5894" author="Smitha.Krishnamurthy">
+
+   
+
+    <comment>
+      Add New Composite rule and Rule to evaluate BenValidationRule for QuickAccountCreationView
+      add BenVerOnQuickAccountCreation to Rules, CompositeRules;
+      add this ruleid and compositeRuleID to contextid = 14 ( BenValidationRule )
+      add ruleid to this comp ruleid id under [CompositeRulesToRules]
+    </comment>
+
+    <comment>
+      Rules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="484" />
+      <column name="Description" value="Complete missing fields on the Quick Account Creation form" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnQuickAccountCreationForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="484" />
+      <column name="Description" value="Complete missing fields on the Quick Account Creation form" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnQuickAccountCreationForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="485" />
+      <column name="Description" value="Admit date" />
+      <column name="Type" value="PatientAccess.Rules.BenVerAdmitDateOnQuickAccountForm" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="484" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="485" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="484" />
+      <column name="RuleId" valueNumeric="485" />
+    </insert>
+    
+     <rollback>
+
+       <delete schemaName="RuleEngine" tableName="Rules">
+         <where>Id=484 </where>
+       </delete>
+       <delete schemaName="RuleEngine" tableName="Rules">
+         <where>Id=485 </where>
+       </delete>
+       <delete schemaName="RuleEngine" tableName="CompositeRules">
+         <where>Id=484 </where>
+       </delete>
+       <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+         <where>CompositeRuleId=484 </where>
+       </delete>    
+       
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where> RuleId=484 and ContextId = 14 </where>
+       </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

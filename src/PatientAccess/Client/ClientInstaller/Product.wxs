@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Configuration.wxi ?>
+  <Product
+    Id="$(var.ProductId)"
+    Name="$(var.ProductName)"
+    Language="1033"
+    Version="$(var.ProductVersion)"
+    Manufacturer="Perot Systems, Inc.">
+
+    <Package InstallerVersion="200" Compressed="yes" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf"/>
+    <WixVariable Id="WixUIDialogBmp" Value="Images\Background.bmp"/>
+    <WixVariable Id="WixUIBannerBmp" Value="Images\Banner.bmp"/>
+    
+    <Property Id="ALLUSERS">2</Property>
+    
+    <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLDIR" Name="$(var.ProductName)">
+          <Component Id='MainExecutableComponent' Guid='*'>
+			<CreateFolder>
+				<Permission User="Everyone" GenericAll="yes" /> 
+			</CreateFolder>
+            <File Id='PatientAccessApp.Start.Exe'
+                  Name='PatientAccess.AppStart.Exe'
+                  DiskId='1'
+                  KeyPath="yes"
+                  Source='Files\PatientAccess.AppStart.exe'>
+              <Shortcut Id="AppStartDesktopShortcut"
+                        Directory="DesktopFolder"
+                        Name="$(var.ProductName)"
+                        WorkingDirectory='INSTALLDIR'
+                        Icon="PatientAccessIcon.exe"
+                        Advertise="yes"
+                        IconIndex="0"
+                        Description=" "  />
+              <Shortcut Id="AppStartProgramMenuShortcut"
+                        Directory="ProgramMenuFolder"
+                        Name="$(var.ProductName)"
+                        WorkingDirectory='INSTALLDIR'
+                        Icon="PatientAccessIcon.exe"
+                        Advertise="yes"
+                        IconIndex="0"
+                        Description=" "  />
+              <Shortcut Id="AppStartStartMenuShortcut"
+                        Directory="ProgramMenuDir"
+                        Name="$(var.ProductName)"
+                        WorkingDirectory='INSTALLDIR'
+                        Icon="PatientAccessIcon.exe"
+                        Advertise="yes"
+                        IconIndex="0"
+                        Description=" " />
+            </File>
+            <RemoveFolder Id="DeleteShortcutFolder"
+                          Directory="ProgramMenuDir"
+                          On="uninstall" />
+          </Component>
+          <Component Id="ICSharpCode.SharpZipLib.dll" Guid="*">
+            <File DiskId="1" Name="ICSharpCode.SharpZipLib.dll" Source="Files\ICSharpCode.SharpZipLib.dll" />
+          </Component>
+          <Component Id="log4net.dll" Guid="*">
+            <File DiskId="1" Name="log4net.dll" Source="Files\log4net.dll" />
+          </Component>
+          <Component Id="Microsoft.ApplicationBlocks.Updater.ActivationProcessors.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.ApplicationBlocks.Updater.ActivationProcessors.dll" Source="Files\Microsoft.ApplicationBlocks.Updater.ActivationProcessors.dll" />
+          </Component>
+          <Component Id="Microsoft.ApplicationBlocks.Updater.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.ApplicationBlocks.Updater.dll" Source="Files\Microsoft.ApplicationBlocks.Updater.dll" />
+          </Component>
+          <Component Id="Microsoft.ApplicationBlocks.Updater.Downloaders.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.ApplicationBlocks.Updater.Downloaders.dll" Source="Files\Microsoft.ApplicationBlocks.Updater.Downloaders.dll" />
+          </Component>          
+          <Component Id="Microsoft.Practices.EnterpriseLibrary.Common.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.Practices.EnterpriseLibrary.Common.dll" Source="Files\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+          </Component>                    
+          <Component Id="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.Practices.EnterpriseLibrary.Logging.dll" Source="Files\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+          </Component>                    
+          <Component Id="Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" Source="Files\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" />
+          </Component>                    
+          <Component Id="Microsoft.Practices.ObjectBuilder.dll" Guid="*">
+            <File DiskId="1" Name="Microsoft.Practices.ObjectBuilder.dll" Source="Files\Microsoft.Practices.ObjectBuilder.dll" />
+          </Component>                    		  
+          <Component Id="PatientAccess.AppStart.exe.config" Guid="*">
+            <File DiskId="1" Name="PatientAccess.AppStart.exe.config" Source="Files\PatientAccess.AppStart.exe.config" />
+          </Component>                    
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="PatientAccess"  />
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop" />
+
+    </Directory>
+
+    <Feature Id="RequiredFiles" Title="RequiredFiles" Level="1">
+      <ComponentRef Id="MainExecutableComponent" />
+      <ComponentRef Id="ICSharpCode.SharpZipLib.dll"/>
+      <ComponentRef Id="log4net.dll" />
+      <ComponentRef Id="Microsoft.ApplicationBlocks.Updater.ActivationProcessors.dll" />
+      <ComponentRef Id="Microsoft.ApplicationBlocks.Updater.dll" />
+      <ComponentRef Id="Microsoft.ApplicationBlocks.Updater.Downloaders.dll" />
+      <ComponentRef Id="Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+      <ComponentRef Id="Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+      <ComponentRef Id="Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" />
+      <ComponentRef Id="Microsoft.Practices.ObjectBuilder.dll" />
+      <ComponentRef Id="PatientAccess.AppStart.exe.config" />
+    </Feature>
+
+    <!-- 
+			Using the Wix UI library
+ 
+			WixUI_InstallDir does not allow the user to choose 
+			features but adds a dialog to let the user choose a 
+			directory where the product will be installed
+		-->
+    <Property Id="WIXUI_INSTALLDIR">INSTALLDIR</Property>
+    
+    <UIRef Id="WixUI_InstallDir"/>
+
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After='InstallFinalize' />
+      <Custom Action="UninstallCleanup" After="InstallFinalize" />
+    </InstallExecuteSequence>
+
+    <Binary Id="Cleanup.vbs" SourceFile="Cleanup.vbs" />
+
+    <CustomAction Id="UninstallCleanup" BinaryKey="Cleanup.vbs" VBScriptCall="Cleanup" Return="check" />
+
+    <Icon Id="PatientAccessIcon.exe" SourceFile="Images\PatientAccess.ico" />
+    <Icon Id="PatientAccessIcon.ico" SourceFile="Images\PatientAccess.ico" />
+    <Property Id="ARPPRODUCTICON" Value="PatientAccessIcon.ico" />
+
+
+    
+  </Product>
+</Wix>

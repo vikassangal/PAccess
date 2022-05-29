@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Announcement.Announcements.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Announcement.Announcements Table
+    </comment>
+    <createTable schemaName="Announcement" tableName="Announcements">
+      <column name="Id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_Announcements" />
+      </column>
+      <column name="StopDate" type="datetime" />
+      <column name="Description" type="varchar(3000)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Author" type="varchar(50)" defaultValue="Unknown" />
+      <column name="SaveDate" type="datetime" defaultValueDate="CURRENT_TIMESTAMP" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

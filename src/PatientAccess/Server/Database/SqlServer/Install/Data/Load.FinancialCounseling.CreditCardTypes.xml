@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.FinancialCounseling.CreditCardTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load FinancialCounseling.CreditCardTypes
+    </comment>
+    <insert schemaName="FinancialCounseling" tableName="CreditCardTypes">
+      <column name="Code" valueNumeric="0" />
+      <column name="Description" value="American Express" />
+    </insert>
+    <insert schemaName="FinancialCounseling" tableName="CreditCardTypes">
+      <column name="Code" valueNumeric="1" />
+      <column name="Description" value="Discover" />
+    </insert>
+    <insert schemaName="FinancialCounseling" tableName="CreditCardTypes">
+      <column name="Code" valueNumeric="2" />
+      <column name="Description" value="MasterCard" />
+    </insert>
+    <insert schemaName="FinancialCounseling" tableName="CreditCardTypes">
+      <column name="Code" valueNumeric="3" />
+      <column name="Description" value="Visa" />
+    </insert>
+    <rollback>
+      DELETE FROM FinancialCounseling.CreditCardTypes WHERE Code IN (0,1,2,3);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

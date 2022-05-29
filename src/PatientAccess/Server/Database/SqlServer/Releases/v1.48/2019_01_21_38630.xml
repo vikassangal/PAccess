@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.48\2019_01_21_38630.xml">
+
+  <changeSet id="52DDC518-FF93-4C05-82A5-2046F7B3F05E" author="Hemant.Kumar">
+    
+    <comment>
+      Delete rule AuthorizeAdditionalPortalUserRequired(530) from ContextsToRules table for context TransferOutToInActivity(9)
+    </comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId = 530 and ContextId = 9</where>
+    </delete>
+
+    <comment>
+      Add rule AuthorizeAdditionalPortalUserRequired(530) to ContextToRules table for contexts 28(UCCPostMSERegistrationActivity)
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="530" />
+    </insert>
+     
+  </changeSet>
+</databaseChangeLog>

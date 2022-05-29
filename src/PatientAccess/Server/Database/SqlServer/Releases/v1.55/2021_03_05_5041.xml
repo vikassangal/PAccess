@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.55\2021_03_05_5041.xml">
+  <changeSet id= "EF7BD48C-2F34-406D-9792-5FFB3E1B08DC" author="Vikas11.sangal" context="Local,Dev,Test">
+  
+    <comment>
+      Load Facility.FacilityExtendedSettings for Notify PCP Default value for ACO is Yes and No for DHF Facilities.
+    </comment>
+  
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="900" />
+      <column name="Name" value="DefaultForNotifyPCPOfVisit" />
+      <column name="Value" value="Yes" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="DefaultForNotifyPCPOfVisit" />
+      <column name="Value" value="No" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="6" />
+      <column name="Name" value="DefaultForShareHIEData" />
+      <column name="Value" value="No" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="98" />
+      <column name="Name" value="DefaultForShareHIEData" />
+      <column name="Value" value="" />
+    </insert>
+  
+  </changeSet>
+
+  <changeSet id="1507F8EF-B861-47C0-A663-1A485589027E" author="vikas11.sangal" context="Model">
+   
+    <comment>
+      Load Facility.FacilityExtendedSettings for Notify PCP of Visit default value for DefaultForShareHIEData is blank in PRV
+      and DefaultForNotifyPCPOfVisit is Yes in PRV for Facility.
+    </comment>
+   
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="DefaultForShareHIEData" />
+      <column name="Value" value="No" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="DefaultForNotifyPCPOfVisit" />
+      <column name="Value" value="Yes" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

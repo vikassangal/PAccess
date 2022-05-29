@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Simple_Triggers.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Simple_Triggers Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Simple_Triggers">
+      <column name="Trigger_Name" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Trigger_Group" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Repeat_Count" type="BIGINT">
+        <constraints nullable="false" />
+      </column>
+      <column name="Repeat_Interval" type="BIGINT">
+        <constraints nullable="false" />
+      </column>
+      <column name="Times_Triggered" type="BIGINT">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_SimpleTriggers" schemaName="Quartz" tableName="Simple_Triggers" columnNames="Trigger_Name,Trigger_Group" />
+    <addForeignKeyConstraint constraintName="FK_SimpleTriggersToTriggers" baseTableSchemaName="Quartz" baseTableName="Simple_Triggers" baseColumnNames="Trigger_Name,Trigger_Group" referencedTableSchemaName="Quartz" referencedTableName="Triggers" referencedColumnNames="Trigger_Name,Trigger_Group" />
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Simple_Triggers TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

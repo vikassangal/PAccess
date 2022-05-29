@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+  logicalFilePath="SqlServer\Releases\v1.17\2010-09-29-11451.xml">
+  
+  <changeSet id="1CF0F1FA-401F-40E3-95F3-FB84A23AE925" author="Deepa.Raju" context="Prod">
+    
+    <comment>
+      Make SYL(713) and SYX(913) facilities RCRP Enabled.
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where> Name = 'IsFacilityRCRPEnabled' and FacilityId in ( 713, 913 ) </where>
+    </delete>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="713" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="913" />
+      <column name="Name" value="IsFacilityRCRPEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.49\2019_09_16_10002.xml">
+
+  <changeSet id="B35D9F32-920F-4E55-AD97-7A3A3B96D3A3" author="Hemant.Kumar">
+
+    <comment>
+      SR12368 – PAS - Share Data with Public HIE/PCP Flag Changes
+    </comment>
+
+    <comment>
+      Remove ShareDataWithPublicHIERequired Rule from RuleEngine table
+    </comment>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id = 523</where>
+    </delete>
+    
+    <comment>
+      Remove ShareDataWithPublicHIERequired Rule from ContextsToRules table
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId = 523 </where>
+    </delete>
+
+    <comment>
+      Remove ShareDataWithPublicHIERequired Rule from CompositeRulesToRules table
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId = 523 </where>
+    </delete>
+    
+    <rollback>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="523" />
+      <column name="Description" value="Share data with public HIE" />
+      <column name="Type" value="PatientAccess.Rules.ShareDataWithPublicHIERequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="523" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="523" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="523" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="523" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="523" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="523" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="523" />
+    </insert>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

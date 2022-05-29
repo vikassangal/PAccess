@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Announcement.AnnouncementsToRolesToFacilities.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create Announcement.AnnouncementsToRolesToFacilities Table
+    </comment>
+    <createTable schemaName="Announcement" tableName="AnnouncementsToRolesToFacilities">
+      <column name="AnnouncementId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_AnnouncementsToRolesToFacilities_Announcements" references="Announcement.Announcements(Id)" deleteCascade="true" />
+      </column>
+      <column name="RoleId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_AnnouncementsToRolesToFacilities_Roles" references="Security.Roles(Id)" />
+      </column>
+      <column name="FacilityId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_AnnouncementsToRolesToFacilities_Facilities" references="Facility.Facilities(Id)" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_AnnouncementsToRolesToFacilities" schemaName="Announcement" tableName="AnnouncementsToRolesToFacilities" columnNames="AnnouncementId,RoleId,FacilityId" />
+    <createIndex indexName="IX_FacilityId" schemaName="Announcement" tableName="AnnouncementsToRolesToFacilities" unique="false">
+      <column name="FacilityId" />
+    </createIndex>
+    <createIndex indexName="IX_RoleId" schemaName="Announcement" tableName="AnnouncementsToRolesToFacilities" unique="false">
+      <column name="RoleId" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

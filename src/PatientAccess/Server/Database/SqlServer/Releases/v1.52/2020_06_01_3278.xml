@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.52\2020_06_01_3278.xml">
+
+  <changeSet id="8F64F320-A1C5-4CED-9B66-5B8CE64FCAD6" author="Vikas.Sangal">
+
+    <comment>
+      DMND-3278 – PAS-TCPA Compliance
+    </comment>
+
+    <comment>
+      Add GuarantorConsentRequired Rule {510} to Pre-Registration activity {8}, 
+      Short-PreRegistration {20}, Newborn-Pre-admit {23}
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+  </changeSet>
+</databaseChangeLog>

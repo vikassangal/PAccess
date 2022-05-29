@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_05_02_3704.xml">
+
+	<changeSet id="79B1E27D-0949-4DC0-BA06-A005BF6E6DBC" author="Abhijeet.Hambir">
+		<comment>
+			Create DOFR.CalOptimaPlanIds Table
+		</comment>
+		<createTable schemaName="DOFR" tableName="CalOptimaPlanIds">
+			<column name="Id" type="int" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="FacilityId" type="int">
+				<constraints nullable="false" foreignKeyName="FK_CalOptimaPlanIds_Facility" references="Facility.Facilities(Id)" />
+			</column>
+			<column name="PlanId" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PlanDescription" type="varchar(150)">
+				<constraints nullable="false" />
+			</column>
+			<column name="Type" type="varchar(20)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey constraintName="PK_CalOptimaPlanIds" schemaName="DOFR" tableName="CalOptimaPlanIds" columnNames="FacilityId,PlanId,Type" />
+	</changeSet>
+
+</databaseChangeLog>

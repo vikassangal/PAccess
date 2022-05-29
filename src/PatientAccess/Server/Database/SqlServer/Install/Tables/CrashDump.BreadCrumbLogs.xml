@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\CrashDump.BreadCrumbLogs.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create CrashDump.BreadCrumbLogs Table
+    </comment>
+    <createTable schemaName="CrashDump" tableName="BreadCrumbLogs">
+      <column name="Id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_BreadCrumbLogs" />
+      </column>
+      <column name="CrashReportId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_BreadCrumbLogs_CrashReports" references="CrashDump.CrashReports(Id)" deleteCascade="true" />
+      </column>
+      <column name="ArchiveName" type="varchar(256)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Body" type="varbinary(max)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

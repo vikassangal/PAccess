@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\FinancialCounseling.GetCreditAdvice.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create FinancialCounseling.GetCreditAdvice
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE FinancialCounseling.GetCreditAdvice
+        @Score int
+      AS  
+      BEGIN
+
+        SELECT 
+          CreditAdvice
+        FROM 
+          FinancialCounseling.CreditScoreAdviceMappings
+        WHERE 
+          BeginScore <= @Score AND EndScore >= @Score
+        
+      END;
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON FinancialCounseling.GetCreditAdvice TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON FinancialCounseling.GetCreditAdvice FROM db_apionly;
+      DROP PROCEDURE FinancialCounseling.GetCreditAdvice;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

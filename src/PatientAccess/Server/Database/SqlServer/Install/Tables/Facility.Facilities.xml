@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Facility.Facilities.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Facility.Facilities Table
+    </comment>
+    <createTable schemaName="Facility" tableName="Facilities">
+      <column name="Id" type="int">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_Facilities" />
+      </column>
+      <column name="HospitalCode" type="varchar(5)">
+        <constraints nullable="false" />
+      </column>
+      <column name="FollowUpUnitId" type="int">
+        <constraints foreignKeyName="FK_Facilities_FollowUpUnits" references="Facility.FollowUpUnits(Id)" />
+      </column>
+      <column name="Name" type="varchar(50)" />
+      <column name="ServerId" type="varchar(15)" />
+      <column name="DatabaseName" type="varchar(32)" />
+      <column name="ModType" type="int" remarks="Deprecated" />
+      <column name="OrderComm" type="char(1)" />
+      <column name="DstOffset" type="int" />
+      <column name="UtcOffset" type="int" />
+      <column name="TenetCare" type="char(1)" />
+      <column name="ReRegister" type="char(1)" />
+      <column name="StatusCode" type="char(1)" />
+      <column name="LastUpdated" type="datetime" />
+      <column name="TaxId" type="varchar(13)" />
+      <column name="MedicaidIssuedDateRequired" type="char(1)" />
+      <column name="UseUscMrn" type="char(1)" remarks="Deprecated" defaultValue="N" />
+      <column name="IsEnabled" type="char(1)" defaultValue="Y" />
+    </createTable>
+    <createIndex indexName="IX_FollowUpUnitId" schemaName="Facility" tableName="Facilities">
+      <column name="FollowUpUnitId" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

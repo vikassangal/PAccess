@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\RuleEngine.SelectAllRuleContexts.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.SelectAllRuleContexts
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE RuleEngine.SelectAllRuleContexts
+      AS
+      BEGIN
+
+        SELECT DISTINCT 
+          Type
+        FROM 
+          RuleEngine.Contexts
+        ORDER BY
+          Type
+        
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.SelectAllRuleContexts TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.SelectAllRuleContexts FROM db_apionly;
+      DROP PROCEDURE RuleEngine.SelectAllRuleContexts;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

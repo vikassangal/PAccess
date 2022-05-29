@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.16\2010-05-24-8798.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Add new rule definitions for SR724 - Primary Language Write In for CA State Reporting (Child of PBAR 718)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="471" />
+      <column name="Description" value="Specify language" />
+      <column name="Type" value="PatientAccess.Rules.OtherLanguageRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+   
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+      
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="200" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="338" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=471</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=471</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId=471</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

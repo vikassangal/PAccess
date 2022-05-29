@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.43\2017_06_07_11605.xml">
+
+  <changeSet id="5E79ECF1-0D77-438F-B31E-C3C850152D2E" author="Hemant.Kumar">
+
+    <comment>
+      SR11605 - PAS - Make IMFM changes apply to Preregistration activities
+    </comment>
+    <comment>
+      Insert IMFMReceivedRequired (526) to Contexts - 8 (Preregistration activity) and 23 (PreAdmit newborn ativity) in ContextsToRules table
+    </comment>
+  
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="526" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="526" />
+    </insert>
+
+    <rollback>
+     
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId = 526 and ContextId = 8 </where>
+      </delete>
+     
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId = 526 and ContextId = 23 </where>
+      </delete>
+      
+    </rollback>
+    
+  </changeSet>
+ 
+</databaseChangeLog>

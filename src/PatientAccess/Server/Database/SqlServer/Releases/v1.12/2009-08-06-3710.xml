@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-08-06-3710.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Data changes for Bug 3710 3715
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>Ruleid=122 AND ContextId = 7</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>Ruleid=122 AND ContextId = 10</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>Ruleid=122 AND ContextId = 13</where>
+    </delete>
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="122" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="RuleId" valueNumeric="122" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="122" />
+      </insert>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

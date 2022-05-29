@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Facility.SelectAllFollowUpUnits.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Facility.SelectAllFollowUpUnits
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Facility.SelectAllFollowUpUnits
+      AS  
+      BEGIN
+
+        SELECT 
+          Id, 
+          Name
+        FROM
+          Facility.FollowUpUnits
+          
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Facility.SelectAllFollowUpUnits TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Facility.SelectAllFollowUpUnits FROM db_apionly;
+      DROP PROCEDURE Facility.SelectAllFollowUpUnits;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2010-12-02-1190.xml">
+  
+  <changeSet id="F0E56523-5352-41F9-8E24-9B2C7AA7DD22" author="Smitha.Krishnamurthy">
+    <comment>
+    SR 1190 new Actions  and Composite actions for Short registration
+    </comment>
+    <comment>
+       Actions
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="50" />
+      <column name="Description" value="Provide missing demographics information" />
+      <column name="Type" value="PatientAccess.Actions.OnShortDemographicsForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="51" />
+      <column name="Description" value="Provide missing diagnosis information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortDiagnosisForm" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="53" />
+      <column name="Description" value="Provide missing guarantor information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortGuarantorForm" />
+    </insert>   
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="54" />
+      <column name="Description" value="Provide missing regulatory information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortRegulatoryForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="55" />
+      <column name="Description" value="Provide missing billing information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortBillingForm" />
+    </insert>
+ 
+    
+    <comment>
+        CompositeActions
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="50" />
+      <column name="Description" value="Provide missing demographics information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortDemographicsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="51" />
+      <column name="Description" value="Provide missing diagnosis information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortDiagnosisForm" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="53" />
+      <column name="Description" value="Provide missing guarantor information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortGuarantorForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="54" />
+      <column name="Description" value="Provide missing regulatory information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortRegulatoryForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="55" />
+      <column name="Description" value="Provide missing billing information " />
+      <column name="Type" value="PatientAccess.Actions.OnShortBillingForm" />
+    </insert>
+  
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=50 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=51 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=53 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=54 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=55 </where>
+      </delete>
+      
+      
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=50 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=51 </where>
+      </delete>
+    
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=53 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=54 </where>        
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=55 </where>
+      </delete>
+     
+      
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

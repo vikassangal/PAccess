@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.18\2011-02-07-13468.xml">
+
+  <changeSet id="4134A904-FBD4-4A01-BE4F-211FBB21C19E" author="Sharanabasappa.Vitha">
+    <comment>
+      FUS Activity Code changes for February 2011
+    </comment>
+
+    <!--Delete if Fus Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPCIA'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPCID'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPCIF'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPCIP'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPCIR'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='WBAUT'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ZSWPT'</where>
+    </delete>
+
+    <!-- Insert the New Fus Activity Codes-->
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPCIA" />
+      <column name="Description" value="MECS PCIP APP APPROVED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPCID" />
+      <column name="Description" value="MECS PCIP APP DENIED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPCIF" />
+      <column name="Description" value="MECS PCIP REQ'D TIME NOT MET" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPCIP" />
+      <column name="Description" value="MECS PCIP APP PENDING" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPCIR" />
+      <column name="Description" value="MECS PCIP PROGRAM REFERRED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="WBAUT" />
+      <column name="Description" value="SYS-GUAR PREAUTHORIZED PAYMENT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ZSWPT" />
+      <column name="Description" value="SPOKE WITH PATIENT/GUARANTOR" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+
+    <!--Change/Update the existing Fus Activity Codes-->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="REFUND REFERENCE DOCUMENT SCANNED" />
+      <where>ActivityCode='CXREF'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="MaxWorklistDays" value="0" />
+      <where>ActivityCode='MA02'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="MaxWorklistDays" value="0" />
+      <where>ActivityCode='MCRTB'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="MaxWorklistDays" value="0" />
+      <column name="DefaultWorklistDays" value="0" />
+      <where>ActivityCode='MLRAC'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="MaxWorklistDays" value="0" />
+      <column name="DefaultWorklistDays" value="0" />
+      <where>ActivityCode='PPEXC'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ORDER CHECKER COMPLETE/ABN REQUIRED" />
+      <where>ActivityCode='ZABNR'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ORDER CHECKER PASSED" />
+      <where>ActivityCode='ZCCPD'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CPAS ORDER CHECKER" />
+      <where>ActivityCode='ZCCPK'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ORDER CHECKER RUN" />
+      <where>ActivityCode='ZCRAN'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="UNABLE TO COMPLETE ORDER CHECKER" />
+      <where>ActivityCode='ZUNCC'</where>
+    </update>
+
+    <!--Rollback-->
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPCIA'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPCID'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPCIF'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPCIP'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPCIR'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='WBAUT'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ZSWPT'</where>
+      </delete>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="SYS-SCANNED DOC-REFUNDS" />
+        <where>ActivityCode='CXREF'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="COMPL CHECKER COMPLETE/ABN REQD" />
+        <where>ActivityCode='ZABNR'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="COMPLIANCE CHECKER PASSED" />
+        <where>ActivityCode='ZCCPD'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CPAS COMPLIANCE CHECKER" />
+        <where>ActivityCode='ZCCPK'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="COMPLIANCE CHECKER RUN" />
+        <where>ActivityCode='ZCRAN'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="UNABLE TO COMPL COMPLIANCE CHECKER" />
+        <where>ActivityCode='ZUNCC'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="MaxWorklistDays" value="1" />
+        <where>ActivityCode='MA02'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="MaxWorklistDays" value="1" />
+        <where>ActivityCode='MCRTB'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="MaxWorklistDays" value="1" />
+        <column name="DefaultWorklistDays" value="1" />
+        <where>ActivityCode='MLRAC'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="MaxWorklistDays" value="1" />
+        <column name="DefaultWorklistDays" value="1" />
+        <where>ActivityCode='PPEXC'</where>
+      </update>
+
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

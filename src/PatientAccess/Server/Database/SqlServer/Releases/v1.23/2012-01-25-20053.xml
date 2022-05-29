@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.23\2012-01-25-20053.xml">
+
+  <changeSet id="3B7FA24A-B3D0-4E54-B017-1BCF7B8A521E" author="Smitha.Krishnamurthy">
+    <comment>
+      add the RESRD activity code for SR 1745 - Add Referral Dialysis Field to MSP Form
+    </comment>
+
+    <!--Delete if FUS Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RESRD'</where>
+    </delete> 
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RESRD" />
+      <column name="Description" value="DIALYSIS CENTER PATIENT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RESRD'</where>
+      </delete>
+      
+     </rollback>
+  </changeSet>
+</databaseChangeLog>
+
+

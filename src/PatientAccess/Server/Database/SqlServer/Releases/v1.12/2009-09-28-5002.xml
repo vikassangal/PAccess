@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-09-28-5002.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Update DataValidation.InsertTicket Locking
+    </comment>
+    <createProcedure>
+      <![CDATA[
+        ALTER PROCEDURE [DataValidation].[InsertTicket]  
+               @TicketId varchar(36),
+               @IsAvailable char(1),
+               @FacilityId int,
+               @TicketTypeId int,
+               @InitiatedOn datetime
+              AS 
+	         BEGIN
+
+             SET NOCOUNT, XACT_ABORT ON
+                        
+             BEGIN TRANSACTION InsertTicket
+
+              IF EXISTS( SELECT Id FROM DataValidation.Tickets WITH(UPDLOCK,HOLDLOCK) WHERE Id = @TicketId )
+                 UPDATE 
+                  DataValidation.Tickets
+                 SET 
+                  FacilityId = @FacilityId, 
+                  TicketTypeId = @TicketTypeId
+                 WHERE 
+                  Id = @TicketId
+              ELSE 
+                 INSERT INTO
+                  DataValidation.Tickets
+                 (
+                    FacilityId, 
+                    Id, 
+                    ResultsAreAvailable, 
+                    InitiatedOnDate, 
+                    TicketTypeId
+                 )
+                 VALUES 
+                 (
+                    @FacilityId, 
+                    @TicketId, 
+                    @IsAvailable, 
+                    @InitiatedOn, 
+                    @TicketTypeId
+                 )
+                 
+	          COMMIT TRANSACTION InsertTicket
+
+	          END;       
+    ]]>
+    </createProcedure>
+    <rollback>
+      <![CDATA[
+      ALTER PROCEDURE [DataValidation].[InsertTicket]  
+             @TicketId varchar(36),
+             @IsAvailable char(1),
+             @FacilityId int,
+             @TicketTypeId int,
+             @InitiatedOn datetime
+            AS 
+           BEGIN
+
+            IF EXISTS( SELECT Id FROM DataValidation.Tickets WHERE Id = @TicketId )
+               UPDATE 
+                DataValidation.Tickets
+               SET 
+                FacilityId = @FacilityId, 
+                TicketTypeId = @TicketTypeId
+               WHERE 
+                Id = @TicketId
+            ELSE 
+               INSERT INTO
+                DataValidation.Tickets
+               (
+                  FacilityId, 
+                  Id, 
+                  ResultsAreAvailable, 
+                  InitiatedOnDate, 
+                  TicketTypeId
+               )
+               VALUES 
+               (
+                  @FacilityId, 
+                  @TicketId, 
+                  @IsAvailable, 
+                  @InitiatedOn, 
+                  @TicketTypeId
+               )
+          END;      
+          ]]>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

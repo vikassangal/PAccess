@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.13\2009-11-02-5665.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Add PreopdateRequired rule definitions for POSTMSE and NEWBorn activities
+    </comment>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="455" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="455" />
+    </insert>  
+    <rollback>
+      DELETE FROM RuleEngine.ContextsToRules WHERE RuleId = 455 and  ContextID = 10 ;
+      DELETE FROM RuleEngine.ContextsToRules WHERE RuleId = 455 and  ContextID = 13 ; 
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

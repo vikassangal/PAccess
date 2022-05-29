@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\RuleEngine.SelectRulesForRuleContext.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.SelectRulesForRuleContext
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE RuleEngine.SelectRulesForRuleContext
+	      @RuleContext varchar(150)
+      AS
+      BEGIN
+
+      SELECT
+	      RuleEngine.IsCompositeRule( RuleEngine.ContextsToRules.RuleId ) AS IsComposite,
+	      Rules.Id as RuleId,
+	      Rules.Type,
+	      Rules.Description,
+	      Rules.Severity,
+	      COALESCE( CompositeRules.Id, 0 ) AS CompositeRuleId,
+	      COALESCE( CompositeRules.Type, ' ' ) AS CompositeRuleType,
+	      Contexts.Id as RuleContextId
+      FROM
+	      RuleEngine.ContextsToRules
+      JOIN
+	      RuleEngine.Contexts ON RuleEngine.Contexts.Id = 
+            RuleEngine.ContextsToRules.ContextId
+      JOIN 
+	      RuleEngine.Rules ON RuleEngine.Rules.Id = 
+            RuleEngine.ContextsToRules.RuleId
+      LEFT OUTER JOIN 
+	      RuleEngine.CompositeRulesToRules ON RuleEngine.Rules.Id = 
+            RuleEngine.CompositeRulesToRules.RuleId
+      LEFT OUTER JOIN 
+	      RuleEngine.CompositeRules ON RuleEngine.CompositeRulesToRules.CompositeRuleId = 
+            RuleEngine.CompositeRules.Id
+      WHERE 
+	      RuleEngine.Contexts.Type LIKE @RuleContext 
+      AND 
+      (
+	      RuleEngine.CompositeRules.Id IS NULL 
+	      OR 
+	      RuleEngine.CompositeRules.Id = 0 
+	      OR 
+	      RuleEngine.CompositeRules.Id IN
+	      (
+		      SELECT 
+			      RuleEngine.CompositeRules.Id
+		      FROM
+			      RuleEngine.ContextsToRules
+		      JOIN 
+			      RuleEngine.Contexts ON RuleEngine.ContextsToRules.ContextId = 
+			        RuleEngine.Contexts.Id 
+		      JOIN 
+			      RuleEngine.CompositeRules ON RuleEngine.ContextsToRules.RuleId = 
+			        RuleEngine.CompositeRules.Id 
+		      WHERE 
+			      RuleEngine.Contexts.Type LIKE @RuleContext
+	      )
+      )
+
+      UNION
+
+      SELECT
+	      0 AS IsComposite,
+	      Rules.Id as RuleId,
+	      Rules.Type,
+	      Rules.Description,
+	      Rules.Severity,
+          0 AS CompositeRuleId,
+          ' ' AS CompositeRuleType,
+	      Contexts.Id as RuleContextId
+      FROM
+	      RuleEngine.ContextsToRules
+      JOIN 
+	      RuleEngine.Contexts ON RuleEngine.Contexts.Id = 
+	        RuleEngine.ContextsToRules.ContextId
+      JOIN 
+	      RuleEngine.Rules ON RuleEngine.Rules.Id = 
+            RuleEngine.ContextsToRules.RuleId
+      WHERE 
+	      RuleEngine.Contexts.Type LIKE @RuleContext 
+	      AND 
+	      RuleEngine.ContextsToRules.RuleId NOT IN
+	      (
+		      SELECT 
+			      ContextsToRules.RuleId
+		      FROM
+			      RuleEngine.ContextsToRules
+		      JOIN 
+			      RuleEngine.Contexts ON RuleEngine.Contexts.Id = 
+			        RuleEngine.ContextsToRules.ContextId
+		      JOIN 
+			      RuleEngine.Rules ON RuleEngine.Rules.Id = 
+			        RuleEngine.ContextsToRules.RuleId
+		      LEFT OUTER JOIN 
+			      RuleEngine.CompositeRulesToRules ON RuleEngine.Rules.Id = 
+			        RuleEngine.CompositeRulesToRules.RuleId
+		      LEFT OUTER JOIN 
+			      RuleEngine.CompositeRules ON RuleEngine.CompositeRulesToRules.CompositeRuleId = 
+			        RuleEngine.CompositeRules.Id
+		      WHERE 
+			      RuleEngine.Contexts.Type LIKE @RuleContext 
+			      AND 
+		      ( RuleEngine.CompositeRules.Id IS NULL 
+		        OR 
+		        RuleEngine.CompositeRules.Id = 0 
+		        OR 
+		        RuleEngine.CompositeRules.Id IN
+			      (
+				      SELECT 
+					      RuleEngine.CompositeRules.Id
+				      FROM
+					      RuleEngine.ContextsToRules
+				      JOIN 
+					      RuleEngine.Contexts ON RuleEngine.ContextsToRules.ContextId = 
+					        RuleEngine.Contexts.Id
+				      JOIN 
+					      RuleEngine.CompositeRules ON RuleEngine.ContextsToRules.RuleId = 
+					        RuleEngine.CompositeRules.Id
+				      WHERE 
+					      RuleEngine.Contexts.Type LIKE @RuleContext
+			      )
+		      )
+	      )
+      ORDER BY 
+	      RuleEngine.Rules.Severity, 
+	      CompositeRuleType, 
+	      RuleId
+
+      END
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.SelectRulesForRuleContext TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.SelectRulesForRuleContext FROM db_apionly;
+      DROP PROCEDURE RuleEngine.SelectRulesForRuleContext;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

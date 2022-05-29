@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.13\2009-11-24-2380.xml">
+  <changeSet id="1" author="Jon Lent">
+    <comment>
+      Remove ProcedureRequired Rule
+    </comment>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id = 456</where>
+    </delete>
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="456" />
+        <column name="Description" value="Procedure" />
+        <column name="Type" value="PatientAccess.Rules.ProcedureRequired" />
+        <column name="Severity" valueNumeric="4" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="456" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="456" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="201" />
+        <column name="RuleId" valueNumeric="456" />
+      </insert>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

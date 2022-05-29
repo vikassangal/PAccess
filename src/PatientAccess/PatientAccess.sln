@@ -1,0 +1,155 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CB4D8428-02AF-412A-A880-05D022A2B23A}"
+	ProjectSection(SolutionItems) = preProject
+		PatientAccess.testrunconfig = PatientAccess.testrunconfig
+		PatientAccess.vsmdi = PatientAccess.vsmdi
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2BF244F0-111E-4D0A-AFC5-E702423545CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{7FB3154D-CD4B-47D8-8CA7-CA8E523BCA8B}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Configuration\Configure.proj = Solution Items\Configuration\Configure.proj
+		Solution Items\Configuration\Settings.xml = Solution Items\Configuration\Settings.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B43B9B29-F485-400C-A571-FD6B73CBCA54}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\build\ContinuousIntegration.proj = ..\..\build\ContinuousIntegration.proj
+		..\..\build\ContinuousIntegrationSettings.template = ..\..\build\ContinuousIntegrationSettings.template
+		..\..\build\Deploy.ps1 = ..\..\build\Deploy.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{75FC243E-2C40-4BD7-B415-69E3AA42BA62}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Documentation\Configuring Patient Access.docx = Solution Items\Documentation\Configuring Patient Access.docx
+		Solution Items\Documentation\Deploying Patient Access.docx = Solution Items\Documentation\Deploying Patient Access.docx
+		Solution Items\Documentation\ImplementingRSAEncryption-HowTo.txt = Solution Items\Documentation\ImplementingRSAEncryption-HowTo.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccessClientTests", "Tests\PatientAccessClientTests\PatientAccessClientTests.csproj", "{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccessServerTests", "Tests\PatientAccessServerTests\PatientAccessServerTests.csproj", "{FCA4DA1F-7FD7-427D-97A6-8AF69E48DA8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccess.Common", "Common\PatientAccess.Common.csproj", "{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccess.AppServer", "Server\AppServer\PatientAccess.AppServer.csproj", "{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccess.AppStart", "Client\AppStart\PatientAccess.AppStart.csproj", "{9B4B69D7-B5C7-466B-81FD-94057DB1126F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccess.WorklistProcessor", "Server\WorklistProcessor\PatientAccess.WorklistProcessor.csproj", "{34A8A914-CA27-41DC-97CC-09FA7A55A3EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccess.Database", "Server\Database\PatientAccess.Database.csproj", "{79381FD1-6AB7-4196-91BC-6A5D5DE72F38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlinePreRegistrationDataCreator", "Tests\OnlinePreRegistrationDataCreator\OnlinePreRegistrationDataCreator.csproj", "{FE884A71-D661-4FCC-9A04-24903BC0A53E}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "PatientAccess.Design", "PatientAccess.Design\PatientAccess.Design.modelproj", "{B5AF0616-01EA-469E-BBF7-D7036A9139C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientAccess.WinForms", "Client\WinForms\PatientAccess.WinForms.csproj", "{D1654860-0C3F-4180-9D1D-2E80454DBA85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B362BF1B-26A8-49AF-BACE-1264934B263C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.hdc.net:8080/tfs/hsd
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Tests\\PatientAccessClientTests\\PatientAccessClientTests.csproj
+		SccProjectTopLevelParentUniqueName1 = PatientAccess.sln
+		SccProjectName1 = Tests/PatientAccessClientTests
+		SccLocalPath1 = Tests\\PatientAccessClientTests
+		SccProjectUniqueName2 = Tests\\PatientAccessServerTests\\PatientAccessServerTests.csproj
+		SccProjectTopLevelParentUniqueName2 = PatientAccess.sln
+		SccProjectName2 = Tests/PatientAccessServerTests
+		SccLocalPath2 = Tests\\PatientAccessServerTests
+		SccProjectUniqueName3 = Common\\PatientAccess.Common.csproj
+		SccProjectName3 = Common
+		SccLocalPath3 = Common
+		SccProjectUniqueName4 = Server\\AppServer\\PatientAccess.AppServer.csproj
+		SccProjectName4 = Server/AppServer
+		SccLocalPath4 = Server\\AppServer
+		SccProjectUniqueName5 = Client\\AppStart\\PatientAccess.AppStart.csproj
+		SccProjectName5 = Client/AppStart
+		SccLocalPath5 = Client\\AppStart
+		SccProjectUniqueName6 = Server\\WorklistProcessor\\PatientAccess.WorklistProcessor.csproj
+		SccProjectName6 = Server/WorklistProcessor
+		SccLocalPath6 = Server\\WorklistProcessor
+		SccProjectUniqueName7 = Server\\Database\\PatientAccess.Database.csproj
+		SccProjectName7 = Server/Database
+		SccLocalPath7 = Server\\Database
+		SccProjectUniqueName8 = Client\\WinForms\\PatientAccess.WinForms.csproj
+		SccProjectName8 = Client/WinForms
+		SccLocalPath8 = Client\\WinForms
+		SccProjectUniqueName9 = Tests\\OnlinePreRegistrationDataCreator\\OnlinePreRegistrationDataCreator.csproj
+		SccProjectTopLevelParentUniqueName9 = PatientAccess.sln
+		SccProjectName9 = Tests/OnlinePreRegistrationDataCreator
+		SccLocalPath9 = Tests\\OnlinePreRegistrationDataCreator
+		SccProjectUniqueName10 = PatientAccess.Design\\PatientAccess.Design.modelproj
+		SccProjectName10 = PatientAccess.Design
+		SccLocalPath10 = PatientAccess.Design
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PatientAccess.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{FCA4DA1F-7FD7-427D-97A6-8AF69E48DA8C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FCA4DA1F-7FD7-427D-97A6-8AF69E48DA8C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FCA4DA1F-7FD7-427D-97A6-8AF69E48DA8C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FCA4DA1F-7FD7-427D-97A6-8AF69E48DA8C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9B4B69D7-B5C7-466B-81FD-94057DB1126F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9B4B69D7-B5C7-466B-81FD-94057DB1126F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9B4B69D7-B5C7-466B-81FD-94057DB1126F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9B4B69D7-B5C7-466B-81FD-94057DB1126F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{34A8A914-CA27-41DC-97CC-09FA7A55A3EA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{34A8A914-CA27-41DC-97CC-09FA7A55A3EA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{34A8A914-CA27-41DC-97CC-09FA7A55A3EA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{34A8A914-CA27-41DC-97CC-09FA7A55A3EA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{79381FD1-6AB7-4196-91BC-6A5D5DE72F38}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{79381FD1-6AB7-4196-91BC-6A5D5DE72F38}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FE884A71-D661-4FCC-9A04-24903BC0A53E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{FE884A71-D661-4FCC-9A04-24903BC0A53E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B5AF0616-01EA-469E-BBF7-D7036A9139C8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B5AF0616-01EA-469E-BBF7-D7036A9139C8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B5AF0616-01EA-469E-BBF7-D7036A9139C8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B5AF0616-01EA-469E-BBF7-D7036A9139C8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D1654860-0C3F-4180-9D1D-2E80454DBA85}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D1654860-0C3F-4180-9D1D-2E80454DBA85}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D1654860-0C3F-4180-9D1D-2E80454DBA85}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D1654860-0C3F-4180-9D1D-2E80454DBA85}.Release|Mixed Platforms.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7FB3154D-CD4B-47D8-8CA7-CA8E523BCA8B} = {CB4D8428-02AF-412A-A880-05D022A2B23A}
+		{B43B9B29-F485-400C-A571-FD6B73CBCA54} = {CB4D8428-02AF-412A-A880-05D022A2B23A}
+		{75FC243E-2C40-4BD7-B415-69E3AA42BA62} = {CB4D8428-02AF-412A-A880-05D022A2B23A}
+		{34A0DDD2-4C1B-4F41-A16F-B8D5538A6C3F} = {2BF244F0-111E-4D0A-AFC5-E702423545CA}
+		{FCA4DA1F-7FD7-427D-97A6-8AF69E48DA8C} = {2BF244F0-111E-4D0A-AFC5-E702423545CA}
+		{FE884A71-D661-4FCC-9A04-24903BC0A53E} = {2BF244F0-111E-4D0A-AFC5-E702423545CA}
+	EndGlobalSection
+	GlobalSection(SpecExplorer.ActivityCompletionStatus) = preSolution
+		SpecExplorer.ActivityCompletionStatus = 
+	EndGlobalSection
+EndGlobal

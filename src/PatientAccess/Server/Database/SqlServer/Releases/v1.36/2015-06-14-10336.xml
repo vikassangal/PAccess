@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.36\2015-06-14-10336.xml">
+  <changeSet id="CC7DD129-C47F-4FAB-9487-57638334F09C" author="Smitha.Krishnamurthy" context="Local,Dev,Test">
+    <comment>
+      Load Facility.FacilityExtendedSettings for EMPI in enabled Facilities. Only DHF and ICE are enabled in iTest
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="98" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  
+  </changeSet>
+
+  <changeSet id="83AF9288-4CE2-45F7-A8AF-ACDF778BB1BE" author="Smitha.Krishnamurthy" context="Model">
+    <comment>
+      Load Facility.FacilityExtendedSettings. Only DHF and PRV are enabled in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+   <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+  
+  <changeSet id="E4720B56-8451-4788-B86B-553F8F535DFE" author= "Smitha.Krishnamurthy" context="Prod">
+    <comment>
+      Load Facility.FacilityExtendedSettings. The entries are for production facilities and their corresponding training facilities.
+      Providence Memorial Hospital (PRV : 390) , PROVIDENCE MEM TRAINING HOSPITAL (PXX : 990)
+      Sierra Medical  Hospital (SIE : 40) ,  SIERRA MEDICAL TRAINING  HOSP (SIX : 940)
+      Sierra Providence East MC Hospital (SES: 324) ,  Sierra Providence East MC Training(SPT: 924)
+    </comment>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="990" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="40" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="940" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="324" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="924" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+            
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.35\2015_02_13_32075.xml">
+
+  <changeSet id="95537BEE-0D81-4E2C-A856-85ED4703899C" author="Smitha.Krishnamurthy" context="Model">
+
+    <comment>
+      Defect 32075 – EMPIEnabled property needs to be added to DHF (54) and not 354
+    </comment>
+    <update schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <where>FacilityId = 354 and Name = 'EMPIEnabled'</where>
+    </update>
+ 
+  </changeSet>
+</databaseChangeLog>

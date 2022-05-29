@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.41\2017_01_18_35327.xml">
+
+  <changeSet id="4045DF9F-8578-4B5C-B17D-50DB3B2A029B" author="Smitha.Krishnamurthy">
+
+    
+    <comment>
+      insert EmailReasonPreferred (524) to CompositeruleToRules table under OnPatientDemographics (198) composite rule
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="524" />
+    </insert>
+ 
+    <comment>
+      Update severity of EmailReasonPreferred (524) rule to 2 instead of 4
+    </comment>
+    
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Severity" valueNumeric="2" />
+      <where>Id=524</where>
+    </update>
+
+
+  </changeSet>
+</databaseChangeLog>

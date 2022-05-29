@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.60\2022_03_24_7542.xml">
+
+	<changeSet  id="C8D22C53-0A17-4B63-83CA-ACCA2FD8BE80" author="abhijeet.hambir">
+		<comment>
+			Create ViWeb.ViwebAccessToken Table
+		</comment>
+		<createTable schemaName="ViWeb" tableName="ViwebAccessToken">
+			<column name="Id" type="int" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="key" type="varchar(100)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="value" type="varchar(200)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey constraintName="PK_ViwebAccessToken" schemaName="ViWeb" tableName="ViwebAccessToken" columnNames="[key],[value]" />
+	</changeSet>
+</databaseChangeLog>
+

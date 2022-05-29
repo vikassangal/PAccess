@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.61\2021_12_16_3704.xml">
+
+	<changeSet  id="37808472-7DE6-4F6D-8DA3-1092D7B91F8E" author="Abhijeet.Hambir">
+		<comment>
+			Create DOFR Schema
+		</comment>
+		<sql>
+			CREATE SCHEMA [DOFR] AUTHORIZATION [dbo];
+		</sql>
+		<rollback>
+			<sql>
+				DROP SCHEMA [DOFR];
+			</sql>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="9C3400E0-DC73-44DF-BE18-8350280BEA6F" author="Abhijeet.Hambir">
+		<comment>
+			Create DOFR.ServiceCategory Table
+		</comment>
+		<createTable schemaName="DOFR" tableName="ServiceCategory">
+			<column name="Id" type="int" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="FacilityId" type="int">
+				<constraints nullable="false" foreignKeyName="FK_ServiceCategory_Facility" references="Facility.Facilities(Id)" />
+			</column>
+			<column name="ClinicCode" type="varchar(256)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ServiceCategory" type="varchar(500)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ServiceCategoryCode" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey constraintName="PK_ServiceCategory" schemaName="DOFR" tableName="ServiceCategory" columnNames="FacilityId,ClinicCode,ServiceCategory" />
+	</changeSet>
+</databaseChangeLog>
+

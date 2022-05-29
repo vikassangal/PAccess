@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.13\2009-07-31-2381.xml">
+  <changeSet id="2" author="Jon.Lent" context="Local,Dev">
+    <comment>
+      Add DHF to Local and Dev context
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="54" />
+      <column name="HospitalCode" value="DHF" />
+      <column name="Name" value="DOCTORS HOSPITAL DALLAS" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="40" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="11/6/2007 2:31:45 PM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      <delete schemaName="Facility" tableName="Facilities">
+        <where>Id=54</where>
+      </delete>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

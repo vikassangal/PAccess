@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.36\2015_05_18_32621.xml">
+
+  <changeSet id="FE171686-3020-4C33-B044-3585661B77CB" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      Defect 32621 - patient portal opt in needs  to be added to ShortRegistrationActivity ( 21 )
+    </comment>
+
+    <comment>
+      Insert PatientPortalOptInRequired ( 507 ) to Contexts ShortRegistrationActivity ( 21 ) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="507" />
+    </insert>
+    <comment>
+      Insert PatientPortalOptInRequired ( 507 ) to CompositeRules ( 474 ) in CompositeRulesToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

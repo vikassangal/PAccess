@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.31\2014-07-01-8934.xml">
+
+  <changeSet id="9CC319B8-D560-4DB0-B993-01536A107B0C" author="Srilakshmi.Sudharshan">
+
+
+    <comment>
+      Actions
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="57" />
+      <column name="Description" value="Provide missing PAI WalkIn registration information" />
+      <column name="Type" value="PatientAccess.Actions.OnPAIWalkinAccountCreationForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="58" />
+      <column name="Description" value="Cancel, or activate the account" />
+      <column name="Type" value="PatientAccess.Actions.Walkin" />
+    </insert>
+
+    <comment>
+      CompositeActions
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="57" />
+      <column name="Description" value="Provide missing PAI WalkIn registration information" />
+      <column name="Type" value="PatientAccess.Actions.OnPAIWalkinAccountCreationForm" />
+    </insert>
+
+    <comment>
+      Rules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="509" />
+      <column name="Description" value="Complete missing fields on the PAIWalkinAccountCreation form" />
+      <column name="Type" value="PatientAccess.Rules.OnPAIWalkinAccountCreationForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+
+    <comment>
+      CompositeRules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="509"/>
+      <column name="Description" value="Complete missing fields on the PAIWalkinAccountCreation form " />
+      <column name="Type" value="PatientAccess.Rules.OnPAIWalkinAccountCreationForm" />
+    </insert>
+
+    <comment>
+      Add CompositeRules and Actions to RulesToAction table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="509"/>
+      <column name="ActionId" valueNumeric="57" />
+    </insert>
+
+    <comment>
+      SR 8934 new Context for PAIwalkinAccountCreation
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="26" />
+      <column name="Type" value="PatientAccess.Domain.PAIWalkinOutpatientCreation.PAIWalkinOutpatientCreationActivity" />
+    </insert>
+
+    <comment>
+      SR 8934 add Rules and Composite Rule (509) to ContextToRules for PAIWalkinAccountCreation
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>
+        ContextId = 26 and RuleId in (26,27,54,58,59,60,61,64,65,66,67,68,73,74,75,76,77,81,82,103,106,109,112,113,
+        114,115,116,124,126,128,129,132,133,135,136,137,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,
+        157,158,166,167,168,169,170,171,172,173,176,186,188,190,191,192,194,196,199,204,216,218,246,248,250,251,328,
+        330,332,400,403,404,405,411,416,418,421,423,424,428,429,434,439,440,441,445,456,465,466,470,438,503,509)
+      </where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="509" />
+    </insert>
+
+
+    <comment>
+      LastName Required  (73)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="73" />
+    </insert>
+
+    <comment>
+      FirstName Required (74)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="74" />
+    </insert>
+
+    <comment>
+      DateOfBirth Required  (76)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="76" />
+    </insert>
+
+    <comment>
+      GenderRequired  (75)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="75" />
+    </insert>
+
+    <comment>
+      AdmitDateRequired (54)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="54" />
+    </insert>
+
+    <comment>
+      AppointmentRequired (332)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="332" />
+    </insert>
+
+    <comment>
+      SocialSecurityNumberRequired  (77)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="77" />
+    </insert>
+
+    <comment>
+      PatientTypeRequired(58)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="58" />
+    </insert>
+
+    <comment>
+      HospitalServiceRequired(60)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="60" />
+    </insert>
+
+    <comment>
+      AdmittingPhysicianRequired(82)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="82" />
+    </insert>
+
+    <comment>
+      ReferringPhysicianRequired(81)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="81" />
+    </insert>
+
+    <comment>
+      ChiefComplaintRequired(61)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="61" />
+    </insert>
+
+    <comment>
+      ProcedureRequired(456)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="456" />
+    </insert>
+
+    <comment>
+      NonStaffPhysicianFirstNameRequired(113)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="113" />
+    </insert>
+
+    <comment>
+      NonStaffPhysicianLastNameRequired(112)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="112" />
+    </insert>
+
+    <comment>
+      NonStaffPhysicianNPIRequired(470)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+
+    <comment>
+      NonStaffPhysicianUPINRequired(116)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="116" />
+    </insert>
+
+    <comment>
+      NonStaffPhysicianUPINStatusRequired(115)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="115" />
+    </insert>
+
+    <comment>
+      NonStaffPhysicianStateLicensePreferred(114)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="114" />
+    </insert>
+
+    <comment>
+      FinancialClasRequired (106)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="106" />
+    </insert>
+
+    <comment>
+      PlanNameInPrimaryDisplayRequired (109)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="109" />
+    </insert>
+
+    <comment>
+      PlanIDInPrimaryDisplayRequired (103)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="103" />
+    </insert>
+
+    <comment>
+      PersonEmployerAddressPreferred (124)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="124" />
+    </insert>
+
+    <comment>
+      BenefitsVerificationRequired (26)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="26" />
+    </insert>
+
+    <comment>
+      AuthorizationRequired (27)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="27" />
+    </insert>
+
+    <comment>
+      AdmitTimeRequired (59)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="59" />
+    </insert>
+
+    <comment>
+      AddressCountryRequired (64)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="64" />
+    </insert>
+
+    <comment>
+      AddressStreetRequired (65)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="65" />
+    </insert>
+
+    <comment>
+      AddressCityRequired (66)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="66" />
+    </insert>
+
+    <comment>
+      AddressStateRequired (67)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="67" />
+    </insert>
+
+    <comment>
+      AddressZipRequired (68)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="68" />
+    </insert>
+
+    <comment>
+      PersonEmployerRequired (126)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="126" />
+    </insert>
+
+    <comment>
+      PersonEmploymentStatusPreferred (128)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="128" />
+    </insert>
+
+    <comment>
+      PersonFirstNamePreferred (129)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="129" />
+    </insert>
+
+    <comment>
+      PersonLastNamePreferred (132)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="132" />
+    </insert>
+
+    <comment>
+      PersonGenderPreferred (133)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="133" />
+    </insert>
+
+    <comment>
+      .PersonPhoneNumberPreferred (135)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="135" />
+    </insert>
+
+    <comment>
+      PersonPhoneAreaCodePreferred (136)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="136" />
+    </insert>
+
+    <comment>
+      PersonRelationshipPreferred (137)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="137" />
+    </insert>
+
+    <comment>
+      InsuranceAuthorizationRequiredPreferred (142)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="142" />
+    </insert>
+
+    <comment>
+      InsuranceBenefitsVerifiedPreferred (143)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="143" />
+    </insert>
+
+    <comment>
+      InsuranceClaimsVerifiedPreferred (144)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="144" />
+    </insert>
+
+    <comment>
+      InsuranceEffectiveDatePreferred (145)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="145" />
+    </insert>
+
+    <comment>
+      InsuranceInformationRecvFromPreferred (146)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="146" />
+    </insert>
+
+    <comment>
+      MedicareDaysRemainingBenefitPreferred (147)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="147" />
+    </insert>
+
+    <comment>
+      MedicareDaysRemainingCoInsPreferred (148)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="148" />
+    </insert>
+
+    <comment>
+      MedicareDaysRemainLifeServePreferred (149)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="149" />
+    </insert>
+
+    <comment>
+      MedicareHasHMOCoveragePreferred (150)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="150" />
+    </insert>
+
+    <comment>
+      MedicareHospiceProgramPreferred (151)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="151" />
+    </insert>
+
+    <comment>
+      MedicareInfoRecvdFromPreferred (152)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="152" />
+    </insert>
+
+    <comment>
+      MedicareIsSecondaryPreferred (153)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="153" />
+    </insert>
+
+    <comment>
+      MedicarePartACoveragePreferred (154)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="154" />
+    </insert>
+
+    <comment>
+      MedicarePartBCoveragePreferred (155)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="155" />
+    </insert>
+
+    <comment>
+      MedicareVerifiedBeneficiaryNamePreferred (156)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="156" />
+    </insert>
+
+    <comment>
+      EmploymentPhoneNumberPreferred (157)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="157" />
+    </insert>
+
+    <comment>
+      EmploymentPhoneAreaCodePreferred (158)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="158" />
+    </insert>
+
+    <comment>
+      GovtEffectiveDatePreferred (166)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="166" />
+    </insert>
+
+    <comment>
+      GovtInfoRecvdFromPreferred (167)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="167" />
+    </insert>
+
+    <comment>
+      MedicaidEligibilityDatePreferred (168)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="168" />
+    </insert>
+
+    <comment>
+      MedicaidPatientHasMedicarePreferred (169)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="169" />
+    </insert>
+
+    <comment>
+      WorkersCompClaimAddressVerifiedPreferred (170)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="170" />
+    </insert>
+
+    <comment>
+      WorkersCompClaimNumberPreferred (171)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="171" />
+    </insert>
+
+    <comment>
+      WorkersCompInfoRecvdFromPreferred (172)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="172" />
+    </insert>
+
+    <comment>
+      WorkersCompInsurancePhonePreferred (173)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="173" />
+    </insert>
+
+    <comment>
+      InsuredAddressPreferred (176)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="176" />
+    </insert>
+
+    <comment>
+      BillingAddressPreferred (186)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="186" />
+    </insert>
+
+    <comment>
+      WorkersCompPolicyNumberPreferred (188)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="188" />
+    </insert>
+
+    <comment>
+      WorkersCompEmpSupervisorPreferred (190)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="190" />
+    </insert>
+
+    <comment>
+      WorkersCompEmpSupervisorRequired (191)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="191" />
+    </insert>
+
+    <comment>
+      MedicaidPolicyCINNumberPreferred (192)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="192" />
+    </insert>
+
+    <comment>
+      InsurancePlanSSNPreferred (194)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="194" />
+    </insert>
+
+    <comment>
+      WorkersCompAuthCodePreferred (196)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="196" />
+    </insert>
+
+    <comment>
+      OnInsuredFormForPrimaryInsurance (199)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="199" />
+    </insert>
+
+    <comment>
+      OnPayorDetailsFormForPrimaryPayor (204)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="204" />
+    </insert>
+
+    <comment>
+      MedicareHICNumberRequired (216)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="216" />
+    </insert>
+
+    <comment>
+      AddressFieldsRequired (218)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="218" />
+    </insert>
+
+    <comment>
+      BenefitsVerificationRequiredForSecondary (246)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="246" />
+    </insert>
+
+    <comment>
+      ReviewElectronicResultsForPrimary (248)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="248" />
+    </insert>
+
+    <comment>
+      AdmitDateRequiredForInsuranceSelection (250)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="250" />
+    </insert>
+
+    <comment>
+      AdmitDateToPrimaryPlanDates (251)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="251" />
+    </insert>
+
+    <comment>
+      AdmitDateTodayOrGreater (328)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="328" />
+    </insert>
+
+    <comment>
+      MedicaidIssueDatePreferred (330)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="330" />
+    </insert>
+
+    <comment>
+      InsuranceMedicaidHasOtherCoveragePreferred (400)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="400" />
+    </insert>
+
+    <comment>
+      SelfPayPatientHasMedicaidPreferred (403)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="403" />
+    </insert>
+
+    <comment>
+      SelfPayPatientInfoUnavailablePreferred (404)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="404" />
+    </insert>
+
+    <comment>
+      AdmitDateEnteredFiveDaysPast (405)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="405" />
+    </insert>
+
+    <comment>
+      PrimaryInsuredDateOfBirthPreferred (411)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="411" />
+    </insert>
+
+    <comment>
+      PhysicianSelectionPreRequisites (416)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="416" />
+    </insert>
+
+    <comment>
+      AdmitDateWithinSpecifiedSpan (418)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="418" />
+    </insert>
+
+    <comment>
+      NonStaffNPIIsValid (421)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="421" />
+    </insert>
+
+    <comment>
+      AdmitDateLaterThanAuthExpirationDate (423)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="423" />
+    </insert>
+
+    <comment>
+      AdmitDateEarlierThanAuthEffectiveDate (424)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="424" />
+    </insert>
+
+    <comment>
+      AdmitDateToAuthorizationDateRange (428)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="428" />
+    </insert>
+
+    <comment>
+      OnAuthorizationFormForPrimaryCoverage (429)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="429" />
+    </insert>
+
+    <comment>
+      InsurancePlanIPARequired (434)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="434" />
+    </insert>
+
+    <comment>
+      PhoneNumberPrefersAreaCode (439)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="439" />
+    </insert>
+
+    <comment>
+      AreaCodeRequiresPhoneNumber (440)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="440" />
+    </insert>
+
+    <comment>
+      OnVerificationFormForPrimaryInsurance (441)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="441" />
+    </insert>
+
+    <comment>
+      InValidDateOfBirth (445)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="445" />
+    </insert>
+
+    <comment>
+      OnReferringNonStaffPhysicianForm (465)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+
+    <comment>
+      OnAdmittingNonStaffPhysicianForm (466)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+
+    <comment>
+      SignedOverMedicareHICNumberRequired (438)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="438" />
+    </insert>
+
+    <comment>
+      InsuredEmployerRequired (503)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+
+    <comment>
+
+      SR 8934 CompositeRulesToRules for PAI WalkIn Outpatient Registration
+      Rules added for CompositeRule (509 ) in CompositeRulesToRules table:
+
+      AdmitDateRequired(54), PatientTypeRequired(58), AdmitTimeRequired(59), HospitalServiceRequired(60),
+      ChiefComplaintRequired(61), LastNameRequired(73), FirstNameRequired(74), GenderRequired(75),
+      DateOfBirthRequired(76), SocialSecurityNumberRequired(77), ReferringPhysicianRequired(81),
+      AdmittingPhysicianRequired(82), PlanIDInPrimaryDisplayRequired(103),
+      PlanNameInPrimaryDisplayRequired(109), AppointmentRequired(332), ProcedureRequired(456)
+
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="54" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="58" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="59" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="60" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="61" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="73" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="74" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="75" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="76" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="77" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="81" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="82" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="103" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="109" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="332" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="456" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="509" />
+      <column name="RuleId" valueNumeric="106" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

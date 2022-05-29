@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.41\2017_01_30_35374.xml">
+
+  <changeSet id="C864AD87-5439-4362-99EC-14CCD09DF8D7" author="Leelavathi.Vanniya" context="Local,Dev,Test,Model">
+
+    <comment>
+      make facility DHF (54) a non-Baylor Facility in the Local, Dev, Test and model environments
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 54 and Name = 'IsBaylorFacility'</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="54" />
+        <column name="Name" value="IsBaylorFacility" />
+        <column name="Value" value="True" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.18\_changelog.xml">
+
+  <include relativeToChangelogFile="true" file="2010-10-15-10953.xml" />
+  <include relativeToChangelogFile="true" file="2010-11-10-12065.xml" />
+  <include relativeToChangelogFile="true" file="2010-11-08-9958.xml" />
+  <include relativeToChangelogFile="true" file="2010-12-02-1190.xml" />
+  <include relativeToChangelogFile="true" file="2010-12-03-1190.xml" />
+  <include relativeToChangelogFile="true" file="2010-12-04-1190.xml" />
+  <include relativeToChangelogFile="true" file="2010-12-16-12713.xml" />
+  <include relativeToChangelogFile="true" file="2010-11-11-12046.xml" />
+  <include relativeToChangelogFile="true" file="2011-01-14-12873.xml" />
+  <include relativeToChangelogFile="true" file="2010-12-05-1190.xml" />
+  <include relativeToChangelogFile="true" file="2010-12-08-1190.xml" />
+  <include relativeToChangelogFile="true" file="2010-01-12-1190.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-07-13468.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-16-13468.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-18-13712.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-16-13656.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-17-13724.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-22-13653.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-23-13722.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-20-13720.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-21-13752.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-22-13754.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-21-13743.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-18-13687.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-22-13685.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13852.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13713.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-23-13721.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13817.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-28-13947.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13802.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13879.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13880.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-1190.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-01-13959.xml" />
+  <include relativeToChangelogFile="true" file="2011-02-24-13890.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-03-13951.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-05-13954.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-04-14001.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-10-14150.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-10-14158.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-11-14190.xml" />
+  <include relativeToChangelogFile="true" file="2011-03-18-14001.xml" />
+
+</databaseChangeLog>

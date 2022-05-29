@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.25\2012-07-20-23716.xml">
+
+  <changeSet id="9B41B4D6-2BDD-48B3-94C3-7FD1E2C944F5" author="Smitha.Krishnamurthy">
+    <comment>Add County for Physical Address Required Rules table </comment>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="506" />
+      <column name="Description" value="County for physical address" />
+      <column name="Type" value ="PatientAccess.Rules.PhysicalAddressCountyRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    
+
+    <comment>Add PhysicalAddressRequired and AddressCountyRequired rules  for POSTMSE (13) activity</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="506" />
+    </insert>
+    
+    
+    <comment>Add PhysicalAddressRequired and AddressCountyRequired rules  for Complete missing address fields Composite rule (218)
+    </comment>
+  
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="RuleId" valueNumeric="506" />
+    </insert>
+ </changeSet>
+  </databaseChangeLog>

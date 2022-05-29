@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.52\2020_07_27.xml">
+
+  <changeSet id="AE0EE3D3-0554-46C2-8A22-FBB41335CF8E" author="Rajesh.Rajasekaran" context="Test">
+    <comment>
+      Model testing
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="945" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="949" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 949 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+  </changeSet>
+  <changeSet id="D32508A3-175D-4EC1-A21B-ECDAAF483314" author="Rajesh.Rajasekaran" context="Model">
+    <comment>
+      Model testing
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="945" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="949" />
+      <column name="Name" value="EMPIEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId = 949 and Name = 'EMPIEnabled'</where>
+    </delete>
+
+  </changeSet>
+</databaseChangeLog>

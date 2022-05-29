@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BrokerInterfaceMaps>
+
+  <!--
+  
+  The following XML element defines how a broker interface maps to a real class, where to 
+  find that real class, and the endpoint used to build the remoting URL when the 
+  implementation is on a remote server. This element is a one-to-one map of the
+  BrokerInterfaceMap class in the BrokerInterfaces assembly. This collection of 
+  BrokerInterfaceMap objects will be loaded into a static dictionary by the BrokerFactory
+  class and indexed by the interface name.
+  
+  <BrokerInterfaceMap>
+    <Interface>Fully qualified interface name of service you need</Interface>
+    <Implementation>Fully qualified name of class implementing the interface</Implementation>
+    <AssemblyName>Name of assembly containing the implementation, minus the extension</AssemblyName>
+    <Endpoint>Remoting identifier (follows the protocol and path in the remoting URL)</Endpoint>
+  </BrokerInterfaceMap>
+  
+  -->
+
+  <!-- IAccountBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAccountBroker</Interface>
+    <Implementation>PatientAccess.Persistence.Specialized.ClinicalTrialsAccountPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AccountPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IAddressBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAddressBroker</Interface>
+    <Implementation>PatientAccess.Persistence.AddressPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AddressPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IClientConfigurationBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IClientConfigurationBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ClientConfigurationBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ClientConfigurationBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ICopyAccountCommandFactory -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAccountCopyBroker</Interface>
+    <Implementation>PatientAccess.Persistence.AccountCopyBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AccountCopyBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- ILoggerBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ILoggerBroker</Interface>
+    <Implementation>PatientAccess.Persistence.LoggerBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>LoggerBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IEmployerBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IEmployerBroker</Interface>
+    <Implementation>PatientAccess.Persistence.EmployerPbarBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>EmployerPbarBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IEmploymentStatusBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IEmploymentStatusBroker</Interface>
+    <Implementation>PatientAccess.Persistence.EmploymentStatusPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>EmploymentStatusPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IFacilityBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IFacilityBroker</Interface>
+    <Implementation>PatientAccess.Persistence.FacilityBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>FacilityBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- FollowUpUnitBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IFollowUpUnitBroker</Interface>
+    <Implementation>PatientAccess.Persistence.FollowUpUnitBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>FollowUpUnitBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IDemographicsBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IDemographicsBroker</Interface>
+    <Implementation>PatientAccess.Persistence.DemographicsPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>DemographicsPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IGuarantorBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IGuarantorBroker</Interface>
+    <Implementation>PatientAccess.Persistence.GuarantorPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>GuarantorPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IOriginBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IOriginBroker</Interface>
+    <Implementation>PatientAccess.Persistence.OriginPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>OriginPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IReligionBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IReligionBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ReligionPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ReligionPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ISSNBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ISSNBroker</Interface>
+    <Implementation>PatientAccess.Persistence.SSNPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>SSNPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IInsuranceBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IInsuranceBroker</Interface>
+    <Implementation>PatientAccess.Persistence.InsurancePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>InsurancePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IPatientBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IPatientBroker</Interface>
+    <Implementation>PatientAccess.Persistence.Specialized.ClinicalTrialsPatientPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>PatientPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IRelationshipTypeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IRelationshipTypeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.RelationshipTypePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>RelationshipTypePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IOccuranceCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IOccuranceCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.OccuranceCodePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>OccuranceCodePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IWorklistBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IWorklistBroker</Interface>
+    <Implementation>PatientAccess.Persistence.WorklistPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>WorklistPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IWorklistSettingsBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IWorklistSettingsBroker</Interface>
+    <Implementation>PatientAccess.Persistence.WorklistSettingsBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>WorklistSettingsBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ILocationBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ILocationBroker</Interface>
+    <Implementation>PatientAccess.Persistence.LocationPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>LocationPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IDischargeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IDischargeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.DischargePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>DischargePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IPhysicianBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IPhysicianBroker</Interface>
+    <Implementation>PatientAccess.Persistence.PhysicianPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>PhysicianPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IHDIService -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IHDIService</Interface>
+    <Implementation>PatientAccess.Services.Hdi.HDIService</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>HDIService.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IRuleBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IRuleBroker</Interface>
+    <Implementation>PatientAccess.Persistence.RuleBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>RuleBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ICreditCardTypeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ICreditCardTypeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.CreditCardTypeBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>CreditCardTypeBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IHSVBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IHSVBroker</Interface>
+    <Implementation>PatientAccess.Persistence.HSVPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>HSVPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IHospitalClinicsBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IHospitalClinicsBroker</Interface>
+    <Implementation>PatientAccess.Persistence.HospitalClinicsPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>HospitalClinicsPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IModeOfArrivalBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IModeOfArrivalBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ModeOfArrivalPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ModeOfArrivalPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IAdmitSourceBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAdmitSourceBroker</Interface>
+    <Implementation>PatientAccess.Persistence.AdmitSourcePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AdmitSourcePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ITimeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ITimeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.TimeBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>TimeBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ITimeoutBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ITimeoutBroker</Interface>
+    <Implementation>PatientAccess.Persistence.TimeoutBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>TimeoutBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IFacilityFlagBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IFacilityFlagBroker</Interface>
+    <Implementation>PatientAccess.Persistence.FacilityFlagPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>FacilityFlagPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IFUSNoteBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IFUSNoteBroker</Interface>
+    <Implementation>PatientAccess.Persistence.FusNoteBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>FusNoteBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IConditionOfServiceBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IConditionOfServiceBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ConditionOfServiceBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ConditionOfServiceBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IConfidentialCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IConfidentialCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ConfidentialCodePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ConfidentialCodePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- INPPVersionBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.INPPVersionBroker</Interface>
+    <Implementation>PatientAccess.Persistence.NPPVersionPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>NPPVersionPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IInfoReceivedSourceBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IInfoReceivedSourceBroker</Interface>
+    <Implementation>PatientAccess.Persistence.InfoReceivedSourceBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>InfoReceivedSourceBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ITypeOfProductBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ITypeOfProductBroker</Interface>
+    <Implementation>PatientAccess.Persistence.TypeOfProductBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>TypeOfProductBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IBenefitsCategoryBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IBenefitsCategoryBroker</Interface>
+    <Implementation>PatientAccess.Persistence.BenefitsCategoryPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>BenefitsCategoryPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ITypeOfVerificationRuleBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ITypeOfVerificationRuleBroker</Interface>
+    <Implementation>PatientAccess.Persistence.TypeOfVerificationRuleBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>TypeOfVerificationRuleBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+ 
+  <!-- IRoleBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IRoleBroker</Interface>
+    <Implementation>PatientAccess.Persistence.RoleBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>RoleBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IAnnouncementBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAnnouncementBroker</Interface>
+    <Implementation>PatientAccess.Persistence.AnnouncementBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AnnouncementBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IVIWebServiceBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IVIWebServiceBroker</Interface>
+    <Implementation>PatientAccess.Persistence.VIWebServiceBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>VIWebServiceBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ISpanCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ISpanCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.SpanCodePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>SpanCodePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IUserBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IUserBroker</Interface>
+    <Implementation>PatientAccess.Persistence.UserBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>UserBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IConditionCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IConditionCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ConditionCodePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ConditionCodePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IDataValidationBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IDataValidationBroker</Interface>
+    <Implementation>PatientAccess.Persistence.DataValidationBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>DataValidationBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IReferralSourceBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IReferralSourceBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ReferralSourcePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ReferralSourcePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IScheduleCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IScheduleCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ScheduleCodePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ScheduleCodePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IFinancialClassesBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IFinancialClassesBroker</Interface>
+    <Implementation>PatientAccess.Persistence.FinancialClassesPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>FinancialClassesPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IReAdmitCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IReAdmitCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ReAdmitCodePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ReAdmitCodePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IReferralFacilityBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IReferralFacilityBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ReferralFacilityPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ReferralFacilityPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IReferralTypeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IReferralTypeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ReferralTypePBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ReferralTypePBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IPBARSecurityCodeBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ISecurityCodeBroker</Interface>
+    <Implementation>PatientAccess.Persistence.PBARSecurityCodeBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>PBARSecurityCodeBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IMSPBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IMSPBroker</Interface>
+    <Implementation>PatientAccess.Persistence.MSPPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>MSPPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ICrashReportBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ICrashReportBroker</Interface>
+    <Implementation>PatientAccess.Persistence.CrashReportBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>CrashReportBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ICodedDiagnosisBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ICodedDiagnosisBroker</Interface>
+    <Implementation>PatientAccess.Persistence.CodedDiagnosisPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>CodedDiagnosisPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IAuthorizationStatusBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAuthorizationStatusBroker</Interface>
+    <Implementation>PatientAccess.Persistence.AuthorizationStatusPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AuthorizationStatusPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IApplicationLockBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IOfflineLockBroker</Interface>
+    <Implementation>PatientAccess.Persistence.Locking.SqlOfflineLockBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>SqlOfflineLockBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IResearchStudyBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IResearchStudyBroker</Interface>
+    <Implementation>PatientAccess.Persistence.ResearchStudyPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>ResearchStudyPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IAlternateCareFacility -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IAlternateCareFacilityBroker</Interface>
+    <Implementation>PatientAccess.Persistence.AlternateCareFacilityPbarBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>AlternateCareFacilityPbarBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ISuffixBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ISuffixBroker</Interface>
+    <Implementation>PatientAccess.Persistence.SuffixBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>SuffixBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- ILeftOrStayedBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ILeftOrStayedBroker</Interface>
+    <Implementation>PatientAccess.Persistence.LeftOrStayedBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>LeftOrStayedBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IPreRegistrationSubmissionsBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IPreRegistrationSubmissionsBroker</Interface>
+    <Implementation>PatientAccess.Persistence.OnlinePreregistration.PreRegistrationSubmissionsBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>PreRegistrationSubmissionsBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IDialysisCenterBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IDialysisCenterBroker</Interface>
+    <Implementation>PatientAccess.Persistence.DialysisCenterPbarBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>DialysisCenterPbarBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- ICellPhoneConsentBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.ICellPhoneConsentBroker</Interface>
+    <Implementation>PatientAccess.Persistence.CellPhoneConsentBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>CellPhoneConsentBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IPriorVisitBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IPriorVisitBroker</Interface>
+    <Implementation>PatientAccess.Persistence.PriorVisitBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>PriorVisitBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IEMPIBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IEMPIBroker</Interface>
+    <Implementation>PatientAccess.Persistence.EMPIBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>EMPIBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IEmailReasonBroker-->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IEmailReasonBroker</Interface>
+    <Implementation>PatientAccess.Persistence.EmailReasonBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>EmailReasonBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IOKTAUserBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IOKTAUserBroker</Interface>
+    <Implementation>PatientAccess.Persistence.OKTAUserBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>OKTAUserBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IInterfacilityTransferBroker -->
+  <BrokerInterfaceMap>
+    <Interface>PatientAccess.BrokerInterfaces.IInterfacilityTransferBroker</Interface>
+    <Implementation>PatientAccess.Persistence.InterFacilityTransferPBARBroker</Implementation>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <Endpoint>InterFacilityTransferPBARBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+
+  <!-- IDOFRInitiateBroker -->
+  <BrokerInterfaceMap>
+	<Interface>PatientAccess.BrokerInterfaces.IDOFRInitiateBroker</Interface>
+	<Implementation>PatientAccess.Persistence.DOFRInitiateBroker</Implementation>
+	<AssemblyName>PatientAccess.AppServer</AssemblyName>
+	<Endpoint>DOFRInitiateBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+  <!-- IServiceCategoryBroker -->
+  <BrokerInterfaceMap>
+	<Interface>PatientAccess.BrokerInterfaces.IServiceCategoryBroker</Interface>
+	<Implementation>PatientAccess.Persistence.ServiceCategoryBroker</Implementation>
+	<AssemblyName>PatientAccess.AppServer</AssemblyName>
+	<Endpoint>ServiceCategoryBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+  
+  <!-- IAidCodeBroker -->
+  <BrokerInterfaceMap>
+	<Interface>PatientAccess.BrokerInterfaces.IAidCodeBroker</Interface>
+	<Implementation>PatientAccess.Persistence.AidCodeBroker</Implementation>
+	<AssemblyName>PatientAccess.AppServer</AssemblyName>
+	<Endpoint>AidCodeBroker.rem</Endpoint>
+  </BrokerInterfaceMap>
+
+</BrokerInterfaceMaps>

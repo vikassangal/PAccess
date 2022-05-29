@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Worklist.SelectionRanges.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Worklist.SelectionRanges Table
+    </comment>
+    <createTable schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_SelectionRanges" />
+      </column>
+      <column name="Description" type="varchar(50)" />
+      <column name="RangeInDays" type="int" />
+      <column name="DisplayOrder" type="int" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.54\2020_11_04_40670.xml">
+
+  <changeSet id="464D39FC-28BB-4F38-9305-3DC58D89544B" author="Smitha.Krishnamurthy">
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId=26 AND RuleId IN (527)</where>
+    </delete>
+  </changeSet>
+  
+</databaseChangeLog>

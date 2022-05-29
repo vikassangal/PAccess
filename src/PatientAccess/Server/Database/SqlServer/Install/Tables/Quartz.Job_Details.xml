@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Job_Details.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Job_Details Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Job_Details">
+      <column name="Job_Name" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Job_Group" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Description" type="VARCHAR(250)" />
+      <column name="Job_Class_Name" type="VARCHAR(250)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Is_Durable" type="VARCHAR(1)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Is_Volatile" type="VARCHAR(1)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Is_Stateful" type="VARCHAR(1)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Requests_Recovery" type="VARCHAR(1)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Job_Data" type="IMAGE" />
+    </createTable>
+    <addPrimaryKey constraintName="PK_JobDetails" schemaName="Quartz" tableName="Job_Details" columnNames="Job_Name,Job_Group" />
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Job_Details TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

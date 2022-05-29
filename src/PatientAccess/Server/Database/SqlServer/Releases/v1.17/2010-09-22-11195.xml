@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.17\2010-09-22-11195.xml">
+
+  <changeSet id="5B41C2DA-4728-4678-8425-CB5EF0D4E0E6" author="Deepa.Raju">
+    <comment>
+      Defect 11195 fix - Modify default filter criteria to 'All' from 'Next 3 days'.
+    </comment>
+
+    <delete schemaName="Worklist" tableName="Settings">
+      <where> WorklistId = 7 and UserId = 9999999 </where>
+    </delete>
+    <delete schemaName="Worklist" tableName="Settings">
+      <where> WorklistId = 7 and UserId = 5 </where>
+    </delete>
+
+    <insert schemaName="Worklist" tableName="Settings">
+      <column name="StartLetters" value="A" />
+      <column name="EndLetters" value="Z" />
+      <column name="SelectionRangeId" value="8" />
+      <column name="WorklistId" valueNumeric="7" />
+      <column name="UserId" value="9999999" />
+      <column name="StartDate" />
+      <column name="EndDate" />
+      <column name="SortedColumn" valueNumeric="1" />
+      <column name="SortedColumnDirection" valueNumeric="1" />
+    </insert>
+    
+    <rollback>
+
+      <delete schemaName="Worklist" tableName="Settings">
+        <where> WorklistId = 7 and UserId = 9999999 </where>
+      </delete>
+      <delete schemaName="Worklist" tableName="Settings">
+        <where> WorklistId = 7 and UserId = 5 </where>
+      </delete>
+
+      <insert schemaName="Worklist" tableName="Settings">
+        <column name="StartLetters" value="A" />
+        <column name="EndLetters" value="Z" />
+        <column name="SelectionRangeId" value="8" />
+        <column name="WorklistId" valueNumeric="7" />
+        <column name="UserId" value="5" />
+        <column name="StartDate" value="04/03/2006 02:53:10 PM" />
+        <column name="EndDate" value="04/03/2006 02:53:10 PM" />
+        <column name="SortedColumn" valueNumeric="1" />
+        <column name="SortedColumnDirection" valueNumeric="1" />
+      </insert>
+      <insert schemaName="Worklist" tableName="Settings">
+        <column name="StartLetters" value="A" />
+        <column name="EndLetters" value="Z" />
+        <column name="SelectionRangeId" value="3" />
+        <column name="WorklistId" valueNumeric="7" />
+        <column name="UserId" value="9999999" />
+        <column name="StartDate" />
+        <column name="EndDate" />
+        <column name="SortedColumn" valueNumeric="1" />
+        <column name="SortedColumnDirection" valueNumeric="1" />
+      </insert>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

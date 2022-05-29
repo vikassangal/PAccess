@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.18\2011-01-14-12873.xml">
+
+  <changeSet id="963FE50B-770A-48DA-A514-14C43D635D8F" author="Sharanabasappa.Vitha">
+    <comment>
+      FUS Activity Code changes for January 2011
+    </comment>
+    
+    <!--Delete if Fus Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RORIC'</where>
+    </delete>
+    
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RSTOP'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='MGRNL'</where>
+    </delete>
+    
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='MREDL'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='MYELL'</where>
+    </delete>
+    
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='OPPPD'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ORCRC'</where>
+    </delete>
+    
+    <!-- Insert the New Fus Activity Codes-->
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RORIC" />
+      <column name="Description" value="ORDER REVIEWED - INCOMPLETE" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="1" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RSTOP" />
+      <column name="Description" value="STOP RECORDING - CALLER REQUEST" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="7" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="MGRNL" />
+      <column name="Description" value="MECS GREEN LIGHT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="MREDL" />
+      <column name="Description" value="MECS RED LIGHT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="MYELL" />
+      <column name="Description" value="MECS YELLOW LIGHT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="OPPPD" />
+      <column name="Description" value="OUTSOURCE PENDING PROMPT PAY DISC" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ORCRC" />
+      <column name="Description" value="OUTSOURCING REQ CLEARED REF CK" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+
+    <!--Change/Update the existing Fus Activity Codes-->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CR BAL ACCT REVIEWED FOR RESOLUTION" />
+      <where>ActivityCode='CRERF'</where>
+    </update>
+    
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="MCR-MCD CREDIT BAL-LATE CREDIT CHRG" />
+      <where>ActivityCode='ICBLC'</where>
+    </update>
+
+    <!--Rollback-->
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RORIC'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RSTOP'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='MGRNL'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='MREDL'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='MYELL'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='OPPPD'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ORCRC'</where>
+      </delete>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="ACCT REVIEWED FOR REFUND" />
+        <where>ActivityCode='CRERF'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="MCR CREDIT BAL-LATE CREDIT CHARGES" />
+        <where>ActivityCode='ICBLC'</where>
+      </update>
+      
+    </rollback>
+  </changeSet>
+</databaseChangeLog>
+

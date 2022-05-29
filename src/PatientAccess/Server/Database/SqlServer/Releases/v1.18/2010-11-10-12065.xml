@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.18\2010-11-10-12065.xml">
+
+  <changeSet id="0C06927F-B95A-4827-B574-49D0D26855C9" author="Deepa.Raju">
+    <comment>
+      FUS Activity Code changes for November 2010
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RBPLI'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RNTPS'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RBPLI" />
+      <column name="Description" value="PT HAS LIABILITY" />
+      <column name="NoteType" valueNumeric="10" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RNTPS" />
+      <column name="Description" value="ATTEMPTED TO CONTACT PATIENT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CHARITY APPLICATION TO BOM FOR REV" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CAPIP'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="RAC-CRC REQ ADDL MED NEC INFO" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='MRACI'</where>
+    </update>
+
+
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RBPLI'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RNTPS'</where>
+      </delete>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="CHARITY APPLICATION TO BOM FOR REV" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='CAPIP'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="RAC - CRC 2 RVW - FAILED IQ" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='MRACI'</where>
+      </update>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

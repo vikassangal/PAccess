@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2010 Dell Services, Inc. All Rights Reserved
+
+This source and information are the confidential property of Dell. Do not
+distribute any portion of the code to any party outside of Dell or
+its susidiaries.
+-->
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.14\2010-03-15-7939.xml">
+  <!--
+  These changes will only go into the production environment
+  -->
+  <changeSet id="1efde9e8-83d6-40e6-bc62-2dd75b59d93c" author="Jon.Lent" context="Beta">
+    <comment>Add Divested Northshore (NRN)</comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="932" />
+      <column name="HospitalCode" value="NRN" />
+      <column name="Name" value="NORTHSHORE MEDICAL CENTER (NRN)" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="8" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/15/2010 12:54:33 AM" />
+      <column name="TaxId" value="200099838" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id = 932 
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

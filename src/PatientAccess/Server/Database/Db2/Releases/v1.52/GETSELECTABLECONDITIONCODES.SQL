@@ -1,0 +1,44 @@
+﻿--  Generate SQL 
+--  Version:                   	V7R3M0 160422 
+--  Generated on:              	03/04/20 00:58:10 
+--  Relational Database:       	DVLA 
+--  Standards Option:          	Db2 for i 
+SET PATH *LIBL ; 
+  
+CREATE PROCEDURE GETSELECTABLECONDITIONCODES ( 
+	IN P_FACILITYID INTEGER ) 
+	DYNAMIC RESULT SETS 1 
+	LANGUAGE SQL 
+	SPECIFIC GETSLCCS 
+	NOT DETERMINISTIC 
+	READS SQL DATA 
+	CALLED ON NULL INPUT 
+	SET OPTION  ALWBLK = *ALLREAD , 
+	ALWCPYDTA = *OPTIMIZE , 
+	COMMIT = *NONE , 
+	DBGVIEW = *SOURCE , 
+	DECRESULT = (31, 31, 00) , 
+	DFTRDBCOL = *NONE , 
+	DLYPRP = *NO , 
+	DYNDFTCOL = *NO , 
+	DYNUSRPRF = *USER , 
+	SRTSEQ = *HEX   
+	P1 : BEGIN DECLARE CURSOR1 CURSOR FOR 
+SELECT OID , CODE , DESCRIPTION FROM 
+( SELECT 0 AS OID , TRIM ( QTKEY ) AS CODE , 
+TRIM ( QTCCDS ) AS DESCRIPTION 
+FROM  HPADQTCC 
+WHERE QTHSP# = P_FACILITYID AND TRIM ( QTKEY ) 
+IN ( 'A5' , 'A6' , 
+'B4' , 'DR' , 'G0' , 'P7' , '02' , '03' , 
+'06' , '07' , '08' , '26' , '38' , 
+'39' , '40' , '41' , '42' , '59' , '67' , 
+'68' , 'X9' , 'X2' , 'XB' , 'XE' , 
+'XF' , 'XG' , 'XH' , 'XN' , 'XX' , 'X2' , 
+'X3' , 'XS' ) 
+UNION ALL SELECT 0 AS OID , '' AS CODE , 
+'' AS DESCRIPTION FROM 
+SYSIBM . SYSDUMMY1 ) 
+AS V ( OID , CODE , DESCRIPTION ) 
+ORDER BY CODE ; OPEN CURSOR1 ; END P1  ; 
+ 

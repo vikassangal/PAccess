@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.25\2012-10-11-23667.xml">
+
+  <changeSet id="36065FEA-DEE4-44F3-A152-775106E67C3E" author="Smitha.Krishnamurthy">
+    <comment>
+      Remove  PhysicalAddressRequired rule 504 from AddressRequiredRule composite rule 218
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>
+        RuleId = 504 and CompositeRuleId = 218
+      </where>
+    </delete>
+    </changeSet>
+  
+</databaseChangeLog>

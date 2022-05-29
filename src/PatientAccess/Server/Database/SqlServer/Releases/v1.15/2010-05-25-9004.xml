@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2010 Dell Services, Inc. All Rights Reserved
+
+This source and information are the confidential property of Dell. Do not
+distribute any portion of the code to any party outside of Dell or
+its susidiaries.
+-->
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.15\2010-05-25-9004.xml">
+  <!--
+  These changes will only go into the production environment
+  -->
+  <changeSet id="08D91070-A5CD-4800-AAEA-8676D00DED92" author="Ahmed.Chaudhary" context="Prod">
+    <comment>Add Sierra Vista Regional, Sierra Vista Training, Twin Cities and Twin Cities Training facilities</comment>
+    
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="737" />
+      <column name="HospitalCode" value="SVM" />
+      <column name="Name" value="Sierra Vista Regional" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/25/2010 11:00:00 AM" />
+      <column name="TaxId" value="952588614" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="686" />
+      <column name="HospitalCode" value="SVT" />
+      <column name="Name" value="Sierra Vista Test Hospital" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/25/2010 11:00:00 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="42" />
+      <column name="HospitalCode" value="TWI" />
+      <column name="Name" value="Twin Cities Community Hospital" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/25/2010 11:00:00 AM" />
+      <column name="TaxId" value="752918765" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="142" />
+      <column name="HospitalCode" value="TWX" />
+      <column name="Name" value="Twin Cities Test Hospital" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/25/2010 11:00:00 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id IN (737,686,42,142)
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

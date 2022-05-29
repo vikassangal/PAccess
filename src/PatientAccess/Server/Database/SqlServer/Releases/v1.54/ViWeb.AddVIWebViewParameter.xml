@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.54\ViWeb.AddVIWebViewParameter.xml">
+  <changeSet id="4A7E7541-AB3D-4F3F-95A8-09C76C27EA8D" author="vikas11.sangal">
+    <comment>
+      Create ViWeb.AddVIWebViewParameter
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE [ViWeb].[AddVIWebViewParameter]
+      @hspcd varchar(50),
+      @docID varchar(5000),
+      @id int output
+      AS
+      BEGIN
+      SET NOCOUNT ON;
+      IF NOT EXISTS(SELECT TOP 1 1 FROM [ViWeb].[VIWebViewDocument] WHERE hspCode=@hspcd and [docID]=@docID)
+      BEGIN
+      INSERT INTO  [ViWeb].[VIWebViewDocument](hspCode,[docID])
+      VALUES (@hspcd,@docID)
+      SET @id=SCOPE_IDENTITY()
+      RETURN  @id
+      END
+      ELSE
+      BEGIN
+      SELECT @id = ID FROM [ViWeb].[VIWebViewDocument] WHERE hspCode=@hspcd and [docID]=@docID
+      END
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON ViWeb.AddVIWebViewParameter TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON ViWeb.AddVIWebViewParameter FROM db_apionly;
+      DROP PROCEDURE ViWeb.AddVIWebViewParameter;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

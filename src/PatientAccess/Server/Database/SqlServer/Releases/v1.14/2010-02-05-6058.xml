@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2010-02-05-6058.xml">
+
+  <changeSet id="1" author="Deepa Raju" context="Model">
+    
+    <comment>
+      Delete IsFacilityRCRPEnabled setting for SRE to behave like a non-participating facility for RCRP feature
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where>FacilityId=354 and Name='IsFacilityRCRPEnabled'</where>
+    </delete>
+    
+    <rollback>
+      <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+        <column name="FacilityId" value="354" />
+        <column name="Name" value="IsFacilityRCRPEnabled" />
+        <column name="Value" value="True" />
+      </insert>
+    </rollback>
+  
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.28\2013-07-08-26985.xml">
+
+  <changeSet id="13B1A1C3-C3F5-429F-A9C0-C7F971A16B1A" author="Surya.Kumari">
+
+    <comment>
+      SR 8128 – Meaningful Use - Patient Portal opt in
+    </comment>
+
+    <comment>
+      Patient Portal Opt in rule
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="507" />
+      <column name="Description" value="Patient portal opt in" />
+      <column name="Type" value="PatientAccess.Rules.PatientPortalOptInRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      Patient email required rule
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="508" />
+      <column name="Description" value="Patient email address" />
+      <column name="Type" value="PatientAccess.Rules.EmailAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="507" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="507" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="507" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="201" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="508" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

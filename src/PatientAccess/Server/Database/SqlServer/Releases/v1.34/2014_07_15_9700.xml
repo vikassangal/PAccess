@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.34\2014_07_15_9700.xml">
+
+  <changeSet id="C8B3A885-9DF5-443D-819A-49572BDB1B4F" author="Smitha.Krishnamurthy">
+
+    <comment>
+      SR9700 - PAS-Add two HIE Opt-Out Flags to PAS
+    </comment>
+
+    <comment>
+      Add  HIEConsentFlagRequired (515),  HIEPhysicianFlagRequired (516) Rules
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="515" />
+      <column name="Description" value="HIE Consent Flag" />
+      <column name="Type" value="PatientAccess.Rules.HIEConsentFlagRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="516" />
+      <column name="Description" value="HIE PCP/Physician Flag" />
+      <column name="Type" value="PatientAccess.Rules.HIEPhysicianFlagRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      Add Rule HIEConsentFlagRequired(515) and HIEPhysicianFlagRequired(516)
+      to Contexts (7,10,13,21) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="515" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="515" />
+    </insert>
+ 
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="515" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="515" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="516" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="516" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="516" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="516" />
+    </insert>
+
+    <comment>
+      Add Rules (515,516) to CompositeRules OnRegulatoryForn(211), OnShortRegulatoryForm(477) in CompositeRulesToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="RuleId" valueNumeric="515" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="RuleId" valueNumeric="516" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="RuleId" valueNumeric="515" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="RuleId" valueNumeric="516" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

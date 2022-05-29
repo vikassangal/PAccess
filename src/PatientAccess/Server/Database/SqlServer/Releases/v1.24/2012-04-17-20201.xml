@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.24\2012-04-17-20201.xml">
+
+  <changeSet id="3CFE466D-A67B-46AC-B71E-CDE4BCA13664" author="Nereid.Tavares">
+
+    <comment>remove the NPPSignedOnDateRequired rule for the pre-admit new born activities - See defect 20201, 20126</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 23 And RuleId = 420 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="23" />
+        <column name="Ruleid" valueNumeric="420" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="CB0D094F-E7BB-4CAD-A86B-D521B85EDB89" author="Nereid.Tavares">
+    <comment>Add the NPPSignedOnDatePreferred rule for the pre-admit new born activities - See defect 20201, 20126</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="Ruleid" valueNumeric="501" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 23 And RuleId = 501 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="04263615-B84D-49E4-B82A-35C23A3ED758" author="Nereid.Tavares">
+    <comment>remove the NPPVersionRequired rule for the pre-admit new born activities - See defect 20201, 20126</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 23 And RuleId = 49 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="23" />
+        <column name="Ruleid" valueNumeric="49" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="F92232FD-27D8-4A58-9ECE-E54C5E40505B" author="Nereid.Tavares">
+    <comment>Add the NPPVersionPreferred rule for the pre-admit Newborn activities  - See defect 20201, 20126</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="RuleId" valueNumeric="502" />
+      <column name="ContextId" valueNumeric="23" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=502 And ContextId=23 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+  
+</databaseChangeLog>

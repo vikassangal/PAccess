@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.16\2010-07-22-7789.xml">
+
+  <changeSet id="F948E6D6-0A25-465A-A636-46F76A98A857" author="Smitha.Krishnamurthy">
+    <comment>
+      Add new rule - SignedOverMedicareHICNumberPreferred and add this rule under Preregistration - Defect 7789
+   </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="472" />
+      <column name="Description" value="HIC number" />
+      <column name="Type" value="PatientAccess.Rules.SignedOverMedicareHICNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="472" />
+    </insert>
+    
+     <comment>
+       delete rule - SignedOverMedicareHICNumberRequired(438) from Prereg context
+       delete rule - MedicareHICNumberRequired(216) from Prereg context
+     </comment>    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId=8 AND RuleId=438</where>
+    </delete>
+
+    <comment> 
+      delete rule - MedicareHICNumberRequired(216) from Prereg context
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId=8 AND RuleId=216</where>
+    </delete>
+
+    <comment>
+      Insert rule - MedicareHICNumberRequired(216) to Composite rule OnPayorDetailsForPrimaryCoverage
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="204" />
+      <column name="RuleId" valueNumeric="216" />
+    </insert>
+    
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="438" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="216" />
+      </insert>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 472</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where> Id = 472 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId=216 and CompositeRuleId = 204 </where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

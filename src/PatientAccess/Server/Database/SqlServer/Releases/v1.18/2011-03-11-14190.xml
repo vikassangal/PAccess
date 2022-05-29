@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-03-11-14190.xml">
+
+  <changeSet id="E95E4A57-711B-4DC1-B464-B29A22F7CA84" author="Deepa.Raju">
+
+    <comment>
+      Add SocialSecurityNumberRequired(77) for Short Preregistration(20) to ContextToRules
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 77</where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="77" />
+    </insert>
+
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 20 and RuleId = 77</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

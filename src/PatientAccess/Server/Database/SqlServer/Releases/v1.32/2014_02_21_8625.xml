@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.32\2014_02_21_8625.xml">
+
+  <changeSet id="011E1E1D-DC88-4025-B393-BF8F6BBB534E" author="Srilakshmi.Sudharshan">
+
+    <comment>
+     SR 8625 - TCPA Guar Consent for Cell phone contact
+    </comment>
+    
+    <comment>
+      Add Rules (510 GuarantorConsentRequired, 511 GuarantorConsentPreferred) to Rules for Guarantor Cell Phone Consent
+    </comment>
+
+   <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="510" />
+      <column name="Description" value="Cell Phone Consent" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorConsentRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="511" />
+      <column name="Description" value="Cell Phone Consent" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorConsentPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+
+    <comment>
+      Add Rule GuarantorConsentRequired(510) to Contexts (7,10,13,21) in ContextsToRules table
+      Add Rule GuarantorConsentPreferred(511) to Contexts (8,20,23) in ContextsToRules table
+    </comment>
+
+    <comment>
+      RegistrationActivity (7)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    
+    <comment>
+      PreRegistrationActivity (8)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="511" />
+    </insert>
+    
+    <comment>
+      AdmitNewbornActivity (10)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    
+    <comment>
+      PostMSERegistrationActivity (13)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    
+    <comment>
+      ShortPreRegistrationActivity (20)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="511" />
+    </insert>
+    
+    <comment>
+      ShortRegistrationActivity (21)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    
+    <comment>
+      PreAdmitNewbornActivity (23)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="511" />
+    </insert>
+    
+     <comment>
+      Add Rules (510,511) to CompositeRules (208, 476) in CompositeRulesToRules table
+     </comment>
+    <comment>
+      OnGuarantorForm (208) and Rule (510)
+    </comment>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="208" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    
+    <comment>
+      OnGuarantorForm (208) and Rule (511)
+    </comment>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="208" />
+      <column name="RuleId" valueNumeric="511" />
+    </insert>
+    
+     <comment>
+      OnShortGuarantorForm (476) and Rule (510)
+    </comment>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="510" />
+    </insert>
+    
+    <comment>
+      OnShortGuarantorForm (476) and Rule (511)
+    </comment>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="511" />
+    </insert>
+ 
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,3505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1654860-0C3F-4180-9D1D-2E80454DBA85}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Images\PatientAccess.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>PatientAccess</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PatientAccess</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccAuxPath>SAK</SccAuxPath>
+    <GenerateResourceNeverLockType>true</GenerateResourceNeverLockType>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/PatientAccess/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\PatientAccess.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\PatientAccess.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.SHDocVw, Version=1.1.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\AxInterop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\SharpZipLib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Shared.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Shared.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.Misc.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.Misc.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinDataSource.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinDataSource.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinDataSource.v5.2.Design, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinDataSource.v5.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinEditors.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinEditors.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinGrid.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinGrid.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinGrid.v5.2.Design, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinGrid.v5.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinPrintPreviewDialog.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinPrintPreviewDialog.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinStatusBar.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinStatusBar.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinTabControl.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinTabControl.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinToolbars.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.UltraWinToolbars.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.v5.2, Version=5.2.20052.27, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Infragistics\Infragistics.Win.v5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\..\..\..\lib\Rx-Core.2.2.5\lib\net40\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\..\..\..\lib\Rx-Interfaces.2.2.5\lib\net40\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\..\..\..\lib\Rx-Linq.2.2.5\lib\net40\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\..\..\..\lib\Rx-PlatformServices.2.2.5\lib\net40\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Forms">
+      <HintPath>..\..\..\..\lib\Rx-WinForms.2.2.5\lib\net40\System.Reactive.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.RegularExpressions" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\Common\PatientAccess.Common.csproj">
+      <Project>{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}</Project>
+      <Name>PatientAccess.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\App.config.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\ServiceCategory\ViewImpl\ServiceCategory.resx">
+      <DependentUpon>ServiceCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\SequesteredPatientsAlertDialog.resx">
+      <DependentUpon>SequesteredPatientsAlertDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\EthnicityView.resx" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\Generate.proj" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\PatientAccess.UI.CommonControls.RequiredFieldsSummary+ItemInList.datasource" />
+    <Content Include="App.ico" />
+    <Content Include="Images\AdvancedDirective_Disabled.ico" />
+    <Content Include="Images\AdvancedDirective_Enabled.ico" />
+    <Content Include="Images\ajax_loader_dark.gif" />
+    <Content Include="Images\alias_image.gif" />
+    <EmbeddedResource Include="Images\ApplicationError.ico" />
+    <EmbeddedResource Include="Images\ApplicationErrorStatic.gif" />
+    <Content Include="Images\arrowDown.bmp" />
+    <Content Include="Images\arrowUp.bmp" />
+    <EmbeddedResource Include="Images\blank_image.bmp" />
+    <Content Include="Images\blank_image.gif" />
+    <Content Include="Images\Copy_Disabled.ico" />
+    <Content Include="Images\Copy_Enabled.ico" />
+    <Content Include="Images\Cut_Disabled.ico" />
+    <Content Include="Images\Cut_Enabled.ico" />
+    <Content Include="Images\DriversLicense_Disabled.ico" />
+    <Content Include="Images\DriversLicense_Enabled.ico" />
+    <Content Include="Images\FUSNotes_Disabled.ico" />
+    <Content Include="Images\FUSNotes_Enabled.ico" />
+    <Content Include="Images\icon_realname.gif" />
+    <Content Include="Images\InsuranceCard_Disabled.ico" />
+    <Content Include="Images\InsuranceCard_Enabled.ico" />
+    <Content Include="Images\lock_small.bmp" />
+    <None Include="Images\minus.bmp" />
+    <Content Include="Images\NPP_Disabled.ico" />
+    <Content Include="Images\NPP_Enabled.ico" />
+    <Content Include="Images\OnlinePreregistrationSupplementalInformationView.ico" />
+    <Content Include="Images\Paste_Disabled.ico" />
+    <Content Include="Images\Paste_Enabled.ico" />
+    <EmbeddedResource Include="Images\PatientAccess.ico" />
+    <EmbeddedResource Include="Images\patient_access_logo.gif" />
+    <EmbeddedResource Include="Images\PA_icon.JPG" />
+    <None Include="Images\plus.bmp" />
+    <EmbeddedResource Include="Images\Signin.jpg" />
+    <Content Include="Images\warning.bmp" />
+    <Content Include="Images\warning.png" />
+    <Content Include="PatientAccess\UI\App.ico" />
+    <Content Include="PatientAccess\UI\CommonControls\lock_icon.gif" />
+    <Content Include="PatientAccess\UI\CommonControls\Warning.ico" />
+    <Content Include="PatientAccess\UI\WorklistViews\arrowDown.bmp" />
+    <Content Include="PatientAccess\UI\WorklistViews\arrowUp.bmp" />
+    <Compile Include="..\..\Solution Items\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ServiceCategory\Presenter\ServiceCategoryPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ServiceCategory\ViewImpl\ServiceCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SequesteredPatientsAlertDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SequesteredPatientPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ServiceCategory\View\IServiceCategoryView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IEthnicityView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IEthnicityViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\PatientAccessTreeDropdownBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\ApplicationConfigurationKeys.cs" />
+    <Compile Include="PatientAccess\UI\AccountActivityService.cs" />
+    <Compile Include="PatientAccess\UI\AccountLockStatus.cs" />
+    <Compile Include="PatientAccess\UI\AccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AccountViewProxy.cs" />
+    <Compile Include="PatientAccess\UI\ActivityContextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ActivityEventAggregator.cs" />
+    <Compile Include="PatientAccess\UI\AddressViews\AddressEntryWithStreet2View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\AddressEntryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\AddressEntryWithCountyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\AddressEntryWithCountyView.Designer.cs">
+      <DependentUpon>AddressEntryWithCountyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\AddressView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\EditAddressView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\EmployerAddressEntryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\EmployerFormAddressVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\FormAddressWithStreet2Verification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\FormAddressVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\FormAddressWithCountyVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\FormAddressWithCountyVerification.Designer.cs">
+      <DependentUpon>FormAddressWithCountyVerification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\MatchingAddressView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AddressViews\Presenters\CellPhoneConsentPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\Email\Presenters\EmailReasonPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\Email\Views\IEmailAddressView.cs" />
+    <Compile Include="PatientAccess\UI\AddressViews\Views\ICellPhoneConsentView.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\Email\Views\IEmailReasonView.cs" />
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AddEditAnnouncementsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AddEditAnnouncementView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AllAnnouncementsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AnnouncementDetailsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AnnouncementsBaseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AnnouncementService.cs" />
+    <Compile Include="PatientAccess\UI\AnnouncementViews\AnnouncementsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\CurrentAnnouncementsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\AnnouncementViews\ManageAnnouncementsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ApplicationErrorViews\ApplicationErrorStatusView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ApplicationErrorViews\ApplicationErrorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\BillingViews\BillingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\BillingViews\ComboBoxManager.cs" />
+    <Compile Include="PatientAccess\UI\CancelInpatientStatusViews\CancelInpatientStatusView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusAdmissionResults.cs" />
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusAllADTResults.cs" />
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusDischargeResults.cs" />
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusResults.cs" />
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ADTCensusTransferResults.cs" />
+    <Compile Include="PatientAccess\UI\CensusInquiries\BloodlessPatientsResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\BloodlessPatientsSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\BloodlessReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyAdmissionReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyADT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyADTReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyAllADTReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyDischargeReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyInsurancePlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusByNursingStationReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyNursingStationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyPatientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusByPayorReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyPhysicianView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyReligionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusbyTransferReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusEventAggregator.cs" />
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusOfBloodlessPatientsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\CensusView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\InsurancePlanCensusResultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\InsurancePlanCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\NursingStationByDepartmentReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\NursingStationByInfoDeskReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\NursingStationCensusResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\NursingStationCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\NursingStationCensusSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PatientCensusResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PatientCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PhysicianCensusResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PhysicianCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PhysicianCensusSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PhysicianPatientsCensusReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PhysicianPatientsCensusResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\PhysicianPatientsCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ReligionCensusResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ReligionCensusSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ReligionCensusSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ReligionReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\ReportTypeSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CensusInquiries\SortIndicatorDrawFilter.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\ClinicalTrialsDetailsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\ClinicalView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ClinicalViews\ClinicalTrialsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\IClinicalTrialsDetailsView.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\IClinicalTrialsView.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\ClinicalTrialsDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ClinicalViews\ClinicalTrialsDetailsView.Designer.cs">
+      <DependentUpon>ClinicalTrialsDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ClinicalViews\RightCareRightPlacePresenter.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\IRightCareRightPlacePresenter.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\IRightCareRigtPlaceView.cs" />
+    <Compile Include="PatientAccess\UI\ClinicalViews\IClinicalTrialsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\AlwaysShowingVerticalScrollBarDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ClickOnceLoggingButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ClickOnceLoggingButton.Designer.cs">
+      <DependentUpon>ClickOnceLoggingButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ClinicView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ContactView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ContextLabel.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\BaylorSsnViewPopulator.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ControlExtensions.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\Email\Presenters\EmailAddressPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\SouthCarolinaSsnViewPopulator.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\CoverControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\DataGridImageColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\DateTimePickerPlus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\DriversLicenseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\DupeBedAssignmentWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\DupeBedAssignmentWarning.Designer.cs">
+      <DependentUpon>DupeBedAssignmentWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\EmploymentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\EmploymentViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ErrorMessageDisplayHandler.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ExtendedWebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\FilterEnterDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\GBLExceptionDialogCrash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\GenderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\GradientLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\GridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\IEmploymentView.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\IErrorMessageDisplayHandler.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\InfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\InsuranceErrorsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\InvalidCodeFieldsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\InvalidCodeOptionalFieldsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\IRequiredFieldsSummaryView.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ISsnViewPopulator.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\ISsnView.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\LineLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ListViewSortManager.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\LocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\LockingListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\LoggingButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\LoggingControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\LoggingFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\LoggingLinkButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\LogonFacilityAutoWidthComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\MaskedEditTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\MessageDisplayStateManager.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\NameAndPhoneView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\NonSelectableTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PADataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PADataGridView.Designer.cs">
+      <DependentUpon>PADataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PassportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PatientAccessComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PatientAccessControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PatientAccessDataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PatientAccessFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PatientTypeHSVLocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PatientTypeHSVLocationView.Designer.cs">
+      <DependentUpon>PatientTypeHSVLocationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PhoneNumberControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PhoneNumberControl.Designer.cs">
+      <DependentUpon>PhoneNumberControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PhysicianSelectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\PrintReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\ProgressPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\RadioButtonKeyHandler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\RelationshipView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\RequiredFieldItem.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\RequiredFieldsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\RequiredFieldsSummaryPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\RequiredFieldsSummaryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\RequiredFieldsSummaryView.Designer.cs">
+      <DependentUpon>RequiredFieldsSummaryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SearchField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SSNControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SSNControl.Designer.cs">
+      <DependentUpon>SSNControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SsnPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\SsnViewPopulator.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\SSNInUseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Suffix\Presenters\SuffixPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\Suffix\ViewImpl\SuffixView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Suffix\ViewImpl\SuffixView.Designer.cs">
+      <DependentUpon>SuffixView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Suffix\Views\ISuffixView.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\SwapPatientLocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\TimeOutFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\TimeOutFormView.Designer.cs">
+      <DependentUpon>TimeOutFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\IWizardNavigationBase.cs" />
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\WizardButtonsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\WizardContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\WizardLinksControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\WizardMessageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\WizardNavigationBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\Wizard\WizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ContactViews\EmergencyContactView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ContactViews\PatientContactsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CptCodes\Presenters\CptCodesDetailsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CptCodes\Presenters\CptCodesPresenter.cs" />
+    <Compile Include="PatientAccess\UI\CptCodes\Presenters\CptFields.cs" />
+    <Compile Include="PatientAccess\UI\CptCodes\ViewImpl\CptCodesDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CptCodes\ViewImpl\CptCodesDetailsView.Designer.cs">
+      <DependentUpon>CptCodesDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CptCodes\ViewImpl\CptCodesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CptCodes\ViewImpl\CptCodesView.Designer.cs">
+      <DependentUpon>CptCodesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CptCodes\Views\ICptCodesDetailsView.cs" />
+    <Compile Include="PatientAccess\UI\CptCodes\Views\ICptCodesView.cs" />
+    <Compile Include="PatientAccess\UI\CrashReporting\CrashReporter.cs" />
+    <Compile Include="PatientAccess\UI\CrashReporting\CrashReportStore.cs" />
+    <Compile Include="PatientAccess\UI\CrashReporting\IScreenCaptureTool.cs" />
+    <Compile Include="PatientAccess\UI\CrashReporting\ScreenCaptureTool.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\AKAEntryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\AKAListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\AKAView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\BirthTimePresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\DemographicsEmploymentPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\DemographicsEmploymentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\DemographicsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\DemographicsView.Designer.cs">
+      <DependentUpon>DemographicsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\DemographicsViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IBirthTimeView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IDemographicsEmploymentPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IDemographicsView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IDemographicsEmploymentView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IPatientNameView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IRaceViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\IRaceView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\ManageAKADialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\PatientNamePresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\PatientSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\Presenters\GenderViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\Presenters\AdditionalRacesViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\RaceViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\RaceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\RaceView.Designer.cs">
+      <DependentUpon>RaceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\ViewImpl\AdditionalRacesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\ViewImpl\AdditionalRacesView.designer.cs">
+      <DependentUpon>AdditionalRacesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\ViewImpl\GenderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\Views\IAdditionalRacesViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\Views\IGenderView.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\Views\IAdditionalRacesView.cs" />
+    <Compile Include="PatientAccess\UI\DischargeViews\InterfacilityWarningPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\InterfacilityWarningPopup.Designer.cs">
+      <DependentUpon>InterfacilityWarningPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DocumentImagingViews\VIwebHTML5Handler.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\Presenter\DOFRInsuracePartIPAViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\Presenter\DOFRInitiatePresenter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\Presenter\DOFRAidCodePresenter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRAidCodeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRInsuracePartIPAView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRInitiateView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRInitiateResponseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\View\IDOFRAideCodeView.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\View\IDOFRInsuracePartIPAView.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\DOFR\View\IDOFRInitiateView.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\Presenters\MBIPresenter.cs" />
+    <Compile Include="PatientAccess\UI\InterfacilityTransfer\InterfacilityPannel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InterfacilityTransfer\InterfacilityPannel.Designer.cs">
+      <DependentUpon>InterfacilityPannel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InterfacilityTransfer\InterfacilityPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InterfacilityTransfer\InterfacilityTransferPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\AuthorizePortalUserDetailPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\AuthorizePortalUserPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\COSSignedHandler.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\IAuthorizePortalUserDetailPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\IAuthorizePortalUserPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\AuthorizeAdditionalPortalUsersPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\RegulatoryPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizePortalUserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizePortalUserView.Designer.cs">
+      <DependentUpon>AuthorizePortalUserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizePortalUserDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizePortalUserDetailView.Designer.cs">
+      <DependentUpon>AuthorizePortalUserDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizeAdditionalPortalUsersView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizeAdditionalPortalUsersView.Designer.cs">
+      <DependentUpon>AuthorizeAdditionalPortalUsersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IAuthorizePortalUserDetailView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IAuthorizePortalUserView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\ICOSSignedHandler.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IAuthorizeAdditionalPortalUsersView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IPatientPortalOptInView.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\AlternateCareFacilityPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\EDLogsDisplayPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\IAlternateCareFacilityPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\DiagnosisView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DiagnosisViews\DiagnosisViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\IAlternateCareFacilityView.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\IDiagnosisView.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\IEDLogsDisplayPresenter.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\IEDLogView.cs" />
+    <Compile Include="PatientAccess\UI\DiagnosisViews\Specialized\ClinicalTrialsBoardDiagnosisView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DiagnosisViews\Specialized\ClinicalTrialsBoardDiagnosisView.Designer.cs">
+      <DependentUpon>ClinicalTrialsBoardDiagnosisView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\CancelInpatientDischargeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\CancelOutpatientDischargeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\CancelOutpatientDischargeView.Designer.cs">
+      <DependentUpon>CancelOutpatientDischargeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\DischargeBaseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\DischargeIntentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\DischargePatientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\DischargeService.cs" />
+    <Compile Include="PatientAccess\UI\DischargeViews\DischargeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\EditDischargeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DischargeViews\EditRecurringDischargeDateView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DocumentImagingViews\FormWebBrowserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DocumentImagingViews\ListOfDocumentsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\CoveredGroupsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\EmployerPhoneEntryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\FormNewEmployer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\FormSelectEmployer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\PatientEmploymentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\SelectAnEmployer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\EmploymentViews\SelectEmployerAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ExceptionManagement\ApplicationExceptionHandler.cs" />
+    <Compile Include="PatientAccess\UI\ExceptionManagement\ExceptionDialogAdapter.cs" />
+    <Compile Include="PatientAccess\UI\ExceptionManagement\IExceptionDialogAdapter.cs" />
+    <Compile Include="PatientAccess\UI\Factories\MaskedEditTextBoxBuilder.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\IPaymentCollectedView.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\Presenters\IPaymentCollectedViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\Presenters\PaymentCollectedViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\FormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\Presenters\GuarantorDateOfBirthPresenter.cs" />
+    <Compile Include="PatientAccess\UI\GuarantorViews\Views\IGuarantorDateOfBirthView.cs" />
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedShortAccountDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedShortAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\IMessageBoxAdapter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2Presenters\IESRDEntitlementPagePresenter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2Presenters\ESRDEntitlementPagePresenter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2Views\IESRDEntitlementPage2.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\AgeEntitlementPage1Presenter.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\IAgeEntitlementPage1View.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\IDisabilityEntitlementPage1View.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\Views\IMBIView.cs" />
+    <Compile Include="PatientAccess\UI\IWindowsFormsApplicationAdapter.cs" />
+    <Compile Include="PatientAccess\UI\MessageBoxAdapter.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Presenters\IPAIWalkinAccountCreationPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Presenters\IPAIWalkinInsurancePresenter.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Presenters\PAIWalkinAccountCreationPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Presenters\PAIWalkinAccountViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Presenters\PAIWalkinInsurancePresenter.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinAccountCreationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinAccountCreationView.Designer.cs">
+      <DependentUpon>PAIWalkinAccountCreationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinAccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinAccountView.Designer.cs">
+      <DependentUpon>PAIWalkinAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinFinancialClassesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinFinancialClassesView.Designer.cs">
+      <DependentUpon>PAIWalkinFinancialClassesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinInsuranceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinInsuranceView.Designer.cs">
+      <DependentUpon>PAIWalkinInsuranceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Views\IPAIWalkinAccountCreationView.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Views\IPAIWalkinAccountView.cs" />
+    <Compile Include="PatientAccess\UI\PAIWalkinAccountCreation\Views\IPAIWalkinInsuranceView.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\EMPIPatientSearchResultListViewItem.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\EMPISearchFieldsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\IPatientsAccountsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\IEMPISearchFieldsDialog.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\EMPISearchFieldsDialogPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\ViewAccountFindAPatientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreMseViews\IPreMseDemographicsView.cs" />
+    <Compile Include="PatientAccess\UI\PreMseViews\IPreMseDemographicsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PreMseViews\PreMseDemographicsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\IOnlinePreRegistrationSubmissionsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\IOnlinePreRegistrationSubmissionsView.cs" />
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\ISupplementalInformationView.cs" />
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\OnlinePreRegistrationSubmissionsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\OnlinePreRegistrationSubmissionsPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\OnlinePreRegistrationSubmissionsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\OnlinePreRegistrationSubmissionsView.Designer.cs">
+      <DependentUpon>OnlinePreRegistrationSubmissionsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\SupplementalInformationPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\SupplementalInformationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\SupplementalInformationView.Designer.cs">
+      <DependentUpon>SupplementalInformationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\QuickInsurancePresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\IQuickInsurancePresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\IQuickAccountCreationPresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\IQuickPhysicianSelectionPresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\QuickAccountCreationPresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\QuickDiagnosisViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Presenters\QuickPhysicianSelectionPresenter.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QACFinancialClassesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QACFinancialClassesView.Designer.cs">
+      <DependentUpon>QACFinancialClassesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickAccountCreationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickAccountCreationView.Designer.cs">
+      <DependentUpon>QuickAccountCreationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickAccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickAccountView.Designer.cs">
+      <DependentUpon>QuickAccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickInsuranceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickInsuranceView.Designer.cs">
+      <DependentUpon>QuickInsuranceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPatientTypeHSVLocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPatientTypeHSVLocationView.Designer.cs">
+      <DependentUpon>QuickPatientTypeHSVLocationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPhysicianSelectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPhysicianSelectionView.Designer.cs">
+      <DependentUpon>QuickPhysicianSelectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPreRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPreRegistrationView.Designer.cs">
+      <DependentUpon>QuickPreRegistrationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Views\IQuickInsuranceView.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Views\IQuickAccountCreationView.cs" />
+    <Compile Include="PatientAccess\UI\QuickAccountCreation\Views\IQuickPhysicianSelectionView.cs" />
+    <Compile Include="PatientAccess\UI\Registration\INewbornPreRegistrationView.cs" />
+    <Compile Include="PatientAccess\UI\Registration\NewbornPreRegistrationPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\COBReceivedAndIMFMReceivedPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\HIEConsentPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\HIEShareDataPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\HospitalCommunicationOptInPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\ICOBReceivedAndIMFMReceivedPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\IHIEShareDataPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\PatientPortalOptInPresenter.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\HIEShareDataPresenterFactory.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\HospitalCommunicationOptInView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\HospitalCommunicationOptInView.Designer.cs">
+      <DependentUpon>HospitalCommunicationOptInView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\PatientPortalOptInView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\PatientPortalOptInView.Designer.cs">
+      <DependentUpon>PatientPortalOptInView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\COBReceivedAndIMFMReceivedView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\COBReceivedAndIMFMReceivedView.Designer.cs">
+      <DependentUpon>COBReceivedAndIMFMReceivedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\ICOBReceivedAndIMFMReceivedView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IHIEShareDataFlagView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IHospitalCommunicationOptInView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Views\IRegulatoryView.cs" />
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\HIEShareDataFlagView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\HIEShareDataFlagView.Designer.cs">
+      <DependentUpon>HIEShareDataFlagView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\Presenters\RightToRestrictPresenter.cs" />
+    <Compile Include="PatientAccess\UI\Reports\FaceSheet\DataBuilder.cs" />
+    <Compile Include="PatientAccess\UI\Reports\FaceSheet\TemplateFiller.cs" />
+    <Compile Include="PatientAccess\UI\Reports\FaceSheet\IDataBuilder.cs" />
+    <Compile Include="PatientAccess\UI\Reports\RegistrationFaceSheetDataCreator.cs" />
+    <Compile Include="PatientAccess\UI\Reports\ShortRegistrationFaceSheetDataCreator.cs" />
+    <Compile Include="PatientAccess\UI\Registration\NewbornPreRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\NewbornPreRegistrationView.Designer.cs">
+      <DependentUpon>NewbornPreRegistrationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\BillingViews\ShortBillingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\ClinicalViews\ShortClinicalView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\CommonControls\PhysicianSelectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\ContactViews\ShortEmergencyContactView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\DemographicsViews\IShortDemographicsViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\DemographicsViews\ShortDemographicsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\DemographicsViews\IShortDemographicsView.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\DemographicsViews\ShortDemographicsViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\ShortDiagnosisView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\ShortDiagnosisViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\IShortDiagnosisView.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\ShortPatientTypeHSVLocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\ShortPatientTypeHSVLocationView.designer.cs">
+      <DependentUpon>ShortPatientTypeHSVLocationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\GuarantorViews\ShortGuarantorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\InsuranceViews\MSP2\ShortDisabilityEntitlementPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\InsuranceViews\MSP2\ShortAgeEntitlementPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\InsuranceViews\MSP2\ShortAgeEntitlementPage1Presenter.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\RegulatoryViews\ShortRegulatoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\ShortAccountView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\ShortAccountViewProxy.cs" />
+    <Compile Include="PatientAccess\UI\ShortRegistration\ShortPreRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ShortRegistration\ShortRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\CommonControls\SsnPopulatorFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\ITransferOutPatToInPatStep1View.cs" />
+    <Compile Include="PatientAccess\UI\TransferViews\ITransferOutPatToInPatStep1Presenter.cs" />
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\EmergencyPatientToOutPatientStep1Presenter.cs" />
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\OutPatientToEmergencyPatientStep1Presenter.cs" />
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\OutPatientToEmergencyPatientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientAndOutPatientConfirmView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientToOutPatientStep1View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientAndOutPatientStep2View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientAndOutPatientStep3View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientToOutPatientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\OutPatientToEmergencyPatientStep1View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\IOutPatientToEmergencyPatientStep1View.cs" />
+    <Compile Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\IEmergencyPatientToOutPatientStep1View.cs" />
+    <Compile Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep1Presenter.cs" />
+    <Compile Include="PatientAccess\UI\UCCPreMseViews\UCCPreMseSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ViewImpl.cs" />
+    <Compile Include="PatientAccess\UI\WindowsFormsApplicationAdapter.cs" />
+    <Compile Include="PatientAccess\UI\Factories\ViewFactory.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\CreditAdviceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\CreditReportViews\CreditReportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\CreditReportViews\FormViewCreditReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\FinancialCouncelingService.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\FinancialCounselingViewFactory.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\IncompleteInsuranceFinancialCounselingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\InsuredAmountDueView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\InsuredFinancialCounselingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\FormViewMonthlyPaymentOverride.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\FormViewRecordPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\MonthlyPaymentOverrideView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentCalculatorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentCollectedView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentService.cs" />
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PreviousAccountsWithoutPlanView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\RecordPaymentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\PreviousAccountsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\UnInsuredAmountDueView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FinancialCounselingViews\UnInsuredFinancialCounselingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FindBedViews\BedResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FindBedViews\BedSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FindBedViews\FindABedView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FindBedViews\FindBedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\AddFUSNoteView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\AddFUSNoteView.Designer.cs">
+      <DependentUpon>AddFUSNoteView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\DataGridViewRichTextBoxCell.cs" />
+    <Compile Include="PatientAccess\UI\FUSNotes\DataGridViewRichTextBoxColumn.cs" />
+    <Compile Include="PatientAccess\UI\FUSNotes\DataGridViewRichTextBoxEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\ViewDescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\ViewDescription.Designer.cs">
+      <DependentUpon>ViewDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\ViewFUSNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\FUSNotes\ViewFUSNotes.Designer.cs">
+      <DependentUpon>ViewFUSNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\CopyPartyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\EmploymentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\FormValidationResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\GuarantorValidationAlerts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\GuarantorValidationResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\GuarantorValidationTabs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\GuarantorViews\GuarantorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HelperClasses\AdmitDateToInsuranceValidation.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\BoolHelper.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\ComboBoxHelper.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\CommonFormatting.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\DateTimeUtilities.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\DateValidator.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\eNums.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\PbarHelper.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\PrivateRoomConditionCodeHelper.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\ReferenceValueComboBox.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\UIErrorMessages.cs" />
+    <Compile Include="PatientAccess\UI\HelperClasses\UILabels.cs" />
+    <Compile Include="PatientAccess\UI\HelpViews\AboutPatientAccessView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HelpViews\HelpService.cs" />
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccountDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccountSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccountsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientDemographicsSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedAccountDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedAccountDetailsHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedAccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\IActivityEventAggregator.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\AuthorizationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\AuthorizationView.Designer.cs">
+      <DependentUpon>AuthorizationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\AuthorizationViewService.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\AuthorizationViews\InsuranceVerificationSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\AuthorizationViews\InsuranceVerificationSummary.Designer.cs">
+      <DependentUpon>InsuranceVerificationSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\BillingInformationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\CommercialPayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\CoverageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\ExpiredPlanContractDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\ExpiredPlanContractDialog.Designer.cs">
+      <DependentUpon>ExpiredPlanContractDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FinancialClassesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindAPlanView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\CoveredGroupListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\FindInsurancePlanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\ListBoxKeyHdlr.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\ListViewKeyHdlr.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\PayorBrokersView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\SelectByEmployerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\SelectByPayorBrokerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\SelectByView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\GovOtherPayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsDetailInsuredView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsDetailPlanDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceDetailsTabView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceDetailsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\BenefitsCategoryData.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\BenefitsResponseConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\BenefitsResponseConfirmation.Designer.cs">
+      <DependentUpon>BenefitsResponseConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\CommMgdCareVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugBenefitsResponse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugBenefitsResponse.Designer.cs">
+      <DependentUpon>DebugBenefitsResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugBenResponseCatDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugBenResponseCatDetails.Designer.cs">
+      <DependentUpon>DebugBenResponseCatDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugCommMgdCareVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\GovernmentVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\InsuranceDateVerify.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\InsuranceVerificationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\MedicaidVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\MedicareVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\SelfPayVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationCoverage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationResponse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationResponseDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationResponseDetails.Designer.cs">
+      <DependentUpon>VerificationResponseDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\WorkersCompVerifyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuranceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\InsuredSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicaidPayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicalGroupIPAViews\SelectMedicalGroupIPA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicarePayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\AgeEntitlementPage1View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\AgeEntitlementPage2View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityEntitlementPage1View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityEntitlementPage2View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityEntitlementPage3View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\ESRDEntitlementPage1View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\ESRDEntitlementPage2View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\ESRDInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\AgeEntitlementPage1State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\AgeEntitlementPage2State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\AgeEvent.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\DisabilityEntitlementPage1State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\DisabilityEntitlementPage2State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\DisabilityEntitlementPage3State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\DisabilityEvent.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\ESRDEntitlementPage1State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\ESRDEntitlementPage2State.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\ESRDEvent.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\FiniteStateMachine.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\FSMState.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\LiabilityInsurerState.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\MedicareEntitlementState.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\NoEvent.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\SpecialProgramState.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\StateEvent.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\SummaryPageState.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\Target.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\WelcomeScreenState.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\FSM\YesEvent.cs" />
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\LiabilityInsurerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\MedicareEntitlementView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\MSPDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\SpecialProgramView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\SummaryPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\WelcomeScreenView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\AgeEntitlementPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\AgeEntitlementPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\CheckBoxYesNoGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\CloseMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\CloseMessageBox2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\DisabilityEntitlementPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\DisabilityEntitlementPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\DisabilityEntitlementPage3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\ESRDEntitlementPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\ESRDEntitlementPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\LiabilityInsurerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\MedicareEntitlementGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\MedicareEntitlementPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\MSP2Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\SpecialProgramsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\SummaryPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\MSP2\WelcomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\OtherPayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\PlanChangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\PlanSummaryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\SelectBillingInfo\SelectBillingInfoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\SelfPayPayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\InsuranceViews\WorkersCompPayorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Logging\AppServerAppender.cs" />
+    <Compile Include="PatientAccess\UI\Logging\BreadCrumbLogger.cs" />
+    <Compile Include="PatientAccess\UI\Logging\IBreadCrumbLogger.cs" />
+    <Compile Include="PatientAccess\UI\LogOnViews\LogOnService.cs" />
+    <Compile Include="PatientAccess\UI\LogOnViews\LogOnView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\LooseArgs.cs" />
+    <Compile Include="PatientAccess\UI\MaintenanceCmdView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\DeleteNewEmployerCommand.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\EmployerHelper.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\ICommand.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\IMasterEmployerListView.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\INewEmployersListView.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\INewEmployersManagementPresenter.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\MoveAddressAndPhoneToMasterListCommand.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\MoveEmployerToMasterListCommand.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\NewEmployerManagmentFacade.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\NewEmployersManagementPresenter.cs" />
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\NewEmployersManagementView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\NewEmployersManagementView.Designer.cs">
+      <DependentUpon>NewEmployersManagementView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\NewEmployersManagement\NullCommand.cs" />
+    <Compile Include="PatientAccess\UI\PatientAccessView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientContextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\AccountFilter.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\CommandButtonManager.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\FindAPatientView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\FindPatientByGuarantorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\IPatientsAccountsView.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\MasterPatientIndexView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\PatientAccountsViewPresenter.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\PatientsAccountsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\PatientSearchResultListViewItem.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\PatientSearchResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PatientSearch\PatientSelectedEventArgs.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\SearchEventAggregator.cs" />
+    <Compile Include="PatientAccess\UI\PatientSearch\SearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\AssignPhysicianView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianRelationshipView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianSearchFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianSearchResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianSearchTabView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\PhysicianService.cs" />
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\RecordNonStaffPhysicianView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\SearchForPhysicianResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\SearchPhysicianByNameView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PhysicianSearchViews\SearchPhysicianBySpecialty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreMseViews\PreMseConfirmation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreMseViews\PreMseDemographicsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreMseViews\PreMseDiagnosisView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreMseViews\PreMseRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreMseViews\PreMseSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\CancelPreRegConfirmationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\CancelPreRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\PreRegistrationSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\ShowDuplicatePreRegAccountsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\PreRegistrationViews\ShowDuplicatePreRegAccountsDialog.Designer.cs">
+      <DependentUpon>ShowDuplicatePreRegAccountsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\ActivatePreRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\EnterOfflineInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\NewBornRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\PostMSERegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\PreRegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\RegisterConfirmationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Registration\RegistrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\RegulatoryViews\ViewImpl\RegulatoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\ReportArgs.cs" />
+    <Compile Include="PatientAccess\UI\Reports\FaceSheet\PrintService.cs" />
+    <Compile Include="PatientAccess\UI\Reports\FaceSheet\Printer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Reports\FindaPhysicianView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Reports\PhysicianNameSearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Reports\PhysicianSearchByNameView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Reports\PhysicianSearchBySpecialtyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Reports\PhysicianSearchResultsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Reports\PhysicianSpecialitySearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\Specialized\ClinicalTrialsBoardPatientAccessView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\StackTracer.cs" />
+    <Compile Include="PatientAccess\UI\TimeoutAlertView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\SwapPatientLocationsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferInPatToOutPatView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferLocationDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferLocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatConfirmView .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep1View .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep2View .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep3View .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\TransferViews\TransferService.cs" />
+    <Compile Include="PatientAccess\UI\UIColors.cs" />
+    <Compile Include="PatientAccess\UI\UserContextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\ApplicationMonitor.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\ControlMonitor.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\HookMonitor.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\IInactivityMonitor.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\LastInputMonitor.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\MonitorBase.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\MonitorCreator.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\MonitorType.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\User32.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\Win32Hook.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\Win32LastInputInfo.cs" />
+    <Compile Include="PatientAccess\UI\UserInactivityMonitoring\Win32Message.cs" />
+    <Compile Include="PatientAccess\UI\Validation.cs" />
+    <Compile Include="PatientAccess\UI\VisitTypeEventArgs.cs" />
+    <Compile Include="PatientAccess\UI\WorklistViews\FilterWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\IncompleteWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\InsuranceWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\LiabilityWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\NoShowWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\PatientAccessViewPopulationAggregator.cs" />
+    <Compile Include="PatientAccess\UI\WorklistViews\PostRegWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\PreMSEWorklistReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\PreMSEWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\PreRegWorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\WorklistCmdAggregator.cs" />
+    <Compile Include="PatientAccess\UI\WorklistViews\WorklistReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\WorklistsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\WorklistViews\WorklistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConfigSectionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PatientAccessConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\EthnicityView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\UI\DemographicsViews\EthnicityView.Designer.cs" />
+    <Compile Include="PatientAccess\UI\DemographicsViews\EthnicityViewPresenter.cs" />
+    <Compile Include="SystemStartup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PatientAccessTreeDropdownBox.resx" />
+    <EmbeddedResource Include="PatientAccess\UI\AccountView.resx">
+      <DependentUpon>AccountView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ActivityContextView.resx">
+      <DependentUpon>ActivityContextView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\AddressEntryWithStreet2View.resx">
+      <DependentUpon>AddressEntryWithStreet2View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\AddressEntryView.resx">
+      <DependentUpon>AddressEntryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\AddressEntryWithCountyView.resx">
+      <DependentUpon>AddressEntryWithCountyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\AddressView.resx">
+      <DependentUpon>AddressView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\EditAddressView.resx">
+      <DependentUpon>EditAddressView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\FormAddressWithStreet2Verification.resx">
+      <DependentUpon>FormAddressWithStreet2Verification.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\FormAddressVerification.resx">
+      <DependentUpon>FormAddressVerification.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\FormAddressWithCountyVerification.resx">
+      <DependentUpon>FormAddressWithCountyVerification.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AddressViews\MatchingAddressView.resx">
+      <DependentUpon>MatchingAddressView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\AddEditAnnouncementsView.resx">
+      <DependentUpon>AddEditAnnouncementsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\AddEditAnnouncementView.resx">
+      <DependentUpon>AddEditAnnouncementView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\AllAnnouncementsView.resx">
+      <DependentUpon>AllAnnouncementsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\AnnouncementDetailsView.resx">
+      <DependentUpon>AnnouncementDetailsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\AnnouncementsBaseView.resx">
+      <DependentUpon>AnnouncementsBaseView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\AnnouncementsView.resx">
+      <DependentUpon>AnnouncementsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\CurrentAnnouncementsView.resx">
+      <DependentUpon>CurrentAnnouncementsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\AnnouncementViews\ManageAnnouncementsView.resx">
+      <DependentUpon>ManageAnnouncementsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ApplicationErrorViews\ApplicationErrorStatusView.resx">
+      <DependentUpon>ApplicationErrorStatusView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ApplicationErrorViews\ApplicationErrorView.resx">
+      <DependentUpon>ApplicationErrorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\BillingViews\BillingView.resx">
+      <DependentUpon>BillingView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CancelInpatientStatusViews\CancelInpatientStatusView.resx">
+      <DependentUpon>CancelInpatientStatusView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ADTCensusResultsView.resx">
+      <DependentUpon>ADTCensusResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ADTCensusSearchView.resx">
+      <DependentUpon>ADTCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ADTCensusSummaryView.resx">
+      <DependentUpon>ADTCensusSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\BloodlessPatientsResultsView.resx">
+      <DependentUpon>BloodlessPatientsResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\BloodlessPatientsSearchView.resx">
+      <DependentUpon>BloodlessPatientsSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\BloodlessReport.resx">
+      <DependentUpon>BloodlessReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusbyADT.resx">
+      <DependentUpon>CensusbyADT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusbyInsurancePlan.resx">
+      <DependentUpon>CensusbyInsurancePlan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusbyNursingStationView.resx">
+      <DependentUpon>CensusbyNursingStationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusbyPatientView.resx">
+      <DependentUpon>CensusbyPatientView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusByPayorReports.resx">
+      <DependentUpon>CensusByPayorReports.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusbyPhysicianView.resx">
+      <DependentUpon>CensusbyPhysicianView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusbyReligionView.resx">
+      <DependentUpon>CensusbyReligionView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusOfBloodlessPatientsView.resx">
+      <DependentUpon>CensusOfBloodlessPatientsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\CensusView.resx">
+      <DependentUpon>CensusView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\InsurancePlanCensusResultView.resx">
+      <DependentUpon>InsurancePlanCensusResultView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\InsurancePlanCensusSearchView.resx">
+      <DependentUpon>InsurancePlanCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\NursingStationCensusResultsView.resx">
+      <DependentUpon>NursingStationCensusResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\NursingStationCensusSearchView.resx">
+      <DependentUpon>NursingStationCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\NursingStationCensusSummaryView.resx">
+      <DependentUpon>NursingStationCensusSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PatientCensusResultsView.resx">
+      <DependentUpon>PatientCensusResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PatientCensusSearchView.resx">
+      <DependentUpon>PatientCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PhysicianCensusResultsView.resx">
+      <DependentUpon>PhysicianCensusResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PhysicianCensusSearchView.resx">
+      <DependentUpon>PhysicianCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PhysicianCensusSummaryView.resx">
+      <DependentUpon>PhysicianCensusSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PhysicianPatientsCensusResultsView.resx">
+      <DependentUpon>PhysicianPatientsCensusResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\PhysicianPatientsCensusSearchView.resx">
+      <DependentUpon>PhysicianPatientsCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ReligionCensusResultsView.resx">
+      <DependentUpon>ReligionCensusResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ReligionCensusSearchView.resx">
+      <DependentUpon>ReligionCensusSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ReligionCensusSummaryView.resx">
+      <DependentUpon>ReligionCensusSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CensusInquiries\ReportTypeSelection.resx">
+      <DependentUpon>ReportTypeSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ClinicalViews\ClinicalView.resx">
+      <DependentUpon>ClinicalView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ClinicalViews\ClinicalTrialsDetailsView.resx">
+      <DependentUpon>ClinicalTrialsDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\ClinicView.resx">
+      <DependentUpon>ClinicView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\ContactView.resx">
+      <DependentUpon>ContactView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\CoverControlView.resx">
+      <DependentUpon>CoverControlView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\DataGridImageColumn.resx">
+      <DependentUpon>DataGridImageColumn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\DateTimePickerPlus.resx">
+      <DependentUpon>DateTimePickerPlus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\DriversLicenseView.resx">
+      <DependentUpon>DriversLicenseView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\DupeBedAssignmentWarning.resx">
+      <DependentUpon>DupeBedAssignmentWarning.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\EmploymentView.resx">
+      <DependentUpon>EmploymentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\GBLExceptionDialogCrash.resx">
+      <DependentUpon>GBLExceptionDialogCrash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\GenderControl.resx">
+      <DependentUpon>GenderControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\GradientLabel.resx">
+      <DependentUpon>GradientLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\GridControl.resx">
+      <DependentUpon>GridControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\InfoControl.resx">
+      <DependentUpon>InfoControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\InsuranceErrorsDialog.resx">
+      <DependentUpon>InsuranceErrorsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\InvalidCodeFieldsDialog.resx">
+      <DependentUpon>InvalidCodeFieldsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\InvalidCodeOptionalFieldsDialog.resx">
+      <DependentUpon>InvalidCodeOptionalFieldsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LineLabel.resx">
+      <DependentUpon>LineLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LocationView.resx">
+      <DependentUpon>LocationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LockingListView.resx">
+      <DependentUpon>LockingListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LoggingButton.resx">
+      <DependentUpon>LoggingButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LoggingControlView.resx">
+      <DependentUpon>LoggingControlView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LoggingFormView.resx">
+      <DependentUpon>LoggingFormView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\LogonFacilityAutoWidthComboBox.resx">
+      <DependentUpon>LogonFacilityAutoWidthComboBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\MaskedEditTextBox.resx">
+      <DependentUpon>MaskedEditTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\NameAndPhoneView.resx">
+      <DependentUpon>NameAndPhoneView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\NonSelectableTextBox.resx">
+      <DependentUpon>NonSelectableTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PassportView.resx">
+      <DependentUpon>PassportView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PatientAccessControlView.resx">
+      <DependentUpon>PatientAccessControlView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PatientAccessDataGrid.resx">
+      <DependentUpon>PatientAccessDataGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PatientAccessFormView.resx">
+      <DependentUpon>PatientAccessFormView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PatientTypeHSVLocationView.resx">
+      <DependentUpon>PatientTypeHSVLocationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PhoneNumberControl.resx">
+      <DependentUpon>PhoneNumberControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PhysicianSelectionView.resx">
+      <DependentUpon>PhysicianSelectionView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\PrintReport.resx">
+      <DependentUpon>PrintReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\ProgressPanel.resx">
+      <DependentUpon>ProgressPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\RadioButtonKeyHandler.resx">
+      <DependentUpon>RadioButtonKeyHandler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\RelationshipView.resx">
+      <DependentUpon>RelationshipView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\RequiredFieldsDialog.resx">
+      <DependentUpon>RequiredFieldsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\RequiredFieldsSummaryView.resx">
+      <DependentUpon>RequiredFieldsSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\SearchField.resx">
+      <DependentUpon>SearchField.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\SSNControl.resx">
+      <DependentUpon>SSNControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\SSNInUseDialog.resx">
+      <DependentUpon>SSNInUseDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Suffix\ViewImpl\SuffixView.resx">
+      <DependentUpon>SuffixView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\SwapPatientLocationView.resx">
+      <DependentUpon>SwapPatientLocationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\TimeOutFormView.resx">
+      <DependentUpon>TimeOutFormView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Wizard\WizardButtonsControl.resx">
+      <DependentUpon>WizardButtonsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Wizard\WizardContainer.resx">
+      <DependentUpon>WizardContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Wizard\WizardLinksControl.resx">
+      <DependentUpon>WizardLinksControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Wizard\WizardMessageControl.resx">
+      <DependentUpon>WizardMessageControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Wizard\WizardNavigationBase.resx">
+      <DependentUpon>WizardNavigationBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CommonControls\Wizard\WizardPage.resx">
+      <DependentUpon>WizardPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ContactViews\EmergencyContactView.resx">
+      <DependentUpon>EmergencyContactView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ContactViews\PatientContactsView.resx">
+      <DependentUpon>PatientContactsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ControlView.resx">
+      <DependentUpon>ControlView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CptCodes\ViewImpl\CptCodesDetailsView.resx">
+      <DependentUpon>CptCodesDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\CptCodes\ViewImpl\CptCodesView.resx">
+      <DependentUpon>CptCodesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\AKAEntryDialog.resx">
+      <DependentUpon>AKAEntryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\AKAListView.resx">
+      <DependentUpon>AKAListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\AKAView.resx">
+      <DependentUpon>AKAView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\DemographicsEmploymentView.resx">
+      <DependentUpon>DemographicsEmploymentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\DemographicsView.resx">
+      <DependentUpon>DemographicsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\ManageAKADialog.resx">
+      <DependentUpon>ManageAKADialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\PatientSummaryView.resx">
+      <DependentUpon>PatientSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\RaceView.resx">
+      <DependentUpon>RaceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\ViewImpl\AdditionalRacesView.resx">
+      <DependentUpon>AdditionalRacesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DemographicsViews\ViewImpl\GenderView.resx">
+      <DependentUpon>GenderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DiagnosisViews\DiagnosisView.resx">
+      <DependentUpon>DiagnosisView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DiagnosisViews\Specialized\ClinicalTrialsBoardDiagnosisView.resx">
+      <DependentUpon>ClinicalTrialsBoardDiagnosisView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\CancelInpatientDischargeView.resx">
+      <DependentUpon>CancelInpatientDischargeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\CancelOutpatientDischargeView.resx">
+      <DependentUpon>CancelOutpatientDischargeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\DischargeBaseView.resx">
+      <DependentUpon>DischargeBaseView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\DischargeIntentView.resx">
+      <DependentUpon>DischargeIntentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\DischargePatientView.resx">
+      <DependentUpon>DischargePatientView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\DischargeView.resx">
+      <DependentUpon>DischargeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\EditDischargeView.resx">
+      <DependentUpon>EditDischargeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\EditRecurringDischargeDateView.resx">
+      <DependentUpon>EditRecurringDischargeDateView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DischargeViews\InterfacilityWarningPopup.resx">
+      <DependentUpon>InterfacilityWarningPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DocumentImagingViews\FormWebBrowserView.resx">
+      <DependentUpon>FormWebBrowserView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\DocumentImagingViews\ListOfDocumentsView.resx">
+      <DependentUpon>ListOfDocumentsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\CoveredGroupsView.resx">
+      <DependentUpon>CoveredGroupsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\EmployerPhoneEntryDialog.resx">
+      <DependentUpon>EmployerPhoneEntryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\FormNewEmployer.resx">
+      <DependentUpon>FormNewEmployer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\FormSelectEmployer.resx">
+      <DependentUpon>FormSelectEmployer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\PatientEmploymentView.resx">
+      <DependentUpon>PatientEmploymentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\SelectAnEmployer.resx">
+      <DependentUpon>SelectAnEmployer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\EmploymentViews\SelectEmployerAddress.resx">
+      <DependentUpon>SelectEmployerAddress.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\CreditAdviceView.resx">
+      <DependentUpon>CreditAdviceView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\CreditReportViews\CreditReportView.resx">
+      <DependentUpon>CreditReportView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\CreditReportViews\FormViewCreditReport.resx">
+      <DependentUpon>FormViewCreditReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\IncompleteInsuranceFinancialCounselingView.resx">
+      <DependentUpon>IncompleteInsuranceFinancialCounselingView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\InsuredAmountDueView.resx">
+      <DependentUpon>InsuredAmountDueView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\InsuredFinancialCounselingView.resx">
+      <DependentUpon>InsuredFinancialCounselingView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentSummaryView.resx">
+      <DependentUpon>PaymentSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\FormViewMonthlyPaymentOverride.resx">
+      <DependentUpon>FormViewMonthlyPaymentOverride.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\FormViewRecordPayment.resx">
+      <DependentUpon>FormViewRecordPayment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\MonthlyPaymentOverrideView.resx">
+      <DependentUpon>MonthlyPaymentOverrideView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentCalculatorView.resx">
+      <DependentUpon>PaymentCalculatorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentCollectedView.resx">
+      <DependentUpon>PaymentCollectedView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PaymentView.resx">
+      <DependentUpon>PaymentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\PreviousAccountsWithoutPlanView.resx">
+      <DependentUpon>PreviousAccountsWithoutPlanView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PaymentViews\RecordPaymentView.resx">
+      <DependentUpon>RecordPaymentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\PreviousAccountsView.resx">
+      <DependentUpon>PreviousAccountsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\UnInsuredAmountDueView.resx">
+      <DependentUpon>UnInsuredAmountDueView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FinancialCounselingViews\UnInsuredFinancialCounselingView.resx">
+      <DependentUpon>UnInsuredFinancialCounselingView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FindBedViews\BedResultsView.resx">
+      <DependentUpon>BedResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FindBedViews\BedSearchView.resx">
+      <DependentUpon>BedSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FindBedViews\FindABedView.resx">
+      <DependentUpon>FindABedView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FindBedViews\FindBedForm.resx">
+      <DependentUpon>FindBedForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FUSNotes\AddFUSNoteView.resx">
+      <DependentUpon>AddFUSNoteView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FUSNotes\ViewDescription.resx">
+      <DependentUpon>ViewDescription.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\FUSNotes\ViewFUSNotes.resx">
+      <DependentUpon>ViewFUSNotes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\CopyPartyView.resx">
+      <DependentUpon>CopyPartyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\EmploymentView.resx">
+      <DependentUpon>EmploymentView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\FormValidationResults.resx">
+      <DependentUpon>FormValidationResults.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\GuarantorValidationAlerts.resx">
+      <DependentUpon>GuarantorValidationAlerts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\GuarantorValidationResults.resx">
+      <DependentUpon>GuarantorValidationResults.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\GuarantorValidationTabs.resx">
+      <DependentUpon>GuarantorValidationTabs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\GuarantorViews\GuarantorView.resx">
+      <DependentUpon>GuarantorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HelpViews\AboutPatientAccessView.resx">
+      <DependentUpon>AboutPatientAccessView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccountDetails.resx">
+      <DependentUpon>HistoricalPatientAccountDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccounts.resx">
+      <DependentUpon>HistoricalPatientAccounts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccountSummaryView.resx">
+      <DependentUpon>HistoricalPatientAccountSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientAccountsView.resx">
+      <DependentUpon>HistoricalPatientAccountsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientDemographicsSummaryView.resx">
+      <DependentUpon>HistoricalPatientDemographicsSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\HistoricalPatientSearch.resx">
+      <DependentUpon>HistoricalPatientSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedAccountDetails.resx">
+      <DependentUpon>NonPurgedAccountDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedAccountDetailsHeader.resx">
+      <DependentUpon>NonPurgedAccountDetailsHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedAccountView.resx">
+      <DependentUpon>NonPurgedAccountView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedShortAccountDetails.resx">
+      <DependentUpon>NonPurgedShortAccountDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\HistoricalAccountViews\NonPurgedShortAccountView.resx">
+      <DependentUpon>NonPurgedShortAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\AuthorizationView.resx">
+      <DependentUpon>AuthorizationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\AuthorizationViews\InsuranceVerificationSummary.resx">
+      <DependentUpon>InsuranceVerificationSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\BillingInformationView.resx">
+      <DependentUpon>BillingInformationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\CommercialPayorView.resx">
+      <DependentUpon>CommercialPayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\CoverageView.resx">
+      <DependentUpon>CoverageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRAidCodeView.resx">
+      <DependentUpon>DOFRAidCodeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRInsuracePartIPAView.resx">
+      <DependentUpon>DOFRInsuracePartIPAView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRInitiateView.resx">
+      <DependentUpon>DOFRInitiateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\DOFR\ViewImpl\DOFRInitiateResponseView.resx">
+      <DependentUpon>DOFRInitiateResponseView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\ExpiredPlanContractDialog.resx">
+      <DependentUpon>ExpiredPlanContractDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FinancialClassesView.resx">
+      <DependentUpon>FinancialClassesView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindAPlanView.resx">
+      <DependentUpon>FindAPlanView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\CoveredGroupListView.resx">
+      <DependentUpon>CoveredGroupListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\FindInsurancePlanView.resx">
+      <DependentUpon>FindInsurancePlanView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\ListBoxKeyHdlr.resx">
+      <DependentUpon>ListBoxKeyHdlr.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\ListViewKeyHdlr.resx">
+      <DependentUpon>ListViewKeyHdlr.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\PayorBrokersView.resx">
+      <DependentUpon>PayorBrokersView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\SelectByEmployerView.resx">
+      <DependentUpon>SelectByEmployerView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\SelectByPayorBrokerView.resx">
+      <DependentUpon>SelectByPayorBrokerView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\FindInsurancePlan\SelectByView.resx">
+      <DependentUpon>SelectByView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\GovOtherPayorView.resx">
+      <DependentUpon>GovOtherPayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsDetailInsuredView.resx">
+      <DependentUpon>InsDetailInsuredView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsDetailPlanDetails.resx">
+      <DependentUpon>InsDetailPlanDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceDetails.resx">
+      <DependentUpon>InsuranceDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceDetailsTabView.resx">
+      <DependentUpon>InsuranceDetailsTabView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceDetailsView.resx">
+      <DependentUpon>InsuranceDetailsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\BenefitsResponseConfirmation.resx">
+      <DependentUpon>BenefitsResponseConfirmation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\CommMgdCareVerifyView.resx">
+      <DependentUpon>CommMgdCareVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugBenefitsResponse.resx">
+      <DependentUpon>DebugBenefitsResponse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugBenResponseCatDetails.resx">
+      <DependentUpon>DebugBenResponseCatDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\DebugCommMgdCareVerifyView.resx">
+      <DependentUpon>DebugCommMgdCareVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\GovernmentVerifyView.resx">
+      <DependentUpon>GovernmentVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\InsuranceVerificationView.resx">
+      <DependentUpon>InsuranceVerificationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\MedicaidVerifyView.resx">
+      <DependentUpon>MedicaidVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\MedicareVerifyView.resx">
+      <DependentUpon>MedicareVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\SelfPayVerifyView.resx">
+      <DependentUpon>SelfPayVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationCoverage.resx">
+      <DependentUpon>VerificationCoverage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationEntry.resx">
+      <DependentUpon>VerificationEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationResponse.resx">
+      <DependentUpon>VerificationResponse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\VerificationResponseDetails.resx">
+      <DependentUpon>VerificationResponseDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceVerificationViews\WorkersCompVerifyView.resx">
+      <DependentUpon>WorkersCompVerifyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuranceView.resx">
+      <DependentUpon>InsuranceView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\InsuredSummaryView.resx">
+      <DependentUpon>InsuredSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicaidPayorView.resx">
+      <DependentUpon>MedicaidPayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicalGroupIPAViews\SelectMedicalGroupIPA.resx">
+      <DependentUpon>SelectMedicalGroupIPA.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicarePayorView.resx">
+      <DependentUpon>MedicarePayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\AgeEntitlementPage1View.resx">
+      <DependentUpon>AgeEntitlementPage1View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\AgeEntitlementPage2View.resx">
+      <DependentUpon>AgeEntitlementPage2View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityEntitlementPage1View.resx">
+      <DependentUpon>DisabilityEntitlementPage1View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityEntitlementPage2View.resx">
+      <DependentUpon>DisabilityEntitlementPage2View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityEntitlementPage3View.resx">
+      <DependentUpon>DisabilityEntitlementPage3View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\DisabilityInfoDialog.resx">
+      <DependentUpon>DisabilityInfoDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\ESRDEntitlementPage1View.resx">
+      <DependentUpon>ESRDEntitlementPage1View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\ESRDEntitlementPage2View.resx">
+      <DependentUpon>ESRDEntitlementPage2View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\ESRDInfoDialog.resx">
+      <DependentUpon>ESRDInfoDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\LiabilityInsurerView.resx">
+      <DependentUpon>LiabilityInsurerView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\MedicareEntitlementView.resx">
+      <DependentUpon>MedicareEntitlementView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\MSPDialog.resx">
+      <DependentUpon>MSPDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\SpecialProgramView.resx">
+      <DependentUpon>SpecialProgramView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\SummaryPageView.resx">
+      <DependentUpon>SummaryPageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MedicareSecondaryPayorViews\WelcomeScreenView.resx">
+      <DependentUpon>WelcomeScreenView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\AgeEntitlementPage1.resx">
+      <DependentUpon>AgeEntitlementPage1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\AgeEntitlementPage2.resx">
+      <DependentUpon>AgeEntitlementPage2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\CheckBoxYesNoGroup.resx">
+      <DependentUpon>CheckBoxYesNoGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\CloseMessageBox.resx">
+      <DependentUpon>CloseMessageBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\CloseMessageBox2.resx">
+      <DependentUpon>CloseMessageBox2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\DisabilityEntitlementPage1.resx">
+      <DependentUpon>DisabilityEntitlementPage1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\DisabilityEntitlementPage2.resx">
+      <DependentUpon>DisabilityEntitlementPage2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\DisabilityEntitlementPage3.resx">
+      <DependentUpon>DisabilityEntitlementPage3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\ESRDEntitlementPage1.resx">
+      <DependentUpon>ESRDEntitlementPage1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\ESRDEntitlementPage2.resx">
+      <DependentUpon>ESRDEntitlementPage2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\LiabilityInsurerPage.resx">
+      <DependentUpon>LiabilityInsurerPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\MedicareEntitlementGroup.resx">
+      <DependentUpon>MedicareEntitlementGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\MedicareEntitlementPage.resx">
+      <DependentUpon>MedicareEntitlementPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\MSP2Dialog.resx">
+      <DependentUpon>MSP2Dialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\SpecialProgramsPage.resx">
+      <DependentUpon>SpecialProgramsPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\SummaryPage.resx">
+      <DependentUpon>SummaryPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\MSP2\WelcomePage.resx">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\OtherPayorView.resx">
+      <DependentUpon>OtherPayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\PlanChangeDialog.resx">
+      <DependentUpon>PlanChangeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\PlanSummaryView.resx">
+      <DependentUpon>PlanSummaryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\SelectBillingInfo\SelectBillingInfoView.resx">
+      <DependentUpon>SelectBillingInfoView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\SelfPayPayorView.resx">
+      <DependentUpon>SelfPayPayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InsuranceViews\WorkersCompPayorView.resx">
+      <DependentUpon>WorkersCompPayorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InterfacilityTransfer\InterfacilityPannel.resx">
+      <DependentUpon>InterfacilityPannel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\InterfacilityTransfer\InterfacilityPopup.resx">
+      <DependentUpon>InterfacilityPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\LogOnViews\LogOnView.resx">
+      <DependentUpon>LogOnView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\MaintenanceCmdView.resx">
+      <DependentUpon>MaintenanceCmdView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\NewEmployersManagement\NewEmployersManagementView.resx">
+      <DependentUpon>NewEmployersManagementView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinAccountCreationView.resx">
+      <DependentUpon>PAIWalkinAccountCreationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinAccountView.resx">
+      <DependentUpon>PAIWalkinAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinFinancialClassesView.resx">
+      <DependentUpon>PAIWalkinFinancialClassesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PAIWalkinAccountCreation\ViewImpl\PAIWalkinInsuranceView.resx">
+      <DependentUpon>PAIWalkinInsuranceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientAccessView.resx">
+      <DependentUpon>PatientAccessView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientContextView.resx">
+      <DependentUpon>PatientContextView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\EMPISearchFieldsDialog.resx">
+      <DependentUpon>EMPISearchFieldsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\FindAPatientView.resx">
+      <DependentUpon>FindAPatientView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\FindPatientByGuarantorView.resx">
+      <DependentUpon>FindPatientByGuarantorView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\MasterPatientIndexView.resx">
+      <DependentUpon>MasterPatientIndexView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\PatientsAccountsView.resx">
+      <DependentUpon>PatientsAccountsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\PatientSearchResultsView.resx">
+      <DependentUpon>PatientSearchResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\SearchView.resx">
+      <DependentUpon>SearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PatientSearch\ViewAccountFindAPatientView.resx">
+      <DependentUpon>ViewAccountFindAPatientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\AssignPhysicianView.resx">
+      <DependentUpon>AssignPhysicianView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\PhysicianDetailView.resx">
+      <DependentUpon>PhysicianDetailView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\PhysicianRelationshipView.resx">
+      <DependentUpon>PhysicianRelationshipView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\PhysicianSearchFormView.resx">
+      <DependentUpon>PhysicianSearchFormView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\PhysicianSearchResultsView.resx">
+      <DependentUpon>PhysicianSearchResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\PhysicianSearchTabView.resx">
+      <DependentUpon>PhysicianSearchTabView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\RecordNonStaffPhysicianView.resx">
+      <DependentUpon>RecordNonStaffPhysicianView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\SearchForPhysicianResultsView.resx">
+      <DependentUpon>SearchForPhysicianResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\SearchPhysicianByNameView.resx">
+      <DependentUpon>SearchPhysicianByNameView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PhysicianSearchViews\SearchPhysicianBySpecialty.resx">
+      <DependentUpon>SearchPhysicianBySpecialty.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreMseViews\PreMseConfirmation.resx">
+      <DependentUpon>PreMseConfirmation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreMseViews\PreMseDemographicsView.resx">
+      <DependentUpon>PreMseDemographicsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreMseViews\PreMseDiagnosisView.resx">
+      <DependentUpon>PreMseDiagnosisView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreMseViews\PreMseRegistrationView.resx">
+      <DependentUpon>PreMseRegistrationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreMseViews\PreMseSearchView.resx">
+      <DependentUpon>PreMseSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreRegistrationViews\CancelPreRegConfirmationView.resx">
+      <DependentUpon>CancelPreRegConfirmationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreRegistrationViews\CancelPreRegistrationView.resx">
+      <DependentUpon>CancelPreRegistrationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreRegistrationViews\OnlinePreRegistrationSubmissionsView.resx">
+      <DependentUpon>OnlinePreRegistrationSubmissionsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreRegistrationViews\PreRegistrationSearchView.resx">
+      <DependentUpon>PreRegistrationSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreRegistrationViews\ShowDuplicatePreRegAccountsDialog.resx">
+      <DependentUpon>ShowDuplicatePreRegAccountsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\PreRegistrationViews\SupplementalInformationView.resx">
+      <DependentUpon>SupplementalInformationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickAccountCreationView.resx">
+      <DependentUpon>QuickAccountCreationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickAccountView.resx">
+      <DependentUpon>QuickAccountView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickInsuranceView.resx">
+      <DependentUpon>QuickInsuranceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPatientTypeHSVLocationView.resx">
+      <DependentUpon>QuickPatientTypeHSVLocationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPhysicianSelectionView.resx">
+      <DependentUpon>QuickPhysicianSelectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\QuickAccountCreation\ViewImpl\QuickPreRegistrationView.resx">
+      <DependentUpon>QuickPreRegistrationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Registration\ActivatePreRegistrationView.resx">
+      <DependentUpon>ActivatePreRegistrationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Registration\EnterOfflineInfo.resx">
+      <DependentUpon>EnterOfflineInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Registration\NewBornRegistrationView.resx">
+      <DependentUpon>NewBornRegistrationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Registration\PreRegistrationView.resx">
+      <DependentUpon>PreRegistrationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Registration\RegisterConfirmationView.resx">
+      <DependentUpon>RegisterConfirmationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Registration\RegistrationView.resx">
+      <DependentUpon>RegistrationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizePortalUserDetailView.resx">
+      <DependentUpon>AuthorizePortalUserDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\COBReceivedAndIMFMReceivedView.resx">
+      <DependentUpon>COBReceivedAndIMFMReceivedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizePortalUserView.resx">
+      <DependentUpon>AuthorizePortalUserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\HIEShareDataFlagView.resx">
+      <DependentUpon>HIEShareDataFlagView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\HospitalCommunicationOptInView.resx">
+      <DependentUpon>HospitalCommunicationOptInView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\AuthorizeAdditionalPortalUsersView.resx">
+      <DependentUpon>AuthorizeAdditionalPortalUsersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\PatientPortalOptInView.resx">
+      <DependentUpon>PatientPortalOptInView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\RegulatoryViews\ViewImpl\RegulatoryView.resx">
+      <DependentUpon>RegulatoryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\FaceSheet\Printer.resx">
+      <DependentUpon>Printer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\FindaPhysicianView.resx">
+      <DependentUpon>FindaPhysicianView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\PhysicianNameSearchView.resx">
+      <DependentUpon>PhysicianNameSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\PhysicianSearchByNameView.resx">
+      <DependentUpon>PhysicianSearchByNameView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\PhysicianSearchBySpecialtyView.resx">
+      <DependentUpon>PhysicianSearchBySpecialtyView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\PhysicianSearchResultsView.resx">
+      <DependentUpon>PhysicianSearchResultsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\Reports\PhysicianSpecialitySearchView.resx">
+      <DependentUpon>PhysicianSpecialitySearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\BillingViews\ShortBillingView.resx">
+      <DependentUpon>ShortBillingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\ClinicalViews\ShortClinicalView.resx">
+      <DependentUpon>ShortClinicalView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\CommonControls\PhysicianSelectionView.resx">
+      <DependentUpon>PhysicianSelectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\ContactViews\ShortEmergencyContactView.resx">
+      <DependentUpon>ShortEmergencyContactView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\DemographicsViews\ShortDemographicsView.resx">
+      <DependentUpon>ShortDemographicsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\ShortDiagnosisView.resx">
+      <DependentUpon>ShortDiagnosisView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\DiagnosisViews\ShortPatientTypeHSVLocationView.resx">
+      <DependentUpon>ShortPatientTypeHSVLocationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\GuarantorViews\ShortGuarantorView.resx">
+      <DependentUpon>ShortGuarantorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\InsuranceViews\MSP2\ShortDisabilityEntitlementPage1.resx">
+      <DependentUpon>ShortDisabilityEntitlementPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\InsuranceViews\MSP2\ShortAgeEntitlementPage1.resx">
+      <DependentUpon>ShortAgeEntitlementPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\RegulatoryViews\ShortRegulatoryView.resx">
+      <DependentUpon>ShortRegulatoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\ShortAccountView.resx">
+      <DependentUpon>ShortAccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\ShortPreRegistrationView.resx">
+      <DependentUpon>ShortPreRegistrationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\ShortRegistration\ShortRegistrationView.resx">
+      <DependentUpon>ShortRegistrationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TimeoutAlertView.resx">
+      <DependentUpon>TimeoutAlertView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\SwapPatientLocationsView.resx">
+      <DependentUpon>SwapPatientLocationsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\OutPatientToEmergencyPatientView.resx">
+      <DependentUpon>OutPatientToEmergencyPatientView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientAndOutPatientConfirmView.resx">
+      <DependentUpon>EmergencyPatientAndOutPatientConfirmView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientToOutPatientStep1View.resx">
+      <DependentUpon>EmergencyPatientToOutPatientStep1View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientAndOutPatientStep2View.resx">
+      <DependentUpon>EmergencyPatientAndOutPatientStep2View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientAndOutPatientStep3View.resx">
+      <DependentUpon>EmergencyPatientAndOutPatientStep3View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\EmergencyPatientToOutPatientView.resx">
+      <DependentUpon>EmergencyPatientToOutPatientView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\EmergencyPatientAndOutPatient\ViewImpl\OutPatientToEmergencyPatientStep1View.resx">
+      <DependentUpon>OutPatientToEmergencyPatientStep1View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferInPatToOutPatView.resx">
+      <DependentUpon>TransferInPatToOutPatView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferLocationDetailView.resx">
+      <DependentUpon>TransferLocationDetailView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferLocationView.resx">
+      <DependentUpon>TransferLocationView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatConfirmView .resx">
+      <DependentUpon>TransferOutPatToInPatConfirmView .cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep1View .resx">
+      <DependentUpon>TransferOutPatToInPatStep1View .cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep2View .resx">
+      <DependentUpon>TransferOutPatToInPatStep2View .cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\TransferViews\TransferOutPatToInPatStep3View .resx">
+      <DependentUpon>TransferOutPatToInPatStep3View .cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\UCCPreMseViews\UCCPreMseSearchView.resx">
+      <DependentUpon>UCCPreMseSearchView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\UserContextView.resx">
+      <DependentUpon>UserContextView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\FilterWorklistView.resx">
+      <DependentUpon>FilterWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\IncompleteWorklistView.resx">
+      <DependentUpon>IncompleteWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\InsuranceWorklistView.resx">
+      <DependentUpon>InsuranceWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\LiabilityWorklistView.resx">
+      <DependentUpon>LiabilityWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\NoShowWorklistView.resx">
+      <DependentUpon>NoShowWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\PostRegWorklistView.resx">
+      <DependentUpon>PostRegWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\PreMSEWorklistReport.resx">
+      <DependentUpon>PreMSEWorklistReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\PreMSEWorklistView.resx">
+      <DependentUpon>PreMSEWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\PreRegWorklistView.resx">
+      <DependentUpon>PreRegWorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\WorklistsView.resx">
+      <DependentUpon>WorklistsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\UI\WorklistViews\WorklistView.resx">
+      <DependentUpon>WorklistView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PatientAccess\UI\CommonControls\EmailAddress\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

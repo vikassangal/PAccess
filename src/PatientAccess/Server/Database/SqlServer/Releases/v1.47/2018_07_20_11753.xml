@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.47\2018_07_20_11753.xml">
+
+  <changeSet id="7ccf8d72-8bd0-4441-8a80-8a5d40b37c09" author="Rajesh.Rajasekaran">
+
+    <comment>
+      Delete rule MailingAddressAreaCodeRequired(10) from ContextsToRules table for context ShortRegistrationActivity(21)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId = 10 and ContextId = 21</where>
+    </delete>
+
+    <comment>
+      Delete rule MailingAddressPhoneRequired(11) from ContextsToRules table for context ShortRegistrationActivity(21)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId = 11 and ContextId = 21</where>
+    </delete>
+
+    <comment>
+      Delete rule CompositeRuleId(482) from COMPOSITERULESTORULES table for RuleId(10)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId = 10 and CompositeRuleId = 482</where>
+    </delete>
+
+    <comment>
+      Delete rule CompositeRuleId(482) from COMPOSITERULESTORULES table for RuleId(11)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId = 11 and CompositeRuleId = 482</where>
+    </delete>
+
+    <comment>
+      Add MailingAddressAreaCodePreferred(42) rule to short reg activity(21) to change mailing address phone field as preferred
+    </comment>
+   
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="42" />
+    </insert>
+
+    <comment>
+      Add MailingAddressPhonePreferred(43) rule to short reg activity(21) to change mailing address phone field as preferred
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="43" />
+    </insert>
+
+    <comment>
+      Add CompositeRuleId(482) rule to ruleid(42) to add PatientAccess.Rules.OnShortDemographicsForm
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="42" />
+    </insert>
+
+  </changeSet>
+
+</databaseChangeLog>

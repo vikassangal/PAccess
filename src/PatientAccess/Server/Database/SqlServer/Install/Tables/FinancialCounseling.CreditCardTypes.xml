@@ -1,0 +1,15 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\FinancialCounseling.CreditCardTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create FinancialCounseling.CreditCardTypes Table
+    </comment>
+    <createTable schemaName="FinancialCounseling" tableName="CreditCardTypes">
+      <column name="Code" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_CreditCardTypes" />
+      </column>
+      <column name="Description" type="varchar(24)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

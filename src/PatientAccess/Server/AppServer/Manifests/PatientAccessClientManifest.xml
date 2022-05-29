@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest manifestId="{0315d20f-f76a-4f04-8900-2c6b39f711b6}" mandatory="False" xmlns="urn:schemas-microsoft-com:PAG:updater-application-block:v2:manifest" xmlns:guid="urn:guid">
+  <description>Patient Access Client Application Manifest (Trunk-Local) version 1.0.0.0 created on 2021-10-04T14:43:07+05:30</description>
+  <application applicationId="{7DE1B29E-7BD3-4772-B3A1-8A6CCC43DE70}">
+    <entryPoint file="PatientAccess.exe" parameters="" />
+    <location />
+  </application>
+  <files base="http://localhost/PatientAccess.AppServer/Downloads/">
+    <file source="PatientAccessClientWin32.zip" />
+  </files>
+  <activation>
+    <tasks>
+      <task name="ApplicationDeployProcessor" type="Microsoft.ApplicationBlocks.Updater.ActivationProcessors.ApplicationDeployProcessor, Microsoft.ApplicationBlocks.Updater.ActivationProcessors" />
+    </tasks>
+  </activation>
+</manifest>

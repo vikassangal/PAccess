@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Locking.UpdateLockEntry.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Locking.UpdateLockEntry()
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE Locking.UpdateLockEntry
+        @LockHandle VARCHAR(100),
+        @LockOwner VARCHAR(100)
+      AS
+      BEGIN
+
+        UPDATE 
+          Locking.OfflineLocks 
+        SET
+          TimePrint = CURRENT_TIMESTAMP
+        WHERE 
+          Handle = @LockHandle
+          AND
+          Owner = @LockOwner
+
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Locking.UpdateLockEntry TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Locking.UpdateLockEntry FROM db_apionly;
+      DROP FUNCTION Locking.UpdateLockEntry;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

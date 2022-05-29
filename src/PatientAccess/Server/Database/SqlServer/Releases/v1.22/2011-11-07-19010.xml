@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.22\2011-11-07-19010.xml">
+
+  <changeSet id="102CE541-5254-43D1-8BE3-130F27062E3B" author="Smitha.Krishnamurthy">
+    <comment>Enable Clinic Code for Pre-Admit Newborn and make first clinic required </comment>
+
+    <comment>Add the "PatientAccess.Rules.DiagnosisClinicOneRequired" (253) rule to the Pre Admit Newborn(23) context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="253" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=23 AND RuleId=253</where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.21\2011-08-16-17187.xml">
+
+  <changeSet id="AA8965FB-FA01-4FA6-A506-5EAC8E5CA529" author="Smitha.Krishnamurthy" context="Prod">
+
+    <preConditions onFail="MARK_RAN">
+      <sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'IsBaylorFacility' and FacilityId in (905)</sqlCheck>
+    </preConditions>
+    
+    <comment>
+      Identify as baylor facility to stop Auto Populating the First Name for the BAYLOR MEDICAL CENTER CARROLLTON (DBC, 649) in Production
+    </comment> 
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="649" />
+      <column name="Name" value="IsBaylorFacility" />
+      <column name="Value" value="True" />
+    </insert>    
+
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'IsBaylorFacility' and FacilityId in ( 649 ) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+
+  <changeSet id="4F5FAC57-07F7-4471-B365-0B3303D080AF" author="Smitha.Krishnamurthy" context="Prod">
+
+    <preConditions onFail="MARK_RAN">
+      <sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'IsBaylorFacility' and FacilityId in (907)</sqlCheck>
+    </preConditions>
+    
+    <comment>
+       
+      training facility BAYLOR MED CENTER TEST HOSPITAL (TRX, 907) in ProductiIdentify as baylor facility to stop Auto Populating the First Name for theon
+    </comment>    
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="907" />
+      <column name="Name" value="IsBaylorFacility" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'IsBaylorFacility' and FacilityId in ( 907 ) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+
+
+  <changeSet id="3AE8D917-AC6F-4D80-848C-180020043257" author="Smitha.Krishnamurthy" context="Local,Dev,Test,Model">    
+
+    <preConditions onFail="MARK_RAN">
+      <sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'IsBaylorFacility' and FacilityId in (54)</sqlCheck>
+    </preConditions>
+
+    <comment>
+      Identify as baylor facility to stop Auto Populating the First Name for the facility DHF (54) in the development, test and model office enviroments
+    </comment>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="IsBaylorFacility" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'IsBaylorFacility' and FacilityId in (54) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>

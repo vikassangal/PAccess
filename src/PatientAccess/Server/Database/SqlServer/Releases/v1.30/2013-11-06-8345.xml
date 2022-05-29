@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.30\2013-11-06-8345.xml">
+
+  <changeSet id="C688D519-FB9D-494C-B14A-0B2033E13A9E" author="Smitha.Krishnamurthy">
+    <comment>
+      add the RESRD activity code for SR 8554 - Add Right To Restrict 
+    </comment>
+
+    <!--Delete if FUS Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPRES'</where>
+    </delete> 
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPRES" />
+      <column name="Description" value="PATIENT RESTRICTION REQUESTED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPRES'</where>
+      </delete>
+      
+     </rollback>
+  </changeSet>
+</databaseChangeLog>
+
+

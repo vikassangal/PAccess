@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\RuleEngine.SelectRuleActionMappings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.SelectRuleActionMappings
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE RuleEngine.SelectRuleActionMappings
+      AS
+      BEGIN
+
+        SELECT 
+          RulesToActions.RuleId, 
+          Actions.Id as ActionId, 
+          Actions.Type as Type, 
+          Actions.Description as Description, 
+          CompositeActionsToActions.CompositeActionId as CompositeActionId, 
+          RuleEngine.IsCompositeAction( Actions.Id ) as IsComposite
+        FROM 
+          RuleEngine.Actions
+        LEFT OUTER JOIN 
+          RuleEngine.CompositeActionsToActions ON RuleEngine.CompositeActionsToActions.ActionId = Actions.Id 
+        JOIN 
+          RuleEngine.RulesToActions ON Actions.Id = RulesToActions.ActionId
+        ORDER BY 
+          RulesToActions.RuleId
+            
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.SelectRuleActionMappings TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.SelectRuleActionMappings FROM db_apionly;
+      DROP PROCEDURE RuleEngine.SelectRuleActionMappings;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

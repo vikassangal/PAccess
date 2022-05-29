@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.25\2012-07-20-22266.xml">
+
+  <changeSet id="F686FB24-9D06-46EC-A00A-849B94426800" author="Nereid.Tavares">
+    <comment>Add InsuredEmployerRequired rule</comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="503" />
+      <column name="Description" value="Employer" />
+      <column name="Type" value ="PatientAccess.Rules.InsuredEmployerRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>Add InsuredEmployerRequired rule for activities</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+
+    <comment>
+      Add InsuredEmployerRequired to Composite rules: PatientAccess.Rules.OnInsuredFormForPrimaryInsurance(199),
+      PatientAccess.Rules.OnInsuredFormForSecondaryInsurance(207)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="199" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="207" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+
+    <comment>
+      Remove PersonEmployerRequired(126) from Composite rules: PatientAccess.Rules.OnInsuredFormForPrimaryInsurance(199),
+      PatientAccess.Rules.OnInsuredFormForSecondaryInsurance(207)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>
+        RuleId = 126 and CompositeRuleId in (199, 207)
+      </where>
+    </delete>
+    
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id = 503 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>
+          RuleId = 503 and ContextId in (7, 8, 9, 10, 13, 20, 21, 22, 23)
+        </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>
+          RuleId = 503 and CompositeRuleId in (199, 207)
+        </where>
+      </delete>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="199" />
+        <column name="RuleId" valueNumeric="126" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="207" />
+        <column name="RuleId" valueNumeric="126" />
+      </insert>
+      
+    </rollback>
+  </changeSet>
+  
+</databaseChangeLog>

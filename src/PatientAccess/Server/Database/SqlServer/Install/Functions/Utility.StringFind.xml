@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Functions\Utility.StringFind.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Utility.StringFind()      
+    </comment>
+    <createProcedure><![CDATA[
+      /*
+        TSQL String Array Workbench
+        16 March 2008
+        by Robyn Page and Phil Factor
+        http://www.simple-talk.com/sql/t-sql-programming/tsql-string-array-workbench/
+
+        This function returns an integer containing the number of  occurrences of 
+        @search in @subject. 
+
+        StringFind() takes a value from each array and uses them to do search 
+        on @subject 
+        This function returns an integer of the total count of the strings
+        in @search found in @Subject. 
+       */
+        CREATE FUNCTION Utility.StringFind( @Search XML, @Subject VARCHAR(MAX) )
+        RETURNS INT
+        AS 
+        BEGIN
+            DECLARE @count INT
+            SELECT   @count = 0
+        --turn any simple strings into xml fragments with a single element
+            IF CHARINDEX('<stringarray>', CONVERT(VARCHAR(MAX), @Search)) = 0 
+               SELECT   @Search = '<stringarray><element><seqno>1</seqno><item>'
+                      + CONVERT(VARCHAR(MAX), @search)
+                      + '</item></element></stringarray>'
+            DECLARE @StringsTofind TABLE
+               (
+                [TheOrder] INT,
+                [whatToFind] VARCHAR(200)
+               )
+            INSERT   INTO @StringsTofind
+                     ([TheOrder], [whatToFind])
+                     SELECT   x.y.value('seqno[1]', 'INT') AS TheOrder,
+                              x.y.value('item[1]', 'VARCHAR(200)') AS [whatToFind]
+                     FROM     @Search .nodes('//stringarray/element') AS x (y)
+
+            SELECT   @count = @count + ( LEN(@subject) - LEN(REPLACE(@Subject,
+                                                                  [whatToFind], '')) )
+                  / LEN(whatToFind)
+            FROM     @StringsTofind
+            RETURN @count
+         END
+    ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Utility.StringFind TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Utility.StringFind FROM db_apionly;
+      DROP PROCEDURE Utility.StringFind;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

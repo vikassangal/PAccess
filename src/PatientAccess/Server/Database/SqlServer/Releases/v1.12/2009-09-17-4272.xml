@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-09-17-4272.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Repair rule entries for Bug 4272
+    </comment>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Complete missing fields on the Contact &amp; Diagnosis form" />
+      <where>Id=212</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Type" value="PatientAccess.Rules.OnPreMSEDemographicsForm" />
+      <where>Id=338</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Type" value="PatientAccess.Rules.NPPSignedOnDateInvalid" />
+      <where>Id=437</where>
+    </update>
+    <rollback>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="Complete missing fields on the Contact &amp; Diagnosis form'" />
+        <where>Id=212</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Type" value="PatientAccess.Rules.OnPreMSEDemographicsForm " />
+        <where>Id=338</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Type" value=" 'PatientAccess.Rules.NPPSignedOnDateInvalid'" />
+        <where>Id=437</where>
+      </update>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

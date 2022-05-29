@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.42\2017_04_11_10250.xml">
+
+  <changeSet id="8708A16D-AC3E-4CA3-BC21-F6F9B0914E7C" author="Hemant.Kumar">
+
+    <comment>
+      SR10250 - PAS - Regulatory Tab Update - FUS Activity Code changes
+    </comment>
+
+    <!--Delete if FUS Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='COBUN'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCOBO'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RIMFM'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RIMMN'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="COBUN" />
+      <column name="Description" value="COORDINATION OF BENEFITS UNRESOLVED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCOBO" />
+      <column name="Description" value="COB OBTAINED FROM PATIENT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RIMFM" />
+      <column name="Description" value="IMP MSSG FROM MEDICARE COMPLETE" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RIMMN" />
+      <column name="Description" value="IMP MSSG FROM MCARE NEEDED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='COBUN'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCOBO'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RIMFM'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RIMMN'</where>
+      </delete>
+
+   </rollback>
+
+  </changeSet>
+
+  <changeSet id="9620C327-8A1A-4E51-8234-1D698BD3B465" author="Hemant.Kumar">
+
+    <comment>
+      SR10250  - PAS  Regulatory Tab Update
+    </comment>
+
+    <comment>
+      insert COBReceivedRequired (525) to Rules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="525" />
+      <column name="Description" value="COB received" />
+      <column name="Type" value="PatientAccess.Rules.COBReceivedRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      insert IMFMReceivedRequired (526) to Rules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="526" />
+      <column name="Description" value="IMFM received" />
+      <column name="Type" value="PatientAccess.Rules.IMFMReceivedRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      Insert COBReceivedRequired (525) to Contexts (7,10,13,21,28) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="525" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="525" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="525" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="525" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="525" />
+    </insert>
+
+    <comment>
+      Insert COBReceivedRequired (525) to CompositeRules (211 , 477) in CompositeRulesToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="525" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="525" />
+    </insert>
+
+    <comment>
+      Insert IMFMReceivedRequired (526) to Contexts (7,10) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="526" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="526" />
+    </insert>
+
+    <comment>
+      Insert IMFMReceivedRequired (526) to CompositeRules (211 , 477) in CompositeRulesToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="526" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="526" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id='525'</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id='526'</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId='525'</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId='526'</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId='525'</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId='526'</where>
+      </delete>
+      
+    </rollback>
+    
+  </changeSet>
+  
+</databaseChangeLog>

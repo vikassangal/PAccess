@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.21\2011-09-19-18006.xml">
+  
+  <changeSet id="EFA26832-C7EC-4178-A28B-8B6940B38D99" author="Nereid.Tavares">
+    <comment>
+      Add AdmitDateEnteredFiveDaysPast for Edit Pre-Admit Newborn.
+    </comment>
+    <comment>Add the "PatientAccess.Rules.AdmitDateEnteredFiveDaysPast" rule to the PreAdmitNewborn context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="405" />
+    </insert>
+  </changeSet>
+  
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Insurance.VerificationRuleTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Insurance.VerificationRuleTypes Table
+    </comment>
+    <createTable schemaName="Insurance" tableName="VerificationRuleTypes">
+      <column name="TypeId" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_VerificationRuleTypes" />
+      </column>
+      <column name="Description" type="varchar(40)" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,19 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\FinancialCounseling.CreditScroreAdviceMappings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create FinancialCounseling.CreditScoreAdviceMappings Table
+    </comment>
+    <createTable schemaName="FinancialCounseling" tableName="CreditScoreAdviceMappings">
+      <column name="BeginScore" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="EndScore" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="CreditAdvice" type="varchar(500)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_CreditScoreAdviceMappings" schemaName="FinancialCounseling" tableName="CreditScoreAdviceMappings" columnNames="BeginScore,EndScore" />
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.22\2011-10-12-18144.xml">
+
+  <changeSet id="2068D069-0D2B-4006-BEAA-3AEB214E6B45" author="Nereid.Tavares">
+    <comment>make unkown Gender generate action list for Admit Newborn </comment>
+
+    <comment>Add the "PatientAccess.Rules.GenderRequired" rule to the Admit Newborn context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="18" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=10 AND RuleId=18</where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

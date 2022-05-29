@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+   
+ <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.37\2015_09_30_10364.xml">
+ <changeSet id="1B41F243-E70E-4753-9BC5-A5CB8C4F1756" author="Smitha.Krishnamurthy">
+  <comment>SR 10364 -Make Monthly Due date required</comment> 
+   
+ <insert schemaName="RuleEngine" tableName="Rules">
+  <column name="Id" valueNumeric="519" /> 
+  <column name="Description" value="Monthly due date" /> 
+  <column name="Type" value="PatientAccess.Rules.MonthlyDueDateRequired" /> 
+  <column name="Severity" valueNumeric="4" /> 
+  </insert>
+   
+   <insert schemaName="RuleEngine" tableName="Rules">
+     <column name="Id" valueNumeric="520" />
+     <column name="Description" value="Complete missing fields on the Payment form" />
+     <column name="Type" value="PatientAccess.Rules.OnPaymentForm" />
+     <column name="Severity" valueNumeric="1" />
+   </insert>
+   
+  <comment>Actions</comment> 
+ <insert schemaName="RuleEngine" tableName="Actions">
+  <column name="Id" valueNumeric="59" /> 
+  <column name="Description" value="Provide missing fields on the Payment form" /> 
+  <column name="Type" value="PatientAccess.Actions.OnPaymentForm" /> 
+  </insert>
+   
+  <comment>CompositeActions</comment> 
+ <insert schemaName="RuleEngine" tableName="CompositeActions">
+  <column name="Id" valueNumeric="59" /> 
+  <column name="Description" value="Provide missing fields on the Payment form" /> 
+  <column name="Type" value="PatientAccess.Actions.OnPaymentForm" /> 
+  </insert>
+   
+  <comment>CompositeRules</comment> 
+ <insert schemaName="RuleEngine" tableName="CompositeRules">
+  <column name="Id" valueNumeric="520" /> 
+  <column name="Description" value="Complete missing fields on the Payment form" /> 
+  <column name="Type" value="PatientAccess.Rules.OnPaymentForm" /> 
+  </insert>
+   
+  <comment>Add CompositeRulesToRules for Rules added for CompositeRule (510 ) in CompositeRulesToRules table: MonthlYDueDateRequired(519),</comment> 
+ <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+  <column name="CompositeRuleId" valueNumeric="520" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+   
+  <comment>Add CompositeRules and Actions to RulesToAction table</comment> 
+ <insert schemaName="RuleEngine" tableName="RulesToActions">
+  <column name="RuleId" valueNumeric="520" /> 
+  <column name="ActionId" valueNumeric="59" /> 
+  </insert>
+   
+ <comment>Add Rule MonthlyDueDateRequired(519) to Contexts (7,8,10,13,20,21,23) in ContextsToRules table</comment> 
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="7" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="8" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="10" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="13" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="20" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="21" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+ <insert schemaName="RuleEngine" tableName="ContextsToRules">
+  <column name="ContextId" valueNumeric="23" /> 
+  <column name="RuleId" valueNumeric="519" /> 
+  </insert>
+
+
+
+   <comment>Add CompositeRule OnPayment(520) to Contexts (7,8,10,13,20,21,23) in ContextsToRules table</comment>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="7" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="8" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="10" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="13" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="20" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="21" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+     <column name="ContextId" valueNumeric="23" />
+     <column name="RuleId" valueNumeric="520" />
+   </insert>
+ </changeSet>
+  </databaseChangeLog>

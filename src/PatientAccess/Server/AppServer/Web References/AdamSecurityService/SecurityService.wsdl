@@ -1,0 +1,3092 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AuthenticateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegeForPortal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegeForPortalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPrivilegeForPortalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrivilegesForPortalUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="privilegeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrivilegesForPortalUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrivilegesForPortalUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegesForCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegesForCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPrivilegesForCacheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegeFor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegeForResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPrivilegeForResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegesForImpersonate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="impersonateUPN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegesForImpersonateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPrivilegesForImpersonateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPrivilege">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uniqueID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="permissionCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgTypeCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPrivilegeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPrivilegeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePrivilege">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uniqueID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="permissionCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgTypeCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePrivilegeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletePrivilegeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsersForAppResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForAppRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForAppRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsersForAppRoleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForAppRoleFacility">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForAppRoleFacilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsersForAppRoleFacilityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForFacility">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersForFacilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsersForFacilityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppToAppAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callingAppGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="calledAppGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppToAppAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppToAppAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppToAppAccessDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callingAppGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="calledAppGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppToAppAccessDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppToAppAccessDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppNamed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppNamedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppNamedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplicationHierarchy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplicationHierarchyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationHierarchyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppRolesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppsForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppsForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppsForUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appRoleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RoleAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleNamed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="roleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleNamedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RoleNamedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacilitiesForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacilitiesForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacilitiesForUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCredentialsLegacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="systemPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legacyUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legacyUserPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCredentialsLegacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCredentialsLegacyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCredentialsLegacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legacyUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCredentialsLegacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCredentialsLegacyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastLogonByUserLegacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legacyUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastLogonDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastLogonByUserLegacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastLogonByUserLegacyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastLogoutByUserLegacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legacyUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastLogonDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastLogoutByUserLegacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastLogoutByUserLegacyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogPasswordChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legacyUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastLogonDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hspCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogPasswordChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogPasswordChangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegeForLegacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserPrivilegeForLegacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPrivilegeForLegacyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadLegacyIDsForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lookupUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadLegacyIDsForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadLegacyIDsForUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSecurityAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uniqueID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventTypeCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSecurityAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSecurityAccessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSecurityAccessForApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uniqueID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="upn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventTypeCD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSecurityAccessForAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSecurityAccessForAppResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateToken" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForPortalSoapIn">
+    <wsdl:part name="parameters" element="tns:UserPrivilegeForPortal" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForPortalSoapOut">
+    <wsdl:part name="parameters" element="tns:UserPrivilegeForPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrivilegesForPortalUserSoapIn">
+    <wsdl:part name="parameters" element="tns:PrivilegesForPortalUser" />
+  </wsdl:message>
+  <wsdl:message name="PrivilegesForPortalUserSoapOut">
+    <wsdl:part name="parameters" element="tns:PrivilegesForPortalUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:UserPrivilegesForCache" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:UserPrivilegesForCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForSoapIn">
+    <wsdl:part name="parameters" element="tns:UserPrivilegeFor" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForSoapOut">
+    <wsdl:part name="parameters" element="tns:UserPrivilegeForResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForImpersonateSoapIn">
+    <wsdl:part name="parameters" element="tns:UserPrivilegesForImpersonate" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForImpersonateSoapOut">
+    <wsdl:part name="parameters" element="tns:UserPrivilegesForImpersonateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPrivilegeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPrivilege" />
+  </wsdl:message>
+  <wsdl:message name="AddPrivilegeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPrivilegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePrivilegeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePrivilege" />
+  </wsdl:message>
+  <wsdl:message name="DeletePrivilegeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePrivilegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppSoapIn">
+    <wsdl:part name="parameters" element="tns:UsersForApp" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppSoapOut">
+    <wsdl:part name="parameters" element="tns:UsersForAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:UsersForAppRole" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:UsersForAppRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleFacilitySoapIn">
+    <wsdl:part name="parameters" element="tns:UsersForAppRoleFacility" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleFacilitySoapOut">
+    <wsdl:part name="parameters" element="tns:UsersForAppRoleFacilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsersForFacilitySoapIn">
+    <wsdl:part name="parameters" element="tns:UsersForFacility" />
+  </wsdl:message>
+  <wsdl:message name="UsersForFacilitySoapOut">
+    <wsdl:part name="parameters" element="tns:UsersForFacilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:AppToAppAccess" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:AppToAppAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:AppToAppAccessDetail" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:AppToAppAccessDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:AppAccess" />
+  </wsdl:message>
+  <wsdl:message name="AppAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:AppAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppNamedSoapIn">
+    <wsdl:part name="parameters" element="tns:AppNamed" />
+  </wsdl:message>
+  <wsdl:message name="AppNamedSoapOut">
+    <wsdl:part name="parameters" element="tns:AppNamedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationHierarchySoapIn">
+    <wsdl:part name="parameters" element="tns:ApplicationHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationHierarchySoapOut">
+    <wsdl:part name="parameters" element="tns:ApplicationHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:AppRoles" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:AppRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppsForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AppsForUser" />
+  </wsdl:message>
+  <wsdl:message name="AppsForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AppsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RoleAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:RoleAccess" />
+  </wsdl:message>
+  <wsdl:message name="RoleAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:RoleAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="RoleNamedSoapIn">
+    <wsdl:part name="parameters" element="tns:RoleNamed" />
+  </wsdl:message>
+  <wsdl:message name="RoleNamedSoapOut">
+    <wsdl:part name="parameters" element="tns:RoleNamedResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacilitiesForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:FacilitiesForUser" />
+  </wsdl:message>
+  <wsdl:message name="FacilitiesForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:FacilitiesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCredentialsLegacySoapIn">
+    <wsdl:part name="parameters" element="tns:SetCredentialsLegacy" />
+  </wsdl:message>
+  <wsdl:message name="SetCredentialsLegacySoapOut">
+    <wsdl:part name="parameters" element="tns:SetCredentialsLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialsLegacySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCredentialsLegacy" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialsLegacySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCredentialsLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LastLogonByUserLegacySoapIn">
+    <wsdl:part name="parameters" element="tns:LastLogonByUserLegacy" />
+  </wsdl:message>
+  <wsdl:message name="LastLogonByUserLegacySoapOut">
+    <wsdl:part name="parameters" element="tns:LastLogonByUserLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LastLogoutByUserLegacySoapIn">
+    <wsdl:part name="parameters" element="tns:LastLogoutByUserLegacy" />
+  </wsdl:message>
+  <wsdl:message name="LastLogoutByUserLegacySoapOut">
+    <wsdl:part name="parameters" element="tns:LastLogoutByUserLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogPasswordChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:LogPasswordChange" />
+  </wsdl:message>
+  <wsdl:message name="LogPasswordChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:LogPasswordChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForLegacySoapIn">
+    <wsdl:part name="parameters" element="tns:UserPrivilegeForLegacy" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForLegacySoapOut">
+    <wsdl:part name="parameters" element="tns:UserPrivilegeForLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadLegacyIDsForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadLegacyIDsForUser" />
+  </wsdl:message>
+  <wsdl:message name="LoadLegacyIDsForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadLegacyIDsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSecurityAccess" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSecurityAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessForAppSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSecurityAccessForApp" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessForAppSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSecurityAccessForAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateTokenHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForPortalHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForPortalHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PrivilegesForPortalUserHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="privilegeType" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PrivilegesForPortalUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForCacheHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForImpersonateHttpGetIn">
+    <wsdl:part name="impersonateUPN" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appRoleNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForImpersonateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPrivilegeHttpGetIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="levelCD" type="s:string" />
+    <wsdl:part name="permissionCD" type="s:string" />
+    <wsdl:part name="orgTypeCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPrivilegeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePrivilegeHttpGetIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="levelCD" type="s:string" />
+    <wsdl:part name="permissionCD" type="s:string" />
+    <wsdl:part name="orgTypeCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePrivilegeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleFacilityHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleFacilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForFacilityHttpGetIn">
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForFacilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessHttpGetIn">
+    <wsdl:part name="callingAppGUID" type="s:string" />
+    <wsdl:part name="calledAppGUID" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessDetailHttpGetIn">
+    <wsdl:part name="callingAppGUID" type="s:string" />
+    <wsdl:part name="calledAppGUID" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessDetailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppAccessHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppNamedHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppNamedHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationHierarchyHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationHierarchyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesHttpGetIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppsForUserHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppsForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleAccessHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleNamedHttpGetIn">
+    <wsdl:part name="roleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleNamedHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FacilitiesForUserHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FacilitiesForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCredentialsLegacyHttpGetIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="systemPassword" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="legacyUserPassword" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCredentialsLegacyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialsLegacyHttpGetIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialsLegacyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogonByUserLegacyHttpGetIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="lastLogonDate" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogonByUserLegacyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogoutByUserLegacyHttpGetIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="lastLogonDate" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogoutByUserLegacyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogPasswordChangeHttpGetIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="lastLogonDate" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogPasswordChangeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForLegacyHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForLegacyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadLegacyIDsForUserHttpGetIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="lookupUser" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadLegacyIDsForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessHttpGetIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="eventTypeCD" type="s:string" />
+    <wsdl:part name="appGUID" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessForAppHttpGetIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="eventTypeCD" type="s:string" />
+    <wsdl:part name="appGUID" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessForAppHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateTokenHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForPortalHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForPortalHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PrivilegesForPortalUserHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="privilegeType" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PrivilegesForPortalUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForCacheHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForImpersonateHttpPostIn">
+    <wsdl:part name="impersonateUPN" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appRoleNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegesForImpersonateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPrivilegeHttpPostIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="levelCD" type="s:string" />
+    <wsdl:part name="permissionCD" type="s:string" />
+    <wsdl:part name="orgTypeCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddPrivilegeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePrivilegeHttpPostIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="levelCD" type="s:string" />
+    <wsdl:part name="permissionCD" type="s:string" />
+    <wsdl:part name="orgTypeCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePrivilegeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleFacilityHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForAppRoleFacilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForFacilityHttpPostIn">
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsersForFacilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessHttpPostIn">
+    <wsdl:part name="callingAppGUID" type="s:string" />
+    <wsdl:part name="calledAppGUID" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessDetailHttpPostIn">
+    <wsdl:part name="callingAppGUID" type="s:string" />
+    <wsdl:part name="calledAppGUID" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppToAppAccessDetailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppAccessHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppNamedHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppNamedHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationHierarchyHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationHierarchyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesHttpPostIn">
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppsForUserHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppsForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleAccessHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appRoleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleNamedHttpPostIn">
+    <wsdl:part name="roleName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RoleNamedHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FacilitiesForUserHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FacilitiesForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCredentialsLegacyHttpPostIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="systemPassword" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="legacyUserPassword" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCredentialsLegacyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialsLegacyHttpPostIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialsLegacyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogonByUserLegacyHttpPostIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="lastLogonDate" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogonByUserLegacyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogoutByUserLegacyHttpPostIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="lastLogonDate" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LastLogoutByUserLegacyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogPasswordChangeHttpPostIn">
+    <wsdl:part name="systemUserID" type="s:string" />
+    <wsdl:part name="legacyUserID" type="s:string" />
+    <wsdl:part name="lastLogonDate" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="hspCD" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogPasswordChangeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForLegacyHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserPrivilegeForLegacyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadLegacyIDsForUserHttpPostIn">
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="lookupUser" type="s:string" />
+    <wsdl:part name="appNames" type="s:string" />
+    <wsdl:part name="appGuid" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadLegacyIDsForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessHttpPostIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="eventTypeCD" type="s:string" />
+    <wsdl:part name="appGUID" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessForAppHttpPostIn">
+    <wsdl:part name="uniqueID" type="s:string" />
+    <wsdl:part name="upn" type="s:string" />
+    <wsdl:part name="appName" type="s:string" />
+    <wsdl:part name="eventTypeCD" type="s:string" />
+    <wsdl:part name="appGUID" type="s:string" />
+    <wsdl:part name="accessKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoadSecurityAccessForAppHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SecurityServiceSoap">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate user against Active Directory.</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateUserSoapIn" />
+      <wsdl:output message="tns:AuthenticateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate Adam Token</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateTokenSoapIn" />
+      <wsdl:output message="tns:AuthenticateTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for a Portal Application. Pass in multiple apps seperated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForPortalSoapIn" />
+      <wsdl:output message="tns:UserPrivilegeForPortalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and List user privileges.</wsdl:documentation>
+      <wsdl:input message="tns:PrivilegesForPortalUserSoapIn" />
+      <wsdl:output message="tns:PrivilegesForPortalUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for a Portal Application. Pass in multiple apps seperated by commas.(Version.2- UserPrivilegeForPortal)</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegesForCacheSoapIn" />
+      <wsdl:output message="tns:UserPrivilegesForCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user privileges for multiple roles. Pass in comma delimited roles.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForSoapIn" />
+      <wsdl:output message="tns:UserPrivilegeForSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize Users for a Portal Application. Pass in multiple roles separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegesForImpersonateSoapIn" />
+      <wsdl:output message="tns:UserPrivilegesForImpersonateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Privilege will add the privilege of the user</wsdl:documentation>
+      <wsdl:input message="tns:AddPrivilegeSoapIn" />
+      <wsdl:output message="tns:AddPrivilegeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Privilege will delete the privilege of the user</wsdl:documentation>
+      <wsdl:input message="tns:DeletePrivilegeSoapIn" />
+      <wsdl:output message="tns:DeletePrivilegeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for a Application.(Version.2- UsersFor)</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppSoapIn" />
+      <wsdl:output message="tns:UsersForAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for an application and role.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppRoleSoapIn" />
+      <wsdl:output message="tns:UsersForAppRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for an application role and facility.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppRoleFacilitySoapIn" />
+      <wsdl:output message="tns:UsersForAppRoleFacilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for a facility.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForFacilitySoapIn" />
+      <wsdl:output message="tns:UsersForFacilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Authenticate and Authorize Application for another Application.</wsdl:documentation>
+      <wsdl:input message="tns:AppToAppAccessSoapIn" />
+      <wsdl:output message="tns:AppToAppAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Authenticate and Authorize Application for another Application.</wsdl:documentation>
+      <wsdl:input message="tns:AppToAppAccessDetailSoapIn" />
+      <wsdl:output message="tns:AppToAppAccessDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and authorize user for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppAccessSoapIn" />
+      <wsdl:output message="tns:AppAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application detail for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppNamedSoapIn" />
+      <wsdl:output message="tns:AppNamedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application heirarcy for an application.</wsdl:documentation>
+      <wsdl:input message="tns:ApplicationHierarchySoapIn" />
+      <wsdl:output message="tns:ApplicationHierarchySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application roles for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppRolesSoapIn" />
+      <wsdl:output message="tns:AppRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return applications for a user.</wsdl:documentation>
+      <wsdl:input message="tns:AppsForUserSoapIn" />
+      <wsdl:output message="tns:AppsForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and authorize user for an application role.</wsdl:documentation>
+      <wsdl:input message="tns:RoleAccessSoapIn" />
+      <wsdl:output message="tns:RoleAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return role detail for a role.</wsdl:documentation>
+      <wsdl:input message="tns:RoleNamedSoapIn" />
+      <wsdl:output message="tns:RoleNamedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return distinct facilities for a user across all applications.</wsdl:documentation>
+      <wsdl:input message="tns:FacilitiesForUserSoapIn" />
+      <wsdl:output message="tns:FacilitiesForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Legacy Application and System Credentials for user.</wsdl:documentation>
+      <wsdl:input message="tns:SetCredentialsLegacySoapIn" />
+      <wsdl:output message="tns:SetCredentialsLegacySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Legacy Application and System Credentials for user</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCredentialsLegacySoapIn" />
+      <wsdl:output message="tns:DeleteCredentialsLegacySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Record last application logon date and time in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LastLogonByUserLegacySoapIn" />
+      <wsdl:output message="tns:LastLogonByUserLegacySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Record last application/user logout date and time in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LastLogoutByUserLegacySoapIn" />
+      <wsdl:output message="tns:LastLogoutByUserLegacySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Records the password change event in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LogPasswordChangeSoapIn" />
+      <wsdl:output message="tns:LogPasswordChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for an Application.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForLegacySoapIn" />
+      <wsdl:output message="tns:UserPrivilegeForLegacySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and return the lookup user's legacy id's.  The "lookupUser" parameter can be either UniqueID or eTenetID.  The "appNames" parameter can accept multiple application names separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:LoadLegacyIDsForUserSoapIn" />
+      <wsdl:output message="tns:LoadLegacyIDsForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Security Access for user.</wsdl:documentation>
+      <wsdl:input message="tns:LoadSecurityAccessSoapIn" />
+      <wsdl:output message="tns:LoadSecurityAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Security Access for user. Pass in multiple applications separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:LoadSecurityAccessForAppSoapIn" />
+      <wsdl:output message="tns:LoadSecurityAccessForAppSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SecurityServiceHttpGet">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate user against Active Directory.</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateUserHttpGetIn" />
+      <wsdl:output message="tns:AuthenticateUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate Adam Token</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateTokenHttpGetIn" />
+      <wsdl:output message="tns:AuthenticateTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for a Portal Application. Pass in multiple apps seperated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForPortalHttpGetIn" />
+      <wsdl:output message="tns:UserPrivilegeForPortalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and List user privileges.</wsdl:documentation>
+      <wsdl:input message="tns:PrivilegesForPortalUserHttpGetIn" />
+      <wsdl:output message="tns:PrivilegesForPortalUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for a Portal Application. Pass in multiple apps seperated by commas.(Version.2- UserPrivilegeForPortal)</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegesForCacheHttpGetIn" />
+      <wsdl:output message="tns:UserPrivilegesForCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user privileges for multiple roles. Pass in comma delimited roles.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForHttpGetIn" />
+      <wsdl:output message="tns:UserPrivilegeForHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize Users for a Portal Application. Pass in multiple roles separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegesForImpersonateHttpGetIn" />
+      <wsdl:output message="tns:UserPrivilegesForImpersonateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Privilege will add the privilege of the user</wsdl:documentation>
+      <wsdl:input message="tns:AddPrivilegeHttpGetIn" />
+      <wsdl:output message="tns:AddPrivilegeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Privilege will delete the privilege of the user</wsdl:documentation>
+      <wsdl:input message="tns:DeletePrivilegeHttpGetIn" />
+      <wsdl:output message="tns:DeletePrivilegeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for a Application.(Version.2- UsersFor)</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppHttpGetIn" />
+      <wsdl:output message="tns:UsersForAppHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for an application and role.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppRoleHttpGetIn" />
+      <wsdl:output message="tns:UsersForAppRoleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for an application role and facility.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppRoleFacilityHttpGetIn" />
+      <wsdl:output message="tns:UsersForAppRoleFacilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for a facility.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForFacilityHttpGetIn" />
+      <wsdl:output message="tns:UsersForFacilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Authenticate and Authorize Application for another Application.</wsdl:documentation>
+      <wsdl:input message="tns:AppToAppAccessHttpGetIn" />
+      <wsdl:output message="tns:AppToAppAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Authenticate and Authorize Application for another Application.</wsdl:documentation>
+      <wsdl:input message="tns:AppToAppAccessDetailHttpGetIn" />
+      <wsdl:output message="tns:AppToAppAccessDetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and authorize user for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppAccessHttpGetIn" />
+      <wsdl:output message="tns:AppAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application detail for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppNamedHttpGetIn" />
+      <wsdl:output message="tns:AppNamedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application heirarcy for an application.</wsdl:documentation>
+      <wsdl:input message="tns:ApplicationHierarchyHttpGetIn" />
+      <wsdl:output message="tns:ApplicationHierarchyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application roles for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppRolesHttpGetIn" />
+      <wsdl:output message="tns:AppRolesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return applications for a user.</wsdl:documentation>
+      <wsdl:input message="tns:AppsForUserHttpGetIn" />
+      <wsdl:output message="tns:AppsForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and authorize user for an application role.</wsdl:documentation>
+      <wsdl:input message="tns:RoleAccessHttpGetIn" />
+      <wsdl:output message="tns:RoleAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return role detail for a role.</wsdl:documentation>
+      <wsdl:input message="tns:RoleNamedHttpGetIn" />
+      <wsdl:output message="tns:RoleNamedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return distinct facilities for a user across all applications.</wsdl:documentation>
+      <wsdl:input message="tns:FacilitiesForUserHttpGetIn" />
+      <wsdl:output message="tns:FacilitiesForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Legacy Application and System Credentials for user.</wsdl:documentation>
+      <wsdl:input message="tns:SetCredentialsLegacyHttpGetIn" />
+      <wsdl:output message="tns:SetCredentialsLegacyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Legacy Application and System Credentials for user</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCredentialsLegacyHttpGetIn" />
+      <wsdl:output message="tns:DeleteCredentialsLegacyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Record last application logon date and time in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LastLogonByUserLegacyHttpGetIn" />
+      <wsdl:output message="tns:LastLogonByUserLegacyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Record last application/user logout date and time in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LastLogoutByUserLegacyHttpGetIn" />
+      <wsdl:output message="tns:LastLogoutByUserLegacyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Records the password change event in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LogPasswordChangeHttpGetIn" />
+      <wsdl:output message="tns:LogPasswordChangeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for an Application.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForLegacyHttpGetIn" />
+      <wsdl:output message="tns:UserPrivilegeForLegacyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and return the lookup user's legacy id's.  The "lookupUser" parameter can be either UniqueID or eTenetID.  The "appNames" parameter can accept multiple application names separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:LoadLegacyIDsForUserHttpGetIn" />
+      <wsdl:output message="tns:LoadLegacyIDsForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Security Access for user.</wsdl:documentation>
+      <wsdl:input message="tns:LoadSecurityAccessHttpGetIn" />
+      <wsdl:output message="tns:LoadSecurityAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Security Access for user. Pass in multiple applications separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:LoadSecurityAccessForAppHttpGetIn" />
+      <wsdl:output message="tns:LoadSecurityAccessForAppHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SecurityServiceHttpPost">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate user against Active Directory.</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateUserHttpPostIn" />
+      <wsdl:output message="tns:AuthenticateUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate Adam Token</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateTokenHttpPostIn" />
+      <wsdl:output message="tns:AuthenticateTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for a Portal Application. Pass in multiple apps seperated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForPortalHttpPostIn" />
+      <wsdl:output message="tns:UserPrivilegeForPortalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and List user privileges.</wsdl:documentation>
+      <wsdl:input message="tns:PrivilegesForPortalUserHttpPostIn" />
+      <wsdl:output message="tns:PrivilegesForPortalUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for a Portal Application. Pass in multiple apps seperated by commas.(Version.2- UserPrivilegeForPortal)</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegesForCacheHttpPostIn" />
+      <wsdl:output message="tns:UserPrivilegesForCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user privileges for multiple roles. Pass in comma delimited roles.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForHttpPostIn" />
+      <wsdl:output message="tns:UserPrivilegeForHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize Users for a Portal Application. Pass in multiple roles separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegesForImpersonateHttpPostIn" />
+      <wsdl:output message="tns:UserPrivilegesForImpersonateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Privilege will add the privilege of the user</wsdl:documentation>
+      <wsdl:input message="tns:AddPrivilegeHttpPostIn" />
+      <wsdl:output message="tns:AddPrivilegeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Privilege will delete the privilege of the user</wsdl:documentation>
+      <wsdl:input message="tns:DeletePrivilegeHttpPostIn" />
+      <wsdl:output message="tns:DeletePrivilegeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for a Application.(Version.2- UsersFor)</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppHttpPostIn" />
+      <wsdl:output message="tns:UsersForAppHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for an application and role.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppRoleHttpPostIn" />
+      <wsdl:output message="tns:UsersForAppRoleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for an application role and facility.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForAppRoleFacilityHttpPostIn" />
+      <wsdl:output message="tns:UsersForAppRoleFacilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">List Users for a facility.</wsdl:documentation>
+      <wsdl:input message="tns:UsersForFacilityHttpPostIn" />
+      <wsdl:output message="tns:UsersForFacilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Authenticate and Authorize Application for another Application.</wsdl:documentation>
+      <wsdl:input message="tns:AppToAppAccessHttpPostIn" />
+      <wsdl:output message="tns:AppToAppAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Authenticate and Authorize Application for another Application.</wsdl:documentation>
+      <wsdl:input message="tns:AppToAppAccessDetailHttpPostIn" />
+      <wsdl:output message="tns:AppToAppAccessDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and authorize user for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppAccessHttpPostIn" />
+      <wsdl:output message="tns:AppAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application detail for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppNamedHttpPostIn" />
+      <wsdl:output message="tns:AppNamedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application heirarcy for an application.</wsdl:documentation>
+      <wsdl:input message="tns:ApplicationHierarchyHttpPostIn" />
+      <wsdl:output message="tns:ApplicationHierarchyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return application roles for an application.</wsdl:documentation>
+      <wsdl:input message="tns:AppRolesHttpPostIn" />
+      <wsdl:output message="tns:AppRolesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return applications for a user.</wsdl:documentation>
+      <wsdl:input message="tns:AppsForUserHttpPostIn" />
+      <wsdl:output message="tns:AppsForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and authorize user for an application role.</wsdl:documentation>
+      <wsdl:input message="tns:RoleAccessHttpPostIn" />
+      <wsdl:output message="tns:RoleAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return role detail for a role.</wsdl:documentation>
+      <wsdl:input message="tns:RoleNamedHttpPostIn" />
+      <wsdl:output message="tns:RoleNamedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return distinct facilities for a user across all applications.</wsdl:documentation>
+      <wsdl:input message="tns:FacilitiesForUserHttpPostIn" />
+      <wsdl:output message="tns:FacilitiesForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Legacy Application and System Credentials for user.</wsdl:documentation>
+      <wsdl:input message="tns:SetCredentialsLegacyHttpPostIn" />
+      <wsdl:output message="tns:SetCredentialsLegacyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Legacy Application and System Credentials for user</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCredentialsLegacyHttpPostIn" />
+      <wsdl:output message="tns:DeleteCredentialsLegacyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Record last application logon date and time in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LastLogonByUserLegacyHttpPostIn" />
+      <wsdl:output message="tns:LastLogonByUserLegacyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Record last application/user logout date and time in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LastLogoutByUserLegacyHttpPostIn" />
+      <wsdl:output message="tns:LastLogoutByUserLegacyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Records the password change event in ADAM</wsdl:documentation>
+      <wsdl:input message="tns:LogPasswordChangeHttpPostIn" />
+      <wsdl:output message="tns:LogPasswordChangeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and Authorize User for an Application.</wsdl:documentation>
+      <wsdl:input message="tns:UserPrivilegeForLegacyHttpPostIn" />
+      <wsdl:output message="tns:UserPrivilegeForLegacyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate and return the lookup user's legacy id's.  The "lookupUser" parameter can be either UniqueID or eTenetID.  The "appNames" parameter can accept multiple application names separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:LoadLegacyIDsForUserHttpPostIn" />
+      <wsdl:output message="tns:LoadLegacyIDsForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Security Access for user.</wsdl:documentation>
+      <wsdl:input message="tns:LoadSecurityAccessHttpPostIn" />
+      <wsdl:output message="tns:LoadSecurityAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Security Access for user. Pass in multiple applications separated by commas.</wsdl:documentation>
+      <wsdl:input message="tns:LoadSecurityAccessForAppHttpPostIn" />
+      <wsdl:output message="tns:LoadSecurityAccessForAppHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SecurityServiceSoap" type="tns:SecurityServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <soap:operation soapAction="http://tempuri.org/AuthenticateToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <soap:operation soapAction="http://tempuri.org/UserPrivilegeForPortal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <soap:operation soapAction="http://tempuri.org/PrivilegesForPortalUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <soap:operation soapAction="http://tempuri.org/UserPrivilegesForCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <soap:operation soapAction="http://tempuri.org/UserPrivilegeFor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <soap:operation soapAction="http://tempuri.org/UserPrivilegesForImpersonate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <soap:operation soapAction="http://tempuri.org/AddPrivilege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <soap:operation soapAction="http://tempuri.org/DeletePrivilege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <soap:operation soapAction="http://tempuri.org/UsersForApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <soap:operation soapAction="http://tempuri.org/UsersForAppRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <soap:operation soapAction="http://tempuri.org/UsersForAppRoleFacility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <soap:operation soapAction="http://tempuri.org/UsersForFacility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <soap:operation soapAction="http://tempuri.org/AppToAppAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <soap:operation soapAction="http://tempuri.org/AppToAppAccessDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <soap:operation soapAction="http://tempuri.org/AppAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <soap:operation soapAction="http://tempuri.org/AppNamed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <soap:operation soapAction="http://tempuri.org/ApplicationHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <soap:operation soapAction="http://tempuri.org/AppRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <soap:operation soapAction="http://tempuri.org/AppsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <soap:operation soapAction="http://tempuri.org/RoleAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <soap:operation soapAction="http://tempuri.org/RoleNamed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <soap:operation soapAction="http://tempuri.org/FacilitiesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <soap:operation soapAction="http://tempuri.org/SetCredentialsLegacy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <soap:operation soapAction="http://tempuri.org/DeleteCredentialsLegacy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <soap:operation soapAction="http://tempuri.org/LastLogonByUserLegacy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <soap:operation soapAction="http://tempuri.org/LastLogoutByUserLegacy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <soap:operation soapAction="http://tempuri.org/LogPasswordChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <soap:operation soapAction="http://tempuri.org/UserPrivilegeForLegacy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <soap:operation soapAction="http://tempuri.org/LoadLegacyIDsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <soap:operation soapAction="http://tempuri.org/LoadSecurityAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <soap:operation soapAction="http://tempuri.org/LoadSecurityAccessForApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SecurityServiceSoap12" type="tns:SecurityServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://tempuri.org/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <soap12:operation soapAction="http://tempuri.org/AuthenticateToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <soap12:operation soapAction="http://tempuri.org/UserPrivilegeForPortal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <soap12:operation soapAction="http://tempuri.org/PrivilegesForPortalUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <soap12:operation soapAction="http://tempuri.org/UserPrivilegesForCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <soap12:operation soapAction="http://tempuri.org/UserPrivilegeFor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <soap12:operation soapAction="http://tempuri.org/UserPrivilegesForImpersonate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <soap12:operation soapAction="http://tempuri.org/AddPrivilege" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <soap12:operation soapAction="http://tempuri.org/DeletePrivilege" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <soap12:operation soapAction="http://tempuri.org/UsersForApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <soap12:operation soapAction="http://tempuri.org/UsersForAppRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <soap12:operation soapAction="http://tempuri.org/UsersForAppRoleFacility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <soap12:operation soapAction="http://tempuri.org/UsersForFacility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <soap12:operation soapAction="http://tempuri.org/AppToAppAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <soap12:operation soapAction="http://tempuri.org/AppToAppAccessDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <soap12:operation soapAction="http://tempuri.org/AppAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <soap12:operation soapAction="http://tempuri.org/AppNamed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <soap12:operation soapAction="http://tempuri.org/ApplicationHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <soap12:operation soapAction="http://tempuri.org/AppRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <soap12:operation soapAction="http://tempuri.org/AppsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <soap12:operation soapAction="http://tempuri.org/RoleAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <soap12:operation soapAction="http://tempuri.org/RoleNamed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <soap12:operation soapAction="http://tempuri.org/FacilitiesForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <soap12:operation soapAction="http://tempuri.org/SetCredentialsLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCredentialsLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <soap12:operation soapAction="http://tempuri.org/LastLogonByUserLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <soap12:operation soapAction="http://tempuri.org/LastLogoutByUserLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <soap12:operation soapAction="http://tempuri.org/LogPasswordChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <soap12:operation soapAction="http://tempuri.org/UserPrivilegeForLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <soap12:operation soapAction="http://tempuri.org/LoadLegacyIDsForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <soap12:operation soapAction="http://tempuri.org/LoadSecurityAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <soap12:operation soapAction="http://tempuri.org/LoadSecurityAccessForApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SecurityServiceHttpGet" type="tns:SecurityServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AuthenticateUser">
+      <http:operation location="/AuthenticateUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <http:operation location="/AuthenticateToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <http:operation location="/UserPrivilegeForPortal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <http:operation location="/PrivilegesForPortalUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <http:operation location="/UserPrivilegesForCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <http:operation location="/UserPrivilegeFor" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <http:operation location="/UserPrivilegesForImpersonate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <http:operation location="/AddPrivilege" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <http:operation location="/DeletePrivilege" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <http:operation location="/UsersForApp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <http:operation location="/UsersForAppRole" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <http:operation location="/UsersForAppRoleFacility" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <http:operation location="/UsersForFacility" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <http:operation location="/AppToAppAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <http:operation location="/AppToAppAccessDetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <http:operation location="/AppAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <http:operation location="/AppNamed" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <http:operation location="/ApplicationHierarchy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <http:operation location="/AppRoles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <http:operation location="/AppsForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <http:operation location="/RoleAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <http:operation location="/RoleNamed" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <http:operation location="/FacilitiesForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <http:operation location="/SetCredentialsLegacy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <http:operation location="/DeleteCredentialsLegacy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <http:operation location="/LastLogonByUserLegacy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <http:operation location="/LastLogoutByUserLegacy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <http:operation location="/LogPasswordChange" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <http:operation location="/UserPrivilegeForLegacy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <http:operation location="/LoadLegacyIDsForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <http:operation location="/LoadSecurityAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <http:operation location="/LoadSecurityAccessForApp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SecurityServiceHttpPost" type="tns:SecurityServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AuthenticateUser">
+      <http:operation location="/AuthenticateUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateToken">
+      <http:operation location="/AuthenticateToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForPortal">
+      <http:operation location="/UserPrivilegeForPortal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrivilegesForPortalUser">
+      <http:operation location="/PrivilegesForPortalUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForCache">
+      <http:operation location="/UserPrivilegesForCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeFor">
+      <http:operation location="/UserPrivilegeFor" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegesForImpersonate">
+      <http:operation location="/UserPrivilegesForImpersonate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrivilege">
+      <http:operation location="/AddPrivilege" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrivilege">
+      <http:operation location="/DeletePrivilege" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForApp">
+      <http:operation location="/UsersForApp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRole">
+      <http:operation location="/UsersForAppRole" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForAppRoleFacility">
+      <http:operation location="/UsersForAppRoleFacility" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsersForFacility">
+      <http:operation location="/UsersForFacility" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccess">
+      <http:operation location="/AppToAppAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppToAppAccessDetail">
+      <http:operation location="/AppToAppAccessDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppAccess">
+      <http:operation location="/AppAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppNamed">
+      <http:operation location="/AppNamed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationHierarchy">
+      <http:operation location="/ApplicationHierarchy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <http:operation location="/AppRoles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppsForUser">
+      <http:operation location="/AppsForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleAccess">
+      <http:operation location="/RoleAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleNamed">
+      <http:operation location="/RoleNamed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FacilitiesForUser">
+      <http:operation location="/FacilitiesForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCredentialsLegacy">
+      <http:operation location="/SetCredentialsLegacy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredentialsLegacy">
+      <http:operation location="/DeleteCredentialsLegacy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogonByUserLegacy">
+      <http:operation location="/LastLogonByUserLegacy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastLogoutByUserLegacy">
+      <http:operation location="/LastLogoutByUserLegacy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogPasswordChange">
+      <http:operation location="/LogPasswordChange" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserPrivilegeForLegacy">
+      <http:operation location="/UserPrivilegeForLegacy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadLegacyIDsForUser">
+      <http:operation location="/LoadLegacyIDsForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccess">
+      <http:operation location="/LoadSecurityAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecurityAccessForApp">
+      <http:operation location="/LoadSecurityAccessForApp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecurityService">
+    <wsdl:port name="SecurityServiceSoap" binding="tns:SecurityServiceSoap">
+      <soap:address location="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SecurityServiceSoap12" binding="tns:SecurityServiceSoap12">
+      <soap12:address location="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SecurityServiceHttpGet" binding="tns:SecurityServiceHttpGet">
+      <http:address location="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SecurityServiceHttpPost" binding="tns:SecurityServiceHttpPost">
+      <http:address location="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

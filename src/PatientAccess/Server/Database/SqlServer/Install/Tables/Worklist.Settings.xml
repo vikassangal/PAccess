@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Worklist.Settings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Worklist.Settings Table
+    </comment>
+    <createTable schemaName="Worklist" tableName="Settings">
+      <column name="WorklistId" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="SelectionRangeId" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="StartLetters" type="varchar(15)" />
+      <column name="EndLetters" type="varchar(15)" />
+      <column name="UserId" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="StartDate" type="datetime" />
+      <column name="EndDate" type="datetime" />
+      <column name="SortedColumn" type="int" />
+      <column name="SortedColumnDirection" type="int" defaultValueNumeric="1" />
+    </createTable>
+    <addPrimaryKey constraintName="PK_Settings" schemaName="Worklist" tableName="Settings" columnNames="WorklistId,UserId" />
+  </changeSet>
+</databaseChangeLog>

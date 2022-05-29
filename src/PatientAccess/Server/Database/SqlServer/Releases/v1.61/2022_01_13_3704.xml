@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_01_13_3704.xml">
+	<changeSet id="BD560DA4-6F4D-414A-946B-290CD1A15935" author="Abhijeet.Hambir">
+		<comment>
+			DOFR DMND3704- Add DOFRInitiate Required Rule to form and activities
+		</comment>
+		
+		<insert schemaName="RuleEngine" tableName="Rules">
+			<column name="Id" valueNumeric="538" />
+			<column name="Description" value="Initiate DOFR" />
+			<column name="Type" value="PatientAccess.Rules.DOFRInitiateRequired" />
+			<column name="Severity" valueNumeric="4" />
+		</insert>
+
+		<comment>
+			Add rule 538 to ContextRules to Rules for contexts 7,13,21
+		</comment>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="7" />
+			<column name="RuleId" valueNumeric="538" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="13" />
+			<column name="RuleId" valueNumeric="538" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="21" />
+			<column name="RuleId" valueNumeric="538" />
+		</insert>
+
+		<comment>
+			Add rule 538 to CompositeRulesToRules for composite rules 203
+		</comment>
+
+		<insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+			<column name="CompositeRuleId" valueNumeric="203" />
+			<column name="Ruleid" valueNumeric="538" />
+		</insert>
+	
+	</changeSet>
+  
+  <changeSet id="4B501487-C157-42CA-91DA-A7B8566B966F" author="Abhijeet.Hambir">
+    <comment>
+      Add rule 538 to ContextRules to Rules for contexts 28
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="538" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

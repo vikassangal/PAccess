@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.18\2010-11-08-9958.xml">
+
+  <changeSet id="B6462887-AD69-426B-B48E-A2E838A17350" author="Deepa.Raju" context="Prod">
+    <comment>
+      Enable PRV, SES and SIE hospitals and their training facilities in Production for SR 878 Online PreRegistration Integration
+    </comment>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="990" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="40" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="940" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="324" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="924" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+
+    
+    <rollback>
+
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'IsAcceptingPreRegistrationSubmissions' and FacilityId in ( 390, 990, 40, 940, 324, 924 ) </where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

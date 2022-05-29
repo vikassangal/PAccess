@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.35\2014-11-19-10086.xml">
+
+  <changeSet id="F1312CE0-2659-4088-B151-DC488568917F" author="Srilakshmi.Sudharshan">
+
+    <comment>
+      SR10086 - PAS-Make HIE Opt-Out Flags default to Yes
+    </comment>
+
+    <comment>
+      Delete  HIEConsentFlagRequired (515),  HIEPhysicianFlagRequired (516) Rules
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id in ( 515, 516 )</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="515" />
+        <column name="Description" value="HIE Consent Flag" />
+        <column name="Type" value="PatientAccess.Rules.HIEConsentFlagRequired" />
+        <column name="Severity" valueNumeric="4" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="516" />
+        <column name="Description" value="HIE PCP/Physician Flag" />
+        <column name="Type" value="PatientAccess.Rules.HIEPhysicianFlagRequired" />
+        <column name="Severity" valueNumeric="4" />
+      </insert>
+    </rollback>
+    
+    <comment>
+      Delete Rules HIEConsentFlagRequired(515) and HIEPhysicianFlagRequired(516)
+      from Contexts (7,10,13,21) in ContextsToRules table
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId in ( 515, 516)</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="515" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="RuleId" valueNumeric="515" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="515" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="21" />
+        <column name="RuleId" valueNumeric="515" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="516" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="RuleId" valueNumeric="516" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="516" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="21" />
+        <column name="RuleId" valueNumeric="516" />
+      </insert>
+    </rollback>
+
+    <comment>
+      Remove Rules (515,516) from CompositeRules OnRegulatoryForn(211), OnShortRegulatoryForm(477) from CompositeRulesToRules table
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId in ( 515, 516 )</where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="211" />
+        <column name="RuleId" valueNumeric="515" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="211" />
+        <column name="RuleId" valueNumeric="516" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="477" />
+        <column name="RuleId" valueNumeric="515" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="477" />
+        <column name="RuleId" valueNumeric="516" />
+      </insert>
+    </rollback>    
+
+  </changeSet>
+</databaseChangeLog>

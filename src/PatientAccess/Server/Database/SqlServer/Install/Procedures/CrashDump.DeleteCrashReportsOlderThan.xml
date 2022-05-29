@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\CrashDump.DeleteCrashReportsOlderThan.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create CrashDump.DeleteCrashReportsOlderThan
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE CrashDump.DeleteCrashReportsOlderThan
+        @MaxAgeInDays int = 21
+      AS
+      BEGIN
+
+        DECLARE @CurrentTimeStamp dateTime
+        
+        SET @CurrentTimeStamp = CURRENT_TIMESTAMP
+        
+        DELETE FROM 
+          CrashDump.CrashReports 
+        WHERE 
+          DATEDIFF(day, DateAdded, @CurrentTimeStamp) > @MaxAgeInDays
+
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON CrashDump.DeleteCrashReportsOlderThan TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON CrashDump.DeleteCrashReportsOlderThan FROM db_apionly;
+      DROP PROCEDURE CrashDump.DeleteCrashReportsOlderThan;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

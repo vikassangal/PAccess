@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.16\2010-07-13-9926.xml">
+
+  <changeSet id="C5C7C05C-E1C2-4A66-B854-2578E9B1546F" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for July 2010 with additional changes
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RIMFM'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPWCI'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='TMRSP'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='TMSNT'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='TMUND'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCREA'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='CCURE'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RTFCC'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RPRRV'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RIMFM" />
+      <column name="Description" value="IMP MSSG FROM MEDICARE COMPLETE" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPWCI" />
+      <column name="Description" value="PENDING WORKER COMP INFORMATION" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="1" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="TMRSP" />
+      <column name="Description" value="TEXT MESSAGE RECVD FROM GUARANTOR" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="TMSNT" />
+      <column name="Description" value="TEXT MESSAGE SENT TO GUARANTOR" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="TMUND" />
+      <column name="Description" value="TEXT MESSAGE ATTMPTD-UNDELIVERABLE" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCREA" />
+      <column name="Description" value="ACCT CREATED / UPDATED NEW ACCT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="CCURE" />
+      <column name="Description" value="CALLED UR RE:" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="5" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RTFCC" />
+      <column name="Description" value="CMPLTD TAR REC’D BACK FRM CARE COOR" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="7" />
+      <column name="MaxWorklistDays" valueNumeric="7" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RPRRV" />
+      <column name="Description" value="ACCT CREATED USING PREVIOUS ACCT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CMAIL'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CEBP1'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="N" />
+      <where>ActivityCode='RCANC'</where>
+    </update>
+
+
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RIMFM'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPWCI'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='TMRSP'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='TMSNT'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='TMUND'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCREA'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='CCURE'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RTFCC'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RPRRV'</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,17 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Facility.FollowUpUnits.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Facility.FollowUpUnits Table
+    </comment>
+    <createTable schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_FollowUpUnits" />
+      </column>
+      <column name="Name" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="StatusCode" type="char(1)" />
+      <column name="LastUpdated" type="datetime" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

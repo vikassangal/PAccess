@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Announcement.SaveAnnouncement.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Announcement.SaveAnnouncement
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Announcement.SaveAnnouncement  
+         @AnnouncementId int = 0,
+         @StopDate datetime = NULL,
+         @Description varchar(3000),
+         @Author varchar(50) = 'Unknown',
+         @SaveDate datetime = NULL,
+         @RolesList varchar(max),
+         @FacilitiesList varchar(max),
+         @Delimiter varchar(max) = ','
+      AS 
+      BEGIN
+
+        DECLARE @NewAnnouncementId int               
+        
+        -- Remove old copy, if any
+        DELETE FROM Announcement.Announcements WHERE Id = @AnnouncementId;
+
+        INSERT INTO
+          Announcement.Announcements
+        ( StopDate, 
+          Description, 
+          Author, 
+          SaveDate )
+        VALUES 
+        (
+          @StopDate, 
+          @Description, 
+          @Author, 
+          @SaveDate )
+        
+        SET @NewAnnouncementId = SCOPE_IDENTITY()
+        
+        INSERT INTO 
+          Announcement.AnnouncementsToRolesToFacilities
+        SELECT 
+	        @NewAnnouncementId AS AnnouncementId,
+	        TempRoles.item AS RoleId,
+	        TempFacilities.item AS FacilityId
+        FROM 
+	        Utility.ArrayToTable(Utility.StringToArray(@FacilitiesList,@Delimiter)) AS TempFacilities,
+	        Utility.ArrayToTable(Utility.StringToArray(@RolesList,@Delimiter)) AS TempRoles
+        
+        RETURN @NewAnnouncementId
+        
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Announcement.SaveAnnouncement TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Announcement.SaveAnnouncement FROM db_apionly;
+      DROP PROCEDURE Announcement.SaveAnnouncement;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

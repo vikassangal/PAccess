@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.16\2010-05-12-8822.xml">
+
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for May 2010
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='IMCBL'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RDART'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="IMCBL" />
+      <column name="Description" value="MEP - CANCEL OUT OF BALANCE" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RDART" />
+      <column name="Description" value="DART EMPLOYEES" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="AR MCAL ELIG LTR" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CBMTD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="SOS MCAL ELIG LTR" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='CEMTD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="SYS-WF EVAL DELEGATE PA WL" />
+      <where>ActivityCode='WFDNL'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='WLICE'</where>
+    </update>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ICBTC'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ICBOC'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ICPOA'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ICULP'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ICSMB'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ICBSM'</where>
+    </delete>
+
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='IMCBL'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RDART'</where>
+      </delete>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="AR MCAL ELIG LTR" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='CBMTD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="SOS MCAL ELIG LTR" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='CEMTD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="SYS-ACE WRKFLW - DNL, NO LETTER" />
+        <where>ActivityCode='WFDNL'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <where>ActivityCode='WLICE'</where>
+      </update>
+
+      <insert schemaName="FusNote" tableName="ActivityCodes">
+        <column name="ActivityCode" value="ICBTC" />
+        <column name="Description" value="MCR CREDIT BAL-TTL CHGS LESS-$0.01" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <column name="Writeable" value="N" />
+      </insert>
+      <insert schemaName="FusNote" tableName="ActivityCodes">
+        <column name="ActivityCode" value="ICBOC" />
+        <column name="Description" value="MCR CREDIT BAL-OVER CONTRACTUALIZ" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <column name="Writeable" value="N" />
+      </insert>
+      <insert schemaName="FusNote" tableName="ActivityCodes">
+        <column name="ActivityCode" value="ICPOA" />
+        <column name="Description" value="MCR CREDIT-OVER ADJ-NOT MCR CNTRCT" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <column name="Writeable" value="N" />
+      </insert>
+      <insert schemaName="FusNote" tableName="ActivityCodes">
+        <column name="ActivityCode" value="ICULP" />
+        <column name="Description" value="MCR CREDIT-UNABLE TO LOCATE PAYEE" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="7" />
+        <column name="MaxWorklistDays" valueNumeric="7" />
+        <column name="Writeable" value="N" />
+      </insert>
+      <insert schemaName="FusNote" tableName="ActivityCodes">
+        <column name="ActivityCode" value="ICSMB" />
+        <column name="Description" value="MCR CREDIT-SMALL BAL ADJ REVERSAL" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="7" />
+        <column name="MaxWorklistDays" valueNumeric="7" />
+        <column name="Writeable" value="N" />
+      </insert>
+      <insert schemaName="FusNote" tableName="ActivityCodes">
+        <column name="ActivityCode" value="ICBSM" />
+        <column name="Description" value="MCR CREDIT-SMALL BALANCE ADJUSTMENT" />
+        <column name="NoteType" valueNumeric="7" />
+        <column name="DefaultWorklistDays" valueNumeric="0" />
+        <column name="MaxWorklistDays" valueNumeric="0" />
+        <column name="Writeable" value="N" />
+      </insert>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

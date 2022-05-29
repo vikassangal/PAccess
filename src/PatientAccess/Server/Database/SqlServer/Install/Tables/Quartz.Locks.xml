@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Locks.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Locks Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Locks">
+      <column name="Lock_Name" type="VARCHAR(40)">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_Locks" />
+      </column>
+    </createTable>
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Locks TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

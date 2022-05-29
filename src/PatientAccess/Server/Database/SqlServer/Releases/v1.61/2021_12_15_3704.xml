@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.61\2021_12_15_3704.xml">
+
+  <changeSet  id="73D83E38-9281-40A4-828E-D1E3102EB03C" author="Abhijeet.Hambir" context="Local,Dev,Test">
+    <comment>
+		Load Facility.FacilityExtendedSettings for DOFR to Enable facility ICE and DEL.
+	</comment>
+	 <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		  <column name="FacilityId" value="98" />
+		  <column name="Name" value="IsDOFREnabled" />
+		  <column name="Value" value="True" />
+	 </insert>
+	 <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		  <column name="FacilityId" value="6" />
+		  <column name="Name" value="IsDOFREnabled" />
+		  <column name="Value" value="True" />
+	 </insert>
+  </changeSet>
+
+ <changeSet id="6C4CE34E-0285-4050-98CD-70FA6327BDF6" author="Abhijeet.Hambir" context="Model">
+	<comment>
+		Load Facility.FacilityExtendedSettings for DOFR to Enable facility FVX.
+	</comment>
+	<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		<column name="FacilityId" value="978" />
+		<column name="Name" value="IsDOFREnabled" />
+		<column name="Value" value="True" />
+	</insert>
+</changeSet>
+</databaseChangeLog>
+

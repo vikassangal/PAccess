@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2009-11-16-4596.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Add new rule definitions for 60756 Add Nursing Home Alternate care facility
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="461" />
+      <column name="Description" value="Alternate care facility" />
+      <column name="Type" value="PatientAccess.Rules.AlternateCareFacilityRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+   
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+   
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+      
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="201" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+    
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=461</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>RuleId=461</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>RuleId=461</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

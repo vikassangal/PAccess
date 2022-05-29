@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+  logicalFilePath="SqlServer\Releases\v1.16\2010-07-14-5061.xml">
+
+  <changeSet id="9C0591A2-9362-4882-9FB9-53D3D41996A0" author="Smitha.Krishnamurthy">
+    <comment>      
+      remove ServicesAuthorizedPreferred rule from PostMse context - Defect 5061
+    </comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 433</where>
+    </delete>
+    
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="433" />
+      </insert>      
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

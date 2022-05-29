@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.18\2010-12-16-12713.xml">
+
+  <changeSet id="1D6DB965-3F95-4D67-A63B-B33C95080738" author="Sharanabasappa.Vitha">
+    <comment>
+      FUS Activity Code changes for December 2010
+    </comment>
+    
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />      
+      <where>ActivityCode='MEPRV'</where>
+    </update>
+    
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="FACILITY SENT RESPONSE" />
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ISRSR'</where>
+    </update>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ISRSM'</where>
+    </update>
+
+    <rollback>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='MEPRV'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="FACILITY SENT RESPONSE RBO SPECIFIC" />
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ISRSR'</where>
+      </update>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ISRSM'</where>
+      </update>
+
+    </rollback>
+  </changeSet>
+</databaseChangeLog>
+

@@ -1,0 +1,2303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Facility.Facilities.xml">
+  <changeSet id="1" author="Jon.Lent" context="Local,Dev">
+    <comment>
+      Load Facility.Facilities
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="900" />
+      <column name="HospitalCode" value="ACO" />
+      <column name="Name" value="ACCOUNT CYCLE OVERVIEW HOSP." />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="93" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/13/2006 10:22:45 AM" />
+      <column name="TaxId" value="9696969696969" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="6" />
+      <column name="HospitalCode" value="DEL" />
+      <column name="Name" value="DELRAY TEST HOSPITAL" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value=" " />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/12/2006 10:34:48 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="98" />
+      <column name="HospitalCode" value="ICE" />
+      <column name="Name" value="PBAR/ICE TEST HOSPITAL" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="98" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/13/2006 10:01:37 AM" />
+      <column name="TaxId" value="95-456789012" />
+      <column name="MedicaidIssuedDateRequired" value="N" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="999" />
+      <column name="HospitalCode" value="STD" />
+      <column name="Name" value="STANDARD HOSPITAL" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/7/2006 10:50:44 AM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id in ( 900,6,98,999 )
+    </rollback>
+  </changeSet>
+  <changeSet id="2" author="Jon.Lent" context="Test">
+    <comment>
+      Load Facility.Facilities
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="54" />
+      <column name="HospitalCode" value="DHF" />
+      <column name="Name" value="DOCTORS HOSPITAL DALLAS" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="40" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="11/6/2007 2:31:45 PM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="999" />
+      <column name="HospitalCode" value="STD" />
+      <column name="Name" value="STANDARD HOSPITAL" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/7/2006 10:51:34 AM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="900" />
+      <column name="HospitalCode" value="ACO" />
+      <column name="Name" value="ACCOUNT CYCLE OVERVIEW HOSP." />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="93" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/13/2006 11:14:14 PM" />
+      <column name="TaxId" value="9696969696969" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="6" />
+      <column name="HospitalCode" value="DEL" />
+      <column name="Name" value="DELRAY TEST HOSPITAL" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value=" " />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/13/2006 7:48:33 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="98" />
+      <column name="HospitalCode" value="ICE" />
+      <column name="Name" value="PBAR/ICE TEST HOSPITAL" />
+      <column name="ServerId" value="155.16.44.25" />
+      <column name="DatabaseName" value="DVLA" />
+      <column name="FollowUpUnitId" value="98" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/13/2006 11:04:46 PM" />
+      <column name="TaxId" value="95-456789012" />
+      <column name="MedicaidIssuedDateRequired" value="N" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id in ( 54,999,900,6,98 )
+    </rollback>
+  </changeSet>
+  <changeSet id="3" author="Jon.Lent" context="Model">
+    <comment>
+      Load Facility.Facilities
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="25" />
+      <column name="HospitalCode" value="MAN" />
+      <column name="Name" value="DOCTORS HOSPITAL OF MANTECA" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/28/2007 1:16:51 AM" />
+      <column name="TaxId" value="752918966" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="35" />
+      <column name="HospitalCode" value="PLA" />
+      <column name="Name" value="PLACENTIA LINDA HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/20/2007 6:00:07 PM" />
+      <column name="TaxId" value="752918773" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="12" />
+      <column name="HospitalCode" value="MOD" />
+      <column name="Name" value="DOCTORS MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="4/11/2007 12:59:55 PM" />
+      <column name="TaxId" value="752918774" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="74" />
+      <column name="HospitalCode" value="USC" />
+      <column name="Name" value="U.S.C. UNIVERSITY HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/18/2007 10:15:30 AM" />
+      <column name="TaxId" value="752918766" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value="Y" />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="324" />
+      <column name="HospitalCode" value="SES" />
+      <column name="Name" value="SIERRA PROVIDENCE EAST MED CTR" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="42" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/13/2008 10:54:09 AM" />
+      <column name="TaxId" value="954537720" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="376" />
+      <column name="HospitalCode" value="DHW" />
+      <column name="Name" value="DES PERES HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="152" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/25/2007 8:55:23 AM" />
+      <column name="TaxId" value="752695810" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="18" />
+      <column name="HospitalCode" value="IND" />
+      <column name="Name" value="JOHN F KENNEDY MEMORIAL HOSP" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="17" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="8/28/2007 10:52:14 AM" />
+      <column name="TaxId" value="752919774" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="967" />
+      <column name="HospitalCode" value="ASX" />
+      <column name="Name" value="LINDY BOGGS TRAINING HOSP" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="996" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/26/2007 5:59:57 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="54" />
+      <column name="HospitalCode" value="DHF" />
+      <column name="Name" value="DOCTORS' HOSPITAL (DHF)" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="40" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/19/2006 2:43:30 AM" />
+      <column name="TaxId" value="95453772007" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="390" />
+      <column name="HospitalCode" value="PRV" />
+      <column name="Name" value="PROVIDENCE MEMORIAL HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="42" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/18/2007 10:00:27 AM" />
+      <column name="TaxId" value="95453772055" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="70" />
+      <column name="HospitalCode" value="NOT" />
+      <column name="Name" value="NORTHSHORE REGIONAL MEDICAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="8" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/11/2007 10:29:19 AM" />
+      <column name="TaxId" value="200099838" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="364" />
+      <column name="HospitalCode" value="CCA" />
+      <column name="Name" value="CENTRAL CAROLINA HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="80" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/19/2007 11:26:24 AM" />
+      <column name="TaxId" value="953409179" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="382" />
+      <column name="HospitalCode" value="LPX" />
+      <column name="Name" value="LAKE POINTE MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="150" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/19/2007 2:57:43 PM" />
+      <column name="TaxId" value="752713337" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="353" />
+      <column name="HospitalCode" value="NMC" />
+      <column name="Name" value="NACOGDOCHES MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="81" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="8/7/2007 9:31:16 AM" />
+      <column name="TaxId" value="760354630" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="344" />
+      <column name="HospitalCode" value="PBG" />
+      <column name="Name" value="PALM BEACH GARDENS HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/12/2007 10:07:19 AM" />
+      <column name="TaxId" value="591223933" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="346" />
+      <column name="HospitalCode" value="CGH" />
+      <column name="Name" value="CORAL GABLES HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="12/3/2007 10:00:53 AM" />
+      <column name="TaxId" value="650638215" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="391" />
+      <column name="HospitalCode" value="ECH" />
+      <column name="Name" value="EAST COOPER REGIONAL MED. CTR." />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="143" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="D" />
+      <column name="LastUpdated" value="7/18/2007 1:07:59 PM" />
+      <column name="TaxId" value="953931540" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="352" />
+      <column name="HospitalCode" value="DES" />
+      <column name="Name" value="DESERT REGIONAL MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="142" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="8/31/2007 9:28:20 AM" />
+      <column name="TaxId" value="752694137" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="999" />
+      <column name="HospitalCode" value="STD" />
+      <column name="Name" value="STANDARD HOSPITAL" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/7/2006 10:51:48 AM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="N" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="354" />
+      <column name="HospitalCode" value="SRE" />
+      <column name="Name" value="SPALDING REGIONAL MEDICAL CNTR" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="78" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="10/18/2006 3:18:20 PM" />
+      <column name="TaxId" value="953948391" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="990" />
+      <column name="HospitalCode" value="PXX" />
+      <column name="Name" value="PROVIDENCE MEM TRAINING HOSP" />
+      <column name="ServerId" value="155.16.44.55" />
+      <column name="DatabaseName" value="DVLG" />
+      <column name="FollowUpUnitId" value="998" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/5/2007 2:46:40 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id in ( 25,35,12,74,324,376,18,967,54,390,70,364,382,353,344,346,391,352,999,354,990 )
+    </rollback>
+  </changeSet>
+  <changeSet id="4" author="Jon.Lent" context="Beta">
+    <comment>
+      Load Facility.Facilities
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="999" />
+      <column name="HospitalCode" value="STD" />
+      <column name="Name" value="STANDARD HOSPITAL" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/7/2006 10:52:17 AM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="870" />
+      <column name="HospitalCode" value="NTX" />
+      <column name="Name" value="NORTHSHORE REG MED TRAINING" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="997" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/7/2007 11:47:49 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="976" />
+      <column name="HospitalCode" value="DXX" />
+      <column name="Name" value="DES PERES TRAINING HOSP" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="808" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/5/2007 10:30:33 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="70" />
+      <column name="HospitalCode" value="NOT" />
+      <column name="Name" value="NORTHSHORE REGIONAL MEDICAL" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="8" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/15/2007 12:54:33 AM" />
+      <column name="TaxId" value="200099838" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="376" />
+      <column name="HospitalCode" value="DHW" />
+      <column name="Name" value="DES PERES HOSPITAL" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="152" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/26/2007 7:05:51 PM" />
+      <column name="TaxId" value="752695810" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id in ( 999,870,976,70,376 )
+    </rollback>
+  </changeSet>
+  <changeSet id="5" author="Jon.Lent" context="Prod">
+    <comment>
+      Load Facility.Facilities
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="691" />
+      <column name="HospitalCode" value="DON" />
+      <column name="Name" value="NORRIS CANCER HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="173" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/27/2009 10:48:48 AM" />
+      <column name="TaxId" value="951642394" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value="Y" />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="692" />
+      <column name="HospitalCode" value="DUC" />
+      <column name="Name" value="USC UNIVERSITY MEDICAL CENTER" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="173" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/27/2009 10:48:48 AM" />
+      <column name="TaxId" value="951642394" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value="Y" />
+      <column name="IsEnabled" value="Y" />
+    </insert>    
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="698" />
+      <column name="HospitalCode" value="DSD" />
+      <column name="Name" value="SAN DIMAS HOSP (DIVESTED)" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="170" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/1/2008 8:07:43 AM" />
+      <column name="TaxId" value="262583397" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="697" />
+      <column name="HospitalCode" value="DGG" />
+      <column name="Name" value="GARDEN GROVE HOSPITAL - DIV." />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="169" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/1/2008 8:37:09 AM" />
+      <column name="TaxId" value="262583411" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="354" />
+      <column name="HospitalCode" value="SRE" />
+      <column name="Name" value="SPALDING REGIONAL MEDICAL CNTR" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="78" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/23/2007 5:57:54 AM" />
+      <column name="TaxId" value="953948391" />
+      <column name="MedicaidIssuedDateRequired" value="N" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="954" />
+      <column name="HospitalCode" value="SPX" />
+      <column name="Name" value="SPALDING TRAINING HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/8/2006 4:36:33 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="N" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="999" />
+      <column name="HospitalCode" value="STD" />
+      <column name="Name" value="STANDARD HOSPITAL" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/7/2006 10:52:17 AM" />
+      <column name="TaxId" value="" />
+      <column name="MedicaidIssuedDateRequired" value="Y" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="154" />
+      <column name="HospitalCode" value="DHX" />
+      <column name="Name" value="DOCTORS HOSPITAL OF DALLAS TRAINING" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/30/2008 2:28:54 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="910" />
+      <column name="HospitalCode" value="GGX" />
+      <column name="Name" value="GARDEN GROVE TRAINING HOSP" />
+      <column name="ServerId" value="172.18.155.29 " />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/13/2006 5:13:43 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="730" />
+      <column name="HospitalCode" value="SDC" />
+      <column name="Name" value="SAN DIMAS COMMUNITY HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/28/2007 6:14:37 PM" />
+      <column name="TaxId" value="953783601" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="978" />
+      <column name="HospitalCode" value="FVX" />
+      <column name="Name" value="FOUNTAIN VALLEY TRAINING HOSP" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/7/2007 11:43:51 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="6" />
+      <column name="HospitalCode" value="DEL" />
+      <column name="Name" value="DELRAY MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="10/5/2006 11:45:12 PM" />
+      <column name="TaxId" value="752922687" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="713" />
+      <column name="HospitalCode" value="SYL" />
+      <column name="Name" value="SYLVAN GROVE HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="79" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/10/2007 8:12:35 PM" />
+      <column name="TaxId" value="752710726" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="54" />
+      <column name="HospitalCode" value="DHF" />
+      <column name="Name" value="DOCTORS' HOSPITAL (DHF)" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="40" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/21/2006 10:53:54 PM" />
+      <column name="TaxId" value="95453772007" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="906" />
+      <column name="HospitalCode" value="DLX" />
+      <column name="Name" value="DELRAY TRAINING HOSPITAL" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/16/2007 5:10:03 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="710" />
+      <column name="HospitalCode" value="GGH" />
+      <column name="Name" value="GARDEN GROVE HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29 " />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/28/2006 10:56:50 PM" />
+      <column name="TaxId" value="952575739" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="981" />
+      <column name="HospitalCode" value="HXX" />
+      <column name="Name" value="HAHNEMANN TRAINING HOSP" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="801" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/19/2007 8:08:29 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="925" />
+      <column name="HospitalCode" value="MAX" />
+      <column name="Name" value="MANTECA TRAINING HOSPITAL" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/28/2007 9:38:58 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="9" />
+      <column name="HospitalCode" value="LAK" />
+      <column name="Name" value="LAKEWOOD REGIONAL MEDICAL CTR" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/28/2007 6:14:37 PM" />
+      <column name="TaxId" value="752919841" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="998" />
+      <column name="HospitalCode" value="SFX" />
+      <column name="Name" value="SOUTH FULTON TRAINING HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/20/2007 9:33:46 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="912" />
+      <column name="HospitalCode" value="IMX" />
+      <column name="Name" value="IRVINE TRAINING FACILITY" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="12/15/2006 1:25:52 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="40" />
+      <column name="HospitalCode" value="SIE" />
+      <column name="Name" value="SIERRA MEDICAL CENTER" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="42" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/15/2008 8:49:42 PM" />
+      <column name="TaxId" value="95453772001" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="35" />
+      <column name="HospitalCode" value="PLA" />
+      <column name="Name" value="PLACENTIA LINDA HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="12/3/2007 10:10:21 AM" />
+      <column name="TaxId" value="752918773" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="712" />
+      <column name="HospitalCode" value="IMC" />
+      <column name="Name" value="IRVINE REG HOSP &amp; MED CTR" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/4/2007 3:35:56 AM" />
+      <column name="TaxId" value="953988598" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="364" />
+      <column name="HospitalCode" value="CCA" />
+      <column name="Name" value="CENTRAL CAROLINA HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="80" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/16/2008 7:05:32 PM" />
+      <column name="TaxId" value="953409179" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="384" />
+      <column name="HospitalCode" value="SCH" />
+      <column name="Name" value="ST CHRISTOPHER`S HSP F/CHILDRE" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="145" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/31/2007 1:24:59 AM" />
+      <column name="TaxId" value="752784866" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="382" />
+      <column name="HospitalCode" value="LPX" />
+      <column name="Name" value="LAKE POINTE MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="150" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/23/2007 6:35:58 PM" />
+      <column name="TaxId" value="752713337" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="870" />
+      <column name="HospitalCode" value="NTX" />
+      <column name="Name" value="NORTHSHORE REG MED TRAINING" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="997" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/7/2007 11:47:49 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="953" />
+      <column name="HospitalCode" value="NMX" />
+      <column name="Name" value="NACOGDOCHES TRAINING HOSP" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/18/2007 9:09:40 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="324" />
+      <column name="HospitalCode" value="SES" />
+      <column name="Name" value="SIERRA PROVIDENCE EAST MED CTR" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="42" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/5/2008 5:41:35 PM" />
+      <column name="TaxId" value="954537720" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="74" />
+      <column name="HospitalCode" value="USC" />
+      <column name="Name" value="U.S.C. UNIVERSITY HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/31/2007 7:06:12 PM" />
+      <column name="TaxId" value="752918766" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value="Y" />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="976" />
+      <column name="HospitalCode" value="DXX" />
+      <column name="Name" value="DES PERES TRAINING HOSP" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="808" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/5/2007 10:30:33 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="150" />
+      <column name="HospitalCode" value="WBX" />
+      <column name="Name" value="WEST BOCA OC TRAINING" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="99" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/7/2007 3:16:22 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="991" />
+      <column name="HospitalCode" value="ECX" />
+      <column name="Name" value="EAST COOPER TRAINING HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/26/2007 4:07:15 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="913" />
+      <column name="HospitalCode" value="SYX" />
+      <column name="Name" value="SYLVAN GROVE TRAINING HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/2/2007 12:42:20 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="930" />
+      <column name="HospitalCode" value="SXX" />
+      <column name="Name" value="SAN DIMAS TEST HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="911" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/2/2007 12:02:16 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="308" />
+      <column name="HospitalCode" value="PCR" />
+      <column name="Name" value="PINECREST REHAB CENTER" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/11/2007 2:21:30 PM" />
+      <column name="TaxId" value="592635307" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="914" />
+      <column name="HospitalCode" value="CMX" />
+      <column name="Name" value="SHELBY TRAINING HOSP" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/18/2007 8:49:55 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="798" />
+      <column name="HospitalCode" value="SFM" />
+      <column name="Name" value="SOUTH FULTON MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="73" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/13/2007 8:54:08 AM" />
+      <column name="TaxId" value="752919505" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="352" />
+      <column name="HospitalCode" value="DES" />
+      <column name="Name" value="DESERT REGIONAL MEDICAL CENTER" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="142" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/5/2007 7:04:41 PM" />
+      <column name="TaxId" value="752694137" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="381" />
+      <column name="HospitalCode" value="HAH" />
+      <column name="Name" value="HAHNEMANN UNIVERSITY HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="145" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/29/2007 4:36:39 PM" />
+      <column name="TaxId" value="752784869" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="390" />
+      <column name="HospitalCode" value="PRV" />
+      <column name="Name" value="PROVIDENCE MEMORIAL HOSPITAL" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="42" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/19/2008 3:26:10 PM" />
+      <column name="TaxId" value="95453772055" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="70" />
+      <column name="HospitalCode" value="NOT" />
+      <column name="Name" value="NORTHSHORE REGIONAL MEDICAL" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="8" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/15/2007 12:54:33 AM" />
+      <column name="TaxId" value="200099838" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="964" />
+      <column name="HospitalCode" value="CCX" />
+      <column name="Name" value="CENTRAL CAROLINA TRAINING HSP" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/10/2007 2:50:56 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="924" />
+      <column name="HospitalCode" value="SPT" />
+      <column name="Name" value="SIERRA PROVIDENCE EAST M.C. TRAINING" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="998" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/18/2008 6:17:13 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="23" />
+      <column name="HospitalCode" value="LOM" />
+      <column name="Name" value="LOS ALAMITOS MEDICAL CENTER" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/16/2007 4:50:34 AM" />
+      <column name="TaxId" value="752919839" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="901" />
+      <column name="HospitalCode" value="RIX" />
+      <column name="Name" value="RIO VISTA TRAINING HOSP" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="998" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/4/2007 6:47:10 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="940" />
+      <column name="HospitalCode" value="SIX" />
+      <column name="Name" value="SIERRA MEDICAL TRAINING HOSP" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="998" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="12/11/2007 3:16:26 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="12" />
+      <column name="HospitalCode" value="MOD" />
+      <column name="Name" value="DOCTORS MEDICAL CENTER" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="4/18/2007 2:30:30 PM" />
+      <column name="TaxId" value="752918774" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="376" />
+      <column name="HospitalCode" value="DHW" />
+      <column name="Name" value="DES PERES HOSPITAL" />
+      <column name="ServerId" value="172.18.139.200" />
+      <column name="DatabaseName" value="MEAB" />
+      <column name="FollowUpUnitId" value="152" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/26/2007 7:05:51 PM" />
+      <column name="TaxId" value="752695810" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="824" />
+      <column name="HospitalCode" value="SET" />
+      <column name="Name" value="EL PASO EASTSIDE TESTING" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="997" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/21/2008 1:03:03 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="946" />
+      <column name="HospitalCode" value="CGX" />
+      <column name="Name" value="CORAL GABLES TRAINING HOSPITAL" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="4/20/2007 12:47:30 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="327" />
+      <column name="HospitalCode" value="NCI" />
+      <column name="Name" value="USC NORRIS CANCER HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/24/2007 6:33:57 PM" />
+      <column name="TaxId" value="753085890" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value="Y" />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="918" />
+      <column name="HospitalCode" value="INX" />
+      <column name="Name" value="JFK MEMORIAL TEST HOSP" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/10/2007 1:59:58 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="353" />
+      <column name="HospitalCode" value="NMC" />
+      <column name="Name" value="NACOGDOCHES MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="81" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="8/22/2007 6:54:09 PM" />
+      <column name="TaxId" value="760354630" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="778" />
+      <column name="HospitalCode" value="FVR" />
+      <column name="Name" value="FOUNTAIN VALLEY REGIONAL HOSP" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="3" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="12/1/2007 4:50:56 PM" />
+      <column name="TaxId" value="952768729" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="109" />
+      <column name="HospitalCode" value="LAX" />
+      <column name="Name" value="LAKEWOOD TEST HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/8/2008 2:16:59 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="123" />
+      <column name="HospitalCode" value="LOX" />
+      <column name="Name" value="LOS ALAMITOS TRAINING HOSP" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/29/2008 2:02:50 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="984" />
+      <column name="HospitalCode" value="SCX" />
+      <column name="Name" value="ST. CHRISTOPHER'S HSP. TRAINIG" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="801" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/10/2007 1:09:41 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="990" />
+      <column name="HospitalCode" value="PXX" />
+      <column name="Name" value="PROVIDENCE MEM TRAINING HOSP" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="998" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/13/2007 1:22:07 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="346" />
+      <column name="HospitalCode" value="CGH" />
+      <column name="Name" value="CORAL GABLES HOSPITAL" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="12/5/2007 7:14:19 PM" />
+      <column name="TaxId" value="650638215" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="50" />
+      <column name="HospitalCode" value="WBO" />
+      <column name="Name" value="WEST BOCA MEDICAL CENTER" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="Y" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/26/2007 4:40:40 AM" />
+      <column name="TaxId" value="752922710" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="711" />
+      <column name="HospitalCode" value="HHH" />
+      <column name="Name" value="HILTON HEAD REG MED CENTER" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="56" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="10/15/2007 2:27:40 PM" />
+      <column name="TaxId" value="752550947" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="689" />
+      <column name="HospitalCode" value="HH1" />
+      <column name="Name" value="HILTON HEAD TEST HOSPITAL" />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/10/2007 12:54:16 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="908" />
+      <column name="HospitalCode" value="PCX" />
+      <column name="Name" value="PINECREST REHAB CENTER TRNG" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="99" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="1/10/2007 1:43:33 PM" />
+      <column name="TaxId" value="592635307" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="948" />
+      <column name="HospitalCode" value="LTX" />
+      <column name="Name" value="LOS GATOS TRAINING" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/19/2007 9:49:27 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="301" />
+      <column name="HospitalCode" value="RIO" />
+      <column name="Name" value="SPHN PHYSICAL REHAB HOSPITAL" />
+      <column name="ServerId" value="172.18.155.30" />
+      <column name="DatabaseName" value="SIEB" />
+      <column name="FollowUpUnitId" value="42" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-7" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="2/20/2008 4:29:48 AM" />
+      <column name="TaxId" value="943043773" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="N" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="25" />
+      <column name="HospitalCode" value="MAN" />
+      <column name="Name" value="DOCTORS HOSPITAL OF MANTECA" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="11" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/12/2007 9:56:38 AM" />
+      <column name="TaxId" value="752918966" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="927" />
+      <column name="HospitalCode" value="NCX" />
+      <column name="Name" value="USC NORRIS CANCER TRAINING" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/16/2007 6:34:43 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="982" />
+      <column name="HospitalCode" value="LXX" />
+      <column name="Name" value="LAKE POINTE M.C. (TRAINING)" />
+      <column name="ServerId" value="155.16.44.19" />
+      <column name="DatabaseName" value="DHFB" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="N" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-6" />
+      <column name="TenetCare" value="" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="10/14/2007 1:22:59 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="18" />
+      <column name="HospitalCode" value="IND" />
+      <column name="Name" value="JOHN F KENNEDY MEMORIAL HOSP" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="17" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="8/30/2007 7:02:37 PM" />
+      <column name="TaxId" value="752919774" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="935" />
+      <column name="HospitalCode" value="PLX" />
+      <column name="Name" value="PLACENTIA LINDA TEST HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="N" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="6/7/2007 11:44:22 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="974" />
+      <column name="HospitalCode" value="USX" />
+      <column name="Name" value="USC UNIVERSITY TEST HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="5/16/2007 8:53:41 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="952" />
+      <column name="HospitalCode" value="DEX" />
+      <column name="Name" value="DESERT TRAINING HOSPITAL" />
+      <column name="ServerId" value="172.18.155.29" />
+      <column name="DatabaseName" value="USCA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/10/2007 2:27:12 PM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="49" />
+      <column name="HospitalCode" value="LOG" />
+      <column name="Name" value="COMM HOSP OF LOS GATOS" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="21" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="3/1/2007 2:57:16 AM" />
+      <column name="TaxId" value="752918886" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="944" />
+      <column name="HospitalCode" value="PBX" />
+      <column name="Name" value="PALM BEACH GRDNS TRAINING HOSP" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="999" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/5/2007 9:55:16 AM" />
+      <column name="TaxId" value="1" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="344" />
+      <column name="HospitalCode" value="PBG" />
+      <column name="Name" value="PALM BEACH GARDENS HOSPITAL" />
+      <column name="ServerId" value="155.16.44.174" />
+      <column name="DatabaseName" value="HOLA" />
+      <column name="FollowUpUnitId" value="10" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="9/13/2007 7:01:49 PM" />
+      <column name="TaxId" value="591223933" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="391" />
+      <column name="HospitalCode" value="ECH" />
+      <column name="Name" value="EAST COOPER REGIONAL MED. CTR." />
+      <column name="ServerId" value="155.16.44.138" />
+      <column name="DatabaseName" value="ESTA" />
+      <column name="FollowUpUnitId" value="143" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-5" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="7/18/2007 9:42:45 PM" />
+      <column name="TaxId" value="953931540" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id in ( 692,691,698,697,354,954,999,154,910,730,978,6,713,54,906,710,981,925,9,998,912,40,35,712,364,384,382,870,953,324,74,976,150,991,913,930,308,914,798,352,381,390,70,964,924,23,901,940,12,376,824,946,327,918,353,778,109,123,984,990,346,50,711,689,908,948,301,25,927,982,18,935,974,952,49,944,344,391 )
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

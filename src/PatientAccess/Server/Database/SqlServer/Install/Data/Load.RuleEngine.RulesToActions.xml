@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.RuleEngine.RulesToActions.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load RuleEngine.RulesToActions
+    </comment>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="17" />
+      <column name="ActionId" valueNumeric="36" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="18" />
+      <column name="ActionId" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="19" />
+      <column name="ActionId" valueNumeric="33" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="20" />
+      <column name="ActionId" valueNumeric="34" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="21" />
+      <column name="ActionId" valueNumeric="35" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="23" />
+      <column name="ActionId" valueNumeric="18" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="24" />
+      <column name="ActionId" valueNumeric="19" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="26" />
+      <column name="ActionId" valueNumeric="20" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="27" />
+      <column name="ActionId" valueNumeric="21" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="28" />
+      <column name="ActionId" valueNumeric="22" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="30" />
+      <column name="ActionId" valueNumeric="23" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="31" />
+      <column name="ActionId" valueNumeric="24" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="32" />
+      <column name="ActionId" valueNumeric="25" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="198" />
+      <column name="ActionId" valueNumeric="11" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="199" />
+      <column name="ActionId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="200" />
+      <column name="ActionId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="201" />
+      <column name="ActionId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="202" />
+      <column name="ActionId" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="203" />
+      <column name="ActionId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="204" />
+      <column name="ActionId" valueNumeric="12" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="205" />
+      <column name="ActionId" valueNumeric="13" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="207" />
+      <column name="ActionId" valueNumeric="10" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="208" />
+      <column name="ActionId" valueNumeric="7" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="209" />
+      <column name="ActionId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="210" />
+      <column name="ActionId" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="211" />
+      <column name="ActionId" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="212" />
+      <column name="ActionId" valueNumeric="3" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="213" />
+      <column name="ActionId" valueNumeric="17" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="214" />
+      <column name="ActionId" valueNumeric="14" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="246" />
+      <column name="ActionId" valueNumeric="26" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="247" />
+      <column name="ActionId" valueNumeric="27" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="248" />
+      <column name="ActionId" valueNumeric="28" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="249" />
+      <column name="ActionId" valueNumeric="29" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="326" />
+      <column name="ActionId" valueNumeric="30" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="338" />
+      <column name="ActionId" valueNumeric="15" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="409" />
+      <column name="ActionId" valueNumeric="31" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="417" />
+      <column name="ActionId" valueNumeric="33" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="428" />
+      <column name="ActionId" valueNumeric="37" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="423" />
+      <column name="ActionId" valueNumeric="38" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="424" />
+      <column name="ActionId" valueNumeric="39" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="425" />
+      <column name="ActionId" valueNumeric="40" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="426" />
+      <column name="ActionId" valueNumeric="41" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="427" />
+      <column name="ActionId" valueNumeric="42" />
+    </insert>
+    <rollback>
+      delete from RuleEngine.RulesToActions where RuleId=17 and ActionId=36;
+      delete from RuleEngine.RulesToActions where RuleId=18 and ActionId=32;
+      delete from RuleEngine.RulesToActions where RuleId=19 and ActionId=33;
+      delete from RuleEngine.RulesToActions where RuleId=20 and ActionId=34;
+      delete from RuleEngine.RulesToActions where RuleId=21 and ActionId=35;
+      delete from RuleEngine.RulesToActions where RuleId=23 and ActionId=18;
+      delete from RuleEngine.RulesToActions where RuleId=24 and ActionId=19;
+      delete from RuleEngine.RulesToActions where RuleId=26 and ActionId=20;
+      delete from RuleEngine.RulesToActions where RuleId=27 and ActionId=21;
+      delete from RuleEngine.RulesToActions where RuleId=28 and ActionId=22;
+      delete from RuleEngine.RulesToActions where RuleId=30 and ActionId=23;
+      delete from RuleEngine.RulesToActions where RuleId=31 and ActionId=24;
+      delete from RuleEngine.RulesToActions where RuleId=32 and ActionId=25;
+      delete from RuleEngine.RulesToActions where RuleId=198 and ActionId=11;
+      delete from RuleEngine.RulesToActions where RuleId=199 and ActionId=9;
+      delete from RuleEngine.RulesToActions where RuleId=200 and ActionId=6;
+      delete from RuleEngine.RulesToActions where RuleId=201 and ActionId=5;
+      delete from RuleEngine.RulesToActions where RuleId=202 and ActionId=2;
+      delete from RuleEngine.RulesToActions where RuleId=203 and ActionId=8;
+      delete from RuleEngine.RulesToActions where RuleId=204 and ActionId=12;
+      delete from RuleEngine.RulesToActions where RuleId=205 and ActionId=13;
+      delete from RuleEngine.RulesToActions where RuleId=207 and ActionId=10;
+      delete from RuleEngine.RulesToActions where RuleId=208 and ActionId=7;
+      delete from RuleEngine.RulesToActions where RuleId=209 and ActionId=1;
+      delete from RuleEngine.RulesToActions where RuleId=210 and ActionId=4;
+      delete from RuleEngine.RulesToActions where RuleId=211 and ActionId=16;
+      delete from RuleEngine.RulesToActions where RuleId=212 and ActionId=3;
+      delete from RuleEngine.RulesToActions where RuleId=213 and ActionId=17;
+      delete from RuleEngine.RulesToActions where RuleId=214 and ActionId=14;
+      delete from RuleEngine.RulesToActions where RuleId=246 and ActionId=26;
+      delete from RuleEngine.RulesToActions where RuleId=247 and ActionId=27;
+      delete from RuleEngine.RulesToActions where RuleId=248 and ActionId=28;
+      delete from RuleEngine.RulesToActions where RuleId=249 and ActionId=29;
+      delete from RuleEngine.RulesToActions where RuleId=326 and ActionId=30;
+      delete from RuleEngine.RulesToActions where RuleId=338 and ActionId=15;
+      delete from RuleEngine.RulesToActions where RuleId=409 and ActionId=31;
+      delete from RuleEngine.RulesToActions where RuleId=417 and ActionId=33;
+      delete from RuleEngine.RulesToActions where RuleId=428 and ActionId=37;
+      delete from RuleEngine.RulesToActions where RuleId=423 and ActionId=38;
+      delete from RuleEngine.RulesToActions where RuleId=424 and ActionId=39;
+      delete from RuleEngine.RulesToActions where RuleId=425 and ActionId=40;
+      delete from RuleEngine.RulesToActions where RuleId=426 and ActionId=41;
+      delete from RuleEngine.RulesToActions where RuleId=427 and ActionId=42;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

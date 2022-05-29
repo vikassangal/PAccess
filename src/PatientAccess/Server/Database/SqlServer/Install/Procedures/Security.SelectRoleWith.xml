@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Security.SelectRoleWith.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create Security.SelectRoleWith
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Security.SelectRoleWith  
+       @RoleId int
+      AS 
+      BEGIN
+
+        SELECT 
+          Id AS Oid, 
+          Name AS Code, 
+          Description
+        FROM 
+          Security.Roles
+        WHERE 
+          Id = @RoleId
+      
+      END;
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Security.SelectRoleWith TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Security.SelectRoleWith FROM db_apionly;
+      DROP PROCEDURE Security.SelectRoleWith;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

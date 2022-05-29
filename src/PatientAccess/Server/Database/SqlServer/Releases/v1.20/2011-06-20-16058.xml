@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.20\2011-06-20-16058.xml">
+
+	<changeSet id="D5780625-D9BB-471a-AE83-489F32351FF6" author="Sharanabasappa.Vitha" context="Beta">
+
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'IsFacilityRCRPEnabled' and FacilityId in (376)</sqlCheck>
+		</preConditions>
+		<comment>
+			Enable RCRP field in PAS for DHW(Des peres hosptial) in BETA
+		</comment>
+	    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+			<column name="FacilityId" value="376" />
+			<column name="Name" value="IsFacilityRCRPEnabled" />
+			<column name="Value" value="True" />
+		</insert>
+		
+		<rollback>
+			<delete schemaName="Facility" tableName="FacilityExtendedSettings">
+				<where> Name = 'IsFacilityRCRPEnabled' and FacilityId in (376) </where>
+			</delete>
+		</rollback>
+
+	</changeSet>
+
+	<changeSet id="1373446C-1094-4859-9C4C-3540D906A698" author="Sharanabasappa.Vitha" context="Beta">
+
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">select count(*) from Facility.FacilityExtendedSettings where Name = 'IsFacilityRCRPEnabled' and FacilityId in (976)</sqlCheck>
+		</preConditions>
+		<comment>
+			Enable RCRP field in PAS for DXX(Des peres Training hosptial) in BETA
+		</comment>
+		
+		<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+			<column name="FacilityId" value="976" />
+			<column name="Name" value="IsFacilityRCRPEnabled" />
+			<column name="Value" value="True" />
+		</insert>
+		
+		<rollback>
+			
+			<delete schemaName="Facility" tableName="FacilityExtendedSettings">
+				<where> Name = 'IsFacilityRCRPEnabled' and FacilityId in (976) </where>
+			</delete>
+			
+		</rollback>
+		
+	</changeSet>
+</databaseChangeLog>

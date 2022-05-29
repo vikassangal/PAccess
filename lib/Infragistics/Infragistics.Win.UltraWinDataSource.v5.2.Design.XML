@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics.Win.UltraWinDataSource.v5.2.Design</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControlMode">
+            <summary>
+            UltraDataSourceDesignerControl Mode
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControlMode.Schema">
+            <summary>
+            Data Structure Only
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControlMode.DataEntry">
+            <summary>
+            Data Entry Only
+            </summary>			
+        </member>
+        <member name="F:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControlMode.SaveLoad">
+            <summary>
+            Save and Load
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.Resources">
+            <summary>
+            Exposes a <see cref="T:Infragistics.Shared.ResourceCustomizer"/> instance for this assembly. 
+            </summary>
+            <seealso cref="P:Infragistics.Win.UltraWinDataSource.Design.Resources.Customizer"/> 
+            <seealso cref="T:Infragistics.Shared.ResourceCustomizer"/> 
+        </member>
+        <member name="P:Infragistics.Win.UltraWinDataSource.Design.Resources.Customizer">
+            <summary>
+            Returns the <see cref="T:Infragistics.Shared.ResourceCustomizer"/> for this assembly.
+            </summary>
+            <seealso cref="T:Infragistics.Shared.ResourceCustomizer"/> 
+        </member>
+        <member name="M:Infragistics.Shared.LocalizedCategoryAttribute.GetLocalizedString(System.String)">
+            <summary>
+            Returns the localized category name
+            </summary>
+            <param name="value">Name of the category to retreive</param>
+            <returns>The localized string value</returns>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesigner">
+            <summary>
+            Summary description for UltraDataSourceDesigner.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesigner.Verbs">
+            <summary>
+            Adds the about verb to the collection
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl">
+            <summary>
+            Summary description for UltraDataSourceDesignerControl.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.#ctor(Infragistics.Win.UltraWinDataSource.UltraDataSource,Infragistics.Win.UltraWinGrid.UltraGridBase)">
+            <summary>
+            UltraDataSourceDesignerControl Constructor
+            </summary>
+            <param name="ultraDataSource">The UltraDataSource which will be designed by this designer.</param>
+            <param name="sourceUltraGrid">An UltraGrid from which to initialize the data structure. If a sourceUltraGrid is specified, the existing structure and data of the ultraDataSource will be deleted.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.#ctor(Infragistics.Win.UltraWinDataSource.UltraDataSource)">
+            <summary>
+            UltraDataSourceDesignerControl Constructor
+            </summary>
+            <param name="ultraDataSource">The UltraDataSource which will be designed by this designer.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.#ctor">
+            <summary>
+            UltraDataSourceDesignerControl Constructor
+            </summary>		
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.OnDirtyStateChanged(Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChangedEventArgs)">
+            <summary>
+            Fires the <see cref="E:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChanged"/> event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.InitializeFrom(Infragistics.Win.UltraWinDataSource.UltraDataSource,Infragistics.Win.UltraWinGrid.UltraGridBase)">
+            <summary>
+            Initialize From an UltraDataSource
+            </summary>
+            <param name="ultraDataSource">The UltraDataSource which will be diesgned by this designer.</param>
+            <param name="sourceUltraGrid">An UltraGrid from which to initialize the data structure. If a sourceUltraGrid is specified, the existing structure and data of the ultraDataSource will be deleted.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.InitializeDataSourceFromGrid(Infragistics.Win.UltraWinDataSource.UltraDataSource,Infragistics.Win.UltraWinGrid.UltraGridBase)">
+            <summary>
+            Initialize the structure of an UltraDataSource from an UltraGrid. 
+            </summary>
+            <param name="ultraDataSource">The UltraDataSource which will be diesgned by this designer.</param>
+            <param name="sourceUltraGrid">An UltraGrid from which to initialize the data structure. If a sourceUltraGrid is specified, the existing structure and data of the ultraDataSource will be deleted.</param>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.SaveSettingsToRegistry">
+            <summary>
+            Saves the current UI settings to the registry
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChanged">
+            <summary>
+            Raised when anything property is changed on the UltraDatSource being designed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.ShowNavigationTree">
+            <summary>
+            Gets or sets whether the Navigation tree is visible
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.Mode">
+            <summary>
+            Determines which editing mode is currently visible. 
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.IsDirty">
+            <summary>
+            Returns true is the state of the UltraDataSource being designed has been dirtied.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChangedEventHandler">
+            <summary>
+            Delegate for <see cref="E:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChanged"/> event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChangedEventArgs">
+            <summary>
+            Event argumanets used in the <see cref="E:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChangedEventArgs.#ctor(System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerControl.DirtyStateChangedEventArgs.DirtyState">
+            <summary>
+            Returs whether the state has been dirtied.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerForm">
+            <summary>
+            Summary description for UltraDataSourceDesignerForm.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerForm.#ctor(Infragistics.Win.UltraWinDataSource.UltraDataSource)">
+            <summary>
+            UltraDataSourceDesignerForm
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraWinDataSource.Design.UltraDataSourceDesignerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraLabelEx">
+            <summary>
+            UltraLabelExStyle Class
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraLabelEx.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.UltraLabelEx.ResolveAppearance(Infragistics.Win.AppearanceData@,Infragistics.Win.AppearancePropFlags@)">
+            <summary>
+            Resolve's the control's appearance.
+            </summary>
+            <param name="appearance"></param>
+            <param name="requestedProps"></param>
+        </member>
+        <member name="P:Infragistics.Win.UltraLabelEx.Style">
+            <summary>
+            Returns/sets the UltraLabelEx's style
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.UltraLabelExStyle">
+            <summary>
+            UltraLabelExStyle enumeration
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraLabelExStyle.Default">
+            <summary>
+            Default style
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraLabelExStyle.Office2003OutlookNavPaneCurrentGroupHeader">
+            <summary>
+            Office2003OutlookNavPaneCurrentGroupHeader style
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.UltraLabelExStyle.Office2003OutlookNavPaneGroupHeader">
+            <summary>
+            Office2003OutlookNavPaneGroupHeader style
+            </summary>
+        </member>
+    </members>
+</doc>

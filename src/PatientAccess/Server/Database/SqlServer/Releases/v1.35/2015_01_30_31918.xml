@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.35\2015_01_30_31918.xml">
+
+  <changeSet id="E8DA64DB-A275-4D09-9DC0-E5ABABE63A56" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      SR 9996 – Meaningful Use - Modify Descriptions 
+    </comment>
+
+   <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Receive Marketing Emails" />
+      <where>Id=517</where>
+    </update>
+
+  </changeSet>
+</databaseChangeLog>

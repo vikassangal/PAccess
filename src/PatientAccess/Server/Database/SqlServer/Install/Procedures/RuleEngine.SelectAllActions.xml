@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\RuleEngine.SelectAllActions.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.SelectAllActions
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE RuleEngine.SelectAllActions
+      AS
+      BEGIN
+
+        SELECT 
+           Actions.Id as ActionId, 
+           Actions.Type, 
+           Actions.Description, 
+           CompositeActionsToActions.CompositeActionId, 
+           RuleEngine.IsCompositeAction( Actions.Id ) AS IsComposite
+        FROM 
+           RuleEngine.Actions
+        LEFT OUTER JOIN 
+          RuleEngine.CompositeActionsToActions ON Actions.Id = 
+            CompositeActionsToActions.ActionId
+        ORDER BY 
+          Actions.Id
+        
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.SelectAllActions TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.SelectAllActions FROM db_apionly;
+      DROP PROCEDURE RuleEngine.SelectAllActions;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

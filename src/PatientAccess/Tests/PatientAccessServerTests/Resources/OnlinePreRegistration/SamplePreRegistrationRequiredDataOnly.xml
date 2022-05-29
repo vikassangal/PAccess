@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" ?>
+<preRegistration xmlns="http://www.dell.com/services/healthcare/patientaccess/pre-registration/v1.0" xmlns:tns="http://microsoft.com/wsdl/types/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dell.com/services/healthcare/patientaccess/pre-registration/v1.0 PreRegistrationData.xsd ">
+  <id>6FDD8372-E457-41C3-B220-961E348975CD</id>
+
+  <dateTimeOfSubmission>2001-12-31T12:00:00</dateTimeOfSubmission>
+  
+  <facility>
+    <code>DHF</code>
+  </facility>
+
+  <patient>
+    <name>
+      <first>FIRST</first>
+      <last>LAST</last>
+    </name>
+    <placeOfBirth>PLANO</placeOfBirth>
+    <dateOfBirth>2001-12-31</dateOfBirth>
+    <gender>CODE_M_VALUE_MALE</gender>
+    <maritalStatus>CODE_D_VALUE_DIVORCED</maritalStatus>
+    <race>CODE_5_VALUE_ASIAN</race>
+    <address>
+      <usAddress>
+        <addressLine>ADDRESS LINE</addressLine>
+        <city>CITY</city>
+        <stateOrTerritory>CODE_AL_VALUE_ALABAMA</stateOrTerritory>
+      </usAddress>
+    </address>
+    <phoneNumber>123-123-1234</phoneNumber>
+    <employment>
+      <fullTimePartTimeMilitaryOrOther>
+        <status>CODE_1_VALUE_EMPLOYED FULL TIME</status>
+        <name>NAME</name>
+        <address>
+          <usAddress>
+            <addressLine>ADDRESS LINE</addressLine>
+            <city>CITY</city>
+            <stateOrTerritory>CODE_AL_VALUE_ALABAMA</stateOrTerritory>
+          </usAddress>
+        </address>
+      </fullTimePartTimeMilitaryOrOther>
+    </employment>
+    <emergencyContact1>
+      <name>NAME</name>
+      <address>
+        <usAddress>
+          <addressLine>ADDRESS LINE</addressLine>
+          <city>CITY</city>
+          <stateOrTerritory>CODE_AL_VALUE_ALABAMA</stateOrTerritory>
+        </usAddress>
+      </address>
+      <relationship>CODE_01_VALUE_SELF</relationship>
+      <phoneNumber>123-123-1234</phoneNumber>
+    </emergencyContact1>
+    <emergencyContact2>
+      <name>NAME</name>
+      <address>
+        <usAddress>
+          <addressLine>ADDRESS LINE</addressLine>
+          <city>CITY</city>
+          <stateOrTerritory>CODE_AL_VALUE_ALABAMA</stateOrTerritory>
+        </usAddress>
+      </address>
+      <relationship>CODE_01_VALUE_SELF</relationship>
+      <phoneNumber>123-123-1234</phoneNumber>
+    </emergencyContact2>
+    <guarantor>
+      <name>
+        <first>FIRST</first>
+        <last>LAST</last>
+      </name>
+      <relationship>CODE_01_VALUE_SELF</relationship>
+      <phoneNumber>123-123-1234</phoneNumber>
+      <employment>
+        <fullTimePartTimeMilitaryOrOther>
+          <status>CODE_1_VALUE_EMPLOYED FULL TIME</status>
+          <name>GUARANTOR COMPANY</name>
+          <address>
+            <usAddress>
+              <addressLine>500 GUARANTOR EMP STREET</addressLine>
+              <city>PLANO</city>
+              <stateOrTerritory>CODE_TX_VALUE_TEXAS</stateOrTerritory>
+              <zipCode>11111-2222</zipCode>
+            </usAddress>
+          </address>
+        </fullTimePartTimeMilitaryOrOther>
+      </employment>
+    </guarantor>
+  </patient>
+  <visit>
+    <admittingPhysicianName>ADMITTING PHYSICIAN</admittingPhysicianName>
+    <expectedAdmissionDateTime>2001-12-31T12:00:00</expectedAdmissionDateTime>
+    <procedureTreatmentOrTest>PROCEDURE</procedureTreatmentOrTest>
+    <newsletterRegistration>
+      <receiveNewsletter>true</receiveNewsletter>
+    </newsletterRegistration>
+  </visit>
+</preRegistration>

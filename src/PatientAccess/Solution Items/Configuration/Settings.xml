@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+This file is the "input" file for all the XSLT files used when generating 
+configurations. Since Patient Access configurations vary by branch and
+environment, each setting is tagged with an Environment and Branch
+attribute where appropriate. Combining the values of these attributes,
+parameters passed to the XSLT transformer, and the XPath logic in the
+configuration XSLT files will generate a unique configuration for a
+particular environment and branch.
+
+Each project has a Generate.proj file in a Configuration folder whose
+job is to generate the configurations for that particular project.
+There is a Configure.proj file in the same directory as this settings
+file that will gather the needed environment, branch, and scope
+information and then configure all the projects for you.
+
+Being MSBuild files, you can launch them by opening a Visual Studio
+commant prompt in the directory containing the .proj file and type
+"msbuild".
+
+-->
+<Settings>
+
+  <Databases Description="DBMS systems used by the application. Will be encrypted in final form.">
+
+    <Db2 Environment="Local,Dev">Datasource={0}; LibraryList=PADEV,*USRLIBL,PACCESS;NAMING=System;UserID=PACCESS;Password={2};Database={1};CheckConnectionOnOpen=true;Pooling=true;QueryOptionsFileLibrary=PACCESS;</Db2>
+    <Db2 Environment="Test">Datasource={0}; LibraryList=*USRLIBL,PACCESS;NAMING=System;UserID=PACCESS;Password={2};Database={1};CheckConnectionOnOpen=true;Pooling=true;QueryOptionsFileLibrary=PACCESS;</Db2>
+    <Db2 Environment="Model,Beta,Prod">Datasource={0}; LibraryList=PACCESS,*USRLIBL;NAMING=System;UserID=PACCESS;Password={2};Database={1};CheckConnectionOnOpen=true;Pooling=true;QueryOptionsFileLibrary=PACCESS;</Db2>
+
+    <SqlServer Environment="Local" Branch="Trunk">Database=PatientAccessTrunkLocal;Server=localhost;Integrated Security=SSPI</SqlServer>
+    <SqlServer Environment="Local" Branch="Support">Database=PatientAccessSupportLocal;Server=localhost;Integrated Security=SSPI</SqlServer>
+
+    <SqlServer Environment="Dev" Branch="Trunk">Database=PatientAccessTrunkDev;Server=PSDPDCHDCDB04;Integrated Security=SSPI</SqlServer>
+    <SqlServer Environment="Dev" Branch="Support">Database=PatientAccessSupportDev;Server=PSDPDCHDCDB04;Integrated Security=SSPI</SqlServer>
+
+    <SqlServer Environment="Test" Branch="Trunk">Database=PatientAccessTrunkTest;Server=HHLSHDCDBD01\HDCTEST;Integrated Security=SSPI</SqlServer>
+    <SqlServer Environment="Test" Branch="Support">Database=PatientAccessSupportTest;Server=HHLSHDCDBD01\HDCTEST;Integrated Security=SSPI</SqlServer>
+
+    <SqlServer Environment="Model" Branch="Any">Database=PatientAccessModel;Server=TENHDCMTPASDB02.mdltenethealth.net;Integrated Security=SSPI</SqlServer> 
+    <SqlServer Environment="Beta" Branch="Any">Database=PatientAccessBeta;Server=TENHDCTHPASDB01.tenethealth.net;Integrated Security=SSPI</SqlServer>
+    <SqlServer Environment="Prod" Branch="Any">Database=PatientAccessProd;Server=TENHDCTHPASDB01.tenethealth.net;Integrated Security=SSPI</SqlServer>
+   
+    <PAS_PASSWORD_SET Environment="Local,Dev,Test" Branch="Any">MAT8RH8RN</PAS_PASSWORD_SET>
+    <PAS_PASSWORD_SET Environment="Model" Branch="Any">MAT8RH8RN</PAS_PASSWORD_SET>
+    <PAS_PASSWORD_SET Environment="Beta,Prod" Branch="Any">MAT1RH2RN</PAS_PASSWORD_SET>
+  </Databases>
+
+  <ExternalSystems Description="Systems on which Patient Access is dependent">
+
+    <Edv Description="Perot system used for validation of patient benefits, credit, address information">
+
+      <AddressValidationServiceUrl Environment="Local,Dev,Test">http://irishealth2019mdlc.coniferhealth.com:2583/edv/services/AddressValidationService</AddressValidationServiceUrl>
+      <BenefitsValidation5010ServiceUrl Environment="Local,Dev,Test">http://irishealth2019mdlc.coniferhealth.com:13014/edv/services/BenefitsValidation5010Service</BenefitsValidation5010ServiceUrl>
+      <BenefitsValidationFusServiceUrl Environment="Local,Dev,Test">http://irishealth2019mdlc.coniferhealth.com:13015/edv/services/BenefitsValidationFusService</BenefitsValidationFusServiceUrl>
+      <ComplianceCheckerServiceUrl Environment="Local,Dev,Test">http://irishealth2019mdlc.coniferhealth.com:13017/edv/services/ComplianceCheckerService</ComplianceCheckerServiceUrl>
+      <CreditValidationServiceUrl Environment="Local,Dev,Test">http://irishealth2019mdlc.coniferhealth.com:2585/edv/services/CreditValidationService</CreditValidationServiceUrl>
+      <PriorAccountBalanceServiceUrl Environment="Local,Dev,Test">http://irishealth2019mdlc.coniferhealth.com:13021/edv/services/PriorAccountBalanceService</PriorAccountBalanceServiceUrl>
+
+      <AddressValidationServiceUrl Environment="Model">http://irishealth2019mdlc.coniferhealth.com:2583/edv/services/AddressValidationService</AddressValidationServiceUrl>
+      <BenefitsValidation5010ServiceUrl Environment="Model">http://irishealth2019mdlc.coniferhealth.com:13014/edv/services/BenefitsValidation5010Service</BenefitsValidation5010ServiceUrl>
+      <BenefitsValidationFusServiceUrl Environment="Model">http://irishealth2019mdlc.coniferhealth.com:13015/edv/services/BenefitsValidationFusService</BenefitsValidationFusServiceUrl>
+      <ComplianceCheckerServiceUrl Environment="Model">http://irishealth2019mdlc.coniferhealth.com:13017/edv/services/ComplianceCheckerService</ComplianceCheckerServiceUrl>
+      <CreditValidationServiceUrl Environment="Model">http://irishealth2019mdlc.coniferhealth.com:2585/edv/services/CreditValidationService</CreditValidationServiceUrl>
+      <PriorAccountBalanceServiceUrl Environment="Model">http://irishealth2019mdlc.coniferhealth.com:13021/edv/services/PriorAccountBalanceService</PriorAccountBalanceServiceUrl>
+
+      <AddressValidationServiceUrl Environment="Beta,Prod">http://irishealth2019c.coniferhealth.com:2583/edv/services/AddressValidationService</AddressValidationServiceUrl>
+      <BenefitsValidation5010ServiceUrl Environment="Beta,Prod">http://irishealth2019c.coniferhealth.com:13014/edv/services/BenefitsValidation5010Service</BenefitsValidation5010ServiceUrl>
+      <BenefitsValidationFusServiceUrl Environment="Beta,Prod">http://irishealth2019c.coniferhealth.com:13015/edv/services/BenefitsValidationFusService</BenefitsValidationFusServiceUrl>
+      <ComplianceCheckerServiceUrl Environment="Beta,Prod">http://irishealth2019c.coniferhealth.com:13017/edv/services/ComplianceCheckerService</ComplianceCheckerServiceUrl>
+      <CreditValidationServiceUrl Environment="Beta,Prod">http://irishealth2019c.coniferhealth.com:2585/edv/services/CreditValidationService</CreditValidationServiceUrl>
+      <PriorAccountBalanceServiceUrl Environment="Beta,Prod">http://irishealth2019c.coniferhealth.com:13021/edv/services/PriorAccountBalanceService</PriorAccountBalanceServiceUrl>
+
+      <Override Description="Passport will not accept generic id, so use these values instead below model environment">
+        <Facility Environment="Local,Dev,Test">T38</Facility>
+        <User Environment="Local,Dev,Test">KENNETH MCKENZIE</User>
+      </Override>
+
+    </Edv>
+
+    <Empi Description="Service from EMPI used to get patient data">
+
+      <IdentityHubServiceUrl Environment="Local,Dev,Test,Model">https://tenhdcthmdmtst01.tenethealth.net:9443/ibminitiatews/services/IdentityHub?wsdl</IdentityHubServiceUrl>
+      <IdentityHubServiceUrl Environment="Beta,Prod">http://172.18.163.115:8080/ibminitiatews/services/IdentityHub?wsdl</IdentityHubServiceUrl>
+      <EMPISERVICE_USERNAME Environment ="Local,Dev,Test,Model" Branch="Any">Empipassvc</EMPISERVICE_USERNAME>
+      <EMPISERVICE_PASSWORD Environment ="Local,Dev,Test,Model" Branch="Any">pasEmpi!MSvc</EMPISERVICE_PASSWORD>
+      <EMPISERVICE_USERNAME Environment ="Beta,Prod" Branch="Any">Empipassvc</EMPISERVICE_USERNAME>
+      <EMPISERVICE_PASSWORD Environment ="Beta,Prod" Branch="Any">!Pas$Svc15</EMPISERVICE_PASSWORD>
+      
+    </Empi>
+
+    <Adam Description="Perot authentication and authorization service">
+
+      <Url Environment="Local,Dev,Test">http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx</Url>
+      <Guid Environment="Local,Dev,Test">a9b201b721c51d42810216101466cf84</Guid>
+      <Key Environment="Local,Dev,Test">t5iQKww1gYkdd8c6eK/R19VfghLWcr3MUdxzhHkNsxLxAzW2xJqqmw==</Key>
+      <Timeout Environment="Local,Dev,Test">60</Timeout>
+
+      <Url Environment="Model">http://adamsecurityservice.mdltenethealth.net/4.0/securityservice.asmx</Url>
+      <Guid Environment="Model">7a7f3215f7b46145825620ec3a34e8c0</Guid>
+      <Key Environment="Model">n1GR9ZsHuWe+RRt5izXrPeUdFEHMXEMrIOPj9PVkE1D443JIxuOrAw==</Key>
+
+      <Url Environment="Beta,Prod">http://adamsecurityservice.tenethealth.com/4.0/securityservice.asmx</Url>
+      <Guid Environment="Beta,Prod">79e2c2dfeb911344a9a012cb1748e0f9</Guid>
+      <Key Environment="Beta,Prod">wsYyePx4mafwpZav2WBeUX12OYK6nrrTWPf5pDnxwB7yqRWzCKIpTg==</Key>
+
+      <Timeout Environment="Model,Beta,Prod">30</Timeout>
+
+    </Adam>
+    <OKTA Description="OKTA authentication and authorization service">
+      <AuthUrl Environment="Local,Dev,Test,Model">https://loginmdl.etenet.com/api/v1/authn</AuthUrl>
+      <RoleUrl Environment="Local,Dev,Test,Model">https://loginmdl.etenet.com/api/v1/users</RoleUrl>
+      <UserInfo Environment="Local,Dev,Test,Model">https://loginmdl.etenet.com/api/v1/users</UserInfo>
+      <APIKey Environment="Local,Dev,Test,Model">00q-bMU23roEE9kIK-WhE7Ey0xhO6C37jyU7vAW-2-</APIKey>
+      <Legacy_URL Environment="Local,Dev,Test,Model">https://tenettest.service-now.com/api/now/table/u_eid_m2m_user_to_okta_group?sysparm_fields=u_user_credentials.u_user_id%2Cu_hsp_code%2Cu_active%2Cu_application.name&amp;sysparm_limit=100&amp;u_application=1a1541efdb0f7b40e4d95682ca961948&amp;u_employee_id=</Legacy_URL>
+      <Legacy_USER Environment="Local,Dev,Test,Model">svc.t1.legacyid</Legacy_USER>
+      <Legacy_PASSWORD Environment="Local,Dev,Test,Model">legacyid2120</Legacy_PASSWORD>
+      <CONFIG_PROXY_URL Environment="Local,Dev,Test,">http://ten-mwg-prxy-ptc-13.tenethealth.com:9090</CONFIG_PROXY_URL>
+      <PROXY_USER Environment="Local,Dev,Test,">patientaccess.user03</PROXY_USER>
+      <PROXY_PASSWORD Environment="Local,Dev,Test,">$Mdltrain1</PROXY_PASSWORD>
+	  <OKTA_ROLE_LIMIT Environment="Local,Dev,Test,Model" >10</OKTA_ROLE_LIMIT>
+      <Timeout Environment="Local,Dev,Test">30</Timeout>
+
+      <AuthUrl Environment="Beta,Prod">https://login.etenet.com/api/v1/authn</AuthUrl>
+      <RoleUrl Environment="Beta,Prod">https://login.etenet.com/api/v1/users</RoleUrl>
+      <UserInfo Environment="Beta,Prod">https://login.etenet.com/api/v1/users</UserInfo>
+      <APIKey Environment="Beta,Prod">00P_2MYMRpS8TPr9ZREOqdxQZ1rZUjlKzbttPZTWz6</APIKey>
+      <Legacy_URL Environment="Beta,Prod">https://www.tenetone.com/api/now/table/u_eid_m2m_user_to_okta_group?sysparm_fields=u_user_credentials.u_user_id%2Cu_hsp_code%2Cu_active%2Cu_application.name&amp;sysparm_limit=100&amp;u_application=1a1541efdb0f7b40e4d95682ca961948&amp;u_employee_id=</Legacy_URL>
+      <Legacy_USER Environment="Beta,Prod">svc.t1.legacyid</Legacy_USER>
+      <Legacy_PASSWORD Environment="Beta,Prod">legacyid2120</Legacy_PASSWORD>
+      <Timeout Environment="Model,Beta,Prod">30</Timeout>
+	  <IsFallOutToADAM Environment="Local,Model">true</IsFallOutToADAM>
+	  <IsFallOutToADAM Environment="Beta,Prod">true</IsFallOutToADAM>
+
+    </OKTA>
+      
+
+    <Hdi Description="Perot middleware system used to receive events from eDV and to post FUS Notes">
+                                          
+      <Url Environment="Local,Dev,Test">http://hdi.testtenethealth.net/HDI/PatientAccess </Url>
+      <Guid Environment="Local,Dev,Test">a9b201b721c51d42810216101466cf84</Guid>
+
+      <Url Environment="Model">http://hdi.mdltenethealth.net/HDI/PatientAccess</Url>
+      <Guid Environment="Model">7a7f3215f7b46145825620ec3a34e8c0</Guid>
+
+      <Url Environment="Beta,Prod">http://hdi.etenet.com/HDI/PatientAccess</Url>
+      <Guid Environment="Beta,Prod">79e2c2dfeb911344a9a012cb1748e0f9</Guid>
+
+    </Hdi>
+
+    <Cfdb Description="Central facility database. This is used for facilty contact information.">
+
+      <Url Environment="Local,Dev,Test">https://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx</Url>
+
+      <Url Environment="Model">http://10.11.22.87:8085/Cfdbstub/cfdbservice.asmx</Url>
+
+      <Url Environment="Beta">http://10.11.11.17:8085/Cfdbstub/cfdbservice.asmx</Url>
+      <Url Environment="Prod">http://10.11.11.158:8085/Cfdbstub/cfdbservice.asmx</Url>
+
+    </Cfdb>
+
+    <Hubs Description="IBM Series i machines on which DB2 and PBAR reside. These hold most of our data.">
+
+      <Hub Name="DVLA" Address="155.16.44.25" Environment="Local,Dev,Test" />
+
+      <Hub Name="DVLG" Address="155.16.44.55" Environment="Model" />
+
+      <Hub Name="MEAB" Address="172.18.139.200" Environment="Beta" />
+      
+      <Hub Name="DHFB" Address="155.16.44.19" Environment="Prod" />
+      <Hub Name="HOLA" Address="155.16.44.174" Environment="Prod" />
+      <Hub Name="MODB" Address="172.18.219.204" Environment="Prod" />
+      <Hub Name="SIEB" Address="172.18.155.30" Environment="Prod" />
+      <Hub Name="USCA" Address="172.18.155.29" Environment="Prod" />
+      <Hub Name="ESTA" Address="155.16.44.138" Environment="Prod" />
+
+    </Hubs>
+
+    <DocumentImaging Description="Perot service used to scan, index, and view digital medical documents (A.k.a. ViWeb).">
+
+      <ScanUrl Environment="Local,Dev,Test,Model">http://hdcm.tenethealth.com:8060/viwebserv/scan</ScanUrl>
+      <ViewUrl Environment="Local,Dev,Test,Model">http://hdcm.tenethealth.com:8060/viwebserv/displaydocs</ViewUrl>
+      <DocumentServiceUrl Environment="Local,Dev,Test">http://dvld.tenethealth.com:8060/viwebserv/services/DocumentService</DocumentServiceUrl>
+      <PreviousVisitUrl Environment="Local,Dev,Test">http://dvld.tenethealth.com:8060/viwebserv/services/PreviousVisitService</PreviousVisitUrl>
+      <DocumentServiceUrl Environment="Model">http://hdcm.tenethealth.com:8060/viwebserv/services/DocumentService</DocumentServiceUrl>
+      <PreviousVisitUrl Environment="Model">http://hdcm.tenethealth.com:8060/viwebserv/services/PreviousVisitService</PreviousVisitUrl>
+
+      <Guid Environment="Local,Dev,Test,Model">7E90555E-A200-423C-A31B-A5089B284A27</Guid>
+      <Key Environment="Local,Dev,Test,Model">8de9f0e5d76cac99eecd9eecb7fa2e9d</Key>
+
+      <ScanUrl Environment="Beta,Prod">http://hdcb.tenethealth.com:8060/viwebserv/scan</ScanUrl>
+      <ViewUrl Environment="Beta,Prod">http://hdcb.tenethealth.com:8060/viwebserv/displaydocs</ViewUrl>
+      <DocumentServiceUrl Environment="Beta,Prod">http://hdcb.tenethealth.com:8060/viwebserv/services/DocumentService</DocumentServiceUrl>
+      <PreviousVisitUrl Environment="Beta,Prod">http://hdcb.tenethealth.com:8060/viwebserv/services/PreviousVisitService</PreviousVisitUrl>
+      <Guid Environment="Beta,Prod">A8E25BEA-EC81-11DC-B77B-F6AA55D89593</Guid>
+      <Key Environment="Beta,Prod">a7d4172dd65b586dc96e02807d1d22aa</Key>
+      <ScanHTML5Url Environment="Local,Dev,Test">https://dvld.tenethealth.com:8062/#/scan</ScanHTML5Url>
+      <ViewHTML5Url Environment="Local,Dev,Test">https://dvld.tenethealth.com:8062/#/displaydocument</ViewHTML5Url>
+      <ScanHTML5Url Environment="Model">https://hdcm.tenethealth.com:8062/#/scan</ScanHTML5Url>
+      <ViewHTML5Url Environment="Model">https://hdcm.tenethealth.com:8062/#/displaydocument</ViewHTML5Url>
+      <ScanHTML5Url Environment="Beta,Prod">https://hdcb.tenethealth.com:8062/#/scan</ScanHTML5Url>
+      <ViewHTML5Url Environment="Beta,Prod">https://hdcb.tenethealth.com:8062/#/displaydocument</ViewHTML5Url>
+
+    </DocumentImaging>
+
+	<DOFR Description="DOFR API">
+		<ApiUrl Environment="Local,Dev,Test,Model">https://dofrapimdl.coniferhealth.com/api/Request/predict</ApiUrl>
+		<ApiKey Environment="Local,Dev,Test,Model">AE3FE9FE-5A12-42AE-81F5-1CB41EF95217</ApiKey>
+		<UseTLS12 Environment="Local,Dev,Test,Model">true</UseTLS12>
+		<ApiUrl Environment="Beta,Prod">https://dofrapimdl.coniferhealth.com/api/Request/predict</ApiUrl>
+		<ApiKey Environment="Beta,Prod">AE3FE9FE-5A12-42AE-81F5-1CB41EF95217</ApiKey>
+		<UseTLS12 Environment="Beta,Prod">true</UseTLS12>
+    <APITimeout Environment="Local,Dev,Test,Model,Beta,Prod">100</APITimeout>
+	</DOFR>
+	  
+  </ExternalSystems>
+
+  <ServerSettings Description="General settings for the app-server">
+
+    <CacheTimeout Description="These values dictate how many hours a broker will hold cached data">
+
+      <Long Environment="Local,Dev,Test">1</Long>
+      <Medium Environment="Local,Dev,Test">1</Medium>
+      <Short Environment="Local,Dev,Test">1</Short>
+
+      <Long Environment="Model,Beta,Prod">72</Long>
+      <Medium Environment="Model,Beta,Prod">24</Medium>
+      <Short Environment="Model,Beta,Prod">12</Short>
+
+    </CacheTimeout>
+
+    <LoginDefaults>
+
+      <User Environment="Local,Dev">patientaccess.user03</User>
+      <Password Environment="Local,Dev,Model">$Mdltrain1</Password>
+      <Workstation Environment="Local">DEBUGGER</Workstation>
+      <Workstation Environment="Dev">DEVELOPER</Workstation>
+
+    </LoginDefaults>
+    <PASServerEnvironmentSettings>
+
+      <PASServerEnvironment Environment="Local">LOCAL</PASServerEnvironment>
+      <PASServerEnvironment Environment="Dev">DEVELOPMENT</PASServerEnvironment>
+      <PASServerEnvironment Environment="Test">TEST</PASServerEnvironment>
+      <PASServerEnvironment Environment="Model">MODEL</PASServerEnvironment>
+      <PASServerEnvironment Environment="Beta,Prod">PRODUCTION</PASServerEnvironment>
+    
+    </PASServerEnvironmentSettings>
+    <AppUpdater Description="Server-side code which supports Application Updater Block for client">
+
+      <ClientDownloadPath Environment="Local" Branch="Any"></ClientDownloadPath>
+      <ClientDownloadPath Environment="Dev,Model,Beta,Prod" Branch="Any">D:\PatientAccess\AppServer\Downloads\</ClientDownloadPath>
+      <ClientDownloadPath Environment="Test" Branch="Trunk">D:\PatientAccess\AppServer\Downloads\</ClientDownloadPath>
+      <ClientDownloadPath Environment="Test" Branch="Support">D:\PatientAccess\AppServer\Downloads\</ClientDownloadPath>
+
+      <ClientDownloadUrl Environment="Local" Branch="Trunk">http://localhost/PatientAccess.AppServer/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Local" Branch="Support">http://localhost/PatientAccess.Support.AppServer/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Dev" Branch="Trunk">http://pa-dev.hdc.net/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Dev" Branch="Support">http://pa-support-dev.hdc.net/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Test" Branch="Trunk">http://pa-test2012.hdc.net/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Test" Branch="Support">http://pa-support2012.hdc.net/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Model" Branch="Support">http://pa-client.mdltenethealth.net/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Beta" Branch="Support">http://pa-beta-client.tenethealth.net/Downloads/</ClientDownloadUrl>
+      <ClientDownloadUrl Environment="Prod" Branch="Support">http://pa-client.tenethealth.net/Downloads/</ClientDownloadUrl>
+
+      <DownloadEnabled Environment="Local">False</DownloadEnabled>
+      <DownloadEnabled Environment="Dev,Test,Model,Beta,Prod">True</DownloadEnabled>
+
+      <AppId Environment="Local,Dev,Test" Branch="Trunk">{7DE1B29E-7BD3-4772-B3A1-8A6CCC43DE70}</AppId>
+      <AppId Environment="Local,Dev,Test,Model,Beta,Prod" Branch="Support">{215E1AD7-9ABA-432f-A952-24BABA556850}</AppId>
+      <CompilationDebug Environment="Local">true</CompilationDebug>
+      <CompilationDebug Environment="Dev,Test,Model,Beta,Prod">false</CompilationDebug>
+      <LocalVIwebUrl Environment="Local,Dev" Branch="Trunk">https://localhost/PatientAccess.AppServer/VIWebCall.aspx</LocalVIwebUrl>
+	  <LocalVIwebUrl Environment="Test" Branch="Trunk">https://pa-test2012.hdc.net/VIWebCall.aspx</LocalVIwebUrl>
+	  <LocalVIwebUrl Environment="Test" Branch="Support">https://pa-support2012.hdc.net/VIWebCall.aspx</LocalVIwebUrl>
+      <LocalVIwebUrl Environment="Model" Branch="Support">https://pa-client.mdltenethealth.net/VIWebCall.aspx</LocalVIwebUrl>
+      <LocalVIwebUrl Environment="Prod" Branch="Support">https://pa-client.tenethealth.net/VIWebCall.aspx</LocalVIwebUrl>
+      <LocalVIwebUrl Environment="Beta" Branch="Support">https://pa-beta-client.tenethealth.net/VIWebCall.aspx</LocalVIwebUrl>
+    </AppUpdater>
+
+  </ServerSettings>
+
+  <ClientSettings Description="General settings for the end-user application">
+
+    <AppStart Description="This project builds a stand-alone client updater and installer">
+
+      <ProductName Environment="Local" Branch="Trunk">Patient Access (Local on Trunk)</ProductName>
+      <ManifestUrl Environment="Local" Branch="Trunk">http://localhost/PatientAccess.AppServer/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Local" Branch="Trunk">Patient Access Local on Trunk</ProductDescription>
+      <ProductID Environment="Local" Branch="Trunk">448137BF-2CAD-43a2-AB5E-7B824101BDED</ProductID>
+
+      <ProductName Environment="Local" Branch="Support">Patient Access (Local on Support)</ProductName>
+      <ManifestUrl Environment="Local" Branch="Support">http://localhost/PatientAccess.Support.AppServer/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Local" Branch="Support">Patient Access Local on Support</ProductDescription>
+      <ProductID Environment="Local" Branch="Support">A8A09ECD-F710-4d7a-9F8E-0B2F033B98E5</ProductID>
+
+      <ProductName Environment="Dev" Branch="Trunk">Patient Access (Development on Trunk)</ProductName>
+      <ManifestUrl Environment="Dev" Branch="Trunk">http://pa-dev.hdc.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Dev" Branch="Trunk">Patient Access Development on Trunk</ProductDescription>
+      <ProductID Environment="Dev" Branch="Trunk">15001E84-0CB0-42ff-B2FB-0BD1A147E5AB</ProductID>
+
+      <ProductName Environment="Dev" Branch="Support">Patient Access (Development on Support)</ProductName>
+      <ManifestUrl Environment="Dev" Branch="Support">http://pa-support-dev.hdc.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Dev" Branch="Support">Patient Access Development on Support</ProductDescription>
+      <ProductID Environment="Dev" Branch="Support">5D00A4E6-64A7-49d8-ABDC-0533642F1D4D</ProductID>
+
+      <ProductName Environment="Test" Branch="Trunk">Patient Access (Test on Trunk)</ProductName>
+      <ManifestUrl Environment="Test" Branch="Trunk">http://pa-test2012.hdc.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Test" Branch="Trunk">Patient Access Test on Trunk</ProductDescription>
+      <ProductID Environment="Test" Branch="Trunk">C7B88016-AC54-42e5-A278-A64A87ED3F17</ProductID>
+
+      <ProductName Environment="Test" Branch="Support">Patient Access (Test on Support)</ProductName>
+      <ManifestUrl Environment="Test" Branch="Support">http://pa-support2012.hdc.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Test" Branch="Support">Patient Access Test on Support</ProductDescription>
+      <ProductID Environment="Test" Branch="Support">FFCC926E-1BA2-49b3-A8CC-D9B20BB1A25D</ProductID>
+
+      <ProductName Environment="Model" Branch="Any">Patient Access (Model Office)</ProductName>
+      <ManifestUrl Environment="Model" Branch="Any">http://pa-client.mdltenethealth.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Model" Branch="Any">Patient Access Model Office</ProductDescription>
+      <ProductID Environment="Model" Branch="Any">F8DA73CC-A24D-4118-8581-0D5E5E7F3C43</ProductID>
+
+      <ProductName Environment="Beta" Branch="Any">Patient Access (Beta)</ProductName>
+      <ManifestUrl Environment="Beta" Branch="Any">http://pa-beta-client.tenethealth.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Beta" Branch="Any">Patient Access Beta</ProductDescription>
+      <ProductID Environment="Beta" Branch="Any">0EE59B06-960F-4731-865A-31F4E38EC8DC</ProductID>
+
+      <ProductName Environment="Prod" Branch="Any">Patient Access</ProductName>
+      <ManifestUrl Environment="Prod" Branch="Any">http://pa-client.tenethealth.net/Manifests/PatientAccessClientManifest.xml</ManifestUrl>
+      <ProductDescription Environment="Prod" Branch="Any">Patient Access ADT Client</ProductDescription>
+      <ProductID Environment="Prod" Branch="Any">E0EF81F4-DF5D-4f7a-BFFE-65359B31DEC3</ProductID>
+
+    </AppStart>
+
+    <WinformClient Description="This is the main end-user program ( a.k.a PatientAccess.exe )">
+
+      <AppServerUrl Environment="Local" Branch="Trunk">http://localhost/PatientAccess.AppServer/</AppServerUrl>
+      <AppServerUrl Environment="Local" Branch="Support">http://localhost/PatientAccess.Support.AppServer/</AppServerUrl>
+      <AppServerUrl Environment="Dev" Branch="Trunk">http://pa-dev.hdc.net/</AppServerUrl>
+      <AppServerUrl Environment="Dev" Branch="Support">http://pa-support-dev.hdc.net/</AppServerUrl>
+      <AppServerUrl Environment="Test" Branch="Trunk">http://pa-test2012.hdc.net/</AppServerUrl>
+      <AppServerUrl Environment="Test" Branch="Support">http://pa-support2012.hdc.net/</AppServerUrl>
+      <AppServerUrl Environment="Model" Branch="Any">http://pa-appfarm.mdltenethealth.net/</AppServerUrl>
+      <AppServerUrl Environment="Beta" Branch="Any">http://pa-beta-appfarm.tenethealth.net/</AppServerUrl>
+      <AppServerUrl Environment="Prod" Branch="Any">http://pa-appfarm.tenethealth.net/</AppServerUrl>
+
+      <HelpDocumentsUrl Environment="Local" Branch="Trunk"></HelpDocumentsUrl>
+
+      <HelpDocumentsUrl Environment="Local" Branch="Trunk">http://localhost/PatientAccess.AppServer/Documentation/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Local" Branch="Support">http://localhost/PatientAccess.Support.AppServer/Documentation/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Dev" Branch="Trunk">http://pa-dev.hdc.net/Documentation/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Dev" Branch="Support">http://pa-support-dev.hdc.net/Documentation/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Test" Branch="Trunk">http://pa-test2012.hdc.net/Documentation/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Test" Branch="Support">http://pa-support2012.hdc.net/Documentation/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Model" Branch="Any">http://pa-documentation.mdltenethealth.net/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Beta" Branch="Any">http://pa-beta-documentation.tenethealth.net/Index.htm</HelpDocumentsUrl>
+      <HelpDocumentsUrl Environment="Prod" Branch="Any">http://pa-documentation.tenethealth.net/Index.htm</HelpDocumentsUrl>
+
+      <UseCredentials Environment="Local,Dev" Branch="Any">True</UseCredentials>
+      <UseCredentials Environment="Test,Model,Beta,Prod" Branch="Any">False</UseCredentials>
+
+      <RIGHTTORESTRICT_START_DATE_SET Environment="Local,DevTest,Model," Branch="Any">11/01/2013</RIGHTTORESTRICT_START_DATE_SET>
+      <RIGHTTORESTRICT_START_DATE_SET Environment="Beta,Prod" Branch="Any">12/01/2013</RIGHTTORESTRICT_START_DATE_SET>
+      
+      <CPTCODES_START_DATE_SET Environment="Local,DevTest,Model," Branch="Any">01/23/2014</CPTCODES_START_DATE_SET>
+      <CPTCODES_START_DATE_SET Environment="Beta,Prod" Branch="Any">02/23/2014</CPTCODES_START_DATE_SET>
+      <EMAIL_ADDRESS_REQUIRED_START_DATE_SET Environment="Local,DevTest,Model," Branch="Any">08/20/2014</EMAIL_ADDRESS_REQUIRED_START_DATE_SET>
+      <EMAIL_ADDRESS_REQUIRED_START_DATE_SET Environment="Beta,Prod" Branch="Any">10/01/2014</EMAIL_ADDRESS_REQUIRED_START_DATE_SET>
+      <HIECONSENT_START_DATE_SET Environment="Local,DevTest,Model," Branch="Any">07/01/2014</HIECONSENT_START_DATE_SET>
+      <HIECONSENT_START_DATE_SET Environment="Beta,Prod" Branch="Any">10/01/2014</HIECONSENT_START_DATE_SET>
+      <HOSPCOMMOPT_START_DATE Environment="Local,Dev,Test,Model," Branch="Any">12/16/2014</HOSPCOMMOPT_START_DATE>
+      <HOSPCOMMOPT_START_DATE Environment="Beta,Prod" Branch="Any">03/10/2015</HOSPCOMMOPT_START_DATE>
+      
+      <EMAILREASON_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">10/06/2015</EMAILREASON_START_DATE_SET>
+      <EMAILREASON_START_DATE_SET Environment="Beta,Prod" Branch="Any">11/24/2015</EMAILREASON_START_DATE_SET>
+      
+      <GUARANTOR_DATEOFBIRTH_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">02/08/2016</GUARANTOR_DATEOFBIRTH_START_DATE_SET>
+      <GUARANTOR_DATEOFBIRTH_START_DATE_SET Environment="Beta,Prod" Branch="Any">03/29/2016</GUARANTOR_DATEOFBIRTH_START_DATE_SET>
+      
+      <PRIMARYCAREPHYSICIAN_REQUIRED_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">06/14/2016</PRIMARYCAREPHYSICIAN_REQUIRED_START_DATE_SET>
+      <PRIMARYCAREPHYSICIAN_REQUIRED_START_DATE_SET Environment="Beta" Branch="Any">10/16/2016</PRIMARYCAREPHYSICIAN_REQUIRED_START_DATE_SET>
+      <PRIMARYCAREPHYSICIAN_REQUIRED_START_DATE_SET Environment="Prod" Branch="Any">10/23/2016</PRIMARYCAREPHYSICIAN_REQUIRED_START_DATE_SET>
+
+      <SHARE_HIE_DATA_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">08/20/2016</SHARE_HIE_DATA_START_DATE_SET>
+      <SHARE_HIE_DATA_START_DATE_SET Environment="Beta" Branch="Any">10/16/2016</SHARE_HIE_DATA_START_DATE_SET>
+      <SHARE_HIE_DATA_START_DATE_SET Environment="Prod" Branch="Any">10/23/2016</SHARE_HIE_DATA_START_DATE_SET>
+      
+      <COB_IMFM_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">04/28/2017</COB_IMFM_START_DATE_SET>
+      <COB_IMFM_START_DATE_SET Environment="Beta" Branch="Any"> 06/11/2017</COB_IMFM_START_DATE_SET>
+      <COB_IMFM_START_DATE_SET Environment="Prod" Branch="Any">06/18/2016</COB_IMFM_START_DATE_SET>
+
+      <PREREGISTRATION_IMFM_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">07/21/2017</PREREGISTRATION_IMFM_START_DATE_SET> 
+      <PREREGISTRATION_IMFM_START_DATE_SET Environment="Beta,Prod" Branch="Any">08/23/2017</PREREGISTRATION_IMFM_START_DATE_SET>
+
+      <AUTO_COMPLETE_NO_LIABILITY_DUE_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">03/30/2018</AUTO_COMPLETE_NO_LIABILITY_DUE_START_DATE_SET>
+      <AUTO_COMPLETE_NO_LIABILITY_DUE_START_DATE_SET Environment="Beta" Branch="Any">06/10/2018</AUTO_COMPLETE_NO_LIABILITY_DUE_START_DATE_SET>
+      <AUTO_COMPLETE_NO_LIABILITY_DUE_START_DATE_SET Environment="Prod" Branch="Any">06/17/2018</AUTO_COMPLETE_NO_LIABILITY_DUE_START_DATE_SET>
+
+      <PULL_PRIOR_VISIT_INSURANCE_PREMSE_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">04/26/2018</PULL_PRIOR_VISIT_INSURANCE_PREMSE_START_DATE_SET>
+      <PULL_PRIOR_VISIT_INSURANCE_PREMSE_START_DATE_SET Environment="Beta" Branch="Any">06/10/2018</PULL_PRIOR_VISIT_INSURANCE_PREMSE_START_DATE_SET>
+      <PULL_PRIOR_VISIT_INSURANCE_PREMSE_START_DATE_SET Environment="Prod" Branch="Any">06/17/2018</PULL_PRIOR_VISIT_INSURANCE_PREMSE_START_DATE_SET>
+
+      <AUTHORIZEPORTAL_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">01/09/2019</AUTHORIZEPORTAL_START_DATE_SET>
+      <AUTHORIZEPORTAL_START_DATE_SET Environment="Beta" Branch="Any">02/20/2019</AUTHORIZEPORTAL_START_DATE_SET>
+      <AUTHORIZEPORTAL_START_DATE_SET Environment="Prod" Branch="Any">02/20/2019</AUTHORIZEPORTAL_START_DATE_SET>
+
+      <CELLPHONECONSENT_RULE_FOR_COSSIGNED_START_DATE_SET Environment="Local,Dev,Test,Model," Branch="Any">06/10/2020</CELLPHONECONSENT_RULE_FOR_COSSIGNED_START_DATE_SET>
+      <CELLPHONECONSENT_RULE_FOR_COSSIGNED_START_DATE_SET Environment="Beta" Branch="Any">07/12/2020</CELLPHONECONSENT_RULE_FOR_COSSIGNED_START_DATE_SET>
+      <CELLPHONECONSENT_RULE_FOR_COSSIGNED_START_DATE_SET Environment="Prod" Branch="Any">07/12/2020</CELLPHONECONSENT_RULE_FOR_COSSIGNED_START_DATE_SET>
+
+    
+      </WinformClient>
+  </ClientSettings>
+
+</Settings>

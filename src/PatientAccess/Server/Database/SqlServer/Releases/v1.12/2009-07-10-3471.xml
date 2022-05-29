@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-07-10-3471.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for July 2009
+    </comment>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ADJ-MCD/MCL EXHAUST DAYS (12191003)" />
+      <where>ActivityCode='AJ121'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ADJ-MCD/MCL EXHAUST DAYS (12191003)" />
+      <where>ActivityCode='AR121'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="BILL REJECTED BY PAYOR" />
+      <where>ActivityCode='BNREJ'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="ON HOLD W/INS GREATER THAN 5 MINS" />
+      <column name="DefaultWorklistDays" valueNumeric="14" />
+      <column name="MaxWorklistDays" valueNumeric="14" />
+      <where>ActivityCode='CINHD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Description" value="CLAIM PRINTED AT NMC" />
+      <where>ActivityCode='BZPAP'</where>
+    </update>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="IAMRS" />
+      <column name="Description" value="MED RECS SENT TO ATTY" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="IARIZ" />
+      <column name="Description" value="IZ SENT TO ATTY" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="IAMRZ" />
+      <column name="Description" value="MED RECS SENT TO ATTY/ATTY REQ IZ" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="CLANG" />
+      <column name="Description" value="NON-ENGLISH SPEAKING PATIENT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RTNOS" />
+      <column name="Description" value="TRANSFER FROM NOS TO FLO CAMPUS" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RTFLO" />
+      <column name="Description" value="TRANSFER FROM FLO TO NOS CAMPUS" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RTFLO'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RTNOS'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='CLANG'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='IAMRZ'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='IARIZ'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='IAMRS'</where>
+      </delete>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="ADJ-MCD/MCL DISAL AUTO (1219100)" />
+        <where>ActivityCode='AJ121'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="ADJ-MCD/MCL DISAL AUTO (1219100)" />
+        <where>ActivityCode='AR121'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="SYS-BILL REJECTED BY PAYOR" />
+        <where>ActivityCode='BNREJ'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="IMP COST DOES NOT MEET THRESHOLD" />
+        <column name="DefaultWorklistDays" valueNumeric="1" />
+        <column name="MaxWorklistDays" valueNumeric="1" />
+        <where>ActivityCode='CINHD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Description" value="SYS-CLAIM SENT VIA PAPER AT NMC" />
+        <where>ActivityCode='BZPAP'</where>
+      </update>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_01_12_3704.xml">
+	<changeSet id="56D5B572-29EB-4698-8DC3-97B5AAF88F55" author="Abhijeet.Hambir">
+		<comment>
+			DOFR DMND3704- Add ServiceCategoryRequired Rule to form and activities
+		</comment>
+		
+		<insert schemaName="RuleEngine" tableName="Rules">
+			<column name="Id" valueNumeric="537" />
+			<column name="Description" value="Service Category" />
+			<column name="Type" value="PatientAccess.Rules.ServiceCategoryRequired" />
+			<column name="Severity" valueNumeric="4" />
+		</insert>
+
+		<comment>
+			Add rule 537 to ContextRules to Rules for contexts 7,13,21
+		</comment>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="7" />
+			<column name="RuleId" valueNumeric="537" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="13" />
+			<column name="RuleId" valueNumeric="537" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="21" />
+			<column name="RuleId" valueNumeric="537" />
+		</insert>
+
+		<comment>
+			Add rule 537 to CompositeRulesToRules for composite rules 201,474
+		</comment>
+
+		<insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+			<column name="CompositeRuleId" valueNumeric="201" />
+			<column name="Ruleid" valueNumeric="537" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+			<column name="CompositeRuleId" valueNumeric="474" />
+			<column name="Ruleid" valueNumeric="537" />
+		</insert>
+
+	</changeSet>
+
+  <changeSet id="D0335F38-04C0-4C67-A01B-33AA850C281F" author="Abhijeet.Hambir">
+    <comment>
+      DOFR DMND3704- Add Service Category Required Rule 537 for contexts 8,20
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="537" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="537" />
+    </insert>
+
+  </changeSet>
+
+  <changeSet id="83AE993B-2B68-4FAD-8446-BD26C5484F22" author="Abhijeet.Hambir">
+    <comment>
+      Add rule 537 to ContextRules to Rules for contexts 28
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="537" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

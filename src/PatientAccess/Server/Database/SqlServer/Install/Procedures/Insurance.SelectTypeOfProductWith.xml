@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Insurance.SelectTypeOfProductWith.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Insurance.SelectTypeOfProductWith
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Insurance.SelectTypeOfProductWith
+        @ProductTypeId int
+      AS
+      BEGIN
+
+      SELECT
+        Id AS Oid,
+        Description
+      FROM
+        Insurance.ProductTypes
+      WHERE
+        Id = @ProductTypeId
+
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Insurance.SelectTypeOfProductWith TO db_apionly
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Insurance.SelectTypeOfProductWith FROM db_apionly
+      DROP PROCEDURE Insurance.SelectTypeOfProductWith;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

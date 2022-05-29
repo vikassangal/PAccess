@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.48\2019_02_11_12268.xml">
+  <changeSet id="0A49EFF0-5B88-4F4E-AC1C-3666EBC4BAD3" author="Hemant.Kumar" context="Local,Dev,Test">
+    <comment>
+      Load Facility.FacilityExtendedSettings for Authorize Portal User enabled in Facilities. Only DHF is enabled in iTest
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="DEC25DE9-29E6-4967-A480-04C30A2CBD60" author="Hemant.Kumar" context="Model">
+    <comment>
+      Load Facility.FacilityExtendedSettings. Only DHF is enabled in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="354" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <comment>
+      Load Facility.FacilityExtendedSettings. CGX((946) is enabled in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="946" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <comment>
+      Load Facility.FacilityExtendedSettings. FLX((945)  to enable in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="945" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="93BBD72B-B469-42F2-A73A-295596468A61" author= "Hemant.Kumar" context="Beta">
+    <comment>
+      Load Facility.FacilityExtendedSettings. The entries are for production facilities and their corresponding training facilities.
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="332" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="932" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="372" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="972" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="368" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      
+      <column name="FacilityId" value="968" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+  </changeSet>
+
+  <changeSet id="F75EA6D6-7055-4AFD-95AE-35747FD52EE2" author= "Hemant.Kumar" context="Prod">
+    <comment>
+      Load Facility.FacilityExtendedSettings. The entries are for production facilities and their corresponding training facilities.
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="358" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="958" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="25" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="925" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="12" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="912" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="381" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="981" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="384" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="984" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="371" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="971" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="373" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      
+      <column name="FacilityId" value="973" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="364" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="964" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="778" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="978" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="9" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="109" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="23" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="123" />
+      <column name="Name" value="IsAuthorizePortalUserEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+</databaseChangeLog>

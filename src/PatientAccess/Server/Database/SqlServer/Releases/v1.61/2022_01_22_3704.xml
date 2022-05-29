@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_01_22_3704.xml">
+	
+	<changeSet id="6920C72F-2298-4C69-8375-510CA83A4522" author="Abhijeet.Hambir" context="Local,Dev,Test">
+		<comment>
+			Add DEL:FVR and ICE:FVR mapping in facilityextendedsetting used for dev testing
+		</comment>
+
+		<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+			<column name="FacilityId" value="6" />
+			<column name="Name" value="DOFRFacilityMappingforTesting" />
+			<column name="Value" value="FVR" />
+		</insert>
+		<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+			<column name="FacilityId" value="98" />
+			<column name="Name" value="DOFRFacilityMappingforTesting" />
+			<column name="Value" value="FVR" />
+		</insert>
+	
+	</changeSet>
+
+	<changeSet id="685447A7-7B8B-4B1B-94B4-7821FA9D932B" author="Abhijeet.Hambir" context="Model">
+		<comment>
+			Add FVX:FVR mapping in facilityextendedsetting used for model testing
+		</comment>
+
+		<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+			<column name="FacilityId" value="978" />
+			<column name="Name" value="DOFRFacilityMappingforTesting" />
+			<column name="Value" value="FVR" />
+		</insert>
+
+	</changeSet>
+</databaseChangeLog>

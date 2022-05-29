@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.36\2015_04_24_10047.xml">
+
+  <changeSet id="67B3020F-FA47-44CC-B5E6-E43792E7E0F8" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      SR 10047 – patient portal opt in
+    </comment>
+
+    <comment>
+      Insert EmailAddressRequired(508) to Contexts TransferERToOutpatientActivity(24) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+
+    <comment>
+      Insert PatientPortalOptInRequired(507) to Contexts TransferERToOutpatientActivity(24) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="507" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

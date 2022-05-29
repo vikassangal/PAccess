@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.54\_changelog.xml">
+
+  <include relativeToChangelogFile="true" file="2020_10_14_1564.xml" />
+  <include relativeToChangelogFile="true" file="2020_10_23_2592.xml" />
+  <include relativeToChangelogFile="true" file="2020_10_29_2592.xml" />
+  <include relativeToChangelogFile="true" file="2020_11_04_40670.xml"/>
+  <include relativeToChangelogFile="true" file="Schemas.xml"/>
+  <include relativeToChangelogFile="true" file="ViWeb.AddVIWebScanParameter.xml" />
+  <include relativeToChangelogFile="true" file="ViWeb.AddVIWebViewParameter.xml" />
+  <include relativeToChangelogFile="true" file="ViWeb.GetVIwebScanParameter.xml" />
+  <include relativeToChangelogFile="true" file="ViWeb.GetVIwebViewParameter.xml" />
+  <include relativeToChangelogFile="true" file="ViWeb.ViWebScan_Parameter.xml" />
+  <include relativeToChangelogFile="true" file="ViWeb.VIWebViewDocument.xml" />
+
+</databaseChangeLog>

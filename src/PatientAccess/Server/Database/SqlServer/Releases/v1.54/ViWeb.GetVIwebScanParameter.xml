@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.54\ViWeb.GetVIwebScanParameter.xml">
+  <changeSet id="9F02079B-E9C4-4EC1-A47C-CB68B645080D" author="vikas11.sangal">
+    <comment>
+      Create ViWeb.GetVIwebScanParameter
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE [ViWeb].[GetVIwebScanParameter]
+      @id int
+      AS
+      BEGIN
+      SET NOCOUNT ON;
+      select * from ViWeb.ViWebScan_Parameter where id=@id
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON ViWeb.GetVIwebScanParameter TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON ViWeb.GetVIwebScanParameter FROM db_apionly;
+      DROP PROCEDURE ViWeb.GetVIwebScanParameter;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

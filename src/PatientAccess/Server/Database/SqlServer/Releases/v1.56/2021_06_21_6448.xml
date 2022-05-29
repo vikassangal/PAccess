@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.56\2021_06_21_6448.xml">
+  <changeSet id= "38929C83-1127-4462-8890-DA0D752FDBEC" author="Vikas11.sangal" context="Local,Dev,Test">
+  
+    <comment>
+      Load Facility.FacilityExtendedSettings for OKTA Enabled value for ICE is True and False for other Facilities.
+    </comment>
+  
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="98" />
+      <column name="Name" value="IsOKTAEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  
+  </changeSet>
+
+  <changeSet id="D37FF6FA-3675-4EEE-9672-CBF5D6594E95" author="vikas11.sangal" context="Model">
+   
+    <comment>
+      Load Facility.FacilityExtendedSettings for OKTA Enabled value for PRV is True
+      and False for other Facilities.
+    </comment>
+   
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="IsOKTAEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.55\2021_02_01_5041.xml">
+
+  <changeSet id="0326F674-A0EA-4047-93EC-B260362C6F83" author="Smitha.Krishnamurthy" context="Local,Dev">
+
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId='535'</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId='535'</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id='535'</where>
+    </delete>
+    
+    
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>RuleId='536'</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId='536'</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id='536'</where>
+    </delete>
+    
+  </changeSet>
+</databaseChangeLog>

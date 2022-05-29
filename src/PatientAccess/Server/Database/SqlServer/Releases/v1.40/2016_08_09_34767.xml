@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.40\2016_08_09_34767.xml">
+
+  <changeSet id="BCAF9A50-4490-401F-95E7-5471B6248718" author="Smitha.Krishnamurthy">
+
+
+    <comment>
+      Task - 34767 - SR10369 - Make PCP field Required for all Registration activities except for Patient type=0 and Patient type=9
+    </comment>
+
+    <comment>
+      Delete PrimaryCarePhysicianRequiredRule(479) from Contexts - PreRegistrationActivity-8, PreAdmitnewBornActivity-23
+      in ContextsToRules table
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 AND RuleId = 479</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 23 AND RuleId = 479</where>
+    </delete>
+
+  </changeSet>
+</databaseChangeLog>

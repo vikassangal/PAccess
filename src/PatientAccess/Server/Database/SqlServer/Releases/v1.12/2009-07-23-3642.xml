@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-07-23-3642.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Data changes for Bug 3642
+    </comment>
+    <modifyColumn schemaName="DataValidation" tableName="BenefitsResponses">
+      <column name="ResponseStatus" type="int" />
+    </modifyColumn>
+    <rollback>
+      <modifyColumn schemaName="DataValidation" tableName="BenefitsResponses">
+        <column name="ResponseStatus" type="varchar(60)" />
+      </modifyColumn>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

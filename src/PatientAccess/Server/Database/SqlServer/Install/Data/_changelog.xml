@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\_changelog.xml">
+  <include relativeToChangelogFile="true" file="Load.Facility.FollowUpUnits.xml" />
+  <include relativeToChangelogFile="true" file="Load.Facility.Facilities.xml" />
+  <include relativeToChangelogFile="true" file="Load.Facility.FacilityExtendedSettings.xml" />
+  <include relativeToChangelogFile="true" file="Load.DataValidation.TicketTypes.xml" />
+  <include relativeToChangelogFile="true" file="Load.FinancialCounseling.CreditCardTypes.xml" />
+  <include relativeToChangelogFile="true" file="Load.FinancialCounseling.CreditScoreAdviceMappings.xml" />
+  <include relativeToChangelogFile="true" file="Load.FusNote.ActivityCodes.xml" />
+  <include relativeToChangelogFile="true" file="Load.Security.Roles.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.Contexts.xml" />
+  <include relativeToChangelogFile="true" file="Load.Worklist.Worklists.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.Rules.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.CompositeRules.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.Actions.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.CompositeActions.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.RulesToActions.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.ContextsToRules.xml" />
+  <include relativeToChangelogFile="true" file="Load.RuleEngine.CompositeRulesToRules.xml" />
+  <include relativeToChangelogFile="true" file="Load.Worklist.WorklistsToRules.xml" />
+  <include relativeToChangelogFile="true" file="Load.Worklist.SelectionRanges.xml" />
+  <include relativeToChangelogFile="true" file="Load.Worklist.WorklistsToSelectionRanges.xml" />
+  <include relativeToChangelogFile="true" file="Load.Insurance.ProductTypes.xml" />
+  <include relativeToChangelogFile="true" file="Load.Insurance.VerificationRuleTypes.xml" />
+  <include relativeToChangelogFile="true" file="Load.Worklist.Settings.xml" />
+  <include relativeToChangelogFile="true" file="Load.Quartz.Locks.xml" />
+</databaseChangeLog>

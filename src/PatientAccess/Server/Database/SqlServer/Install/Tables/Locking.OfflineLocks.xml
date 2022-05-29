@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Locking.OfflineLocks.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Locking.OfflineLocks Table
+    </comment>
+    <createTable schemaName="Locking" tableName="OfflineLocks">
+      <column name="Handle" type="varchar(100)">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_OfflineLocks" />
+      </column>
+      <column name="Owner" type="varchar(100)">
+        <constraints nullable="false" />
+      </column>
+      <column name="TimePrint" type="datetime">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

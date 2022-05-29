@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\DataValidation.InsertTicket.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create DataValidation.InsertTicket
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE DataValidation.InsertTicket  
+       @TicketId varchar(36),
+       @IsAvailable char(1),
+       @FacilityId int,
+       @TicketTypeId int,
+       @InitiatedOn datetime
+      AS 
+     BEGIN
+
+      IF EXISTS( SELECT Id FROM DataValidation.Tickets WHERE Id = @TicketId )
+         UPDATE 
+          DataValidation.Tickets
+         SET 
+          FacilityId = @FacilityId, 
+          TicketTypeId = @TicketTypeId
+         WHERE 
+          Id = @TicketId
+      ELSE 
+         INSERT INTO
+          DataValidation.Tickets
+         (
+            FacilityId, 
+            Id, 
+            ResultsAreAvailable, 
+            InitiatedOnDate, 
+            TicketTypeId
+         )
+         VALUES 
+         (
+            @FacilityId, 
+            @TicketId, 
+            @IsAvailable, 
+            @InitiatedOn, 
+            @TicketTypeId
+         )
+    END;
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON DataValidation.InsertTicket TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON DataValidation.InsertTicket FROM db_apionly;
+      DROP PROCEDURE DataValidation.InsertTicket;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

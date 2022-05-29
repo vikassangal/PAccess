@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2010-12-05-1190.xml">
+  
+  <changeSet id="9FFDD4F3-3122-4AE5-A99B-12BC6BE9ABD2" author="Smitha.Krishnamurthy">
+    <comment>
+    SR 1190 CompositeRulesToRules for Short registration
+    </comment>
+ 
+    <comment>
+      CompositeRuleToRules LastNameRequired(73),FirstNameRequired(74) ,  DateOfBirthRequired(76) ,
+      MailingAddressRequired(9), MailingAddressPhonePreferred(43) rule, ContactNameRequired(80)    ,
+      ContactPhoneRequired(90) , ContactAreaCodeRequired(444), ContactNamePreferred(92),ContactRelationshipPreferred(89),
+      ContactRelationshipRequired(88), ContactAreacodePreferred(443), ContactPhonePreferred(91),
+      AdmitDateRequired(54), AppointmentRequired(332), GenderRequired(75), EthnicityRequired(7) , 
+      MailingAddressPhoneAreacodeRequired(10), MailingAddressPhonePhoneRequired(11), RaceRequired(16), 
+      SSNNumberRequired(77) to OnShortDemographics(482) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="73" />
+    </insert>   
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="74" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="76" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="43" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="80" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="90" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="444" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="91" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="92" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="89" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="88" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="443" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="54" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="332" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="75" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="16" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="7" />
+    </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="77" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="10" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="11" />
+    </insert>
+
+    <comment>
+      CompositeRuleToRules Admitsource(55), ChiefComplaintRequired(61) ,ProcedureRequired(456)
+      OnsetDateOfSymptomsOrIllnessRequired(96) , PatientTypeRequired(58), HospitalServiceRequired(60),
+      PatientInClinicalStudyPreferred(457),DiagnosisClinicCodeRequired(253)
+      rule to   OnShortDiagnosis(474) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="55" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="61" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="456" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="96" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="58" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="60" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="457" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="253" />
+    </insert>
+
+    <comment>
+      CompositeRuleToRules ReferringPhysicianRequired(81)  ,AdmittingPhysicianRequired(82), PrimaryCarePhysician(479)
+      rule to    OnShortDiagnosis(474) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="81" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="82" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+  
+    <comment>
+      CompositeRuleToRules PersonFirstNameRequired(130) ,PersonLastNameRequired(131)   ,
+       PersonSSNRequired(139) ,PersonPhoneAreaCodeRequired(480), PersonPhoneNumberrequired(481) ,GuarantorAddressRequired(119)
+      rule to OnShortGuarantor(476) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="130" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="131" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="139" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="119" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="480" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="481" />
+    </insert>
+     
+    <comment>
+      CompositeRuleToRules  PersonEmployerPreferrred(127),
+      PersonEmployerAddressRequired(179) rule to OnInsuredFormForPrimaryInsurance(199) compositeRule
+    </comment>
+
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="199" />
+      <column name="RuleId" valueNumeric="127" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="199" />
+      <column name="RuleId" valueNumeric="179" />
+    </insert> 
+
+    <comment>
+      CompositeRuleToRules    PersonEmployerPreferrred(127),PersonEmployerAddressRequired(179) rule to OnInsuredFormForSecondaryInsurance(207) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="207" />
+      <column name="RuleId" valueNumeric="127" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="207" />
+      <column name="RuleId" valueNumeric="179" />
+    </insert>
+
+    <comment>
+      CompositeRuleToRules NPPRequired(49),COSRequired(50)rule 
+      to OnShortRegulatory(477) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="RuleId" valueNumeric="49" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="RuleId" valueNumeric="50" />
+    </insert>
+    
+    
+    <comment>
+      CompositeRuleToRules ConditionCodeRequired(245)
+      rule to OnShortBilling(478) compositeRule
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="478" />
+      <column name="RuleId" valueNumeric="245" />
+    </insert>
+    
+       
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=482 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=474 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=476 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=477 </where>
+      </delete>
+     <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=478 </where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

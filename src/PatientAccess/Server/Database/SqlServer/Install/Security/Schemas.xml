@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Security\Schemas.xml">
+  <changeSet id="1" author="Jon.Lent" runInTransaction="false">
+    <comment>
+      Create schemas
+    </comment>
+    <sql>
+      CREATE SCHEMA [Facility] AUTHORIZATION [dbo];
+      CREATE SCHEMA [DataValidation] AUTHORIZATION [dbo];
+      CREATE SCHEMA [FusNote] AUTHORIZATION [dbo];
+      CREATE SCHEMA [FinancialCounseling] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Security] AUTHORIZATION [dbo];
+      CREATE SCHEMA [RuleEngine] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Insurance] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Worklist] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Utility] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Logging] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Quartz] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Locking] AUTHORIZATION [dbo];
+      CREATE SCHEMA [Announcement] AUTHORIZATION [dbo];
+      CREATE SCHEMA [CrashDump] AUTHORIZATION [dbo];
+    </sql>
+    <rollback>
+      <sql>
+      DROP SCHEMA [Facility];
+      DROP SCHEMA [DataValidation];
+      DROP SCHEMA [FusNote];
+      DROP SCHEMA [FinancialCounseling];
+      DROP SCHEMA [Security];
+      DROP SCHEMA [RuleEngine];
+      DROP SCHEMA [Insurance];
+      DROP SCHEMA [Worklist];
+      DROP SCHEMA [Utility];
+      DROP SCHEMA [Logging];
+      DROP SCHEMA [Quartz];
+      DROP SCHEMA [Locking];
+      DROP SCHEMA [Announcement];
+      DROP SCHEMA [CrashDump];
+      </sql>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

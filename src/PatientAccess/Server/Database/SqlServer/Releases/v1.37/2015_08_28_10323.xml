@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.37\2015_08_28_10323.xml">
+
+  <changeSet id="6CFB0C00-783E-4878-A934-AE70964D1A7F" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      SR 10323 – Revise Email Attributes and Consent Fields for all PAS Registrations
+    </comment>
+
+    <comment>
+      insert EmailReasonRequired (518) to Rules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="518" />
+      <column name="Description" value="Email reason" />
+      <column name="Type" value="PatientAccess.Rules.EmailReasonRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      Insert EmailReasonRequired(518) to Contexts (7,10,13,21) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="518" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="518" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="518" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="518" />
+    </insert>
+    <comment>
+      Insert EmailaddressPreferred(512) to Contexts (7,8,10,13,23) in ContextsToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+
+    <comment>
+      Insert GurantorEmailaddressPreferred(513) to Contexts (7,8,10,13,23) in ContextsToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+
+    <comment>
+      Insert EmailReasonRequired(518) to Contexts (482 , 198) in CompositeRulesToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="Ruleid" valueNumeric="518" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="518" />
+    </insert>
+
+    <comment>
+      Insert Patient portal opt in Reqired(507) to context(211) in CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+    <comment>
+      Insert EmailaddressPreferred(512) to context(198) in CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="512" />
+    </insert>
+    
+    <comment>
+      Insert Guarantor email address Preferred(513) to context(208) in CompositeRulesToRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="208" />
+      <column name="Ruleid" valueNumeric="513" />
+    </insert>
+    
+    <comment>
+       Modify Description (517)
+    </comment>
+
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Hosp Comm opt in" />
+      <column name="Type" value="PatientAccess.Rules.HospitalCommunicationOptInRequired" />
+      <where>Id=517</where>
+    </update>
+
+
+    <comment>
+      Delete  Patient portal opt in Reqired(507) from   in CompositeRulesToRules table(201)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 201 AND RuleId = 507</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 474 AND RuleId = 507</where>
+    </delete>
+    <comment>
+      Delete  GuarantorEmailAddressRequired(514) from  CompositeRulesToRules table(476)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 476 AND RuleId = 514</where>
+    </delete>
+
+  </changeSet>
+</databaseChangeLog>

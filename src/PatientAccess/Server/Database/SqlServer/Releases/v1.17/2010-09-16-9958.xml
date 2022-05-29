@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.17\2010-09-16-9958.xml">
+
+
+  <changeSet id="BEC496FC-25CE-4E27-82E9-8838D10981B1" author="Ahmed.Chaudhary">
+    <comment>
+      Give permission to alter and edit the table
+    </comment>
+
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Locking.OfflineLocks TO db_apionly;
+      GRANT ALTER ON Locking.OfflineLocks TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE SELECT,INSERT,UPDATE,DELETE ON Locking.OfflineLocks FROM db_apionly;
+      REVOKE ALTER ON Locking.OfflineLocks FROM db_apionly;
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="C94655BE-A567-4EA9-A859-D7B47B4B0BEA" author="Ahmed.Chaudhary">
+    <comment>Deleting any existing locks to ease addition of new column</comment>
+    <delete schemaName="Locking" tableName="OfflineLocks" />
+
+    <comment>No rollback needed for this changeset, therefore adding an empty rollback tag as prescribed by the liquibase documentation</comment>
+    <rollback/>
+
+  </changeSet>
+
+  <changeSet id="0C44756F-5AF7-4FBA-8011-DD7CBD2CDFF0" author="Ahmed.Chaudhary">
+    <comment>
+      Adding a column to the locks table so that we can have multiple types of locks. We have to use a default value for the new column as it is a non nullable columns.
+      Since currently we only have one type of lock we will use the type assigned to it(FacilityForNewEmployerManagementFeature) as the default value)
+    </comment>
+
+    <addColumn schemaName="Locking" tableName="OfflineLocks">
+      <column name="ResourceType" type="varchar(128)">
+        <constraints nullable="false" />
+      </column>
+    </addColumn>
+  </changeSet>
+  
+  <changeSet id="B780E541-B5C7-4984-8072-52660AC5BD37" author="Ahmed.Chaudhary">
+    <comment>
+      Adding a check constrainted to restrict the values of the resource types,
+      since we are going to have only two valid values for resource type a check constraint is being used instead of a lookup table for simplicity.
+      As the number of resource types grows we should implement a table for resource types.
+    </comment>
+
+    <sql>
+      ALTER TABLE [Locking].[OfflineLocks]  WITH CHECK ADD  CONSTRAINT [CK_IsValidResourceType] CHECK  (([ResourceType]='FacilityForNewEmployerManagementFeature' OR [ResourceType]='OnlinePreregistrationSubmission'))
+      ALTER TABLE [Locking].[OfflineLocks] CHECK CONSTRAINT [CK_IsValidResourceType]
+    </sql>
+
+    <rollback>
+      <sql>
+        ALTER TABLE [Locking].[OfflineLocks] DROP CONSTRAINT [CK_IsValidResourceType]
+      </sql>
+    </rollback>
+    
+  </changeSet>
+  <changeSet id="C9A5F2B9-3520-410B-9D3E-8E40F435C792" author="Ahmed.Chaudhary">
+    <comment>
+      Drop stored procedures that are no longer needed
+    </comment>
+
+    <sql>
+      <comment>granting alter on the schema so that the stored procedures can be removed</comment>
+      GRANT ALTER ON SCHEMA :: Locking TO db_apionly
+
+      DROP PROCEDURE [Locking].[DeleteLockEntry]
+      DROP PROCEDURE [Locking].[GetLockEntryCount]
+      DROP PROCEDURE [Locking].[GetLockHandleCount]
+      DROP PROCEDURE [Locking].[SaveLockEntry]
+      DROP PROCEDURE [Locking].[UpdateLockEntry]
+    </sql>
+
+    <rollback>
+      <comment>The original changesets used to create something can be referenced in a rollback but since our older change sets are not uniquely indentified
+      therefore we have to copy paste the stored procedure creation</comment>
+
+      <sql>
+        REVOKE ALTER ON SCHEMA :: Locking FROM db_apionly
+      </sql>
+      <comment>
+        Create Locking.DeleteLockEntry
+      </comment>
+      <createProcedure>
+        <![CDATA[
+      CREATE PROCEDURE Locking.DeleteLockEntry
+        @LockHandle VARCHAR(100),
+        @LockOwner VARCHAR(100)
+      AS
+      BEGIN
+
+        DELETE FROM 
+          OfflineLocks 
+        WHERE 
+          Handle = @LockHandle
+          AND
+          Owner = @LockOwner
+
+      END;      
+      ]]>
+      </createProcedure>
+      <sql>
+        GRANT EXECUTE ON Locking.DeleteLockEntry TO db_apionly;
+      </sql>
+
+      <comment>
+        Create Locking.GetLockEntryCount
+      </comment>
+      <createProcedure>
+        <![CDATA[
+      CREATE PROCEDURE Locking.GetLockEntryCount
+        @LockHandle VARCHAR(100),
+        @LockOwner VARCHAR(100)
+      AS
+      BEGIN
+
+        SELECT 
+          COUNT(1) 
+        FROM 
+          Locking.OfflineLocks 
+        WHERE 
+          Handle = @LockHandle 
+          AND 
+          Owner = @LockOwner
+
+      END;      
+      ]]>
+      </createProcedure>
+      <sql>
+        GRANT EXECUTE ON Locking.GetLockEntryCount TO db_apionly;
+      </sql>
+
+
+      <comment>
+        Create Locking.GetLockHandleCount
+      </comment>
+      <createProcedure>
+        <![CDATA[
+      CREATE PROCEDURE Locking.GetLockHandleCount
+        @LockHandle VARCHAR(100)
+      AS
+      BEGIN
+
+        SELECT 
+          COUNT(1) 
+        FROM 
+          Locking.OfflineLocks 
+        WHERE 
+          Handle = @LockHandle 
+
+      END;      
+      ]]>
+      </createProcedure>
+      <sql>
+        GRANT EXECUTE ON Locking.GetLockHandleCount TO db_apionly;
+      </sql>
+
+      <comment>
+        Create Locking.SaveLockEntry
+      </comment>
+      <createProcedure>
+        <![CDATA[
+      CREATE PROCEDURE Locking.SaveLockEntry
+        @LockHandle VARCHAR(100),
+        @LockOwner VARCHAR(100)
+      AS
+      BEGIN
+
+        INSERT INTO OfflineLocks 
+          ( Handle, 
+            Owner, 
+            TimePrint ) 
+        VALUES 
+          ( @LockHandle,
+            @LockOwner, 
+            CURRENT_TIMESTAMP )
+
+      END;      
+      ]]>
+      </createProcedure>
+      <sql>
+        GRANT EXECUTE ON Locking.SaveLockEntry TO db_apionly;
+      </sql>
+
+      <comment>
+        Create Locking.UpdateLockEntry()
+      </comment>
+      <createProcedure>
+        <![CDATA[
+      CREATE PROCEDURE Locking.UpdateLockEntry
+        @LockHandle VARCHAR(100),
+        @LockOwner VARCHAR(100)
+      AS
+      BEGIN
+
+        UPDATE 
+          Locking.OfflineLocks 
+        SET
+          TimePrint = CURRENT_TIMESTAMP
+        WHERE 
+          Handle = @LockHandle
+          AND
+          Owner = @LockOwner
+
+      END;      
+      ]]>
+      </createProcedure>
+      <sql>
+        GRANT EXECUTE ON Locking.UpdateLockEntry TO db_apionly;
+      </sql>
+      
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Worklist.SelectionRanges.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Worklist.SelectionRanges
+    </comment>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="1" />
+      <column name="Description" value="Today" />
+      <column name="RangeInDays" valueNumeric="0" />
+      <column name="DisplayOrder" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="2" />
+      <column name="Description" value="Tommorrow" />
+      <column name="RangeInDays" valueNumeric="1" />
+      <column name="DisplayOrder" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="3" />
+      <column name="Description" value="Next 3 days" />
+      <column name="RangeInDays" valueNumeric="3" />
+      <column name="DisplayOrder" valueNumeric="7" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="4" />
+      <column name="Description" value="Next 10 days" />
+      <column name="RangeInDays" valueNumeric="10" />
+      <column name="DisplayOrder" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="5" />
+      <column name="Description" value="Last 3 days" />
+      <column name="RangeInDays" valueNumeric="-3" />
+      <column name="DisplayOrder" valueNumeric="3" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="6" />
+      <column name="Description" value="Last 10 Days" />
+      <column name="RangeInDays" valueNumeric="-10" />
+      <column name="DisplayOrder" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="7" />
+      <column name="Description" value="Yesterday" />
+      <column name="RangeInDays" valueNumeric="-1" />
+      <column name="DisplayOrder" valueNumeric="4" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="8" />
+      <column name="Description" value="All" />
+      <column name="RangeInDays" />
+      <column name="DisplayOrder" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="SelectionRanges">
+      <column name="Id" valueNumeric="9" />
+      <column name="Description" value="Date Range" />
+      <column name="RangeInDays" />
+      <column name="DisplayOrder" valueNumeric="9" />
+    </insert>
+    <rollback>
+      delete from Worklist.SelectionRanges where Id between 1 and 9;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

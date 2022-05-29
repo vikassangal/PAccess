@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.38\2016_01_20_10515.xml">
+  <changeSet id="B5069939-B617-47AF-8E38-5B3B0A7089F3" author="Arvind.ginka">
+
+    <comment>
+      Add new Rules for RuleEngine.Rules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules ">
+      <column name="Id" valueNumeric="521" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorDateOfBirthRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="522" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorDateOfBirthPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <comment>
+      Load RuleEngine.CompositeRulesToRules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="208" />
+      <column name="RuleId" valueNumeric="521" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="208" />
+      <column name="RuleId" valueNumeric="522" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="521" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="522" />
+    </insert>
+    <comment>
+      Load New Rules To ContextToRules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="521" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="521" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="521" />
+     </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="521" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="521" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="522" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="20" />
+        <column name="RuleId" valueNumeric="522" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="23" />
+        <column name="RuleId" valueNumeric="522" />
+      </insert>
+    
+  </changeSet>
+</databaseChangeLog>
+
+

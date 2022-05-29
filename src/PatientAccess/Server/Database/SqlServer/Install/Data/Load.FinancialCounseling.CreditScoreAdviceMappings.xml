@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.FinancialCounseling.CreditScoreAdviceMappings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load FinancialCounseling.CreditScoreAdviceMappings
+    </comment>
+    <insert schemaName="FinancialCounseling" tableName="CreditScoreAdviceMappings">
+      <column name="BeginScore" valueNumeric="0" />
+      <column name="EndScore" valueNumeric="599" />
+      <column name="CreditAdvice" value="Be skeptical." />
+    </insert>
+    <insert schemaName="FinancialCounseling" tableName="CreditScoreAdviceMappings">
+      <column name="BeginScore" valueNumeric="600" />
+      <column name="EndScore" valueNumeric="699" />
+      <column name="CreditAdvice" value="Be aggressive." />
+    </insert>
+    <insert schemaName="FinancialCounseling" tableName="CreditScoreAdviceMappings">
+      <column name="BeginScore" valueNumeric="700" />
+      <column name="EndScore" valueNumeric="850" />
+      <column name="CreditAdvice" value="Be optimistic." />
+    </insert>
+    <rollback>
+      DELETE FROM FinancialCounseling.CreditScoreAdviceMappings WHERE BeginScore IN (0,600,700);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

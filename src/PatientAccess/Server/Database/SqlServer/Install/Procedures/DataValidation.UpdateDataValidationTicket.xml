@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\DataValidation.UpdateDataValidationTicket.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create DataValidation.UpdateDataValidationTicket
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE DataValidation.UpdateDataValidationTicket  
+         @TicketId varchar(36),
+         @FacilityId int,
+         @AccountNumber int = NULL,
+         @MedicalRecordNumber int = NULL,
+         @IsAvailable char(1),
+         @IsViewed char(1) = NULL,
+         @IsFusnoteSent char(1),
+         @TicketTypeId int,
+         @ParseStrategy varchar(100) = NULL,
+         @CoverageOrderOid int = NULL,
+         @PlanCategoryOid int = NULL,
+         @InsurancePlanCode varchar(30) = NULL,
+         @ResponseGroupNumber varchar(30) = NULL,
+         @ResponseInsuredDOB varchar(max) = NULL,
+         @ResponseInsuredFirstName varchar(35) = NULL,
+         @ResponseInsuredMiddleInit char(1) = NULL,
+         @ResponseInsuredLastName varchar(35) = NULL,
+         @ResponsePayorName varchar(60) = NULL,
+         @ResponseSubscriberId varchar(80) = NULL,
+         @RequestInsuredDob varchar(35) = NULL,
+         @RequestInsuredFirstName varchar(35) = NULL,
+         @RequestInsuredMiddleInit char(1) = NULL,
+         @RequestInsuredLastName varchar(35) = NULL,
+         @RequestPayorName varchar(60) = NULL,
+         @RequestSubscriberID varchar(80) = NULL,
+         @ResponseStatus int = NULL,
+         @ResponseAuthCo varchar(100) = NULL,
+         @ResponseAuthCoPhone varchar(20) = NULL
+      AS 
+       BEGIN
+          
+          /*
+          *    First, try to update where the results available flag is 0
+          *    If that does not succeed (because we had an intervening update from DV to post
+          *    the results available flag), then update everything besides that flag
+          */
+          UPDATE 
+            DataValidation.Tickets
+          SET 
+            FacilityId = @FacilityId, 
+            AccountNumber = @AccountNumber, 
+            MedicalRecordNumber = @MedicalRecordNumber, 
+            ResultsAreAvailable = @IsAvailable, 
+            Viewed = @IsViewed, 
+            FusNoteSent = @IsFusnoteSent, 
+            TicketTypeId = @TicketTypeId
+          WHERE 
+            Id = @TicketId 
+            AND 
+            ResultsAreAvailable = 'N'
+
+          IF( @@ROWCOUNT < 1 )
+            UPDATE 
+              DataValidation.Tickets
+            SET 
+              FacilityId = @FacilityId, 
+              AccountNumber = @AccountNumber, 
+              MedicalRecordNumber = @MedicalRecordNumber, 
+              Viewed = @IsViewed, 
+              FusNoteSent = @IsFusnoteSent, 
+              TicketTypeId = @TicketTypeId
+            WHERE 
+              Id = @TicketId 
+
+          IF NOT EXISTS( SELECT TicketId FROM DataValidation.BenefitsResponses WHERE TicketId = @TicketId ) 
+             AND 
+             ( LEN( RTRIM( @RequestInsuredLastName ) ) > 0 
+                OR 
+               LEN( RTRIM( @ResponseInsuredLastName ) ) > 0 )
+             INSERT INTO
+              DataValidation.BenefitsResponses
+                (TicketId)
+              VALUES 
+                (@TicketId)
+
+          IF( LEN( RTRIM( @RequestInsuredLastName ) ) > 0 
+                OR 
+              LEN( RTRIM( @ResponseInsuredLastName ) ) > 0 )
+             UPDATE 
+               DataValidation.BenefitsResponses
+             SET 
+               ResponseParseStrategy = @ParseStrategy, 
+               CoverageOrderId = @CoverageOrderOid, 
+               PlanCategoryId = @PlanCategoryOid, 
+               InsurancePlanCode = @InsurancePlanCode, 
+               ResponseGroupNumber = @ResponseGroupNumber, 
+               ResponseInsuredDob = @ResponseInsuredDOB, 
+               ResponseInsuredFirstName = @ResponseInsuredFirstName, 
+               ResponseInsuredMiddleInit = @ResponseInsuredMiddleInit, 
+               ResponseInsuredLastName = @ResponseInsuredLastName, 
+               ResponsePayor = @ResponsePayorName, 
+               ResponseSubscriberId = @ResponseSubscriberID, 
+               RequestInsuredDob = @RequestInsuredDOB, 
+               RequestInsuredFirstName = @RequestInsuredFirstName, 
+               RequestInsuredMiddleInit = @RequestInsuredMiddleInit, 
+               RequestInsuredLastName = @RequestInsuredLastName, 
+               RequestPayor = @RequestPayorName, 
+               RequestSubscriberId = @RequestSubscriberID, 
+               ResponseStatus = @ResponseStatus, 
+               ResponseAuthCo = @ResponseAuthCo, 
+               ResponseAuthCoPhone = @ResponseAuthCoPhone
+             WHERE 
+               TicketId = @TicketId
+       END;]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON DataValidation.UpdateDataValidationTicket TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON DataValidation.UpdateDataValidationTicket FROM db_apionly;
+      DROP PROCEDURE DataValidation.UpdateDataValidationTicket;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

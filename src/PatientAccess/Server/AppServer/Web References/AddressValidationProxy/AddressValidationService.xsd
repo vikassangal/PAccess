@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:AddressValidationService/types" targetNamespace="urn:AddressValidationService/types" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EDVServiceException" type="tns:EDVServiceException" />
+  <xs:element name="validateAddress" type="tns:validateAddress" />
+  <xs:element name="validateAddressResponse" type="tns:validateAddressResponse" />
+  <xs:complexType name="validateAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressValidationRequest_1" type="tns:addressValidationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addressValidationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:serviceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="tns:address" />
+          <xs:element name="truncationLimit" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="serviceRequest">
+    <xs:sequence>
+      <xs:element name="customerId" type="xs:int" />
+      <xs:element minOccurs="0" name="hspcd" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="state" type="xs:string" />
+      <xs:element minOccurs="0" name="street" type="xs:string" />
+      <xs:element minOccurs="0" name="street2" type="xs:string" />
+      <xs:element minOccurs="0" name="zip" type="xs:string" />
+      <xs:element minOccurs="0" name="zipExtension" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validateAddressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="tns:addressValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addressValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="matchingAddresses" nillable="true" type="tns:extendedAddress" />
+      <xs:element minOccurs="0" name="status" type="tns:addressValidationStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="extendedAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fipsStateAndCounty" type="tns:fipsStateAndCounty" />
+          <xs:element minOccurs="0" name="postDirectional" type="xs:string" />
+          <xs:element minOccurs="0" name="preDirectional" type="xs:string" />
+          <xs:element minOccurs="0" name="secAddressNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="secAddressType" type="xs:string" />
+          <xs:element minOccurs="0" name="streetName" type="xs:string" />
+          <xs:element minOccurs="0" name="streetNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="streetSuffix" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="fipsStateAndCounty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="countyCode" type="xs:string" />
+      <xs:element minOccurs="0" name="stateCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addressValidationStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="statusCode" type="xs:string" />
+      <xs:element minOccurs="0" name="statusDescription" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EDVServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

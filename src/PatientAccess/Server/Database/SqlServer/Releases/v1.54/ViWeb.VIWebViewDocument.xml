@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.54\ViWeb.VIWebViewDocument.xml">
+  <changeSet id="10AB27D8-B585-4193-AE02-4D2D77B98BBB" author="vikas11.sangal">
+    <comment>
+      Create ViWeb.VIWebViewDocument Table
+    </comment>
+    <createTable schemaName="ViWeb" tableName="VIWebViewDocument">
+      <column name="ID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_VIWEB_VIEW" />
+      </column>
+      <column name="hspCode" type="varchar(50)" >
+        <constraints nullable="false" />
+      </column>
+      <column name="docID" type="varchar(5000)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

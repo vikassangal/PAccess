@@ -1,0 +1,938 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B707D163-69FA-4BE2-B8D2-DBD76F5F8673}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>PatientAccess.AppServer</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PatientAccess</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccAuxPath>SAK</SccAuxPath>
+    <GenerateResourceNeverLockType>true</GenerateResourceNeverLockType>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/PatientAccess.AppServer/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="ClosedXML, Version=0.95.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\ClosedXML.0.95.3\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Quartz\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net, Version=1.2.0.2, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Quartz\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\..\lib\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.DB2.iSeries, Version=10.0.0.0, Culture=neutral, PublicKeyToken=9cdb2ebfb1f93a26">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IBM.Data.DB2.iSeries.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\..\lib\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\lib\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\..\lib\NHibernate.3.3.3.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=1.0.1.2, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Quartz\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\Common\PatientAccess.Common.csproj">
+      <Project>{0DC77477-5CF1-4DAA-B1A7-7950C5E6D91B}</Project>
+      <Name>PatientAccess.Common</Name>
+    </ProjectReference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax_loader_dark.gif" />
+    <Content Include="Configuration\Downloads.xml.xslt" />
+    <Content Include="Configuration\PatientAccessClientManifest.xml.xslt" />
+    <Content Include="Configuration\PatientAccessKeys.xml" />
+    <Content Include="Configuration\QuartzJobs.xml.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CovidBulkUpload.aspx" />
+    <Content Include="Default.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Diagnostics.aspx" />
+    <Content Include="Downloads.xml" />
+    <Content Include="Downloads\MicrosoftHotFixes\226395_EN\NDP1.1sp1-KB893005-X86.exe" />
+    <Content Include="Downloads\MicrosoftHotFixes\226395_EN\Readme.txt" />
+    <Content Include="Downloads\MicrosoftHotFixes\237428_EN\NDP1.1sp1-KB899511-X86.exe" />
+    <Content Include="Downloads\MicrosoftHotFixes\237428_EN\Readme.txt" />
+    <Content Include="EmsEventProcessingServices\BenefitsValidationHandlerService.asmx" />
+    <Content Include="EmsEventProcessingServices\CreditValidationHandlerService.asmx" />
+    <Content Include="EmsEventProcessingServices\PreRegistrationHandlerService.asmx" />
+    <Content Include="FaceSheet.htm">
+    </Content>
+    <Content Include="Global.asax">
+    </Content>
+    <Content Include="Images\blcorner.gif" />
+    <Content Include="Images\brCorner.gif" />
+    <Content Include="Images\headerbg.gif" />
+    <Content Include="Images\PA_icon.ico" />
+    <Content Include="Images\topHeader.png" />
+    <Content Include="jquery.min.js" />
+    <Content Include="Loading.htm" />
+    <Content Include="Log4Net.config" />
+    <EmbeddedResource Include="EmsEventProcessingServices\BenefitsValidationHandlerService.asmx.resx">
+      <DependentUpon>BenefitsValidationHandlerService.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmsEventProcessingServices\CreditValidationHandlerService.asmx.resx">
+      <DependentUpon>CreditValidationHandlerService.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAccess\AppServer\Persistence\CreditReport.xslt" />
+    <EmbeddedResource Include="PatientAccess\AppServer\Persistence\HawkAlert.xslt" />
+    <Content Include="PatientAccess\AppServer\Services\OrganizationalService\TenetHierarchy.xml" />
+    <Content Include="PatientMyTurnUpload.aspx" />
+    <Content Include="QuartzJobs.xml" />
+    <EmbeddedResource Include="Default.aspx.resx">
+      <DependentUpon>Default.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BenefitResponseSchema.xsd" />
+    <Content Include="Configuration\Web.config.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configuration\Log4Net.config.xslt" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ClassDiagram1.cd" />
+    <None Include="Configuration\Generate.proj" />
+    <EmbeddedResource Include="Resources\GuidType.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PreRegistrationData.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="PatientAccess\AppServer\Persistence\DB2Persistence\Extensions.ClassLibrary.DB2Persistence.dll.config" />
+    <Content Include="PatientAccess\AppServer\Persistence\Persistence\Extensions.Classlibrary.Persistence.dll.config" />
+    <Content Include="PatientAccess\AppServer\Services\OrganizationalService\eCare.OrganizationalService.dll.config" />
+    <Content Include="PatientAccess\AppServer\Services\OrganizationalService\OrganizationalService.dll.config" />
+    <Content Include="packages.config" />
+    <None Include="Service References\BenefitsValidation5010Proxy\EDVBVS.wsdl" />
+    <Content Include="Service References\BenefitsValidation5010Proxy\PatientAccess.BenefitsValidation5010Proxy.benefitsValidationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\IdentityHubService\IdentityHub.wsdl" />
+    <None Include="Service References\BenefitsValidation5010Proxy\configuration91.svcinfo" />
+    <None Include="Service References\BenefitsValidation5010Proxy\configuration.svcinfo" />
+    <None Include="Service References\BenefitsValidation5010Proxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.Dictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.FederatedResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.GrpHeadWs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.Member.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.RelationshipSearchCountMapEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.RelationshipSearchMapEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.RelLinkWs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.RelXtskWs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IdentityHubService\PatientAccess.IdentityHubService.SegDefWs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\PriorAccountBalanceProxy\EDVPBS.wsdl" />
+    <Content Include="Service References\PriorAccountBalanceProxy\PatientAccess.PriorAccountBalanceProxy.priorAccountBalanceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Web References\AdamSecurityService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AdamSecurityService\SecurityService.wsdl" />
+    <None Include="Service References\IdentityHubService\configuration91.svcinfo" />
+    <None Include="Service References\IdentityHubService\configuration.svcinfo" />
+    <None Include="Service References\IdentityHubService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PriorAccountBalanceProxy\configuration91.svcinfo" />
+    <None Include="Service References\PriorAccountBalanceProxy\configuration.svcinfo" />
+    <None Include="Service References\PriorAccountBalanceProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="VIWebCall.aspx" />
+    <Content Include="Web References\AddressValidationProxy\addressValidationResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\AddressValidationProxy\AddressValidationService.wsdl" />
+    <None Include="Web References\AddressValidationProxy\AddressValidationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\AddressValidationProxy\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\BenefitsValidationFusProxy\dropFusNoteResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CFDBLookupProxy\CFDBLookupService.disco" />
+    <Compile Include="..\..\Solution Items\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="CovidBulkUpload.aspx.cs">
+      <DependentUpon>CovidBulkUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CovidBulkUpload.aspx.designer.cs">
+      <DependentUpon>CovidBulkUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Diagnostics.aspx.cs">
+      <DependentUpon>Diagnostics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Diagnostics.aspx.designer.cs">
+      <DependentUpon>Diagnostics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmsEventProcessingServices\BenefitsValidationHandlerService.asmx.cs">
+      <DependentUpon>BenefitsValidationHandlerService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EmsEventProcessingServices\CreditValidationHandlerService.asmx.cs">
+      <DependentUpon>CreditValidationHandlerService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EmsEventProcessingServices\PreRegistrationHandlerService.asmx.cs">
+      <DependentUpon>PreRegistrationHandlerService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientAccess\AppServer\Configuration\Message.cs" />
+    <Compile Include="PatientAccess\AppServer\Configuration\MessageCatalog.cs" />
+    <Compile Include="PatientAccess\AppServer\Http\UnhandledExceptionModule.cs" />
+    <Compile Include="PatientAccess\AppServer\Jobs\PurgeNewEmployerAddressesJob.cs" />
+    <Compile Include="PatientAccess\AppServer\Jobs\Db2Job.cs" />
+    <Compile Include="PatientAccess\AppServer\Jobs\PurgeNewEmployersJob.cs" />
+    <Compile Include="PatientAccess\AppServer\Jobs\PurgeOldOnlinePreregistrationSubmissions.cs" />
+    <Compile Include="PatientAccess\AppServer\Jobs\SqlServerJob.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AbstractPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopyBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\AccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\BinaryCloneAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\WalkinAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\QuickAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\IAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\NewbornAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\PreMseAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountCopy\ShortRegistrationAccountCopyStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AccountPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AddressPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AddressReaderStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AdmitSourcePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\InterfacilityTransferPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AidCodeBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ServiceCategoryBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DOFRInitiateBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OKTAUserBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\SuffixBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AnnouncementBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AuthorizationStatusPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\BenefitsCategoryPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\BrokerExceptionFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CacheKeys.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CacheManager.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CancelDischargeTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CancelInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CancelOutpatientDischargeTransactionCoordniator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CancelPreRegTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ClientConfigurationBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CodedDiagnosisPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CodesBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ConditionCodePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ConditionOfServiceBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ConfidentialCodePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CellPhoneConsentBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\AbstractBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\CachingBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\DatabaseServiceException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\ExecutionPolicy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\PersistenceException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\RecordContentionException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\ReusableTransactionPolicy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\SafeReader.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\SingleUsePolicy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DB2Persistence\TimeoutException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DialysisCenterPbarBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EmailReasonBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\LeftOrStayedBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\AlternateCareFacilityPbarBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CrashReportBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\CreditCardTypeBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DataValidationBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DemographicsPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DischargeInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DischargePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\DischargeTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EditDischargeInfoTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EditPreMseTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EditRecurringDischargeInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EditRecurringDischargeTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EmployerPbarBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EmploymentStatusPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\FacilityBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\FacilityFlagPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Factories\SqlBuilderStrategyFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\FinancialClassesPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\FollowUpUnitBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\FusNoteBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\GuarantorInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\GuarantorPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\HospitalClinicsPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\HSVPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\IAccountNumberBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\IConnectionSpecProvider.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\IMedicalRecordNumberBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\InfoReceivedSourceBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\InsuranceInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\InsurancePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\InsuredAddressStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\InsuredEmployerAddressStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\IntentToDischargeTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\IParseCoverageStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ITransactionBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ITransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\LocationPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Locking\OffLineLockRepository.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\Mappings\OfflineLockMap.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Locking\SqlOfflineLockBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\LoggerBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\MaintenanceTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ModeOfArrivalPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\MSPPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\NewbornTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\AesEncryptor.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\EncryptedString.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\IEncryptor.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\Mappings\PreRegistrationSubmissionMap.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\NHibernateInitializer.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\EncryptedXmlType.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Nhibernate\XmlEncryptor.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\NPPVersionPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OccuranceCodePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\AddressFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\ContactPointFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\EmergencyContactFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\FacilityNotFoundException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\InsuranceCoverageFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\IPreRegistrationSubmissionRepository.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\MessageProcessor.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\PatientFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\PreRegistrationRequestData.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\PreRegistrationRequestData.generated.cs">
+      <DependentUpon>PreRegistrationRequestData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\PreRegistrationSubmission.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\PreRegistrationSubmissionRepository.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\SupplementalInformationFactory.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OrderedList.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OrganizationalHierarchyProvider.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OriginPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ParseCommercialStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ParseCoverageContext.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ParseGovernmentOtherStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ParseMedicaidStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ParseMedicareStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ParseStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PatientInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PatientPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PBARCodesBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PBARSecurityCodeBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PbarUserBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\AbstractBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\CachingBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\DatabaseServiceException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\ExecutionPolicy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\PersistenceException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\PersistentModel.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\RecordContentionException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\ReusableTransactionPolicy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\SafeReader.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Persistence\SingleUsePolicy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PhysicianPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PostMSETransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PreMSETransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\OnlinePreregistration\PreRegistrationSubmissionsBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PreregistrationTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\EMPIBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\PriorVisitBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReAdmitCodePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReferralFacilityPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReferralSourcePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReferralTypePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\RegistrationTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\RelationshipTypePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReleaseReservedBedTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReleaseReservedBedUpdateStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ReligionPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ResearchStudyPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\RoleBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\RuleBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\ScheduleCodePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Security\PatientAccessApplication.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\SpanCodePBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Specialized\ClinicalTrialsAccountPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Specialized\ClinicalTrialsPatientInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Specialized\ClinicalTrialsPatientPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\SqlBuilderStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\SSNPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\SwapBedInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\SwapBedTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TimeBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TimeoutBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransactionBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransferInPatientToOutPatientInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransferInPatientToOutPatientTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransferOutPatientToInPatientTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransferToNewLocationInsertStrategy.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TransferToNewLocationTransactionCoordinator.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TypeOfProductBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\TypeOfVerificationRuleBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\UserBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Utilities\DateFormatException.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Utilities\DateTimeUtilities.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Utilities\Db2StoredProcedureCallBuilder.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\Utilities\IBMUtilities.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\VIWebServiceBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\WorklistActivity.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\WorklistPBARBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\Persistence\WorklistSettingsBroker.cs" />
+    <Compile Include="PatientAccess\AppServer\ServerConfigurationConstants.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\ADAMService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\AddressValidation\AddressValidationService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\BenefitsValidation\BenefitsValidation5010ServiceSoapClient.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\BenefitsValidation\BenefitsValidationFusService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\Cfdb\CFDBLookupService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\ComplianceChecker\ComplianceCheckerService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\CreditValidation\CreditValidationService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\DOFRInitiateService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\EMPIService\EMPIService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\Hdi\HDIService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IAddressValidationService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IBenefitsValidation5010Service.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IBenefitsValidationFusService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\ICFDBLookupService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IComplianceCheckerService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\ICreditValidationService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IPatientAccessService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IPreviousVisitServiceService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\IPriorAccountBalanceService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\Hdi\PatientAccessService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\DocumentManagement\PreviousVisitServiceService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OKTAAuthenticationObject.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OKTARolesObject.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OKTASecurityService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OKTAUserObject.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OrganizationalService\CFDBHierarchyReader.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OrganizationalService\IOrganizationalHierarchyProvider.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OrganizationalService\LocalProvider.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\OrganizationalService\OrganizationalService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\PriorAccountBalance\PriorAccountBalanceService.cs" />
+    <Compile Include="PatientAccess\AppServer\Services\SecurityService\SecurityService.cs" />
+    <Compile Include="PatientMyTurnUpload.aspx.cs">
+      <DependentUpon>PatientMyTurnUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientMyTurnUpload.aspx.designer.cs">
+      <DependentUpon>PatientMyTurnUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BenefitsValidation5010Proxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IdentityHubService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PriorAccountBalanceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="VIWebCall.aspx.cs">
+      <DependentUpon>VIWebCall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIWebCall.aspx.designer.cs">
+      <DependentUpon>VIWebCall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AdamSecurityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AddressValidationProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BenefitsValidationFusProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CFDBLookupProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ComplianceCheckerProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CreditValidationProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\HDI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VIWeb\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Configuration\RSAEncryption.ps1" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BenefitsValidationFusProxy\BenefitsValidationFusService.wsdl" />
+    <None Include="Web References\BenefitsValidationFusProxy\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CFDBLookupProxy\CFDBLookupService.wsdl" />
+    <None Include="Web References\CFDBLookupProxy\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ComplianceCheckerProxy\ComplianceCheckerService.wsdl" />
+    <None Include="Web References\ComplianceCheckerProxy\createComplianceCheckerRequestResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ComplianceCheckerProxy\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CreditValidationProxy\CreditValidationService.wsdl" />
+    <None Include="Web References\CreditValidationProxy\initiateValidateCreditResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CreditValidationProxy\obtainCreditResultResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CreditValidationProxy\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\HDI\ConnectionSpecification1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HDI\FUSNote11.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\HDI\PatientAccessServiceEngine.wsdl" />
+    <None Include="Web References\HDI\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VIWeb\AcceptPreviousVisitDocumentResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VIWeb\PreviousVisitDocumentResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VIWeb\PreviousVisitService.wsdl" />
+    <None Include="Web References\VIWeb\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ShortRegistrationFaceSheet.htm" />
+    <None Include="Web References\AdamSecurityService\SecurityService.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://172.27.135.47/edv/services/AddressValidationService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AddressValidationProxy\</RelPath>
+      <UpdateFromURL>http://172.27.135.47/edv/services/AddressValidationService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_AddressValidationProxy_AddressValidationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.27.135.47/edv/services/ComplianceCheckerService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ComplianceCheckerProxy\</RelPath>
+      <UpdateFromURL>http://172.27.135.47/edv/services/ComplianceCheckerService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_ComplianceCheckerProxy_ComplianceCheckerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.27.135.47/edv/services/CreditValidationService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CreditValidationProxy\</RelPath>
+      <UpdateFromURL>http://172.27.135.47/edv/services/CreditValidationService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_CreditValidationProxy_CreditValidationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.27.135.47:4893/edv/services/BenefitsValidationFusService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BenefitsValidationFusProxy\</RelPath>
+      <UpdateFromURL>http://172.27.135.47:4893/edv/services/BenefitsValidationFusService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_BenefitsValidationFusProxy_BenefitsValidationFusService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AdamSecurityService\</RelPath>
+      <UpdateFromURL>http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_AdamSecurityService_SecurityService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://dvld.tenethealth.com:8060/viwebserv/services/PreviousVisitService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VIWeb\</RelPath>
+      <UpdateFromURL>http://dvld.tenethealth.com:8060/viwebserv/services/PreviousVisitService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_VIWeb_PreviousVisitServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CFDBLookupProxy\</RelPath>
+      <UpdateFromURL>http://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_CFDBLookupProxy_CFDBLookupService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://hdi.testtenethealth.net/HDI_3_11/PatientAccess/wsdl/PatientAccessServiceEngine.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\HDI\</RelPath>
+      <UpdateFromURL>http://hdi.testtenethealth.net/HDI_3_11/PatientAccess/wsdl/PatientAccessServiceEngine.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PatientAccess_AppServer_HDI_PatientAccessService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PatientAccess\AppServer\Services\PreRegistration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="cwbx">
+      <Guid>{AD8D8CE0-15D3-11D2-849C-0004AC94E175}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BenefitsValidation5010Proxy\" />
+    <WCFMetadataStorage Include="Service References\IdentityHubService\" />
+    <WCFMetadataStorage Include="Service References\PriorAccountBalanceProxy\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/PatientAccess.AppServer</DevelopmentServerVPath>
+          <IISUrl>http://localhost/PatientAccess.AppServer</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

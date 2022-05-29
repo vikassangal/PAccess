@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\RuleEngine.SelectAllRules.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.SelectAllRules
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE RuleEngine.SelectAllRules
+      AS
+      BEGIN
+
+        SELECT DISTINCT    
+           RuleEngine.IsCompositeRule( Rules.Id ) AS IsComposite, 
+           Rules.Id as RuleId, 
+           Rules.Type, 
+           Rules.Description, 
+           Rules.Severity, 
+           CompositeRules.Id AS CompositeRuleId, 
+           CompositeRules.Type AS CompositeRuleType
+        FROM 
+           RuleEngine.Rules
+        LEFT OUTER JOIN 
+          RuleEngine.CompositeRulesToRules ON Rules.Id = 
+            CompositeRulesToRules.RuleId
+        LEFT OUTER JOIN 
+          RuleEngine.CompositeRules ON CompositeRulesToRules.RuleId = 
+            RuleEngine.CompositeRules.Id
+        ORDER BY 
+          RuleEngine.Rules.Type
+        
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.SelectAllRules TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.SelectAllRules FROM db_apionly;
+      DROP PROCEDURE RuleEngine.SelectAllRules;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

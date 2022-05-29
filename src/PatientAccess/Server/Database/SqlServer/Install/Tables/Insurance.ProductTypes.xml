@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Insurance.ProductTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Insurance.ProductTypes Table
+    </comment>
+    <createTable schemaName="Insurance" tableName="ProductTypes">
+      <column name="Id" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_ProductTypes" />
+      </column>
+      <column name="Description" type="varchar(60)" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.15\2010-03-30-8052.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Modify exixting rules and actions for SR492 - Primary care physician.
+    </comment>
+    <update schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Description" value="Provide missing NPI details for PCP NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnPCPNonStaffPhysicianForm" />>
+      <where>Id=47</where>
+    </update>
+  
+     <update schemaName="RuleEngine" tableName="Actions">
+      <column name="Description" value="Provide missing NPI details for PCP NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnPCPNonStaffPhysicianForm" />>
+      <where>Id=47</where>
+    </update>
+    
+    <update schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Description" value="Complete missing NPI details for PCP NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnPCPNonStaffPhysicianForm" />>
+      <where>Id=469</where>
+    </update>
+    
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Complete missing NPI details for PCP NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnPCPNonStaffPhysicianForm" />
+      <column name="Severity" valueNumeric="1" />>
+      <where>Id=469</where>
+    </update>
+    
+    <rollback>
+      <update schemaName="RuleEngine" tableName="CompositeActions">
+        <column name="Description" value="Provide missing NPI details for Other NonStaff Physician" />
+        <column name="Type" value="PatientAccess.Actions.OnOtherNonStaffPhysicianForm" />>
+        <where>Id=47</where>
+      </update>
+
+      <update schemaName="RuleEngine" tableName="Actions">
+        <column name="Description" value="Provide missing NPI details for Other NonStaff Physician" />
+        <column name="Type" value="PatientAccess.Actions.OnOtherNonStaffPhysicianForm" />>
+        <where>Id=47</where>
+      </update>
+
+      <update schemaName="RuleEngine" tableName="CompositeRules">
+        <column name="Description" value="Complete missing NPI details for Other NonStaff Physician" />
+        <column name="Type" value="PatientAccess.Rules.OnOtherNonStaffPhysicianForm" />>
+        <where>Id=469</where>
+      </update>
+
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="Complete missing NPI details for Other NonStaff Physician" />
+        <column name="Type" value="PatientAccess.Rules.OnOtherNonStaffPhysicianForm" />
+        <column name="Severity" valueNumeric="1" />>
+        <where>Id=469</where>
+      </update>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

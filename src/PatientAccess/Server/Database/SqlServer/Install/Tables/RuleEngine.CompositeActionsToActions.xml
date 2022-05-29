@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\RuleEngine.CompositeActionsToActions.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.CompositeActionsToAction Table
+    </comment>
+    <createTable schemaName="RuleEngine" tableName="CompositeActionsToActions">
+      <column name="CompositeActionId" type="int">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="FK_CompositeActionsToActions" foreignKeyName="FK_CompositeActionsToActions_CompositeAction" references="RuleEngine.CompositeActions(Id)" deleteCascade="true" />
+      </column>
+      <column name="ActionId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_CompositeActionsToActions_Actions" references="RuleEngine.Actions(Id)" deleteCascade="true" />
+      </column>
+    </createTable>
+    <createIndex indexName="IX_ActionId" schemaName="RuleEngine" tableName="CompositeActionsToActions">
+      <column name="ActionId" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

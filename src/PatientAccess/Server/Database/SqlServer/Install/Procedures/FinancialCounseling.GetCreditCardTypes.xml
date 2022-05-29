@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\FinancialCounseling.GetCreditCardTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create FinancialCounseling.GetCreditCardTypes
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE FinancialCounseling.GetCreditCardTypes
+      AS  
+      BEGIN
+
+        SELECT 
+          CODE AS Oid, 
+          Code, 
+          Description
+        FROM 
+          FinancialCounseling.CreditCardTypes
+        ORDER BY 
+          Description
+        
+      END;
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON FinancialCounseling.GetCreditCardTypes TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON FinancialCounseling.GetCreditCardTypes FROM db_apionly;
+      DROP PROCEDURE FinancialCounseling.GetCreditCardTypes;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

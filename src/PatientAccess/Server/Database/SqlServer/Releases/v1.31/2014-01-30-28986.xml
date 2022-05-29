@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.31\2014-01-30-28986.xml">
+
+  <changeSet id="E3FAC969-2E04-43F6-81CA-5E085761306B" author="Smitha.Krishnamurthy">
+
+    <comment>
+     Defect 28986 - related to SR 8934 - Add insurance policy number as required
+    </comment>
+    
+     <comment>
+      WorkersCompPolicyNumberPreferred (189)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="189" />
+    </insert>
+    
+     <comment>
+      InsurancePlanSSNRequired (193)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="193" />
+    </insert>
+    
+    <comment>
+      InsurancePlanSSNRequired (195)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="26" />
+      <column name="RuleId" valueNumeric="195" />
+    </insert>
+    
+    <comment>
+     delete InsurancePlanSSNPreferred (192)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 26 and RuleId = 192</where>
+    </delete>
+    
+    <comment>
+     delete InsurancePlanSSNPreferred (194)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 26 and RuleId = 194</where>
+    </delete>
+ 
+  </changeSet>
+</databaseChangeLog>

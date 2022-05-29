@@ -1,0 +1,260 @@
+﻿<!--
+ This msbuild script provides a wrapper around the liquibase agile database tool. This java tool
+ is used to version and apply changes to a database using XML as the language for the changes.
+ 
+ For local databases, the script will attempt to create the database for you if it does not already
+ exist.
+ 
+ More information can be found at http://www.liquibase.org
+-->
+<Project DefaultTargets="Update" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+ 
+  <!--
+  Global Properties
+  -->
+  <PropertyGroup>
+    <SolutionRoot>$(MSBuildProjectDirectory)\..\..\..</SolutionRoot>
+    <ToolsDirectory>$(SolutionRoot)\..\..\tools</ToolsDirectory>
+    <TasksDirectory>$(ToolsDirectory)\tasks</TasksDirectory>
+    <LiquibaseRoot>$(ToolsDirectory)\liquibase</LiquibaseRoot>
+    <Environment>Local</Environment>
+    <Count>1</Count>
+    <NativeDir>-Djava.library.path=&quot;$(LiquibaseRoot)\lib&quot;</NativeDir>
+    <Jar>-jar &quot;$(LiquibaseRoot)\liquibase-1.9.4.jar&quot;</Jar>
+    <Classpath>--classpath=&quot;$(LiquibaseRoot)\lib\sqljdbc.jar&quot;</Classpath>
+    <Driver>--driver=com.microsoft.sqlserver.jdbc.SQLServerDriver</Driver>
+    <ChangeLog>--changeLogFile=&quot;$(MSBuildProjectDirectory)\changelog.xml&quot;</ChangeLog>    
+  </PropertyGroup>
+
+  <!---
+   Source code for script task. This will "divine" the branch from TFS if the
+   value is not specified on the command line
+  -->
+  <PropertyGroup>
+    <GetBranchFromTfsCode>
+      <![CDATA[
+       public static string ScriptMain() 
+       {       
+		      // In our current repository, the third item in the path
+          // reflects the branch name. We're zero-indexed, so we
+          // use two to get the value
+          const int INDEX_OF_BRANCH_NAME = 2;
+		
+		      // Current directory should be specific enough to get the
+          // correct server path from TFS
+          string fileName = 
+            Directory.GetCurrentDirectory();
+
+		      WorkspaceInfo workspaceInfo = 
+		 	      Workstation.Current.GetLocalWorkspaceInfo( fileName );
+			
+	 	      TeamFoundationServer teamFoundationServer = 
+			      TeamFoundationServerFactory.GetServer( workspaceInfo.ServerUri.AbsoluteUri );
+		
+		      teamFoundationServer.Authenticate();
+				
+          // Get the portion of the path that indicates the branch name
+		      string branch = 
+                   workspaceInfo.GetWorkspace( teamFoundationServer )
+									              .GetServerItemForLocalItem( fileName )
+									              .Split( new char[]{'/'} )[INDEX_OF_BRANCH_NAME];
+          return branch;
+       }
+      ]]>
+    </GetBranchFromTfsCode>    
+  </PropertyGroup>
+  
+  <!--
+   Supporting refereces for the branch script task
+  -->  
+  <ItemGroup>    
+    <!-- These are the namespaces used by the script task-->
+    <ScriptImport Include="System"/>
+    <ScriptImport Include="System.IO"/>
+    <ScriptImport Include="Microsoft.TeamFoundation.VersionControl.Client"/>
+    <ScriptImport Include="Microsoft.TeamFoundation.Client"/>    
+    <!-- These are the assembly references used by the script task -->
+    <ScriptReference Include="Microsoft.TeamFoundation.VersionControl.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <ScriptReference Include="Microsoft.TeamFoundation, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <ScriptReference Include="Microsoft.TeamFoundation.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <ScriptReference Include="Microsoft.TeamFoundation.VersionControl.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <ScriptReference Include="Microsoft.TeamFoundation.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>     
+  </ItemGroup>
+  
+  
+  <!--
+   Load up custom task libraries
+  -->
+  <Import Project="$(TasksDirectory)\MSBuild.ExtensionPack.tasks"/>  
+  <Import Project="$(TasksDirectory)\MSBuild.Community.Tasks.Targets" />
+  <Import Project="$(TasksDirectory)\Microsoft.Sdc.Common.tasks" />
+  
+  
+  <!-- 
+   Shell out to to IKVM.NET to call Liquibase
+  -->
+  <Target Name="LiquiBase">
+
+    <!-- Call the script task to get the TFS brance name and store that in TfsBranch property -->
+    <Script Language="C#"
+            Code="$(GetBranchFromTfsCode)"
+            Imports="@(ScriptImport)"
+            References="@(ScriptReference)"
+            Condition="'$(Branch)'==''">
+      <Output TaskParameter="ReturnValue"
+              PropertyName="Branch" />
+    </Script>
+   
+    <!--
+     A little sanity check before we do anything serious...
+    -->
+    <Error Text="Branch value must be specified" 
+           Condition="'$(Branch)'==''" />
+    <Error Text="Environment value must be specified" 
+           Condition="'$(Environment)'==''" />
+        
+    <!-- Create the local database, if needed -->
+    <MSBuild Projects="Migrate.proj" 
+             Properties="Branch=$(Branch)" 
+             Targets="CreateDatabase" 
+             Condition="'$(Environment)'=='Local'" />
+    
+    <!-- Build the JDBC url components for liquibase (SSPI used for local, Password required for all others -->
+    <PropertyGroup Condition="$(Environment)=='Local'">
+      <DbServer>localhost</DbServer>
+      <DbName>PatientAccess$(Branch)Local</DbName>
+      <DbCredentials>integratedSecurity=true</DbCredentials>      
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Environment)=='Dev'">
+      <DbServer>PSDPDCHDCDB04.hdc.net</DbServer>
+      <DbName>PatientAccess$(Branch)Dev</DbName>
+      <DbCredentials>user=pid.PatientAccess.Admin;password=$(Password)</DbCredentials>      
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Environment)=='Test'">
+      <DbServer>HHLSHDCDBD01.hdc.net\HDCTEST</DbServer>
+      <DbName>PatientAccess$(Branch)Test</DbName>
+      <DbCredentials>user=pid.PatientAccess.Admin;password=$(Password)</DbCredentials>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Environment)=='Model'">
+      <DbServer>10.11.22.45</DbServer>
+      <DbName>PatientAccessModel</DbName>
+      <DbCredentials>user=pid.PatientAccess.Admin;password=$(Password)</DbCredentials>       
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Environment)=='Beta'">
+      <DbServer>10.11.16.21</DbServer>
+      <DbName>PatientAccessBeta</DbName>
+      <DbCredentials>user=pid.PatientAccess.Admin;password=$(Password)</DbCredentials>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Environment)=='Prod'">
+      <DbServer>10.11.16.21</DbServer>
+      <DbName>PatientAccessProd</DbName>
+      <DbCredentials>user=pid.PatientAccess.Admin;password=$(Password)</DbCredentials>
+    </PropertyGroup>
+
+    <Message Text="==========================================================================" />
+    <Message Text="$(DisplayMessage) for database $(DbName) on $(DbServer)" />
+    <Message Text="==========================================================================" />    
+    <Exec Command="java.exe $(NativeDir) -Dos.name=&quot;Windows &quot; -Ddatabase.name=&quot;$(DbName)&quot; -Dcomputer.name=$(COMPUTERNAME) $(Jar) $(Classpath) --contexts=$(Environment) $(Driver) --url=&quot;jdbc:sqlserver://$(DbServer);databasename=$(DbName);$(DbCredentials);&quot; --logLevel=finest $(ChangeLog) $(Command)" />
+    
+  </Target>
+ 
+  <!--
+   See if the local database exists before running liquibase against it. If not, create it.
+  -->
+  <Target Name="CreateDatabase">
+
+    <!-- <ItemGroup>
+        <Variable Include="Branch">
+            <Value>$(Branch)</Value>
+        </Variable>
+    </ItemGroup>
+    
+    <MSBuild.ExtensionPack.Sql2005.Database 
+        TaskAction="CheckExists" 
+        DatabaseItem="PatientAccess$(Branch)Local" 
+        MachineName="(local)">
+            <Output TaskParameter="Exists" PropertyName="DoesExist"/>
+    </MSBuild.ExtensionPack.Sql2005.Database>
+
+    <Message Text="==========================================================================" Condition="'$(DoesExist)'=='false'"/>
+    <Message Text="Creating Local Database..." Condition="'$(DoesExist)'=='false'"/>
+    <Message Text="==========================================================================" Condition="'$(DoesExist)'=='false'"/>    
+    <MSBuild.ExtensionPack.SqlServer.SqlCmd 
+      TaskAction="Execute" 
+      Server="(local)" 
+      Database="master" 
+      InputFiles="$(MSBuildProjectDirectory)\Utility\CreateLocalDatabase.sql"
+      Variables="@(Variable)"
+      Condition="'$(DoesExist)'=='false'"/> -->
+    
+  </Target>
+
+  <!--
+    Normally, the physical filename of the changelog is used to calculate the has for the
+    changeset. This is a bit problematic for the deploy mechanism, to we use the logicalFileName
+    attribute of the databaseChangeLog tag to fix this. The value of this attribut should be
+    the path of the filename from SqlServer down to the extension. Everything in the path before
+    that should be left off.
+    
+    e.g. C:\Projects\PatientAccess\Trunk\src\PatientAccess\Server\Database\SqlServer\Releases\v1.12\2009-07-07-2376.xml
+          becomes
+         SqlServer\Releases\v1.12\2009-07-07-2376.xml 
+    
+    This task verifies that this naming convetion is correct before updating the database
+  -->
+  <Target Name="Validate">
+    
+    <ItemGroup>
+      <ChangeLogs Include="$(MSBuildProjectDirectory)\**\*.xml"
+                  Exclude="$(MSBuildProjectDirectory)\**\_*.xml;$(MSBuildProjectDirectory)\changelog.xml" />
+    </ItemGroup>
+    
+     <Xml.GetValue
+        Path="%(ChangeLogs.Identity)"
+        XPath="/def:databaseChangeLog/@logicalFilePath"
+        MatchValue="@(ChangeLogs->'SqlServer\%(RecursiveDir)%(Filename)%(Extension)')"
+        Namespaces="def=http://www.liquibase.org/xml/ns/dbchangelog/1.9"/>    
+
+  </Target>
+  
+  <!--
+   Migrate any new changes to the database
+  -->
+  <Target Name="Update">
+
+    <!-- Make sure that the logicalFilename is present and correct -->
+    <CallTarget Targets="Validate" />
+                
+    <PropertyGroup Condition="'$(Tag)'==''">
+      <DisplayMessage>Migrating changes </DisplayMessage>
+    </PropertyGroup>
+        
+    <MSBuild Projects="Migrate.proj" 
+             Targets="Liquibase" 
+             Properties="Command=update;DbName=$(DbName);DbServer=$(DbServer);$(DbServer);DisplayMessage=$(DisplayMessage)" />
+             
+  </Target>
+  
+  <!--
+   Rollback changes. Take note that you cannot reapply the a rolled-back changelog in liquibase
+   1.9.4 becuase the changelog remains in the tracking table. If you change the file contents
+   or remove the row in the tracking table, the change will reapply. I have a question out to
+   the user group about this behavior.
+  -->
+  <Target Name="Rollback">
+
+    <PropertyGroup Condition="'$(Tag)'==''">
+      <RollbackCommand>rollbackCount $(Count)</RollbackCommand>
+      <DisplayMessage>Rolling back $(Count) changesets</DisplayMessage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Tag)'!=''">
+      <RollbackCommand>rollback $(Tag)</RollbackCommand>
+      <DisplayMessage>Rolling back to tag "$(Tag)"</DisplayMessage>
+    </PropertyGroup>
+    
+    <MSBuild Projects="Migrate.proj" 
+             Targets="Liquibase" 
+             Properties="Command=$(RollbackCommand);DbName=$(DbName);DbServer=$(DbServer);DisplayMessage=$(DisplayMessage)" />
+        
+  </Target>
+</Project>

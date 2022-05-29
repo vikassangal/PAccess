@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Logging.DeleteLogEntriesOlderThan.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Logging.DeleteLogEntriesOlderThan
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE Logging.DeleteLogEntriesOlderThan
+        @MaxAgeInDays int = 14
+      AS
+      BEGIN
+
+        DECLARE @CurrentTimeStamp dateTime
+        
+        SET @CurrentTimeStamp = CURRENT_TIMESTAMP
+        
+        DELETE FROM 
+          Logging.Events
+        WHERE 
+          DATEDIFF(day, Date, @CurrentTimeStamp) > @MaxAgeInDays
+
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON Logging.DeleteLogEntriesOlderThan TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Logging.DeleteLogEntriesOlderThan FROM db_apionly;
+      DROP PROCEDURE Logging.DeleteLogEntriesOlderThan;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-08-16236.xml">
+  
+  <changeSet id="9ADD1DC6-4DD8-46B8-AC09-F9FD5F9CB0DA" author="Smitha.Krishnamurthy">
+
+   
+
+    <comment>
+      AddressStreetRequired (65) , AddressFieldsRequired(218),
+      PersonRelationshipPreferred(137), PersonLastNameRequired(132), 
+      PersonFirstNamePreferred(129), PersonEmployerAddressPreferred(124)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="65" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="218" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="137" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="132" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="129" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="124" />
+    </insert>
+    
+     <rollback>
+
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where> RuleId=461 and ContextId in (65,124,129, 132, 137, 218) </where>
+       </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

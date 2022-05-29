@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+  logicalFilePath="SqlServer\Releases\v1.17\2010-09-30-9958.xml">
+  
+  <changeSet id="EBDC2F7A-4A8D-4AE1-ADDB-8B7E43BABBAB" author="Ahmed.Chaudhary" context="Local,Dev">
+    <comment>
+      Adding ACO to facilities that are enabled for accepting Pre registration submissions to help with testing California specific functionality
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where> Name = 'IsAcceptingPreRegistrationSubmissions' and FacilityId in ( 900 ) </where>
+    </delete>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="900" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    
+    <rollback>
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'IsAcceptingPreRegistrationSubmissions' and FacilityId in ( 900 ) </where>
+      </delete>
+    </rollback>
+  </changeSet> 
+</databaseChangeLog>

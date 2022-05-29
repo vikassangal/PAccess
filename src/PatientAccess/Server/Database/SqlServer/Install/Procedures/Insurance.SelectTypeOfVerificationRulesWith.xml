@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Insurance.SelectTypeOfVerificationRulesWith.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Insurance.SelectTypeOfVerificationRuleWith
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Insurance.SelectTypeOfVerificationRuleWith
+        @TypeId int
+      AS
+      BEGIN
+
+      SELECT
+        TypeId AS Oid,
+        Description
+      FROM
+        Insurance.VerificationRuleTypes
+      WHERE
+        TypeId = @TypeiD
+
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Insurance.SelectTypeOfVerificationRuleWith TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Insurance.SelectTypeOfVerificationRuleWith FROM db_apionly;
+      DROP PROCEDURE Insurance.SelectTypeOfVerificationRuleWith;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

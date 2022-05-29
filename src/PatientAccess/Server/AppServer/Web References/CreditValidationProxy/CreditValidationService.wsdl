@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:CreditValidationService/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="urn:CreditValidationService/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreditValidationService" targetNamespace="urn:CreditValidationService/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:tns="urn:CreditValidationService/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:CreditValidationService/types">
+      <xsd:complexType name="initiateValidateCredit">
+        <xsd:sequence>
+          <xsd:element name="CreditValidationRequest_1" nillable="true" type="tns:CreditValidationRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreditValidationRequest">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="hspcd" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="address" nillable="true" type="tns:Address" />
+          <xsd:element name="areaCode" nillable="true" type="xsd:string" />
+          <xsd:element name="dateOfBirth" nillable="true" type="xsd:string" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="middleName" nillable="true" type="xsd:string" />
+          <xsd:element name="phone" nillable="true" type="xsd:string" />
+          <xsd:element name="prefix" nillable="true" type="xsd:string" />
+          <xsd:element name="ssn" nillable="true" type="xsd:string" />
+          <xsd:element name="suffix" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Address">
+        <xsd:sequence>
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="street" nillable="true" type="xsd:string" />
+          <xsd:element name="zip" nillable="true" type="xsd:string" />
+          <xsd:element name="zipExtension" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="initiateValidateCreditResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EDVServiceException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="obtainCreditResult">
+        <xsd:sequence>
+          <xsd:element name="ServiceKey_1" nillable="true" type="tns:ServiceKey" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ServiceKey">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="hspcd" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="uuid" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="obtainCreditResultResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="initiateValidateCredit" type="tns:initiateValidateCredit" />
+      <xsd:element name="initiateValidateCreditResponse" type="tns:initiateValidateCreditResponse" />
+      <xsd:element name="EDVServiceException" type="tns:EDVServiceException" />
+      <xsd:element name="obtainCreditResult" type="tns:obtainCreditResult" />
+      <xsd:element name="obtainCreditResultResponse" type="tns:obtainCreditResultResponse" />
+    </xsd:schema>
+  </types>
+  <message name="CreditValidationServiceSEI_initiateValidateCredit">
+    <part name="parameters" element="ns2:initiateValidateCredit" />
+  </message>
+  <message name="CreditValidationServiceSEI_initiateValidateCreditResponse">
+    <part name="result" element="ns2:initiateValidateCreditResponse" />
+  </message>
+  <message name="EDVServiceException">
+    <part name="EDVServiceException" element="ns2:EDVServiceException" />
+  </message>
+  <message name="CreditValidationServiceSEI_obtainCreditResult">
+    <part name="parameters" element="ns2:obtainCreditResult" />
+  </message>
+  <message name="CreditValidationServiceSEI_obtainCreditResultResponse">
+    <part name="result" element="ns2:obtainCreditResultResponse" />
+  </message>
+  <portType name="CreditValidationServiceSEI">
+    <operation name="initiateValidateCredit">
+      <input message="tns:CreditValidationServiceSEI_initiateValidateCredit" />
+      <output message="tns:CreditValidationServiceSEI_initiateValidateCreditResponse" />
+      <fault name="EDVServiceException" message="tns:EDVServiceException" />
+    </operation>
+    <operation name="obtainCreditResult">
+      <input message="tns:CreditValidationServiceSEI_obtainCreditResult" />
+      <output message="tns:CreditValidationServiceSEI_obtainCreditResultResponse" />
+      <fault name="EDVServiceException" message="tns:EDVServiceException" />
+    </operation>
+  </portType>
+  <binding name="CreditValidationServiceSEIBinding" type="tns:CreditValidationServiceSEI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="initiateValidateCredit">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="EDVServiceException">
+        <soap:fault use="literal" name="EDVServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="obtainCreditResult">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="EDVServiceException">
+        <soap:fault use="literal" name="EDVServiceException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="CreditValidationService">
+    <port name="CreditValidationServiceSEIPort" binding="tns:CreditValidationServiceSEIBinding">
+      <soap:address location="http://edvdev2.tenethealth.net:8080/edv/services/CreditValidationService" />
+    </port>
+  </service>
+</definitions>

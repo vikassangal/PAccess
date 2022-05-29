@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.59\ViWeb.AddVIWebScanParameter.xml">
+
+  <changeSet  id="FFE4BAF0-3302-4042-BB95-98E2E149D006" author="vikas11.sangal" context="Local,Test,Support,Model,Beta,Prod">
+    <comment>
+      Create ViWeb.AddVIWebScanParameter
+    </comment>
+    <sql>
+      DROP PROCEDURE [ViWeb].[AddVIWebScanParameter];
+    </sql>
+    <createProcedure>
+
+      CREATE PROCEDURE [ViWeb].[AddVIWebScanParameter]
+      @hspcd varchar(50),
+      @patNumber varchar(50),
+      @patName varchar(50),
+      @Payor varchar(50),
+      @currentDate varchar(50),
+      @mrNumber varchar(50),
+      @id int output
+      AS
+      BEGIN
+      SET NOCOUNT ON;
+      IF NOT EXISTS(SELECT TOP 1 1 FROM ViWeb.ViWebScan_Parameter WHERE [patNumber]=@patNumber and [mrNumber]=@mrNumber and admitDate=@currentDate)
+      BEGIN
+      INSERT INTO  ViWeb.ViWebScan_Parameter(hspcd,[patNumber],[patName],[Payor],[admitDate],[mrNumber])
+      VALUES (@hspcd,@patNumber,@patName,@Payor,@currentDate,@mrNumber)
+      SET @id=SCOPE_IDENTITY()
+      RETURN  @id
+      END
+      ELSE
+      BEGIN
+      SELECT @id = ID FROM ViWeb.ViWebScan_Parameter WHERE [patNumber]=@patNumber and [mrNumber]=@mrNumber and admitDate=@currentDate
+      END
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON ViWeb.AddVIWebScanParameter TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON ViWeb.AddVIWebScanParameter FROM db_apionly;
+      DROP PROCEDURE ViWeb.AddVIWebScanParameter;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>
+

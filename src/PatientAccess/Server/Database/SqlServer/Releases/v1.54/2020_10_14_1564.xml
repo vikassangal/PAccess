@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.54\2020_10_14_1564.xml">
+  <changeSet id= "32924FD5-9CD8-400F-AC1D-3A27BE6938AF" author="Smitha.Krishnamurthy" context="Local,Dev,Test">
+  
+    <comment>
+      Load Facility.FacilityExtendedSettings for HTML5 VI web is enabled Facilities. Only ICE is enabled in iTest
+    </comment>
+  
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="98" />
+      <column name="Name" value="HTML5VIWebEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  
+  </changeSet>
+
+  <changeSet id="B719E660-4AB6-47C9-85BE-DBC506E58BAE" author="Smitha.Krishnamurthy" context="Model">
+   
+    <comment>
+      Load Facility.FacilityExtendedSettings. Only PRV is enabled in Model
+    </comment>
+   
+   <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="390" />
+      <column name="Name" value="HTML5VIWebEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Insurance.VerificationRuleTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Insurance.VerificationRuleTypes
+    </comment>
+    <insert schemaName="Insurance" tableName="VerificationRuleTypes">
+      <column name="TypeId" valueNumeric="1" />
+      <column name="Description" value="Birthday" />
+    </insert>
+    <insert schemaName="Insurance" tableName="VerificationRuleTypes">
+      <column name="TypeId" valueNumeric="2" />
+      <column name="Description" value="Gender" />
+    </insert>
+    <insert schemaName="Insurance" tableName="VerificationRuleTypes">
+      <column name="TypeId" valueNumeric="3" />
+      <column name="Description" value="Unknown" />
+    </insert>
+    <insert schemaName="Insurance" tableName="VerificationRuleTypes">
+      <column name="TypeId" valueNumeric="4" />
+      <column name="Description" />
+    </insert>
+    <rollback>
+      DELETE FROM Insurance.VerificationRuleTypes WHERE TypeId BETWEEN 1 and 4;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

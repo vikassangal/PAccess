@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2010-12-03-1190.xml">
+  
+  <changeSet id="CAC69128-CF65-491F-B16D-E0E42B5B734F" author="Smitha.Krishnamurthy">
+    <comment>
+    SR 1190 new Rules, Composite rules and RulesToActions for Short registration
+    </comment>
+  
+   
+    <comment>
+        Rules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="482" />
+      <column name="Description" value="Complete missing fields on the Demographics form  " />
+      <column name="Type" value="PatientAccess.Rules.OnShortDemographicsForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>  
+   
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="474" />
+      <column name="Description" value="Complete missing fields on the Diagnosis form  " />
+      <column name="Type" value="PatientAccess.Rules.OnShortDiagnosisForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>   
+   
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="476" />
+      <column name="Description" value="Complete missing fields on the Guarantor form " />
+      <column name="Type" value="PatientAccess.Rules.OnShortGuarantorForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert> 
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="477" />
+      <column name="Description" value="Complete missing fields on the Regulatory form  " />
+      <column name="Type" value="PatientAccess.Rules.OnShortRegulatoryForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="478" />
+      <column name="Description" value="Complete missing fields on the Billing form  " />
+      <column name="Type" value="PatientAccess.Rules.OnShortBillingForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="479" />
+      <column name="Description" value="Primary care physician" />
+      <column name="Type" value="PatientAccess.Rules.PrimaryCarePhysicianRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="480" />
+      <column name="Description" value="Person area code" />
+      <column name="Type" value="PatientAccess.Rules.PersonPhoneAreaCodeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="481" />
+      <column name="Description" value="Person phone number" />
+      <column name="Type" value="PatientAccess.Rules.PersonPhoneNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <comment>
+      Adding ProcedureRequired rule back as per requirements for ShortRegistration
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="456" />
+      <column name="Description" value="Procedure" />
+      <column name="Type" value="PatientAccess.Rules.ProcedureRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+
+
+    <comment>
+      CompositeRules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="482" />
+      <column name="Description" value="Complete missing fields on the Demographics form " />
+      <column name="Type" value="PatientAccess.Rules.OnShortDemographicsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="474" />
+      <column name="Description" value="Complete missing fields on the Diagnosis form" />
+      <column name="Type" value="PatientAccess.Rules.OnShortDiagnosisForm" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="476" />
+      <column name="Description" value="Complete missing fields on the Guarantor form" />
+      <column name="Type" value="PatientAccess.Rules.OnShortGuarantorForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="477" />
+      <column name="Description" value="Complete missing fields on the Regulatory form" />
+      <column name="Type" value="PatientAccess.Rules.OnShortRegulatoryForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="478" />
+      <column name="Description" value="Complete missing fields on the Billing form " />
+      <column name="Type" value="PatientAccess.Rules.OnShortBillingForm" />
+    </insert>
+    
+    
+
+    <comment>
+     Add CompositeRules and Actions to RulesToAction table
+    </comment>
+    
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="482" />
+      <column name="ActionId" valueNumeric="50" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="474" />
+      <column name="ActionId" valueNumeric="51" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="476" />
+      <column name="ActionId" valueNumeric="53" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="477" />
+      <column name="ActionId" valueNumeric="54" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="478" />
+      <column name="ActionId" valueNumeric="55" />
+    </insert>
+ 
+    
+    <rollback>
+
+      delete from RuleEngine.RulesToActions where RuleId=473 and ActionId=50;
+      delete from RuleEngine.RulesToActions where RuleId=474 and ActionId=51;
+      
+      delete from RuleEngine.RulesToActions where RuleId=476 and ActionId=53;
+      delete from RuleEngine.RulesToActions where RuleId=477 and ActionId=54;
+      delete from RuleEngine.RulesToActions where RuleId=478 and ActionId=55;
+    
+
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=473 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=474 </where>
+      </delete>
+       
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=476 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=477 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=478 </where>
+      </delete>
+  
+
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=473 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=474 </where>
+      </delete>
+       
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=476 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=477 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=478 </where>
+      </delete>
+ 
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

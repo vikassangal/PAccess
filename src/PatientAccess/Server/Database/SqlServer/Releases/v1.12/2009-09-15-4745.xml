@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-09-15-4745.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Alter DataValidation.UpdateAvailability Lock behavior
+    </comment>
+    <createProcedure>
+      <![CDATA[
+      ALTER PROCEDURE DataValidation.UpdateAvailability
+       @TicketId varchar(36),
+       @IsAvailable char(1),
+       @SuccessfulUpdate int OUTPUT
+      AS
+      BEGIN
+
+        SET @SuccessfulUpdate = 1
+        
+        SET NOCOUNT, XACT_ABORT ON
+        
+        BEGIN TRAN
+        
+        -- Need the update lock to prevent PK violations
+        IF EXISTS( SELECT Id FROM DataValidation.Tickets WITH(UPDLOCK,HOLDLOCK) WHERE Id = @TicketId )
+        BEGIN
+
+          UPDATE
+            DataValidation.Tickets
+          SET
+            ResultsAreAvailable = @IsAvailable
+          WHERE
+            Id = @TicketId
+
+        END
+        ELSE
+        BEGIN
+
+          INSERT INTO
+            DataValidation.Tickets
+          (
+            FacilityId,
+            Id,
+            ResultsAreAvailable,
+            InitiatedOnDate,
+            TicketTypeId
+          )
+          VALUES
+          (
+            999,
+            @TicketId,
+            @IsAvailable,
+            CURRENT_TIMESTAMP,
+            0
+          )
+
+        END
+
+      COMMIT
+      
+      END;
+      ]]>
+    </createProcedure>
+    <rollback>
+    <![CDATA[
+      ALTER PROCEDURE DataValidation.UpdateAvailability  
+       @TicketId varchar(36),
+       @IsAvailable char(1),
+       @SuccessfulUpdate int OUTPUT
+      AS 
+      BEGIN
+
+        SET @SuccessfulUpdate = 0
+
+        IF EXISTS( SELECT Id FROM DataValidation.Tickets WHERE Id = @TicketId )
+          BEGIN
+
+            UPDATE 
+              DataValidation.Tickets
+            SET 
+              ResultsAreAvailable = @IsAvailable
+            WHERE 
+              Id = @TicketId
+
+            IF @@ROWCOUNT &gt; 0
+               SET @SuccessfulUpdate = 1
+
+         END
+      ELSE 
+         BEGIN
+
+            SET @SuccessfulUpdate = 1
+
+            INSERT INTO 
+              DataValidation.Tickets
+            (
+               FacilityId, 
+               Id, 
+               ResultsAreAvailable, 
+               InitiatedOnDate, 
+               TicketTypeId
+            )
+            VALUES 
+            (
+                999, 
+                @TicketId, 
+                @IsAvailable, 
+                CURRENT_TIMESTAMP, 
+                0
+            )
+
+         END
+
+      END;      
+    ]]>    
+    </rollback>
+  </changeSet>
+  <changeSet id="2" author="Jon.Lent">
+    <comment>
+      Alter Logging.DeleteLogEntriesOlderThan Purge Size
+    </comment>
+    <createProcedure>
+      <![CDATA[
+      ALTER PROCEDURE Logging.DeleteLogEntriesOlderThan
+        @MaxAgeInDays int = 14
+      AS
+      BEGIN
+        
+        SET ROWCOUNT 500
+        
+        DELETE_MORE:
+          DELETE FROM 
+            Logging.Events
+          WHERE 
+           [Date] < DATEADD(DAY, 0-@MaxAgeInDays, CURRENT_TIMESTAMP)
+        
+        IF @@ROWCOUNT > 0 GOTO DELETE_MORE
+        
+        SET ROWCOUNT 0        
+
+      END;      
+      ]]>
+    </createProcedure>
+    <rollback>
+      <![CDATA[
+      ALTER PROCEDURE DataValidation.UpdateAvailability  
+       @TicketId varchar(36),
+       @IsAvailable char(1),
+       @SuccessfulUpdate int OUTPUT
+      AS 
+      BEGIN
+
+        SET @SuccessfulUpdate = 0
+
+        IF EXISTS( SELECT Id FROM DataValidation.Tickets WHERE Id = @TicketId )
+          BEGIN
+
+            UPDATE 
+              DataValidation.Tickets
+            SET 
+              ResultsAreAvailable = @IsAvailable
+            WHERE 
+              Id = @TicketId
+
+            IF @@ROWCOUNT &gt; 0
+               SET @SuccessfulUpdate = 1
+
+         END
+      ELSE 
+         BEGIN
+
+            SET @SuccessfulUpdate = 1
+
+            INSERT INTO 
+              DataValidation.Tickets
+            (
+               FacilityId, 
+               Id, 
+               ResultsAreAvailable, 
+               InitiatedOnDate, 
+               TicketTypeId
+            )
+            VALUES 
+            (
+                999, 
+                @TicketId, 
+                @IsAvailable, 
+                CURRENT_TIMESTAMP, 
+                0
+            )
+
+         END
+
+      END;            
+      ]]>
+    </rollback>
+  </changeSet>
+  <changeSet id="3" author="Jon.Lent">
+    <comment>
+      Alter Crashdump Purge to use smaller chunks
+    </comment>
+    <createProcedure>
+      <![CDATA[
+      ALTER PROCEDURE CrashDump.DeleteCrashReportsOlderThan
+        @MaxAgeInDays int = 21
+      AS
+      BEGIN
+
+        SET ROWCOUNT 200
+        
+        DELETE_MORE:
+          DELETE FROM 
+            CrashDump.CrashReports
+          WHERE 
+           [DateAdded] < DATEADD(DAY, 0-@MaxAgeInDays, CURRENT_TIMESTAMP)
+        
+        IF @@ROWCOUNT > 0 GOTO DELETE_MORE
+        
+        SET ROWCOUNT 0        
+
+      END;      
+      ]]>
+    </createProcedure>
+    <rollback>
+      <![CDATA[
+      ALTER PROCEDURE CrashDump.DeleteCrashReportsOlderThan
+        @MaxAgeInDays int = 21
+      AS
+      BEGIN
+
+        DECLARE @CurrentTimeStamp dateTime
+        
+        SET @CurrentTimeStamp = CURRENT_TIMESTAMP
+        
+        DELETE FROM 
+          CrashDump.CrashReports 
+        WHERE 
+          DATEDIFF(day, DateAdded, @CurrentTimeStamp) > @MaxAgeInDays
+
+      END;      
+      ]]>      
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

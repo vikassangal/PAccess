@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.50\2019_10_31_10011.xml">
+  <changeSet id="B5764320-6129-40BA-809B-B56E5F4B361E" author="Smitha.krishnamurthy" context="Local,Dev,Test">
+    <comment>
+      Load Facility.FacilityExtendedSettings for SR 10011- Sequestered patient alert enabled in Facilities. Only DHF is enabled in iTest
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="IsSequesteredPatientEnabled" />
+      <column name="Value" value="956-389-5860" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="900" />
+      <column name="Name" value="IsSequesteredPatientEnabled" />
+      <column name="Value" value="602-246-5883" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="3FEBBA0A-D686-4C8F-9F4E-88E9AC417AEB" author="Smitha.krishnamurthy" context="Model">
+    <comment>
+      Load Facility.FacilityExtendedSettings. Only DHF is enabled in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="354" />
+      <column name="Name" value="IsSequesteredPatientEnabled" />
+      <column name="Value" value="602-246-5883" />
+    </insert>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="54" />
+      <column name="Name" value="IsSequesteredPatientEnabled" />
+      <column name="Value" value="956-389-5860" />
+    </insert>
+  </changeSet>
+   
+</databaseChangeLog>

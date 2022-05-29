@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Paused_Trigger_Grps.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Paused_Trigger_Grps Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Paused_Trigger_Grps">
+      <column name="Trigger_Group" type="VARCHAR(200)">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PausedTriggerGroups" />
+      </column>
+    </createTable>
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Paused_Trigger_Grps TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

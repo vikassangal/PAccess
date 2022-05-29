@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\CrashDump.SaveCrashReport.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create CrashDump.SaveCrashReport
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE CrashDump.SaveCrashReport
+         @UserEmail varchar(100) = NULL,
+         @UserUpn varchar(50) = NULL,
+         @UserPhoneNumber varchar(10) = NULL,
+         @UserComments varchar(2000) = NULL,
+         @UserLocalPermissions varchar(256) = NULL,
+         @FacilityHospitalCode varchar(5) = NULL,
+         @TimeOnPc datetime = NULL,
+         @PbarWorkstationId varchar(10) = NULL,
+         @VersionOfPatientAccess varchar(50) = NULL,
+         @RamTotalOnSystem int = NULL,
+         @RamUsedByPatientAccess int = NULL,
+         @HddUtilization varchar(50) = NULL,
+         @DotNetFrameworkVersion varchar(50) = NULL,
+         @OperatingSystemVersion varchar(256) = NULL,
+         @HotFixesInstalled varchar(2000) = NULL,
+         @InternetExplorerVersion varchar(50) = NULL,
+         @BitsVersion varchar(50) = NULL,
+         @ExceptionType varchar(256) = NULL,
+         @ClassName varchar(256) = NULL,
+         @MethodName varchar(256) = NULL,
+         @ExceptionMessage varchar(2000) = NULL,
+         @ExceptionDetail varchar(max) = NULL,
+         @LogArchiveName varchar(256) = NULL,
+         @LogBody varbinary(max) = NULL,
+         @ScreenCapture varbinary(max) = NULL,
+         @DateAdded datetime = NULL,
+         @ClientIp varchar(100) = NULL,
+         @ComputerName varchar(100) = NULL
+      AS 
+      BEGIN
+
+      INSERT INTO
+        CrashDump.CrashReports
+        (
+            UserEmail, 
+            UserUpn, 
+            UserPhoneNumber, 
+            UserComments, 
+            UserLocalPermissions, 
+            FacilityHospitalCode, 
+            TimeOnPc, 
+            PbarWorkstationId, 
+            VersionOfPatientAccess, 
+            RamTotalOnSystem, 
+            RamUsedByPatientAccess, 
+            HddUtilization, 
+            DotNetFrameworkVersion, 
+            OperatingSystemVersion, 
+            HotFixesInstalled, 
+            InternetExplorerVersion, 
+            BitsVersion, 
+            ExceptionType, 
+            ClassName, 
+            MethodName, 
+            ExceptionMessage, 
+            ExceptionDetail, 
+            DateAdded, 
+            ClientIp, 
+            ComputerName
+         )
+         VALUES
+         (
+            @UserEmail, 
+            @UserUpn, 
+            @UserPhoneNumber, 
+            @UserComments, 
+            @UserLocalPermissions, 
+            @FacilityHospitalCode, 
+            @TimeOnPc, 
+            @PbarWorkstationId, 
+            @VersionOfPatientAccess, 
+            @RamTotalOnSystem, 
+            @RamUsedByPatientAccess, 
+            @HddUtilization, 
+            @DotNetFrameworkVersion, 
+            @OperatingSystemVersion, 
+            @HotFixesInstalled, 
+            @InternetExplorerVersion, 
+            @BitsVersion, 
+            @ExceptionType, 
+            @ClassName, 
+            @MethodName, 
+            @ExceptionMessage, 
+            @ExceptionDetail, 
+            @DateAdded, 
+            @ClientIP, 
+            @ComputerName
+         )
+         
+         DECLARE @NewCrashReportId int
+         SET @NewCrashReportId = SCOPE_IDENTITY()
+
+         INSERT INTO
+          CrashDump.BreadCrumbLogs
+          (
+            CrashReportId, 
+            ArchiveName, 
+            Body
+          )
+         VALUES 
+         (
+            @NewCrashReportId, 
+            COALESCE(@LogArchiveName, 'Log Name Not Sent' ),
+            COALESCE(@LogBody, CAST('Log Not Sent' AS VARBINARY(max) ) )
+         )
+
+         INSERT INTO
+          CrashDump.CrashReportScreenCaptures
+          (
+            CrashReportId,
+            ScreenCapture
+          )
+         VALUES 
+         (
+            @NewCrashReportId,
+            COALESCE(@ScreenCapture, CAST('Capture Not Sent' AS VARBINARY(max) ) )
+         )
+
+    END;
+    ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON CrashDump.SaveCrashReport TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON CrashDump.SaveCrashReport FROM db_apionly;
+      DROP PROCEDURE CrashDump.SaveCrashReport;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

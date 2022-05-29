@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2009-12-17-6341.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      Add missing 'Add FUS' activity codes from Jan 2008 - Dec 2009
+    </comment>
+
+    <!-- Add August 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RLWBS'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RS2NS'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CPRRC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CPARD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CITFU'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CSTFU'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CGLTU'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='OITFU'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='OSTFU'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ONPAC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ZREVA'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ZAVER'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ZRTRN'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='QRRAS'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ZPRRV'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CIDLT'</where>
+    </update>
+
+    <!-- Add September 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RESTL'</where>
+    </update>
+
+    <!-- Add October 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='LFIRE'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RDPAC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RFIRE'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RHAWK'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RPACC'</where>
+    </update>
+
+    <!-- Add November 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CDRRM'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CDRRP'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='IARQP'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='IIRMA'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='TCGAV'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='ZCCPD'</where>
+    </update>
+
+    <!-- Add December 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CFUCI'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CREMC'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='IPOPR'</where>
+    </update>
+
+    <!-- Add January 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CCCCL'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CCCPR'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='CCCUP'</where>
+    </update>
+
+    <!-- Add May 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RLMAX'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RPDCD'</where>
+    </update>
+    
+    <!-- Add August 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RFPMI'</where>
+    </update>
+
+    <!-- Add October 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RAUTD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RCPRE'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RPNES'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RSC2A'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RSDON'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RSPON'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RSRCH'</where>
+    </update>
+
+    <!-- Add November 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RCWFE'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RIEDD'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RPDNC'</where>
+    </update>
+
+    <!-- Add December 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RCRPL'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RCRPS'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RPREX'</where>
+    </update>
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="Writeable" value="Y" />
+      <where>ActivityCode='RTFOF'</where>
+    </update>
+
+
+    <rollback>
+      
+      <!-- August 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RLWBS'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RS2NS'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CPRRC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CPARD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CITFU'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CSTFU'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CGLTU'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='OITFU'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='OSTFU'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ONPAC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ZREVA'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ZAVER'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ZRTRN'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='QRRAS'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ZPRRV'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CIDLT'</where>
+      </update>
+
+      <!-- September 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RESTL'</where>
+      </update>
+
+      <!-- October 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='LFIRE'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RDPAC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RFIRE'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RHAWK'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RPACC'</where>
+      </update>
+
+      <!-- November 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CDRRM'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CDRRP'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='IARQP'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='IIRMA'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='TCGAV'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='ZCCPD'</where>
+      </update>
+
+      <!-- December 2008 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CFUCI'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CREMC'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='IPOPR'</where>
+      </update>
+
+      <!-- January 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CCCCL'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CCCPR'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='CCCUP'</where>
+      </update>
+
+      <!-- May 2009 FUS ActivityCode changes to 'Add FUS Notes' list -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RLMAX'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RPDCD'</where>
+      </update>
+      
+      <!-- August 2009 FUS ActivityCode changes -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RFPMI'</where>
+      </update>
+
+      <!-- October 2009 FUS ActivityCode changes -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RAUTD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RCPRE'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RPNES'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RSC2A'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RSDON'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RSPON'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RSRCH'</where>
+      </update>
+
+      <!-- November 2009 FUS ActivityCode changes -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RCWFE'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RIEDD'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RPDNC'</where>
+      </update>
+
+      <!-- December 2009 FUS ActivityCode changes -->
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RCRPL'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RCRPS'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RPREX'</where>
+      </update>
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="Writeable" value="N" />
+        <where>ActivityCode='RTFOF'</where>
+      </update>
+
+    </rollback>    
+    
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,5 @@
+open a VS2010 command prompt and browser to the folder containing the schemas and use the following command (this will probably work with the VS2008 command prompt as well)
+
+xsd PreRegistrationData.xsd GuidType.xsd /c /language:CS /namespace:PatientAccess.OnlinePreRegistration /element:preRegistration /n:PatientAccess.Messaging
+
+rename the "PreRegistrationData_GuidType.cs" that is created by this command to "PreRegistrationRequestData.generated.cs" and put it in the folder "\Trunk\src\PatientAccess\Server\AppServer\PatientAccess\AppServer\Persistence\OnlinePreregistration"

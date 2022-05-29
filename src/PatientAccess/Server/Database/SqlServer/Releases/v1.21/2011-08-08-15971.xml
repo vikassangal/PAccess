@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.21\2011-08-08-15971.xml">
+
+  <changeSet id="83CCB05B-25C1-4287-B0B8-64A1E728C61E" author="Ahmed.Chaudhary">
+    <comment>make marital status required for the registration activity </comment>
+    
+    <comment>Add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Registration context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <comment>
+      The "PatientAccess.Rules.MaritalStatusRequired" rule does not need to be added to the composite rule
+      "PatientAccess.Rules.OnPatientDemographicsForm" as it is already part of that composite rule
+    </comment>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=7 AND RuleId=12</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="7B855D7F-63F7-43CF-ABD9-DFD23A3EF065" author="Ahmed.Chaudhary">
+    <comment>remove the MaritalStatusPreferred rule for the registration activity</comment>
+
+    <comment>Remove the "PatientAccess.Rules.MaritalStatusPreferred" rule from the "PatientAccess.Rules.OnPatientDemographicsForm" composite rule</comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where> CompositeRuleId=198 AND RuleId=44 </where>
+    </delete>
+
+    <rollback>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="198"/>
+        <column name="RuleId" valueNumeric="44"/>
+      </insert>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="8F0A3949-4CAE-4D72-8445-30462824D70A" author="Ahmed.Chaudhary">
+    <comment>make marital status required for the pre registration activity</comment>
+
+    <comment>Add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Pre Registration context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=8 AND RuleId =12</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="8E25C0EE-4072-4095-96FE-94AB3636CC76" author="Ahmed.Chaudhary">
+
+    <comment>make marital status required for the short registration and the short pre registration activities</comment>
+
+    <comment>Add the "PatientAccess.Rules.MaritalStatusRequired" rule to the "PatientAccess.Rules.OnShortDemographicsForm" composite rule</comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482"/>
+      <column name="RuleId" valueNumeric="12"/>
+    </insert>
+
+    <comment> Add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Short Registration context to make marital status required for the Short Reg activity</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <comment> Add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Short Registration context to make marital status required for the Short Pre Reg activity</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=482 AND RuleId=12> </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=21 AND RuleId=12</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=20 AND RuleId=12</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="829A1060-E3C1-474A-8431-9333D934B3EE" author ="Ahmed.Chaudhary">
+    <comment>remove the MaritalStatusPreferred rule for the Pre MSE related activities</comment>
+
+    <comment>remove the "PatientAccess.Rules.MaritalStatusPreferred" rule from the "PatientAccess.Rules.OnPreMSEDemographicsForm" composite rule</comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where> CompositeRuleId=388 AND RuleId=44 </where>
+    </delete>
+
+    <comment>remove the "PatientAccess.Rules.MaritalStatusPreferred" rule from the Pre MSE Registration context</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId=12 AND RuleId=44</where>
+    </delete>
+
+    <rollback>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="338"/>
+        <column name="RuleId" valueNumeric="44"/>
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="12" />
+        <column name="RuleId" valueNumeric="44" />
+      </insert>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="5BC5C6EA-3054-4DF0-8833-DDFA84F125FC" author="Ahmed.Chaudhary">
+
+    <comment>make marital status required for the pre MSE registration activity</comment>
+
+    <comment>add the "PatientAccess.Rules.MaritalStatusRequired" rule to the "PatientAccess.Rules.OnPreMSEDemographicsForm" composite rule</comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="338"/>
+      <column name="RuleId" valueNumeric="12"/>
+    </insert>
+
+    <comment>add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Pre MSE Registration context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId=388 AND RuleId=12> </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=12 AND RuleId=12</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="6471BEB8-B697-4DFE-962F-AD996073FC77" author="Ahmed.Chaudhary">
+
+    <comment>make marital status required for the post MSE registration activity</comment>   
+
+    <comment>add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Post MSE Registration context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <rollback>      
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=13 AND RuleId=12</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="A24F161F-3F3A-4126-9133-2C7F4EBFA527" author="Ahmed.Chaudhary">
+
+    <comment>make marital status required for the admit new born activity</comment>
+
+    <comment>add the "PatientAccess.Rules.MaritalStatusRequired" rule to the Admit Newborn context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="12" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=10 AND RuleId=12</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>

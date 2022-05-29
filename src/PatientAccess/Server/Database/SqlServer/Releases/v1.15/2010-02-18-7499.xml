@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.15\2010-02-18-7499.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      Add new rule definition and applicable contexts for 
+      SR546 - Make Physician NPI Field Required for Non-staff Physicians
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 7 and RuleId = 465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 9 and RuleId = 465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 and RuleId = 465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 12 and RuleId = 465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 465</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 7 and RuleId = 466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 9 and RuleId = 466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 and RuleId = 466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 12 and RuleId = 466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 466</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 7 and RuleId = 467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 9 and RuleId = 467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 and RuleId = 467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 12 and RuleId = 467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 467</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 7 and RuleId = 468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 9 and RuleId = 468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 and RuleId = 468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 12 and RuleId = 468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 468</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 7 and RuleId = 469</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 469</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 9 and RuleId = 469</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 and RuleId = 469</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 12 and RuleId = 469</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 469</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 7 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 8 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 9 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 10 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 12 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 13 and RuleId = 470</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 465 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 466 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 467 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 468 and RuleId = 470</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 469 and RuleId = 470</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="CompositeRules">
+      <where>Id=465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRules">
+      <where>Id=466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRules">
+      <where>Id=467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRules">
+      <where>Id=468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRules">
+      <where>Id=469</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=43</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=44</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=45</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=46</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=47</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>ActionId = 43 and RuleId = 465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>ActionId = 44 and RuleId = 466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>ActionId = 45 and RuleId = 467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>ActionId = 46 and RuleId = 468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>ActionId = 47 and RuleId = 469</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=43</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=44</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=45</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=46</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=47</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=465</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=466</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=467</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=468</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=469</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=470</where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="465" />
+      <column name="Description" value="Complete missing NPI details for Referring NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnReferringNonStaffPhysicianForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="466" />
+      <column name="Description" value="Complete missing NPI details for Admitting NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnAdmittingNonStaffPhysicianForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="467" />
+      <column name="Description" value="Complete missing NPI details for Attending NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnAttendingNonStaffPhysicianForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="468" />
+      <column name="Description" value="Complete missing NPI details for Operating NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnOperatingNonStaffPhysicianForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="469" />
+      <column name="Description" value="Complete missing NPI details for Other NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnOtherNonStaffPhysicianForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="470" />
+      <column name="Description" value="National Provider Identification Number for NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.NonStaffPhysicianNPIRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="465" />
+      <column name="Description" value="Complete missing NPI details for Referring NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnReferringNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="466" />
+      <column name="Description" value="Complete missing NPI details for Admitting NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnAdmittingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="467" />
+      <column name="Description" value="Complete missing NPI details for Attending NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnAttendingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="468" />
+      <column name="Description" value="Complete missing NPI details for Operating NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnOperatingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Id" valueNumeric="469" />
+      <column name="Description" value="Complete missing NPI details for Other NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Rules.OnOtherNonStaffPhysicianForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="465" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="466" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="467" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="468" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="469" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="43" />
+      <column name="Description" value="Provide missing NPI details for Referring NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnReferringNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="44" />
+      <column name="Description" value="Provide missing NPI details for Admitting NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnAdmittingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="45" />
+      <column name="Description" value="Provide missing NPI details for Attending NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnAttendingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="46" />
+      <column name="Description" value="Provide missing NPI details for Operating NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnOperatingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="47" />
+      <column name="Description" value="Provide missing NPI details for Other NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnOtherNonStaffPhysicianForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="43" />
+      <column name="Description" value="Provide missing NPI details for Referring NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnReferringNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="44" />
+      <column name="Description" value="Provide missing NPI details for Admitting NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnAdmittingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="45" />
+      <column name="Description" value="Provide missing NPI details for Attending NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnAttendingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="46" />
+      <column name="Description" value="Provide missing NPI details for Operating NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnOperatingNonStaffPhysicianForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="47" />
+      <column name="Description" value="Provide missing NPI details for Other NonStaff Physician" />
+      <column name="Type" value="PatientAccess.Actions.OnOtherNonStaffPhysicianForm" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="465" />
+      <column name="ActionId" valueNumeric="43" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="466" />
+      <column name="ActionId" valueNumeric="44" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="467" />
+      <column name="ActionId" valueNumeric="45" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="468" />
+      <column name="ActionId" valueNumeric="46" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="469" />
+      <column name="ActionId" valueNumeric="47" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 7 and RuleId = 465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 9 and RuleId = 465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 and RuleId = 465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 12 and RuleId = 465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 13 and RuleId = 465</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 7 and RuleId = 466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 9 and RuleId = 466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 and RuleId = 466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 12 and RuleId = 466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 13 and RuleId = 466</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 7 and RuleId = 467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 9 and RuleId = 467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 and RuleId = 467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 12 and RuleId = 467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 13 and RuleId = 467</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 7 and RuleId = 468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 9 and RuleId = 468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 and RuleId = 468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 12 and RuleId = 468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 13 and RuleId = 468</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 7 and RuleId = 469</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 469</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 9 and RuleId = 469</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 and RuleId = 469</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 12 and RuleId = 469</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 13 and RuleId = 469</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 7 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 8 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 9 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 12 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 13 and RuleId = 470</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 465 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 466 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 467 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 468 and RuleId = 470</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 469 and RuleId = 470</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRules">
+        <where>Id=469</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=43</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=44</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=45</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=46</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeActions">
+        <where>Id=47</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="RulesToActions">
+        <where>ActionId = 43 and RuleId = 465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="RulesToActions">
+        <where>ActionId = 44 and RuleId = 466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="RulesToActions">
+        <where>ActionId = 45 and RuleId = 467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="RulesToActions">
+        <where>ActionId = 46 and RuleId = 468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="RulesToActions">
+        <where>ActionId = 47 and RuleId = 469</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=43</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=44</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=45</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=46</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Actions">
+        <where>Id=47</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=465</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=466</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=467</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=468</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=469</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=470</where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

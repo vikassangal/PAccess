@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Functions\Utility.ArrayToTable.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Utility.ArrayToTable()      
+    </comment>
+    <createProcedure><![CDATA[
+      /*
+        TSQL String Array Workbench
+        16 March 2008
+        by Robyn Page and Phil Factor
+        http://www.simple-talk.com/sql/t-sql-programming/tsql-string-array-workbench/
+      
+        Creates a table from an array created by Utility.StringToArray      
+      */
+
+      CREATE FUNCTION Utility.ArrayToTable( @TheArray xml )
+      RETURNS TABLE 
+      AS
+      RETURN 
+      (
+      SELECT   x.y.value('seqno[1]', 'INT') AS [seqno],
+		       x.y.value('item[1]', 'VARCHAR(200)') AS [item]
+      FROM     @TheArray.nodes('//stringarray/element') AS x (y)
+      )
+    ]]></createProcedure>
+    <sql>
+      GRANT SELECT ON Utility.ArrayToTable TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE SELECT ON Utility.ArrayToTable FROM db_apionly;
+      DROP PROCEDURE Utility.ArrayToTable;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,408 @@
+﻿using Peradigm.Framework.Domain.Collections;
+using Peradigm.Framework.Domain.Exceptions;
+using Peradigm.Framework.Domain.Parties;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Configuration;
+using System.Text.Json;
+using Extensions.SecurityService.Domain;
+using Extensions.OrganizationalService;
+using System.IO;
+using System.Reflection;
+using System.Xml;
+using System.Xml.XPath;
+
+namespace PatientAccess.AppServer.Services
+{
+    public class OKTASecurityService
+    {
+        #region Constants
+        private const string
+
+           ERR_NO_PROVIDER_LOADED = "Security Service Error - Security Provider is not loaded",
+           ERR_LOADING_PROVIDER = "Security Service Error - Could not load Provider: {0}",
+           ERROR_INVALID_PROVIDER_PATH = "Security Service Error - Path to Security Service Provider is missing or invalid",
+           ERROR_INVALID_PROVIDER_CLASS = "Security Service Error - Classname of Security Service Provider is missing or invalid",
+           ERR_AUTHENTICATE_USER = "Security Service Error - Application failed during user authentication: {0}.",
+           ERR_AUTHENTICATE_USER_FOR_LEGACY = "Security Service Error - Application failed during user authentication for legacy: {0}.",
+           ERR_LOGOUT_USER = "Security Service Error - Application failed during user logout: {0}.",
+           ERR_READ_APPLICATION_ROLES = "Security Service Error - Error retrieving roles for application: {0}.",
+           ERR_READ_USER_PRIVILEGES = "Security Service Error - Error retrieving user privileges for application: {0}.";
+        private const string
+            CONFIG_PROVIDER_PATH = "SecurityService.Provider.Path",
+            CONFIG_PROVIDER_CLASS = "SecurityService.Provider.Class";
+
+        private const string
+            LEGACY_USER_WITH_EXPRESSION_LEGACY_MAP = "Result/User/Application/LegacyMaps/LegacyMap",
+            LEGACY_USER_WITH_EXPRESSION_LEGACY_USERID = "LegacyUserID",
+            LEGACY_USER_WITH_EXPRESSION_HSP_CODE = "HspCD";
+        #endregion
+
+        public Hashtable LegacyUserWith(string upn, string password, string legacyApplicationName)
+        {
+
+            string legacyUserXml = string.Empty;
+            Hashtable legacyUser = new Hashtable();
+            try
+            {
+                legacyUserXml = this.Provider.LegacyUserWith(upn, password, legacyApplicationName);
+
+                XmlDocument document = new XmlDocument();
+                document.LoadXml(legacyUserXml);
+                XPathNavigator navigator = document.CreateNavigator();
+
+                XPathNodeIterator nodeLegacyMapIterator;
+
+                nodeLegacyMapIterator = navigator.Select(LEGACY_USER_WITH_EXPRESSION_LEGACY_MAP);
+
+                string hospCode, legacyUserID;
+                while (nodeLegacyMapIterator.MoveNext())
+                {
+                    hospCode = nodeLegacyMapIterator.Current.GetAttribute(LEGACY_USER_WITH_EXPRESSION_HSP_CODE, navigator.NamespaceURI);
+                    legacyUserID = nodeLegacyMapIterator.Current.GetAttribute(LEGACY_USER_WITH_EXPRESSION_LEGACY_USERID, navigator.NamespaceURI);
+                    if (!(legacyUser.ContainsKey(hospCode)))
+                    {
+                        legacyUser.Add(hospCode, legacyUserID);
+                    }
+                }
+            }
+            catch (SecurityException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new SecurityException(String.Format(ERR_AUTHENTICATE_USER_FOR_LEGACY, e.Message), e, Severity.Catastrophic);
+            }
+            return legacyUser;
+        }
+
+        public void Logout(User user)
+        {
+
+        }
+
+        public ArrayList RolesFor()
+        {
+            ArrayList roles = new ArrayList();
+
+            return roles;
+        }
+
+        public Extensions.SecurityService.Domain.User UserWith(string upn, string password)
+        {
+            Extensions.SecurityService.Domain.User domainUser = null;
+            try
+            {
+                // Bypass certificate
+                ServicePointManager.SecurityProtocol =
+                SecurityProtocolType.Tls | (SecurityProtocolType)3072;
+                using (WebClient webClient = new WebClient())
+                {
+                    ServicePointManager.ServerCertificateValidationCallback +=
+                        (send, certificate, chain, sslPolicyErrors) => { return true; };
+                }
+
+                var OKTAResponse = ParseJsonData(upn, password);
+
+                if (OKTAResponse.status.ToUpper() == "SUCCESS")
+                {
+                    string isAuth = "True";
+                    bool attributeIsAuthenticated = Convert.ToBoolean(isAuth);
+                    string attributeLastName = OKTAResponse._embedded.user.profile.lastName;
+                    string attributeFirstName = OKTAResponse._embedded.user.profile.firstName;
+                    string OKTAId = OKTAResponse._embedded.user.id;
+                    string attributeTenetID = "";
+                    string attributeRoleName = String.Empty;
+
+                    // User Information 
+                    OKTAUserObject oKTAUserObject = ParseJsonData(OKTAId);
+                    attributeTenetID = oKTAUserObject.profile.employeeID;
+
+                    domainUser = new Extensions.SecurityService.Domain.User(Convert.ToInt64(attributeTenetID), attributeFirstName, attributeLastName);
+                    domainUser.UPN = upn;
+                    OrganizationalUnit hierarchy = OrganizationalService.Service.GetOrganizationalHierarchy();
+                    Role aRole;
+
+                    // Role Information 
+                    List<OKTARolesObject> oKTARolesObject = ParseRoleJsonData(OKTAId);
+                    // Filter only "type": "APP_GROUP" from OKTA Roles response
+                    var FilterOKTARoleResponse = oKTARolesObject.Where(x => x.type == "APP_GROUP");
+
+                    if (FilterOKTARoleResponse.Count() > 0)
+                    {
+                        foreach (OKTARolesObject rolesObject in FilterOKTARoleResponse)
+                        {
+                            attributeRoleName = rolesObject.profile.name;
+                            string roleName = attributeRoleName.Substring(attributeRoleName.LastIndexOf("-") + 1);
+                            string hspcode = attributeRoleName.Substring(0, attributeRoleName.IndexOf("-"));
+                            aRole = this.Application.RoleWith(roleName);
+                            ArrayList facilityCodes = new ArrayList();
+                            if (aRole != null)
+                            {
+                                facilityCodes.Add(hspcode);
+                            }
+
+                            this.BuildOrganizationalRelationshipsFor(domainUser, aRole, hierarchy, facilityCodes);
+                        }
+                    }
+                    if (domainUser.Roles().Count == 0)
+                    {
+                        domainUser = null;
+                    }
+                }
+            }
+            catch (SecurityException)
+            {
+                throw;
+            }
+            catch (Exception e)
+            {
+                throw new SecurityException(String.Format(ERR_READ_USER_PRIVILEGES, e.Message), e, Severity.Catastrophic);
+            }
+
+            return domainUser;
+        }
+
+        public OKTASecurityService()
+        {
+            OKTAAUTHURL = ConfigurationManager.AppSettings["OKTAAUTHURL"].ToString();
+            OKTAAPIKEY = ConfigurationManager.AppSettings["OKTAAPIKey"].ToString();
+            OKTAUSERINFOURL = ConfigurationManager.AppSettings["OKTAUSERINFOURL"].ToString();
+            OKTAROLEINFOURL = ConfigurationManager.AppSettings["OKTAROLEURL"].ToString();
+        }
+
+
+        #region Private Methods
+        private Hashtable AllFacilitiesFrom(OrganizationalUnit hierarchy)
+        {
+            Hashtable facilities = new Hashtable();
+            foreach (Facility facility in hierarchy.AllFacilities())
+            {
+                facilities.Add(facility.Code, facility);
+            }
+            return facilities;
+        }
+
+        private void BuildOrganizationalRelationshipsFor(Extensions.SecurityService.Domain.User user,
+                                                          Role role,
+                                                          OrganizationalUnit hierarchy,
+                                                          ArrayList facilityCodes)
+        {
+            ArrayList userFacilities = new ArrayList();
+
+            if (this.IsGlobalRole)
+            {
+                userFacilities = hierarchy.AllFacilities();                    //get all facilities from hierarchy
+            }
+            else if (facilityCodes.Count > 0)
+            {
+                Hashtable allFacilities = this.AllFacilitiesFrom(hierarchy);
+                foreach (string facilityCode in facilityCodes)
+                {
+                    Facility facility = (Facility)allFacilities[facilityCode]; //only facilities in hierarchy are accepted
+                    if (facility != null)
+                    {
+                        userFacilities.Add(facility);
+                    }
+                }
+            }
+            foreach (Facility facility in userFacilities)
+            {
+                user.AddRelationship(new RoleRelationship(user, role, facility));
+
+                ArrayList userLevels = this.OrganizationalHierarchyFor(facility, userFacilities);
+                foreach (OrganizationalUnit organizationalUnit in userLevels)
+                {
+                    if (!user.HasRelationshipWith(organizationalUnit, role))
+                    {
+                        user.AddRelationship(new RoleRelationship(user, role, organizationalUnit));
+                    }
+                }
+            }
+        }
+
+        private ArrayList OrganizationalHierarchyFor(Facility facility, ICollection allFacilities)
+        {
+            Set hierarchy = new Set();
+            OrganizationalUnit parent = facility.Parent() as OrganizationalUnit;
+            while (parent != null)
+            {
+                if (parent.IsComplete(allFacilities))
+                {
+                    hierarchy.Add(parent);
+                    parent = parent.Parent() as OrganizationalUnit;
+                }
+                else
+                {
+                    parent = null;
+                }
+            }
+
+            return new ArrayList(hierarchy);
+        }
+
+        private string PostHTTPResponse(string OKTAURL, UserCred userCred)
+        {
+            HttpClient httpClient;
+            if (ConfigurationManager.AppSettings["PASServerEnvironment"].ToString() == "LOCAL")
+            {
+                string CONFIG_PROXY_URL = ConfigurationManager.AppSettings["CONFIG_PROXY_URL"].ToString();
+                string PROXY_USER = "tenethealth\\"+ConfigurationManager.AppSettings["PROXY_USER"].ToString();
+                string PROXY_PASSWORD = ConfigurationManager.AppSettings["PROXY_PASSWORD"].ToString();
+                var proxy = new WebProxy(CONFIG_PROXY_URL, true);
+
+                var networkCredential = new NetworkCredential(
+                       PROXY_USER,
+                       PROXY_PASSWORD
+                       );
+
+                var handler = new HttpClientHandler { Credentials = networkCredential, Proxy = proxy };
+                httpClient = new HttpClient(handler);
+            }
+            else
+            {
+                httpClient = new HttpClient();
+            }
+
+            Uri newuri = new Uri(OKTAURL);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.BaseAddress = newuri;
+            var httpTAsync = httpClient.PostAsJsonAsync<UserCred>("", userCred);
+            var httpTResult = httpTAsync.Result;
+            string httpResponse = httpTResult.Content.ReadAsStringAsync().Result;
+
+            return httpResponse;
+
+        }
+
+        private string GetHTTPResponse(string OKTAURL, string OKTAAPIKEY)
+        {
+            HttpClient httpClient;
+            if (ConfigurationManager.AppSettings["PASServerEnvironment"].ToString() == "LOCAL")
+            {
+                string CONFIG_PROXY_URL = ConfigurationManager.AppSettings["CONFIG_PROXY_URL"].ToString();
+                string PROXY_USER = "tenethealth\\" + ConfigurationManager.AppSettings["PROXY_USER"].ToString();
+                string PROXY_PASSWORD = ConfigurationManager.AppSettings["PROXY_PASSWORD"].ToString();
+                var proxy = new WebProxy(CONFIG_PROXY_URL, true);
+
+                var networkCredential = new NetworkCredential(
+                       PROXY_USER,
+                       PROXY_PASSWORD
+                       );
+
+                var handler = new HttpClientHandler { Credentials = networkCredential, Proxy = proxy };
+                httpClient = new HttpClient(handler);
+            }
+            else
+            {
+                httpClient = new HttpClient();
+            }
+            Uri newuri = new Uri(OKTAURL);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            if (OKTAAPIKEY != string.Empty)
+            {
+                httpClient.DefaultRequestHeaders.Add("Authorization", "SSWS " + OKTAAPIKEY);
+            }
+
+            httpClient.BaseAddress = newuri;
+            var httpTAsync = httpClient.GetAsync(newuri);
+            var httpTResult = httpTAsync.Result;
+            string httpResponse = httpTResult.Content.ReadAsStringAsync().Result;
+
+            return httpResponse;
+
+        }
+        private OKTAAuthenticationObject ParseJsonData(string upn, string password)
+        {
+            var userCred = new UserCred() { username = upn, password = password };
+            url = OKTAAUTHURL;
+            var JsonString = PostHTTPResponse(url, userCred);
+            //var OKTAAuthenticationResponse = JsonConvert.DeserializeObject<OKTAAuthenticationObject>(JsonString);
+            var OKTAAuthenticationResponse = JsonSerializer.Deserialize<OKTAAuthenticationObject>(JsonString);
+            return OKTAAuthenticationResponse;
+        }
+
+        private OKTAUserObject ParseJsonData(string OKTAID)
+        {
+            url = OKTAUSERINFOURL + "/" + OKTAID;
+            string JsonString = GetHTTPResponse(url, OKTAAPIKEY);
+           // var OKTAUserResponse = JsonConvert.DeserializeObject<OKTAUserObject>(JsonString);
+            var OKTAUserResponse = JsonSerializer.Deserialize<OKTAUserObject>(JsonString);
+            return OKTAUserResponse;
+        }
+        private List<OKTARolesObject> ParseRoleJsonData(string OKTAID)
+        {
+            url = OKTAROLEINFOURL + "/" + OKTAID + "/groups";
+            string JsonString = GetHTTPResponse(url, OKTAAPIKEY);
+            List<OKTARolesObject> OKTARoleResponse =
+                JsonConvert.DeserializeObject<List<OKTARolesObject>>(JsonString);
+            return OKTARoleResponse;
+        }
+        #endregion
+
+        private ISecurityProvider Provider
+        {
+            get
+            {
+                return i_Provider;
+            }
+            set
+            {
+                i_Provider = value;
+            }
+        }
+        private Application Application
+        {
+            get
+            {
+                return ApplicationService;
+            }
+        }
+
+        public static Application ApplicationService
+        {
+            private get
+            {
+                return c_ApplicationService;
+            }
+            set
+            {
+                c_ApplicationService = value;
+            }
+        }
+        private bool IsGlobalRole
+        {
+            get
+            {
+                return i_IsGlobalRole;
+            }
+            set
+            {
+                i_IsGlobalRole = value;
+            }
+        }
+
+        #region Data Elements
+
+        private ISecurityProvider i_Provider;
+        private bool i_IsGlobalRole = false;
+        private static Application c_ApplicationService;
+        string OKTAAUTHURL, OKTAAPIKEY, OKTAUSERINFOURL, OKTAROLEINFOURL, url = string.Empty;
+        #endregion
+    }
+    public class UserCred
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+    }
+
+}

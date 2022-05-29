@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.16\2010-06-21-9487.xml">
+
+  <changeSet id="C2B0BC09-670C-45AB-8576-FAF5C0CD0360" author="Deepa.Raju">
+    <comment>
+      FUS ActivityCode changes for June 2010
+    </comment>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCXFC'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCXLA'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCXNS'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCXPH'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCXPT'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RCXRI'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ZCXLA'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ZCXPH'</where>
+    </delete>
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ZCXPT'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCXFC" />
+      <column name="Description" value="FACILITY CXLD DUE TO FC POLICY" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCXLA" />
+      <column name="Description" value="PATIENT CXLD DUE TO LIABILITY AMT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCXNS" />
+      <column name="Description" value="PATIENT NO SHOW" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCXPH" />
+      <column name="Description" value="PHYSICIAN DRIVEN CANCELLATION" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCXPT" />
+      <column name="Description" value="PATIENT CXLD/NON LIABILITY RELATED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RCXRI" />
+      <column name="Description" value="PT CXLD DUE TO RESOURCE ISSUES" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ZCXLA" />
+      <column name="Description" value="PATIENT CXLD DUE TO LIABILITY AMT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ZCXPH" />
+      <column name="Description" value="PHYSICIAN DRIVEN CANCELLATION" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="N" />
+    </insert>
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ZCXPT" />
+      <column name="Description" value="PATIENT CXLD/NON LIABILITY RELATED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="1" />
+      <column name="MaxWorklistDays" valueNumeric="5" />
+      <column name="Writeable" value="N" />
+    </insert>
+
+    <update schemaName="FusNote" tableName="ActivityCodes">
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <where>ActivityCode='QDUMS'</where>
+    </update>
+
+
+    <rollback>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCXFC'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCXLA'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCXNS'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCXPH'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCXPT'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RCXRI'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ZCXLA'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ZCXPH'</where>
+      </delete>
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ZCXPT'</where>
+      </delete>
+
+      <update schemaName="FusNote" tableName="ActivityCodes">
+        <column name="DefaultWorklistDays" valueNumeric="14" />
+        <column name="MaxWorklistDays" valueNumeric="14" />
+        <where>ActivityCode='QDUMS'</where>
+      </update>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

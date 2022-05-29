@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.48\2019_01_22_38655.xml">
+  
+  <changeSet id="A83DED3E-5810-4756-8768-49BF41F64DB6" author="Smitha.Krishnamurthy" context="Model">
+    <comment>
+      Load Facility.FacilityExtendedSettings.  CGX((946)  is enabled in Model
+    </comment>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="946" />
+      <column name="Name" value="IsPatientPortalOptInEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

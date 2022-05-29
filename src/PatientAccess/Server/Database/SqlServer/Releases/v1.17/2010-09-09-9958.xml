@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.17\2010-09-09-9958.xml">
+
+  <changeSet id="12408BD5-5FC3-4FFB-B063-971B3EDDE696" author="Ahmed.Chaudhary">
+    <comment>
+      Create Messaging schema
+    </comment>
+
+    <sql>
+      CREATE SCHEMA [Messaging] AUTHORIZATION [dbo];
+    </sql>
+
+    <rollback>
+      <sql>
+        DROP SCHEMA [Messaging];
+      </sql>
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="9AE03DF0-AF3E-406B-AD30-630CC8AE1893" author="Ahmed.Chaudhary">
+    <comment>
+      Create Messaging.PreRegistrationSubmissions Table
+    </comment>
+
+    <createTable schemaName="Messaging" tableName="PreRegistrationSubmissions">
+      
+      <column name="Id" type="uniqueidentifier">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PreRegistrationSubmissions" />
+      </column>
+
+      <column name="FacilityId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_FacilityExtendedSettings_Facility" references="Facility.Facilities(Id)" />
+      </column>
+      
+      <column name="DateTimeReceived" type="datetime" >
+        <constraints nullable="false" />
+      </column>
+      
+      <column name="Message" type="xml" >
+        <constraints nullable="false" />
+      </column>      
+
+      <column name="FirstName" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="LastName" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="MiddleInitial" type="char(1)">
+        <constraints nullable="true" />
+      </column>
+
+      <column name="ReturningPatient" type="bit">
+        <constraints nullable="true" />
+      </column>
+
+      <column name="Gender" type="varchar(10)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="DateOfBirth" type="datetime" >
+        <constraints nullable="false" />
+      </column>
+
+      <column name="SSN" type="varchar(128)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="Address" type="varchar(128)">
+        <constraints nullable="false" />
+      </column>
+
+      <column name="AdmitDate" type="datetime" >
+        <constraints nullable="false" />
+      </column>
+
+    </createTable>
+
+    <sql>
+
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Messaging.PreRegistrationSubmissions TO db_apionly;
+
+    </sql>
+
+  </changeSet>
+</databaseChangeLog>

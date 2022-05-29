@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Logging.Events.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Logging.General
+    </comment>
+    <createTable schemaName="Logging" tableName="Events">
+      <column name="Id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_General" />
+      </column>
+      <column name="Host" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Date" type="datetime">
+        <constraints nullable="false" />
+      </column>
+      <column name="Thread" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Level" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Logger" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Message" type="varchar(max)">
+        <constraints nullable="false" />
+      </column>
+      <column name="SourceLocation" type="varchar(512)">
+        <constraints nullable="true" />
+      </column>
+      <column name="Exception" type="varchar(max)">
+        <constraints nullable="true" />
+      </column>
+    </createTable>
+    <sql>
+      GRANT SELECT,INSERT ON Logging.Events TO db_apionly
+    </sql>
+    <createIndex indexName="IX_Level" schemaName="Logging" tableName="Events">
+      <column name="Level" />
+    </createIndex>
+    <createIndex indexName="IX_Date" schemaName="Logging" tableName="Events">
+      <column name="Date" />
+    </createIndex>
+    <rollback>
+      <sql>
+        REVOKE SELECT,INSERT ON Logging.Events FROM db_apionly;
+      </sql>
+      <dropTable schemaName="Logging" tableName="Events" />
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

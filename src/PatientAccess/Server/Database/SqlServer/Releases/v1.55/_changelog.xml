@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.55\_changelog.xml">
+
+  <include relativeToChangelogFile="true" file="2021_02_01_5041.xml" />
+  <include relativeToChangelogFile="true" file="2021_02_02_5041.xml" />
+  <include relativeToChangelogFile="true" file="2021-03-26-1954.xml" />
+  <include relativeToChangelogFile="true" file="2021_02_19_5041.xml" />
+  <include relativeToChangelogFile="true" file="2021_03_05_5041.xml" />
+  <include relativeToChangelogFile="true" file="2021_03_25_5041.xml" />
+  <include relativeToChangelogFile="true" file="2021_03_31_5041.xml" />
+</databaseChangeLog>

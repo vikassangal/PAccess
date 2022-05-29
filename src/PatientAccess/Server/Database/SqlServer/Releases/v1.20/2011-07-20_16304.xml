@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-20_16304.xml">
+  
+  <changeSet id="D7B59FE2-2E6D-4BCC-9835-65888F7A45B2" author="Smitha.Krishnamurthy">
+
+   
+
+    <comment>
+      Add BenVerDateOfBirthOnQuickAccountForm, BenVerLastNameOnQuickAccountForm,
+      BenVerFirstNameOnQuickAccountForm, BenVerGenderOnQuickAccountForm, BenVerPatientSSN
+    </comment>
+
+    <comment>
+      Rules
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="486" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.BenVerDateOfBirthOnQuickAccountForm" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>  
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="486" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="484" />
+      <column name="RuleId" valueNumeric="486" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="487" />
+      <column name="Description" value="Last name" />
+      <column name="Type" value="PatientAccess.Rules.BenVerLastNameOnQuickAccountForm" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="487" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="484" />
+      <column name="RuleId" valueNumeric="487" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="488" />
+      <column name="Description" value="First name" />
+      <column name="Type" value="PatientAccess.Rules.BenVerFirstNameOnQuickAccountForm" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="488" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="484" />
+      <column name="RuleId" valueNumeric="488" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="489" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.BenVerGenderOnQuickAccountForm" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="489" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="484" />
+      <column name="RuleId" valueNumeric="489" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="490" />
+      <column name="Description" value="SSN" />
+      <column name="Type" value="PatientAccess.Rules.BenVerPatientSSNOnQuickAccountForm" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="14" />
+      <column name="RuleId" valueNumeric="490" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="484" />
+      <column name="RuleId" valueNumeric="490" />
+    </insert>
+     <rollback>
+ 
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where>  Id in (486, 487, 488, 489, 490 ) </where>
+       </delete>
+     
+       <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+         <where>CompositeRuleId=484 and  RuleId in (486, 487, 488, 489, 490 ) </where>
+       </delete>    
+       
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where>  ContextId = 14 and  RuleId in (486, 487, 488, 489, 490 ) </where>
+       </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

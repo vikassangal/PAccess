@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.44\2017_09_08_11595.xml">
+
+  <changeSet id="51BFAFA6-8F95-4118-A6AD-9B17089F7145" author="Smitha.Krishnamurthy">
+
+    <comment>
+      SR11595- TASk 36480 - Add Hospital Communication Field back into PAS 
+    </comment>
+
+   <comment>
+        insert HospitalCommunicationOptInRequired(517) to Rules table
+      </comment>
+
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="517" />
+        <column name="Description" value="Hosp Comm opt in" />
+        <column name="Type" value="PatientAccess.Rules.HospitalCommunicationOptInRequired" />
+        <column name="Severity" valueNumeric="4" />
+      </insert>
+
+      <comment>
+        Insert HospitalCommunicationOptInRequired(517) to Contexts (7,10,13,21,28) in ContextsToRules table
+      </comment>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="517" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="10" />
+        <column name="RuleId" valueNumeric="517" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="517" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="21" />
+        <column name="RuleId" valueNumeric="517" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="28" />
+        <column name="RuleId" valueNumeric="517" />
+      </insert>
+
+      <comment>
+        Insert HospitalCommunicationOptInRequired(517) to Contexts(211,477) in CompositeRulesToRules table
+      </comment>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="198" />
+        <column name="Ruleid" valueNumeric="517" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="477" />
+        <column name="Ruleid" valueNumeric="517" />
+      </insert>
+
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,2579 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.RuleEngine.Rules.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load RuleEngine.Rules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="1" />
+      <column name="Description" value="Drivers license" />
+      <column name="Type" value="PatientAccess.Rules.DriversLicenseRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="2" />
+      <column name="Description" value="Employer" />
+      <column name="Type" value="PatientAccess.Rules.EmployerRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="3" />
+      <column name="Description" value="Employer address" />
+      <column name="Type" value="PatientAccess.Rules.EmployerAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="4" />
+      <column name="Description" value="Employer phone area code" />
+      <column name="Type" value="PatientAccess.Rules.EmployerPhoneAreaCodeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="5" />
+      <column name="Description" value="Employer phone subscriber" />
+      <column name="Type" value="PatientAccess.Rules.EmployerPhoneSubscriberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="6" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.EmploymentStatusRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="7" />
+      <column name="Description" value="Ethnicity" />
+      <column name="Type" value="PatientAccess.Rules.EthnicityRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="8" />
+      <column name="Description" value="Language" />
+      <column name="Type" value="PatientAccess.Rules.LanguageRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="9" />
+      <column name="Description" value="Mailing address" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="10" />
+      <column name="Description" value="Mailing address area code" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressAreaCodeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="11" />
+      <column name="Description" value="Mailing address phone" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressPhoneRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="12" />
+      <column name="Description" value="Marital status" />
+      <column name="Type" value="PatientAccess.Rules.MaritalStatusRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="13" />
+      <column name="Description" value="Missing demographics" />
+      <column name="Type" value="PatientAccess.Rules.DemographicsRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="14" />
+      <column name="Description" value="Occurance industry" />
+      <column name="Type" value="PatientAccess.Rules.OCCIndustryRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="15" />
+      <column name="Description" value="Patient retired date" />
+      <column name="Type" value="PatientAccess.Rules.PatientRetiredDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="16" />
+      <column name="Description" value="Race" />
+      <column name="Type" value="PatientAccess.Rules.RaceRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="17" />
+      <column name="Description" value="Unknown selected for guarantors SSN status FollowUp required" />
+      <column name="Type" value="PatientAccess.Rules.UnknownGuarantorSSNStatus" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="18" />
+      <column name="Description" value="Unknown patient gender" />
+      <column name="Type" value="PatientAccess.Rules.PatientGenderRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="19" />
+      <column name="Description" value="Social Security Number" />
+      <column name="Type" value="PatientAccess.Rules.SocialSecurityNumberStatusRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="20" />
+      <column name="Description" value="Patient signature is required on COS form. Update COS field as applicable." />
+      <column name="Type" value="PatientAccess.Rules.SignatureOnCOSFormRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="21" />
+      <column name="Description" value="Patient refused to sign COS form. Update payor code and financial class to self-pay." />
+      <column name="Type" value="PatientAccess.Rules.RefusedToSignCOSForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="22" />
+      <column name="Description" value="Followup insurance information" />
+      <column name="Type" value="PatientAccess.Rules.FollowupInsuranceInformationRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="23" />
+      <column name="Description" value="Complete Post-MSE registration" />
+      <column name="Type" value="PatientAccess.Rules.PostMSERegistrationRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="24" />
+      <column name="Description" value="Reschedule, cancel, or activate the account" />
+      <column name="Type" value="PatientAccess.Rules.PatientDidNotAppear" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="26" />
+      <column name="Description" value="Complete the benefits verification task for the primary insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenefitsVerificationRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="27" />
+      <column name="Description" value="Complete the authorization task for the primary insurance" />
+      <column name="Type" value="PatientAccess.Rules.AuthorizationRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="28" />
+      <column name="Description" value="Review the conflicting accident type (employment-related) and primary plan (not for workers compensation) and modify as appropriate." />
+      <column name="Type" value="PatientAccess.Rules.PlanIDRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="30" />
+      <column name="Description" value="Determine patient liability" />
+      <column name="Type" value="PatientAccess.Rules.PatientLiabilityToBeDetermined" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="31" />
+      <column name="Description" value="Redetermine patient liability" />
+      <column name="Type" value="PatientAccess.Rules.PatientLiabilityToBeRedetermined" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="32" />
+      <column name="Description" value="Collect patient liability" />
+      <column name="Type" value="PatientAccess.Rules.PatientLiabilityToBeCollected" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="33" />
+      <column name="Description" value="Drivers license" />
+      <column name="Type" value="PatientAccess.Rules.DriversLicensePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="34" />
+      <column name="Description" value="Employer" />
+      <column name="Type" value="PatientAccess.Rules.EmployerPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="35" />
+      <column name="Description" value="Employer address" />
+      <column name="Type" value="PatientAccess.Rules.EmployerAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="36" />
+      <column name="Description" value="Employer phone area code" />
+      <column name="Type" value="PatientAccess.Rules.EmployerPhoneAreaCodePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="37" />
+      <column name="Description" value="Employer phone subscriber" />
+      <column name="Type" value="PatientAccess.Rules.EmployerPhoneSubscriberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="38" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.EmploymentStatusPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="39" />
+      <column name="Description" value="Ethnicity" />
+      <column name="Type" value="PatientAccess.Rules.EthnicityPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="40" />
+      <column name="Description" value="Language" />
+      <column name="Type" value="PatientAccess.Rules.LanguagePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="41" />
+      <column name="Description" value="Mailing address" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="42" />
+      <column name="Description" value="Mailing address Area Code" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressAreaCodePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="43" />
+      <column name="Description" value="Mailing address Phone" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressPhonePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="44" />
+      <column name="Description" value="Marital status" />
+      <column name="Type" value="PatientAccess.Rules.MaritalStatusPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="45" />
+      <column name="Description" value="Missing demographics" />
+      <column name="Type" value="PatientAccess.Rules.DemographicsPreferred" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="46" />
+      <column name="Description" value="Occurance industry" />
+      <column name="Type" value="PatientAccess.Rules.OCCIndustryPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="47" />
+      <column name="Description" value="Patient retired date" />
+      <column name="Type" value="PatientAccess.Rules.PatientRetiredDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="48" />
+      <column name="Description" value="Race" />
+      <column name="Type" value="PatientAccess.Rules.RacePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="49" />
+      <column name="Description" value="NPP version" />
+      <column name="Type" value="PatientAccess.Rules.NPPVersionRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="50" />
+      <column name="Description" value="COS signed" />
+      <column name="Type" value="PatientAccess.Rules.COSSignedRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="51" />
+      <column name="Description" value="Admit date cannot be future date" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateFutureDate" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="52" />
+      <column name="Description" value="Admit date older than 5 days" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateFiveDaysPast" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="53" />
+      <column name="Description" value="Accommodation" />
+      <column name="Type" value="PatientAccess.Rules.AccomodationRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="54" />
+      <column name="Description" value="Admit date" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="55" />
+      <column name="Description" value="Admit source" />
+      <column name="Type" value="PatientAccess.Rules.AdmitSourceRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="56" />
+      <column name="Description" value="Admit time is future time" />
+      <column name="Type" value="PatientAccess.Rules.AdmitTimeFutureTime" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="57" />
+      <column name="Description" value="Assigned bed" />
+      <column name="Type" value="PatientAccess.Rules.LocationRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="58" />
+      <column name="Description" value="Patient type" />
+      <column name="Type" value="PatientAccess.Rules.PatientTypeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="59" />
+      <column name="Description" value="Admit time" />
+      <column name="Type" value="PatientAccess.Rules.AdmitTimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="60" />
+      <column name="Description" value="Hospital service" />
+      <column name="Type" value="PatientAccess.Rules.HospitalServiceRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="61" />
+      <column name="Description" value="Chief complaint" />
+      <column name="Type" value="PatientAccess.Rules.ChiefComplaintRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="62" />
+      <column name="Description" value="Transfer date" />
+      <column name="Type" value="PatientAccess.Rules.TransferDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="63" />
+      <column name="Description" value="Transfer time" />
+      <column name="Type" value="PatientAccess.Rules.TransferTimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="64" />
+      <column name="Description" value="Address country" />
+      <column name="Type" value="PatientAccess.Rules.AddressCountryRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="65" />
+      <column name="Description" value="Address street" />
+      <column name="Type" value="PatientAccess.Rules.AddressStreetRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="66" />
+      <column name="Description" value="Address city" />
+      <column name="Type" value="PatientAccess.Rules.AddressCityRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="67" />
+      <column name="Description" value="Address state" />
+      <column name="Type" value="PatientAccess.Rules.AddressStateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="68" />
+      <column name="Description" value="Address zip" />
+      <column name="Type" value="PatientAccess.Rules.AddressZipRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="69" />
+      <column name="Description" value="Span code 1 from date" />
+      <column name="Type" value="PatientAccess.Rules.Span1FromDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="70" />
+      <column name="Description" value="Span code 1 to date" />
+      <column name="Type" value="PatientAccess.Rules.Span1ToDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="71" />
+      <column name="Description" value="Span code 2 from date" />
+      <column name="Type" value="PatientAccess.Rules.Span2FromDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="72" />
+      <column name="Description" value="Span code 2 to date" />
+      <column name="Type" value="PatientAccess.Rules.Span2ToDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="73" />
+      <column name="Description" value="Last name" />
+      <column name="Type" value="PatientAccess.Rules.LastNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="74" />
+      <column name="Description" value="First name" />
+      <column name="Type" value="PatientAccess.Rules.FirstNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="75" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.GenderRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="76" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.DateOfBirthRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="77" />
+      <column name="Description" value="SSN number" />
+      <column name="Type" value="PatientAccess.Rules.SocialSecurityNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="78" />
+      <column name="Description" value="State/province of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.StateOfAccidentOrCrimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="79" />
+      <column name="Description" value="U. S. drivers license state" />
+      <column name="Type" value="PatientAccess.Rules.DriversLicenseStateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="80" />
+      <column name="Description" value="Name" />
+      <column name="Type" value="PatientAccess.Rules.ContactNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="81" />
+      <column name="Description" value="Referring physician" />
+      <column name="Type" value="PatientAccess.Rules.ReferringPhysicianRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="82" />
+      <column name="Description" value="Admitting physician" />
+      <column name="Type" value="PatientAccess.Rules.AdmittingPhysicianRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="83" />
+      <column name="Description" value="Attending physician" />
+      <column name="Type" value="PatientAccess.Rules.AttendingPhysicianRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="84" />
+      <column name="Description" value="Country of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.CountryOfAccidentOrCrimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="85" />
+      <column name="Description" value="Country of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.CountryOfAccidentOrCrimePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="86" />
+      <column name="Description" value="State/province of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.StateOfAccidentOrCrimePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="88" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.ContactRelationshipRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="89" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.ContactRelationshipPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="90" />
+      <column name="Description" value="Phone" />
+      <column name="Type" value="PatientAccess.Rules.ContactPhoneRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="91" />
+      <column name="Description" value="Phone" />
+      <column name="Type" value="PatientAccess.Rules.ContactPhonePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="92" />
+      <column name="Description" value="Name" />
+      <column name="Type" value="PatientAccess.Rules.ContactNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="93" />
+      <column name="Description" value="Accident type" />
+      <column name="Type" value="PatientAccess.Rules.AccidentTypeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="94" />
+      <column name="Description" value="Date of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.DateOfAccidentOrCrimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="95" />
+      <column name="Description" value="Hour of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.HourOfAccidentOrCrimeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="96" />
+      <column name="Description" value="Date of onset for symptoms or illness" />
+      <column name="Type" value="PatientAccess.Rules.OnsetDateOfSymptomsOrIllnessRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="97" />
+      <column name="Description" value="Hour of accident or crime" />
+      <column name="Type" value="PatientAccess.Rules.HourOfAccidentOrCrimePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="102" />
+      <column name="Description" value="Primary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanIDInPrimaryDisplayPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="103" />
+      <column name="Description" value="Primary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanIDInPrimaryDisplayRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="104" />
+      <column name="Description" value="Secondary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanIDInSecondaryDisplayPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="105" />
+      <column name="Description" value="Financial class" />
+      <column name="Type" value="PatientAccess.Rules.FinancialClassPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="106" />
+      <column name="Description" value="Financial class" />
+      <column name="Type" value="PatientAccess.Rules.FinancialClassRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="107" />
+      <column name="Description" value="Secondary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanIDInSecondaryDisplayRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="108" />
+      <column name="Description" value="Primary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanNameInPrimaryDisplayPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="109" />
+      <column name="Description" value="Primary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanNameInPrimaryDisplayRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="110" />
+      <column name="Description" value="Secondary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanNameInSecondaryDisplayPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="111" />
+      <column name="Description" value="Secondary plan" />
+      <column name="Type" value="PatientAccess.Rules.PlanNameInSecondaryDisplayRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="112" />
+      <column name="Description" value="Physician last name" />
+      <column name="Type" value="PatientAccess.Rules.PhysicianLastNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="113" />
+      <column name="Description" value="Physician first name" />
+      <column name="Type" value="PatientAccess.Rules.PhysicianFirstNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="114" />
+      <column name="Description" value="Physician License" />
+      <column name="Type" value="PatientAccess.Rules.PhysicianStateLicenseNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="115" />
+      <column name="Description" value="Physician UPIN status" />
+      <column name="Type" value="PatientAccess.Rules.PhysicianUPINStatusRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="116" />
+      <column name="Description" value="Physician UPIN number" />
+      <column name="Type" value="PatientAccess.Rules.PhysicianUPINNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="117" />
+      <column name="Description" value="Find plan specify" />
+      <column name="Type" value="PatientAccess.Rules.FindPlanSpecifyRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="118" />
+      <column name="Description" value="Address" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="119" />
+      <column name="Description" value="Address" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="120" />
+      <column name="Description" value="Employer address" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorEmployerAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="122" />
+      <column name="Description" value="Employer address" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorEmployerAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="123" />
+      <column name="Description" value="U. S. drivers license state" />
+      <column name="Type" value="PatientAccess.Rules.PersonDriversLicenseStateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="124" />
+      <column name="Description" value="Employer address" />
+      <column name="Type" value="PatientAccess.Rules.PersonEmployerAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="126" />
+      <column name="Description" value="Employer" />
+      <column name="Type" value="PatientAccess.Rules.PersonEmployerRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="127" />
+      <column name="Description" value="Employer" />
+      <column name="Type" value="PatientAccess.Rules.PersonEmployerPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="128" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.PersonEmploymentStatusPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="129" />
+      <column name="Description" value="First name" />
+      <column name="Type" value="PatientAccess.Rules.PersonFirstNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="130" />
+      <column name="Description" value="First name" />
+      <column name="Type" value="PatientAccess.Rules.PersonFirstNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="131" />
+      <column name="Description" value="Last name" />
+      <column name="Type" value="PatientAccess.Rules.PersonLastNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="132" />
+      <column name="Description" value="Last name" />
+      <column name="Type" value="PatientAccess.Rules.PersonLastNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="133" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.PersonGenderPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="134" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.PersonGenderRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="135" />
+      <column name="Description" value="Phone number" />
+      <column name="Type" value="PatientAccess.Rules.PersonPhoneNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="136" />
+      <column name="Description" value="Area code" />
+      <column name="Type" value="PatientAccess.Rules.PersonPhoneAreaCodePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="137" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.PersonRelationshipPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="138" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.PersonRelationshipRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="139" />
+      <column name="Description" value="SSN" />
+      <column name="Type" value="PatientAccess.Rules.PersonSSNRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="140" />
+      <column name="Description" value="SSN" />
+      <column name="Type" value="PatientAccess.Rules.PersonSSNPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="141" />
+      <column name="Description" value="Drivers license" />
+      <column name="Type" value="PatientAccess.Rules.PersonDriversLicensePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="142" />
+      <column name="Description" value="Authorization number" />
+      <column name="Type" value="PatientAccess.Rules.InsuranceAuthorizationRequiredPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="143" />
+      <column name="Description" value="Insurance benefits verified" />
+      <column name="Type" value="PatientAccess.Rules.InsuranceBenefitsVerifiedPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="144" />
+      <column name="Description" value="Insurance claims verified" />
+      <column name="Type" value="PatientAccess.Rules.InsuranceClaimsVerifiedPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="145" />
+      <column name="Description" value="Insurance effective date" />
+      <column name="Type" value="PatientAccess.Rules.InsuranceEffectiveDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="146" />
+      <column name="Description" value="Insurance information received from" />
+      <column name="Type" value="PatientAccess.Rules.InsuranceInformationRecvFromPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="147" />
+      <column name="Description" value="Medicare days remaining benefit" />
+      <column name="Type" value="PatientAccess.Rules.MedicareDaysRemainingBenefitPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="148" />
+      <column name="Description" value="Medicare days remaining co ins" />
+      <column name="Type" value="PatientAccess.Rules.MedicareDaysRemainingCoInsPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="149" />
+      <column name="Description" value="Medicare days remain life serve" />
+      <column name="Type" value="PatientAccess.Rules.MedicareDaysRemainLifeServePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="150" />
+      <column name="Description" value="Medicare has HMO coverage" />
+      <column name="Type" value="PatientAccess.Rules.MedicareHasHMOCoveragePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="151" />
+      <column name="Description" value="Medicare hospice program" />
+      <column name="Type" value="PatientAccess.Rules.MedicareHospiceProgramPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="152" />
+      <column name="Description" value="Medicare info recvd from" />
+      <column name="Type" value="PatientAccess.Rules.MedicareInfoRecvdFromPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="153" />
+      <column name="Description" value="Medicare is secondary" />
+      <column name="Type" value="PatientAccess.Rules.MedicareIsSecondaryPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="154" />
+      <column name="Description" value="Medicare part A coverage" />
+      <column name="Type" value="PatientAccess.Rules.MedicarePartACoveragePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="155" />
+      <column name="Description" value="Medicare part B coverage" />
+      <column name="Type" value="PatientAccess.Rules.MedicarePartBCoveragePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="156" />
+      <column name="Description" value="Medicare verified beneficiary name" />
+      <column name="Type" value="PatientAccess.Rules.MedicareVerifiedBeneficiaryNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="157" />
+      <column name="Description" value="Employment phone number" />
+      <column name="Type" value="PatientAccess.Rules.EmploymentPhoneNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="158" />
+      <column name="Description" value="Employment area code" />
+      <column name="Type" value="PatientAccess.Rules.EmploymentPhoneAreaCodePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="159" />
+      <column name="Description" value="Span 1 from date is future" />
+      <column name="Type" value="PatientAccess.Rules.Span1FromDateIsFuture" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="160" />
+      <column name="Description" value="Span 1 to date is future" />
+      <column name="Type" value="PatientAccess.Rules.Span1ToDateIsFuture" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="161" />
+      <column name="Description" value="Span 2 from date is future" />
+      <column name="Type" value="PatientAccess.Rules.Span2FromDateIsFuture" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="162" />
+      <column name="Description" value="Span 2 to date is future" />
+      <column name="Type" value="PatientAccess.Rules.Span2ToDateIsFuture" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="163" />
+      <column name="Description" value="Transfer date future date" />
+      <column name="Type" value="PatientAccess.Rules.TransferDateFutureDate" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="164" />
+      <column name="Description" value="Transfer time future time" />
+      <column name="Type" value="PatientAccess.Rules.TransferTimeFutureTime" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="165" />
+      <column name="Description" value="Transfer date time before admit date time" />
+      <column name="Type" value="PatientAccess.Rules.TransferDateTimeBeforeAdmitDateTime" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="166" />
+      <column name="Description" value="Government effective date" />
+      <column name="Type" value="PatientAccess.Rules.GovtEffectiveDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="167" />
+      <column name="Description" value="Government info received from" />
+      <column name="Type" value="PatientAccess.Rules.GovtInfoRecvdFromPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="168" />
+      <column name="Description" value="Medicaid eligibility date" />
+      <column name="Type" value="PatientAccess.Rules.MedicaidEligibilityDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="169" />
+      <column name="Description" value="Medicaid patient has Medicare" />
+      <column name="Type" value="PatientAccess.Rules.MedicaidPatientHasMedicarePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="170" />
+      <column name="Description" value="Workers compensation claim address verified" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompClaimAddressVerifiedPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="171" />
+      <column name="Description" value="Workers compensation claim number" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompClaimNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="172" />
+      <column name="Description" value="Workers compensation info received from" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompInfoRecvdFromPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="173" />
+      <column name="Description" value="Workers compensation insurance phone" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompInsurancePhonePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="176" />
+      <column name="Description" value="Address" />
+      <column name="Type" value="PatientAccess.Rules.InsuredAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="177" />
+      <column name="Description" value="Address" />
+      <column name="Type" value="PatientAccess.Rules.InsuredAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="178" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.PersonEmploymentStatusRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="179" />
+      <column name="Description" value="Employer address" />
+      <column name="Type" value="PatientAccess.Rules.PersonEmployerAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="180" />
+      <column name="Description" value="Billing C/O name" />
+      <column name="Type" value="PatientAccess.Rules.BillingCONamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="181" />
+      <column name="Description" value="Billing C/O name" />
+      <column name="Type" value="PatientAccess.Rules.BillingCONameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="182" />
+      <column name="Description" value="Billing name" />
+      <column name="Type" value="PatientAccess.Rules.BillingNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="183" />
+      <column name="Description" value="Billing name" />
+      <column name="Type" value="PatientAccess.Rules.BillingNameRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="184" />
+      <column name="Description" value="Phone" />
+      <column name="Type" value="PatientAccess.Rules.BillingPhonePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="185" />
+      <column name="Description" value="Phone" />
+      <column name="Type" value="PatientAccess.Rules.BillingPhoneRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="186" />
+      <column name="Description" value="Address" />
+      <column name="Type" value="PatientAccess.Rules.BillingAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="187" />
+      <column name="Description" value="Address" />
+      <column name="Type" value="PatientAccess.Rules.BillingAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="188" />
+      <column name="Description" value="Policy number" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompPolicyNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="189" />
+      <column name="Description" value="Policy number" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompPolicyNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="190" />
+      <column name="Description" value="Employee's supervisor" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompEmpSupervisorPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="191" />
+      <column name="Description" value="Employee's supervisor" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompEmpSupervisorRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="192" />
+      <column name="Description" value="Policy/CIN number" />
+      <column name="Type" value="PatientAccess.Rules.MedicaidPolicyCINNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="193" />
+      <column name="Description" value="Policy/CIN number" />
+      <column name="Type" value="PatientAccess.Rules.MedicaidPolicyCINNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="194" />
+      <column name="Description" value="Cert/SSN/ID number" />
+      <column name="Type" value="PatientAccess.Rules.InsurancePlanSSNPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="195" />
+      <column name="Description" value="Cert/SSN/ID number" />
+      <column name="Type" value="PatientAccess.Rules.InsurancePlanSSNRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="196" />
+      <column name="Description" value="Authorization code" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompAuthCodePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="197" />
+      <column name="Description" value="Authorization code" />
+      <column name="Type" value="PatientAccess.Rules.WorkersCompAuthCodeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="198" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.OnPatientDemographicsForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="199" />
+      <column name="Description" value="Complete missing fields on the Insured form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnInsuredFormForPrimaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="200" />
+      <column name="Description" value="Complete missing fields on the Employment form" />
+      <column name="Type" value="PatientAccess.Rules.OnEmploymentForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="201" />
+      <column name="Description" value="Complete missing fields on the Diagnosis form" />
+      <column name="Type" value="PatientAccess.Rules.OnDiagnosisForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="202" />
+      <column name="Description" value="Complete missing fields on the Clinical form" />
+      <column name="Type" value="PatientAccess.Rules.OnClinicalForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="203" />
+      <column name="Description" value="Complete missing fields on the Insurance form" />
+      <column name="Type" value="PatientAccess.Rules.OnInsuranceForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="204" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnPayorDetailsFormForPrimaryPayor" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="205" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnPayorDetailsFormForSecondaryPayor" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="207" />
+      <column name="Description" value="Complete missing fields on the Insured form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnInsuredFormForSecondaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="208" />
+      <column name="Description" value="Complete missing fields on the Guarantor form" />
+      <column name="Type" value="PatientAccess.Rules.OnGuarantorForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="209" />
+      <column name="Description" value="Complete missing fields on the Billing form" />
+      <column name="Type" value="PatientAccess.Rules.OnBillingForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="210" />
+      <column name="Description" value="Complete missing fields on the Contacts form" />
+      <column name="Type" value="PatientAccess.Rules.OnContactsForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="211" />
+      <column name="Description" value="Complete missing fields on the Regulatory form" />
+      <column name="Type" value="PatientAccess.Rules.OnRegulatoryForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="212" />
+      <column name="Description" value="Complete missing fields on the Contact &amp; Diagnosis form'" />
+      <column name="Type" value="PatientAccess.Rules.OnContactAndDiagnosisForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="213" />
+      <column name="Description" value="Complete missing fields on the Transfer To form" />
+      <column name="Type" value="PatientAccess.Rules.OnTransferToForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="214" />
+      <column name="Description" value="Complete missing fields on the Physicians form" />
+      <column name="Type" value="PatientAccess.Rules.OnPhysiciansForm" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="215" />
+      <column name="Description" value="HIC number" />
+      <column name="Type" value="PatientAccess.Rules.MedicareHICNumberPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="216" />
+      <column name="Description" value="HIC number" />
+      <column name="Type" value="PatientAccess.Rules.MedicareHICNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="217" />
+      <column name="Description" value="Bloodless" />
+      <column name="Type" value="PatientAccess.Rules.BloodlessRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="218" />
+      <column name="Description" value="Address fields required" />
+      <column name="Type" value="PatientAccess.Rules.AddressFieldsRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="219" />
+      <column name="Description" value="Admit date" />
+      <column name="Type" value="PatientAccess.Rules.BenVerAdmitDate" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="220" />
+      <column name="Description" value="Last name" />
+      <column name="Type" value="PatientAccess.Rules.BenVerLastName" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="221" />
+      <column name="Description" value="First name" />
+      <column name="Type" value="PatientAccess.Rules.BenVerFirstName" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="222" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.BenVerGender" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="223" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.BenVerDateOfBirth" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="224" />
+      <column name="Description" value="Cert/SSN/ID number" />
+      <column name="Type" value="PatientAccess.Rules.BenVerCertSSN" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="225" />
+      <column name="Description" value="Policy/CIN number" />
+      <column name="Type" value="PatientAccess.Rules.BenVerPolicyCIN" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="226" />
+      <column name="Description" value="HIC number" />
+      <column name="Type" value="PatientAccess.Rules.BenVerHIC" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="227" />
+      <column name="Description" value="Policy number" />
+      <column name="Type" value="PatientAccess.Rules.BenVerPolicyNumber" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="228" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.BenVerInsuredRelationship" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="229" />
+      <column name="Description" value="Last name" />
+      <column name="Type" value="PatientAccess.Rules.BenVerInsuredLastName" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="230" />
+      <column name="Description" value="First name" />
+      <column name="Type" value="PatientAccess.Rules.BenVerInsuredFirstName" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="231" />
+      <column name="Description" value="SSN" />
+      <column name="Type" value="PatientAccess.Rules.BenVerInsuredSSN" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="232" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnDemographics" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="233" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnPayorDetailsFormForPrimaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="234" />
+      <column name="Description" value="Complete missing fields on the Payor Details form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnPayorDetailsFormForSecondaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="235" />
+      <column name="Description" value="Complete missing fields on the Insured form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnInsuredFormForPrimaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="236" />
+      <column name="Description" value="Complete missing fields on the Insured form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenVerOnInsuredFormForSecondaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="237" />
+      <column name="Description" value="Occurrence code 1 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode1DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="238" />
+      <column name="Description" value="Occurrence code 2 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode2DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="239" />
+      <column name="Description" value="Occurrence code 3 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode3DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="240" />
+      <column name="Description" value="Occurrence code 4 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode4DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="241" />
+      <column name="Description" value="Occurrence code 5 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode5DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="242" />
+      <column name="Description" value="Occurrence code 6 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode6DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="243" />
+      <column name="Description" value="Occurrence code 7 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode7DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="244" />
+      <column name="Description" value="Occurrence code 8 date" />
+      <column name="Type" value="PatientAccess.Rules.OccurrenceCode8DateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="245" />
+      <column name="Description" value="Condition code 1" />
+      <column name="Type" value="PatientAccess.Rules.ConditionCode1Required" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="246" />
+      <column name="Description" value="Complete the benefits verification task for the secondary insurance" />
+      <column name="Type" value="PatientAccess.Rules.BenefitsVerificationRequiredForSecondary" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="247" />
+      <column name="Description" value="Complete the authorization task for the secondary insurance" />
+      <column name="Type" value="PatientAccess.Rules.AuthorizationRequiredForSecondary" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="248" />
+      <column name="Description" value="Review system electronic results for primary insurance verification." />
+      <column name="Type" value="PatientAccess.Rules.ReviewElectronicResultsForPrimary" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="249" />
+      <column name="Description" value="Review system electronic results for secondary insurance verification" />
+      <column name="Type" value="PatientAccess.Rules.ReviewElectronicResultsForSecondary" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="250" />
+      <column name="Description" value="Admit date required for Insurance Selection" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateRequiredForInsuranceSelection" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="251" />
+      <column name="Description" value="Admit date - conflicts with coverage period of primary insurance" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateToPrimaryPlanDates" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="252" />
+      <column name="Description" value="Admit date - conflicts with coverage period of secondary insurance" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateToSecondaryPlanDates" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="253" />
+      <column name="Description" value="Clinic 1" />
+      <column name="Type" value="PatientAccess.Rules.DiagnosisClinicOneRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="254" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorEmploymentStatusRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="255" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorEmploymentStatusPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="259" />
+      <column name="Description" value="Patient 1 Hospital service To" />
+      <column name="Type" value="PatientAccess.Rules.HospitalServiceToInPat1Required" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="260" />
+      <column name="Description" value="Patient 2 Hospital service To" />
+      <column name="Type" value="PatientAccess.Rules.HospitalServiceToInPat2Required" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="263" />
+      <column name="Description" value="Patient 1 Accommodation To" />
+      <column name="Type" value="PatientAccess.Rules.AccommodationToInPat1Required" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="264" />
+      <column name="Description" value="Patient 2 Accommodation To" />
+      <column name="Type" value="PatientAccess.Rules.AccommodationToInPat2Required" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="265" />
+      <column name="Description" value="Admit source" />
+      <column name="Type" value="PatientAccess.Rules.AdmitSourcePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="266" />
+      <column name="Description" value="Referral source" />
+      <column name="Type" value="PatientAccess.Rules.ReferralSourceRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="267" />
+      <column name="Description" value="TenetCare" />
+      <column name="Type" value="PatientAccess.Rules.TenetCareRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="268" />
+      <column name="Description" value="Mode of arrival" />
+      <column name="Type" value="PatientAccess.Rules.ModeOfArrivalPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="269" />
+      <column name="Description" value="SSN status" />
+      <column name="Type" value="PatientAccess.Rules.SSNStatusPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="270" />
+      <column name="Description" value="SSN number" />
+      <column name="Type" value="PatientAccess.Rules.SSNPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="271" />
+      <column name="Description" value="Chief complaint" />
+      <column name="Type" value="PatientAccess.Rules.ChiefComplaintPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="272" />
+      <column name="Description" value="Clinic 1" />
+      <column name="Type" value="PatientAccess.Rules.ClinicOneRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="273" />
+      <column name="Description" value="Race" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRaceCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="274" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="275" />
+      <column name="Description" value="Marital status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidMaritalStatusCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="276" />
+      <column name="Description" value="Ethnicity" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEthnicityCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="277" />
+      <column name="Description" value="Language" />
+      <column name="Type" value="PatientAccess.Rules.InvalidLanguageCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="278" />
+      <column name="Description" value="Religion" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReligionCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="279" />
+      <column name="Description" value="Place of worship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidPlaceOfWorshipCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="280" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmploymentStatusCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="281" />
+      <column name="Description" value="Patient type" />
+      <column name="Type" value="PatientAccess.Rules.InvalidPatientTypeCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="282" />
+      <column name="Description" value="Hospital service" />
+      <column name="Type" value="PatientAccess.Rules.InvalidHospitalServiceCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="284" />
+      <column name="Description" value="Admit source" />
+      <column name="Type" value="PatientAccess.Rules.InvalidAdmitSourceCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="283" />
+      <column name="Description" value="Accommodation" />
+      <column name="Type" value="PatientAccess.Rules.InvalidAccomodationCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="285" />
+      <column name="Description" value="Referal source" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReferalSourceCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="286" />
+      <column name="Description" value="Clinic 1" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_1Code" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="287" />
+      <column name="Description" value="Clinic 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_2Code" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="288" />
+      <column name="Description" value="Clinic 3" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_3Code" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="289" />
+      <column name="Description" value="Clinic 4" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_4Code" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="290" />
+      <column name="Description" value="Clinic 5" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_5Code" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="291" />
+      <column name="Description" value="Resistant organism" />
+      <column name="Type" value="PatientAccess.Rules.InvalidResistantOrganismCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="292" />
+      <column name="Description" value="Financial class" />
+      <column name="Type" value="PatientAccess.Rules.InvalidFinancialClassCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="294" />
+      <column name="Description" value="Occurance code 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_2" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="295" />
+      <column name="Description" value="Occurance code 3" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_3" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="296" />
+      <column name="Description" value="Occurance code 4" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_4" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="297" />
+      <column name="Description" value="Occurance code 5" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_5" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="298" />
+      <column name="Description" value="Occurance code 6" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_6" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="299" />
+      <column name="Description" value="Occurance code 7" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_7" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="300" />
+      <column name="Description" value="Occurance code 8" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_8" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="301" />
+      <column name="Description" value="Condition code 1" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_1" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="302" />
+      <column name="Description" value="Condition code 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_2" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="303" />
+      <column name="Description" value="Condition code 3" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_3" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="304" />
+      <column name="Description" value="Condition code 4" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_4" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="305" />
+      <column name="Description" value="Condition code 5" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_5" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="306" />
+      <column name="Description" value="Condition code 6" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_6" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="307" />
+      <column name="Description" value="Condition code 7" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_7" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="308" />
+      <column name="Description" value="Span code 1" />
+      <column name="Type" value="PatientAccess.Rules.InvalidSpanCode_1" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="309" />
+      <column name="Description" value="Span code 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidSpanCode_2" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="310" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmergContact_1Rel" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="311" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmergContact_2Rel" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="312" />
+      <column name="Description" value="NPP version" />
+      <column name="Type" value="PatientAccess.Rules.InvalidNPPVersion" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="313" />
+      <column name="Description" value="Confidential status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConfidentialStatus" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="314" />
+      <column name="Description" value="COS" />
+      <column name="Type" value="PatientAccess.Rules.InvalidCOS" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="315" />
+      <column name="Description" value="Facility determined flag" />
+      <column name="Type" value="PatientAccess.Rules.InvalidFacilityDeterminedFlag" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="316" />
+      <column name="Description" value="Guarantor validation fields" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorValidationFieldsProvided" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="317" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRelForPriInsured" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="318" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRelForSecInsured" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="319" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRelForGuarantor" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="320" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderForPriInsured" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="321" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderForSecInsured" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="322" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderForGuarantor" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="323" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmpStatusForPriInsured" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="324" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmpStatusForSecInsured" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="325" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmpStatusForGuarantor" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="326" />
+      <column name="Description" value="Review guarantor validation Results" />
+      <column name="Type" value="PatientAccess.Rules.GuarentorValidationMustBeViewed" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="327" />
+      <column name="Description" value="Appointment code" />
+      <column name="Type" value="PatientAccess.Rules.InvalidScheduleCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="328" />
+      <column name="Description" value="Admit date" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateTodayOrGreater" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="329" />
+      <column name="Description" value="Medicaid issue date" />
+      <column name="Type" value="PatientAccess.Rules.MedicaidIssueDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="330" />
+      <column name="Description" value="Medicaid issue date" />
+      <column name="Type" value="PatientAccess.Rules.MedicaidIssueDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="331" />
+      <column name="Description" value="Total payments collected" />
+      <column name="Type" value="PatientAccess.Rules.TotalPaymentsCollectedRule" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="332" />
+      <column name="Description" value="Appointment" />
+      <column name="Type" value="PatientAccess.Rules.AppointmentRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="333" />
+      <column name="Description" value="Mode of arrival " />
+      <column name="Type" value="PatientAccess.Rules.InvalidModeOfArrival" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="335" />
+      <column name="Description" value="Referral type" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReferralType" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="336" />
+      <column name="Description" value="Referral facility" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReferralFacility" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="337" />
+      <column name="Description" value="Re-admit code" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReAdmitCode" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="338" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.OnPreMSEDemographicsForm " />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="339" />
+      <column name="Description" value="Race" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRaceCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="340" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="341" />
+      <column name="Description" value="Marital status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidMaritalStatusCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="342" />
+      <column name="Description" value="Ethnicity" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEthnicityCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="343" />
+      <column name="Description" value="Language" />
+      <column name="Type" value="PatientAccess.Rules.InvalidLanguageCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="344" />
+      <column name="Description" value="Religion" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReligionCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="345" />
+      <column name="Description" value="Place of worship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidPlaceOfWorshipCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="346" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmploymentStatusCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="347" />
+      <column name="Description" value="Patient type" />
+      <column name="Type" value="PatientAccess.Rules.InvalidPatientTypeCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="348" />
+      <column name="Description" value="Hospital service" />
+      <column name="Type" value="PatientAccess.Rules.InvalidHospitalServiceCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="349" />
+      <column name="Description" value="Admit source" />
+      <column name="Type" value="PatientAccess.Rules.InvalidAdmitSourceCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="350" />
+      <column name="Description" value="Accommodation" />
+      <column name="Type" value="PatientAccess.Rules.InvalidAccomodationCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="351" />
+      <column name="Description" value="Referal source" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReferalSourceCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="352" />
+      <column name="Description" value="Clinic 1" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_1CodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="353" />
+      <column name="Description" value="Clinic 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_2CodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="354" />
+      <column name="Description" value="Clinic 3" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_3CodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="355" />
+      <column name="Description" value="Clinic 4" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_4CodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="356" />
+      <column name="Description" value="Clinic 5" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinic_5CodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="357" />
+      <column name="Description" value="Resistant organism" />
+      <column name="Type" value="PatientAccess.Rules.InvalidResistantOrganismCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="358" />
+      <column name="Description" value="Financial class" />
+      <column name="Type" value="PatientAccess.Rules.InvalidFinancialClassCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="360" />
+      <column name="Description" value="Occurance code 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_2Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="361" />
+      <column name="Description" value="Occurance code 3" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_3Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="362" />
+      <column name="Description" value="Occurance code 4" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_4Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="363" />
+      <column name="Description" value="Occurance code 5" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_5Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="364" />
+      <column name="Description" value="Occurance code 6" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_6Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="365" />
+      <column name="Description" value="Occurance code 7" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_7Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="366" />
+      <column name="Description" value="Occurance code 8" />
+      <column name="Type" value="PatientAccess.Rules.InvalidOccuranceCode_8Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="367" />
+      <column name="Description" value="Condition code 1" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_1Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="368" />
+      <column name="Description" value="Condition code 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_2Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="369" />
+      <column name="Description" value="Condition code 3" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_3Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="370" />
+      <column name="Description" value="Condition code 4" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_4Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="371" />
+      <column name="Description" value="Condition code 5" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_5Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="372" />
+      <column name="Description" value="Condition code 6" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_6Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="373" />
+      <column name="Description" value="Condition code 7" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConditionCode_7Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="374" />
+      <column name="Description" value="Span code 1" />
+      <column name="Type" value="PatientAccess.Rules.InvalidSpanCode_1Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="375" />
+      <column name="Description" value="Span code 2" />
+      <column name="Type" value="PatientAccess.Rules.InvalidSpanCode_2Change" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="376" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmergContact_1RelChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="377" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmergContact_2RelChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="378" />
+      <column name="Description" value="NPP version" />
+      <column name="Type" value="PatientAccess.Rules.InvalidNPPVersionChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="379" />
+      <column name="Description" value="Confidential status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidConfidentialStatusChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="380" />
+      <column name="Description" value="COS" />
+      <column name="Type" value="PatientAccess.Rules.InvalidCOSChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="381" />
+      <column name="Description" value="Facility determined flag" />
+      <column name="Type" value="PatientAccess.Rules.InvalidFacilityDeterminedFlagChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="382" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRelForPriInsuredChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="383" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRelForSecInsuredChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="384" />
+      <column name="Description" value="Relationship" />
+      <column name="Type" value="PatientAccess.Rules.InvalidRelForGuarantorChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="385" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderForPriInsuredChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="386" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderForSecInsuredChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="387" />
+      <column name="Description" value="Gender" />
+      <column name="Type" value="PatientAccess.Rules.InvalidGenderForGuarantorChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="388" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmpStatusForPriInsuredChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="389" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmpStatusForSecInsuredChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="390" />
+      <column name="Description" value="Employment status" />
+      <column name="Type" value="PatientAccess.Rules.InvalidEmpStatusForGuarantorChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="391" />
+      <column name="Description" value="Appointment code" />
+      <column name="Type" value="PatientAccess.Rules.InvalidScheduleCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="392" />
+      <column name="Description" value="Mode of arrival" />
+      <column name="Type" value="PatientAccess.Rules.InvalidModeOfArrivalChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="394" />
+      <column name="Description" value="Referral type" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReferralTypeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="395" />
+      <column name="Description" value="Referral facility" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReferralFacilityChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="396" />
+      <column name="Description" value="Re-admit code" />
+      <column name="Type" value="PatientAccess.Rules.InvalidReAdmitCodeChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="397" />
+      <column name="Description" value="COS Signed" />
+      <column name="Type" value="PatientAccess.Rules.COSSignedPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="398" />
+      <column name="Description" value="Medicaid issue date" />
+      <column name="Type" value="PatientAccess.Rules.BenVerMedicaidIssueDate" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="399" />
+      <column name="Description" value="SSN" />
+      <column name="Type" value="PatientAccess.Rules.BenVerPatientSSN" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="400" />
+      <column name="Description" value="Patient has other insurance coverage (TPL)" />
+      <column name="Type" value="PatientAccess.Rules.InsuranceMedicaidHasOtherCoveragePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="401" />
+      <column name="Description" value="Clinic" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinicForPreMSE" />
+      <column name="Severity" valueNumeric="16" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="402" />
+      <column name="Description" value="Clinic" />
+      <column name="Type" value="PatientAccess.Rules.InvalidClinicForPreMSEChange" />
+      <column name="Severity" valueNumeric="32" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="403" />
+      <column name="Description" value="Patient has Medicaid" />
+      <column name="Type" value="PatientAccess.Rules.SelfPayPatientHasMedicaidPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="404" />
+      <column name="Description" value="Patient insurance info unavailable" />
+      <column name="Type" value="PatientAccess.Rules.SelfPayPatientInfoUnavailablePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="405" />
+      <column name="Description" value="Admit date" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateEnteredFiveDaysPast" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="406" />
+      <column name="Description" value="Admit date" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateEnteredFutureDate" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="407" />
+      <column name="Description" value="Mode Of Arrival" />
+      <column name="Type" value="PatientAccess.Rules.ModeOfArrivalPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="408" />
+      <column name="Description" value="MSP form" />
+      <column name="Type" value="PatientAccess.Rules.MSPQuestionaireRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="409" />
+      <column name="Description" value="Review system electronic results for guarantors credit report" />
+      <column name="Type" value="PatientAccess.Rules.ReviewGuarantorCreditReport" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="410" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.PrimaryInsuredDateOfBirthRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="411" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.PrimaryInsuredDateOfBirthPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="412" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.SecondaryInsuredDateOfBirthRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="413" />
+      <column name="Description" value="DOB" />
+      <column name="Type" value="PatientAccess.Rules.SecondaryInsuredDateOfBirthPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="414" />
+      <column name="Description" value="U.S. drivers license state" />
+      <column name="Type" value="PatientAccess.Rules.DriversLicenseStatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="415" />
+      <column name="Description" value="U.S. drivers license state" />
+      <column name="Type" value="PatientAccess.Rules.PersonDriversLicenseStatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="416" />
+      <column name="Description" value="Physician selection pre-requisites" />
+      <column name="Type" value="PatientAccess.Rules.PhysicianSelectionPreRequisites" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="417" />
+      <column name="Description" value="Unknown selected for patients SSN status FollowUp required" />
+      <column name="Type" value="PatientAccess.Rules.UnknownSocialSecurityNumberStatus" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="418" />
+      <column name="Description" value="AdmitDate is too far into the future" />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateWithinSpecifiedSpan" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="419" />
+      <column name="Description" value="NPP Signature status" />
+      <column name="Type" value="PatientAccess.Rules.NPPSignatureStatusRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="420" />
+      <column name="Description" value="NPP Signed on date" />
+      <column name="Type" value="PatientAccess.Rules.NPPSignedOnDateRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="421" />
+      <column name="Description" value="NPI number is invalid" />
+      <column name="Type" value="PatientAccess.Rules.NonStaffNPIIsValid" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="422" />
+      <column name="Description" value="Passport issuing country" />
+      <column name="Type" value="PatientAccess.Rules.PassportCountryRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="423" />
+      <column name="Description" value="Adjust Admit date, or primary authorization Expiration date. Admit date currently is later than primary authorization Expiration date." />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateLaterThanAuthExpirationDate" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="424" />
+      <column name="Description" value="Adjust Admit date, or primary authorization Effective date. Admit date currently is earlier than primary authorization Effective date." />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateEarlierThanAuthEffectiveDate" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="425" />
+      <column name="Description" value="Adjust Admit date, secondary authorization Effective date or Expiration date. Admit date falls outside of secondary authorization date range." />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateToSecondaryAuthorizationDates" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="426" />
+      <column name="Description" value="Adjust Admit date, or secondary authorization Expiration date. Admit date currently is later than secondary authorization Expiration date." />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateLaterThanSecondaryAuthExpDate" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="427" />
+      <column name="Description" value="Adjust Admit date, or Secondary authorization Effective date. Admit date currently is earlier than secondary authorization Effective date." />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateEarlierThanSecondaryAuthEffectiveDate" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="428" />
+      <column name="Description" value="Adjust Admit date, primary authorization Effective date, or Expiration date. Admit date currently falls outside of primary authorization date range." />
+      <column name="Type" value="PatientAccess.Rules.AdmitDateToAuthorizationDateRange" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="429" />
+      <column name="Description" value="Complete missing fields on the Authorization form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnAuthorizationFormForPrimaryCoverage" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="430" />
+      <column name="Description" value="Complete missing fields on the Authorization form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnAuthorizationFormForSecondaryCoverage" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="431" />
+      <column name="Description" value="Company rep first name" />
+      <column name="Type" value="PatientAccess.Rules.CompanyRepFirstNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="432" />
+      <column name="Description" value="Company rep last name" />
+      <column name="Type" value="PatientAccess.Rules.CompanyRepLastNamePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="433" />
+      <column name="Description" value="Services authorized" />
+      <column name="Type" value="PatientAccess.Rules.ServicesAuthorizedPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="434" />
+      <column name="Description" value="Medical group/IPA" />
+      <column name="Type" value="PatientAccess.Rules.InsurancePlanIPARequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="435" />
+      <column name="Description" value="Complete missing fields on the Demographics form" />
+      <column name="Type" value="PatientAccess.Rules.LocationFieldsRequired" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="436" />
+      <column name="Description" value="Mailing address zip code" />
+      <column name="Type" value="PatientAccess.Rules.MailingAddressZipRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="437" />
+      <column name="Description" value="NPP Signed" />
+      <column name="Type" value=" 'PatientAccess.Rules.NPPSignedOnDateInvalid'" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="438" />
+      <column name="Description" value="Medicare HIC number" />
+      <column name="Type" value="PatientAccess.Rules.SignedOverMedicareHICNumberRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="439" />
+      <column name="Description" value="Area code" />
+      <column name="Type" value="PatientAccess.Rules.PhoneNumberPrefersAreaCode" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="440" />
+      <column name="Description" value="Phone number" />
+      <column name="Type" value="PatientAccess.Rules.AreaCodeRequiresPhoneNumber" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="441" />
+      <column name="Description" value="Complete missing fields on the Verification form for Primary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnVerificationFormForPrimaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="442" />
+      <column name="Description" value="Complete missing fields on the Verification form for Secondary Insurance" />
+      <column name="Type" value="PatientAccess.Rules.OnVerificationFormForSecondaryInsurance" />
+      <column name="Severity" valueNumeric="1" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="443" />
+      <column name="Description" value="Area code" />
+      <column name="Type" value="PatientAccess.Rules.ContactAreaCodePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="444" />
+      <column name="Description" value="Area code" />
+      <column name="Type" value="PatientAccess.Rules.ContactAreaCodeRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="445" />
+      <column name="Description" value="The date of birth cannot be before January 1, 1800." />
+      <column name="Type" value="PatientAccess.Rules.InValidDateOfBirth" />
+      <column name="Severity" valueNumeric="8" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="446" />
+      <column name="Description" value="Reason for Private Accommodation" />
+      <column name="Type" value="PatientAccess.Rules.ReasonForAccomodationRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="447" />
+      <column name="Description" value="Admit date must be entered before Accident/Crime date." />
+      <column name="Type" value="PatientAccess.Rules.AccidentOrCrimeDateWithNoAdmitDate" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="448" />
+      <column name="Description" value="Admit date must be entered before onset of Symptoms/Illness date." />
+      <column name="Type" value="PatientAccess.Rules.OnsetOfSymptomsOrIllnessWithNoAdmitDate" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="449" />
+      <column name="Description" value="Medicare HMO coverage should be the primary coverage, not Medicare." />
+      <column name="Type" value="PatientAccess.Rules.MedicarePatientHasHMO" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    <rollback>
+      delete from RuleEngine.Rules where Id between 1 and 449;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

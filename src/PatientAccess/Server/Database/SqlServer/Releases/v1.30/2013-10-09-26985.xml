@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.30\2013-10-09-26985.xml">
+
+  <changeSet id="13B1A1C3-C3F5-429F-A9C0-C7F971A16B1A" author="Surya.Kumari">
+
+    <comment>
+      SR 8554 – Make Patient Portal opt-in available for transfers from PT2 to PT1 (Meaningful Use)
+    </comment>
+
+    <comment>
+      ContextsToRules for PatientProtal Optin
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="507" />
+    </insert>
+
+    <comment>
+      ContextsToRules for EmailAddress
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="9" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+
+    <comment>
+      CompositeRulesToRules
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="213" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="213" />
+      <column name="Ruleid" valueNumeric="508" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

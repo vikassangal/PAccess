@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.34\2014_07_07_8521.xml">
+
+  <changeSet id="64D6D22D-A581-433E-B162-18E63CF98DD6" author="Leelavathi.Vanniya">
+
+    <comment>
+     SR 8521 - Short Registration Email - create EmailAddressPreferred rule
+    </comment>
+      <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="512" />
+      <column name="Description" value="Patient email address" />
+      <column name="Type" value="PatientAccess.Rules.EmailAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    <comment>
+     SR 8521 - Short Registration Guarantor Email - create GuarantorEmailAddressPreferred rule
+    </comment>
+      <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="513" />
+      <column name="Description" value="Guarantor email address" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorEmailAddressPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+    
+       <comment>
+     SR 8521 - Short Registration Guarantor Email - create GuarantorEmailAddressRequired rule
+    </comment>
+      <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="514" />
+      <column name="Description" value="Guarantor email address" />
+      <column name="Type" value="PatientAccess.Rules.GuarantorEmailAddressRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+      
+    <comment>
+      Add Contexts (20 ShortPreRegistration, 21 ShortRegistration) to EmailAddressRequired Rule(508) 
+    </comment>
+   
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+    
+    <comment>
+      ShortRegistrationActivity (21)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+    
+     <comment>
+      Add Contexts (20 ShortPreRegistration, 21 ShortRegistration) to EmailAddressPreferred Rule(512) 
+    </comment>
+   
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+    
+    <comment>
+      ShortRegistrationActivity (21)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+    
+     <comment>
+       Add Composite rules OnShortDemographicsForm (482) to EmailAddressRequired Rule(508) and EmailAddressPreferred Rule(512) 
+     </comment>
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+    
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="512" />
+    </insert>
+ 
+   <comment>
+      Add Contexts (20 ShortPreRegistration, 21 ShortRegistration) to GuarantorEmailAddressPreferred Rule(513) 
+    </comment>
+   
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+    
+    <comment>
+      ShortRegistrationActivity (21)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+    
+    <comment>
+      Add Contexts (20 ShortPreRegistration, 21 ShortRegistration) to GuarantorEmailAddressRequired Rule(514) 
+    </comment>
+    
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="514" />
+    </insert>
+    
+    <comment>
+      ShortRegistrationActivity (21)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="514" />
+    </insert>
+
+ <comment>
+       Add Composite rules OnShortGuarantorForm (476) to GuarantorEmailAddressRequired Rule(514) and GuarantorEmailAddressPreferred Rule(513) 
+     </comment>
+  
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="513" />
+    </insert>
+    
+     <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="476" />
+      <column name="RuleId" valueNumeric="514" />
+    </insert>
+    
+
+  </changeSet>
+</databaseChangeLog>

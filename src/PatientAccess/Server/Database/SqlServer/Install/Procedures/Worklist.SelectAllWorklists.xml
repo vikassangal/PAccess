@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Worklist.SelectAllWorklists.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Worklist.SelectAllWorklists
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Worklist.SelectAllWorklists
+      AS
+      BEGIN
+      
+        SELECT
+          Id,
+          Name
+        FROM
+          Worklist.Worklists
+        ORDER BY
+          Id
+          
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Worklist.SelectAllWorklists TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Worklist.SelectAllWorklists FROM db_apionly;
+      DROP PROCEDURE Worklist.SelectAllWorklists;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Functions\_template.xml">
+  <changeSet id="1" author="">
+    <comment>
+      Create SchemaName.FunctionName()
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE FUNCTION SchemaName.FunctionName(...)
+        RETURNS ...
+      AS
+      BEGIN
+
+        ...
+
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON SchemaName.FunctionName TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON SchemaName.FunctionName FROM db_apionly;
+      DROP FUNCTION SchemaName.FunctionName;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

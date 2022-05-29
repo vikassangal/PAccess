@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-02-22-13653.xml">
+
+  <changeSet id="1B299530-4331-4303-81E5-130B574301E5" author="Smitha.Krishnamurthy">
+    
+               
+<comment>
+Defects fixes - 13653,13649, 13647,13648,13644
+</comment>
+ 
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 40</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 471</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 83</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 8</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 471</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 65</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 218</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 83</where>
+    </delete>
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 and RuleId = 8</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 and RuleId = 40</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 and RuleId = 471</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 474 and RuleId = 83</where>
+    </delete>
+
+    <comment>
+    Language Preferred (40)     
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="40" />
+    </insert>
+    
+    <comment>
+    LanguageSpecify (OtherLanguageRequired)(471)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+    <column name="ContextId" valueNumeric="20" />
+    <column name="RuleId" valueNumeric="471" />
+    </insert>
+
+    <comment>
+    AttendingPhysicianRequired(83)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+    <column name="ContextId" valueNumeric="20" />
+    <column name="RuleId" valueNumeric="83" />
+    </insert>
+
+
+    <comment>
+    LanguageRequired (8)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+    <column name="ContextId" valueNumeric="21" />
+    <column name="RuleId" valueNumeric="8" />
+    </insert>
+
+    <comment>
+    OtherLanguageRequired (Specify Language) (471)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+    <column name="ContextId" valueNumeric="21" />
+    <column name="RuleId" valueNumeric="471" />
+    </insert>
+
+    <comment>
+    AddressStreetRequired(65)    
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+    <column name="ContextId" valueNumeric="21" />
+    <column name="RuleId" valueNumeric="65" />
+    </insert>
+    <comment>
+      AddressFieldsRequired(218)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="218" />
+    </insert>
+    
+    <comment>
+    AttendingPhysicianRequired(83)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+    <column name="ContextId" valueNumeric="21" />
+    <column name="RuleId" valueNumeric="83" />
+    </insert>
+
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="8" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="40" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="482" />
+      <column name="RuleId" valueNumeric="471" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="83" />
+    </insert>
+    
+    
+    
+  <rollback>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+    <where>ContextId = 20 and RuleId = 40</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 471</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 83</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 8</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 471</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 65</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 218</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 83</where>
+    </delete>
+
+
+
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+    <where>CompositeRuleId = 482 and RuleId = 8</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 and RuleId = 40</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 482 and RuleId = 471</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 474 and RuleId = 83</where>
+    </delete>
+  
+  
+  </rollback>
+
+</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\CrashDump.DeleteCrashReportsById.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create CrashDump.DeleteCrashReportsById
+    </comment>
+    <createProcedure><![CDATA[
+      CREATE PROCEDURE CrashDump.DeleteCrashReportsById
+        @Id int
+      AS
+      BEGIN
+
+        DELETE FROM
+          CrashDump.CrashReports
+        WHERE
+          Id = @id
+
+      END;      
+      ]]></createProcedure>
+    <sql>
+      GRANT EXECUTE ON CrashDump.DeleteCrashReportsById TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON CrashDump.DeleteCrashReportsById FROM db_apionly;
+      DROP PROCEDURE CrashDump.DeleteCrashReportsById;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

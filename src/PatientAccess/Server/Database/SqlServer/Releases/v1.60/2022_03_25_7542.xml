@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.60\2022_03_25_7542.xml">
+  <changeSet id="8CF883FE-DA7F-4E4C-AE6B-6A3EAA7BDEF6" author="abhijeet.hambir">
+    <comment>
+		Create ViWeb.SaveVIwebAccessToken
+	</comment>
+    <createProcedure>
+		CREATE PROCEDURE [ViWeb].[SaveVIwebAccessToken]
+		@key varchar(100),
+		@value varchar(200),
+		@id int output
+		AS
+		BEGIN
+		SET NOCOUNT ON;
+		IF EXISTS(SELECT TOP 1 1 FROM ViWeb.ViwebAccessToken WHERE [key]=@key and [value]=@value)
+		BEGIN
+		DELETE FROM ViWeb.ViwebAccessToken WHERE [key]=@key and [value]=@value
+		END
+		IF NOT EXISTS(SELECT TOP 1 1 FROM ViWeb.ViwebAccessToken WHERE [key]=@key and [value]=@value)
+		BEGIN
+		INSERT INTO ViWeb.ViwebAccessToken([key],[value])
+		VALUES (@key,@value)
+		SET @id=SCOPE_IDENTITY()
+		RETURN  @id
+		END
+		END
+	</createProcedure>
+    <sql>
+		GRANT EXECUTE ON ViWeb.SaveVIwebAccessToken TO db_apionly;
+	</sql>
+    <rollback>
+		REVOKE EXECUTE ON ViWeb.SaveVIwebAccessToken FROM db_apionly;
+		DROP PROCEDURE ViWeb.SaveVIwebAccessToken;
+	</rollback>
+  </changeSet>
+</databaseChangeLog>

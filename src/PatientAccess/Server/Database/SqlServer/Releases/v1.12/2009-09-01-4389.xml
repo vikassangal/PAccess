@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-09-01-4389.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Alter Announcement.SelectCurrentAnnouncementsFor Bug 4389
+    </comment>
+    <createProcedure>
+      <![CDATA[
+      ALTER PROCEDURE Announcement.SelectCurrentAnnouncementsFor  
+         @FacilityId int,
+         @RolesList varchar(max),         
+         @CurrentDate datetime
+      AS 
+      BEGIN
+
+      DECLARE @LookupTable table (id INT)
+      INSERT INTO 
+        @LookupTable 
+      SELECT 
+        item 
+      FROM 
+        Utility.ArrayToTable(Utility.StringToArray(@RolesList,','))
+
+      SELECT 
+        Announcements.Id, 
+        Announcements.StopDate, 
+        Announcements.Description, 
+        Announcements.Author, 
+        Announcements.SaveDate,
+        AnnouncementsToRolesToFacilities.FacilityId,
+        AnnouncementsToRolesToFacilities.RoleId
+      FROM 
+        Announcement.AnnouncementsToRolesToFacilities,
+        Announcement.Announcements
+      WHERE
+        StopDate >= @CurrentDate
+        AND
+        FacilityId = @FacilityId
+        AND
+        RoleId IN ( SELECT id FROM @LookupTable )
+        AND
+        Announcements.Id = AnnouncementsToRolesToFacilities.AnnouncementId	        
+      ORDER BY
+        Announcements.Id,
+        FacilityId,
+        RoleId
+        
+      END      
+      ]]>
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Announcement.SelectCurrentAnnouncementsFor TO db_apionly;
+    </sql>
+    <rollback>
+      <![CDATA[
+      ALTER PROCEDURE Announcement.SelectCurrentAnnouncementsFor
+        @FacilityId int,
+        @RolesList varchar(max),
+        @CurrentDate datetime
+      AS
+      BEGIN
+
+      SELECT
+        Announcements.Id,
+        Announcements.StopDate,
+        Announcements.Description,
+        Announcements.Author,
+        Announcements.SaveDate,
+        AnnouncementsToRolesToFacilities.FacilityId,
+        AnnouncementsToRolesToFacilities.RoleId
+      FROM
+        Announcement.AnnouncementsToRolesToFacilities,
+        Announcement.Announcements
+      WHERE
+      StopDate >= @CurrentDate
+      AND
+      FacilityId = @FacilityId
+      AND
+      RoleId IN ( SELECT item from Utility.ArrayToTable(Utility.StringToArray(@RolesList,',')) )
+      AND
+      Announcements.Id = AnnouncementsToRolesToFacilities.AnnouncementId
+      ORDER BY
+      Announcements.Id,
+      FacilityId,
+      RoleId
+
+      END
+      ]]>
+    </rollback>
+  </changeSet>
+  <changeSet id="2" author="Jon.Lent">
+    <comment>
+      Alter Announcement.SelectAllAnnouncementsFor for Bug 4389
+    </comment>
+    <createProcedure>
+      <![CDATA[
+      ALTER PROCEDURE Announcement.SelectAllAnnouncementsFor
+        @CurrentDate datetime,
+        @FacilitiesList varchar(max)
+      AS
+      BEGIN
+
+      DECLARE @LookupTable table (id INT)
+      INSERT INTO 
+        @LookupTable 
+      SELECT 
+        item 
+      FROM Utility.ArrayToTable(Utility.StringToArray(@FacilitiesList,','))
+      
+      SELECT
+        Announcements.Id,
+        Announcements.StopDate,
+        Announcements.Description,
+        Announcements.Author,
+        Announcements.SaveDate,
+        AnnouncementsToRolesToFacilities.FacilityId,
+        AnnouncementsToRolesToFacilities.RoleId
+      FROM
+        Announcement.AnnouncementsToRolesToFacilities,
+        Announcement.Announcements
+      WHERE
+        Announcements.Id = AnnouncementsToRolesToFacilities.AnnouncementId
+      AND
+        FacilityId IN (SELECT id from @LookupTable)
+      AND
+        StopDate >= @CurrentDate
+      ORDER BY
+        Announcements.Id,
+        FacilityId,
+        RoleId
+
+      END
+      ]]>
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Announcement.SelectAllAnnouncementsFor TO db_apionly;
+    </sql>
+    <rollback>
+      <![CDATA[
+      ALTER PROCEDURE Announcement.SelectAllAnnouncementsFor
+        @CurrentDate datetime,
+        @FacilitiesList varchar(max)
+      AS
+      BEGIN
+
+      SELECT
+        Announcements.Id,
+        Announcements.StopDate,
+        Announcements.Description,
+        Announcements.Author,
+        Announcements.SaveDate,
+        AnnouncementsToRolesToFacilities.FacilityId,
+        AnnouncementsToRolesToFacilities.RoleId
+      FROM
+        Announcement.AnnouncementsToRolesToFacilities,
+        Announcement.Announcements
+      WHERE
+        StopDate >= @CurrentDate
+      AND
+        FacilityId IN ( SELECT item from Utility.ArrayToTable(Utility.StringToArray(@FacilitiesList,',')) )
+      AND
+        Announcements.Id = AnnouncementsToRolesToFacilities.AnnouncementId
+      ORDER BY
+        Announcements.Id,
+        FacilityId,
+        RoleId
+
+      END
+      ]]>
+    </rollback>
+  </changeSet>
+
+</databaseChangeLog>

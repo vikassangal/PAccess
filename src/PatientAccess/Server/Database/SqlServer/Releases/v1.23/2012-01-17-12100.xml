@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.23\2012-01-17-12100.xml">
+
+  <changeSet id="77026176-B001-4447-A045-9432F5893018" author="Yusef.Saraby">
+    
+    <comment>Make Appointment field not required for the admit new born activities</comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=332 And ContextId=10 </where>
+    </delete>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=332 And ContextId=23 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="332" />
+        <column name="ContextId" valueNumeric="10" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="332" />
+        <column name="ContextId" valueNumeric="23" />
+      </insert>
+    </rollback>
+    
+  </changeSet>
+
+  <changeSet id="8B94F7E5-F311-4AFE-A6FA-BB7006A04142" author="Yusef.Saraby">
+
+    <comment>Remove PreopDateRequired rule for the admit new born activities</comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=455 And ContextId=10 </where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=455 And ContextId=23 </where>
+    </delete>
+
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="455" />
+        <column name="ContextId" valueNumeric="10" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="455" />
+        <column name="ContextId" valueNumeric="23" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+
+  <changeSet id="13BB1779-340D-49C4-A6B2-69CE59F5792F" author="Yusef.Saraby">
+    
+    <comment>Add PatientAccess.Rules.PreopDatePreferred for the admit new born activities</comment>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="500" />
+      <column name="Description" value="Preop Date" />
+      <column name="Type" value="PatientAccess.Rules.PreopDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="500" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="Ruleid" valueNumeric="500" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="Ruleid" valueNumeric="500" />
+    </insert>
+    
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=500</where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 198 And RuleId = 500 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 And RuleId = 500 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 23 And RuleId = 500 </where>
+      </delete>
+      
+    </rollback>
+    
+  </changeSet> 
+
+  <changeSet id="1797A302-D0B1-414F-8074-8C0C30BEAFF8" author="Yusef.Saraby">
+
+    <comment>Remove BloodlessRequired association rule for Newborn activities</comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=217 And ContextId=10 </where>
+    </delete>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=217 And ContextId=23 </where>
+    </delete>
+
+    <rollback>
+    
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="217" />
+        <column name="ContextId" valueNumeric="10" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="217" />
+        <column name="ContextId" valueNumeric="23" />
+      </insert>
+      
+    </rollback>
+  </changeSet>
+
+  <changeSet id="73C8DDA6-29C0-40EA-BC10-EE8767DEFCE9" author="Yusef.Saraby">
+
+    <comment>Add PatientAccess.Rules.BloodlessPreferred for the admit new born activities</comment>
+   
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="499" />
+      <column name="Description" value="Bloodless" />
+      <column name="Type" value="PatientAccess.Rules.BloodlessPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="202" />
+      <column name="Ruleid" valueNumeric="499" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="338" />
+      <column name="Ruleid" valueNumeric="499" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="Ruleid" valueNumeric="499" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="Ruleid" valueNumeric="499" />
+    </insert>
+
+    <rollback>
+      
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=499 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 202 And RuleId = 499 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 338 And RuleId = 499 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 And RuleId = 499 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 23 And RuleId = 499 </where>
+      </delete>
+      
+    </rollback>
+  </changeSet>
+  
+  <changeSet id="913CBFC5-B868-4E43-8DFF-D33A274491C3" author="Yusef.Saraby">
+
+    <comment>Remove PreopDateRequired rule for the admit new born activities</comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=420 And ContextId=10 </where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=420 And ContextId=23 </where>
+    </delete>
+
+    <rollback>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="420" />
+        <column name="ContextId" valueNumeric="10" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="420" />
+        <column name="ContextId" valueNumeric="23" />
+      </insert>
+    </rollback>
+
+  </changeSet>
+  
+  <changeSet id="12041ECE-4D2A-49A5-84D5-BD38CD428CDA" author="Yusef.Saraby">
+    
+    <comment>Add PatientAccess.Rules.NPPSignedOnDatePreferred for the admit new born activities</comment>
+    
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="501" />
+      <column name="Description" value="NPP Signed on date" />
+      <column name="Type" value="PatientAccess.Rules.NPPSignedOnDatePreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="13" />
+      <column name="Ruleid" valueNumeric="501" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="501" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="501" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="Ruleid" valueNumeric="501" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="Ruleid" valueNumeric="501" />
+    </insert>
+    
+    <rollback>
+      
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=501 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 13 And RuleId = 501 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 211 And RuleId = 501 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 477 And RuleId = 501 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 And RuleId = 501 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 23 And RuleId = 501 </where>
+      </delete>
+      
+    </rollback>
+  </changeSet>
+
+  <changeSet id="9CC16864-A6DE-418F-A9DF-AD40D88B13D4" author="Yusef.Saraby">
+    
+    <comment>Remove NPPVersionRequired association rule for Newborn activities</comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=49 And ContextId=10 </where>
+    </delete>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=49 And ContextId=23 </where>
+    </delete>
+
+    <rollback>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="49" />
+        <column name="ContextId" valueNumeric="10" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="49" />
+        <column name="ContextId" valueNumeric="23" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="50EFB5BD-C5EE-45F6-8683-371CD6F5FB8F" author="Yusef.Saraby">
+    
+    <comment>Add PatientAccess.Rules.NPPVersionPreferred for the admit new born activities</comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="502" />
+      <column name="Description" value="NPP version" />
+      <column name="Type" value="PatientAccess.Rules.NPPVersionPreferred" />
+      <column name="Severity" valueNumeric="2" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="13" />
+      <column name="Ruleid" valueNumeric="502" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="502" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="502" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="Ruleid" valueNumeric="502" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="Ruleid" valueNumeric="502" />
+    </insert>
+    
+    <rollback>
+      
+      <delete schemaName="RuleEngine" tableName="Rules">
+        <where>Id=502 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 13 And RuleId = 502 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 211 And RuleId = 502 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 477 And RuleId = 502 </where>
+      </delete>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 And RuleId = 502 </where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 23 And RuleId = 502 </where>
+      </delete>
+
+    </rollback>
+  </changeSet>
+  <changeSet id="778E7503-4423-4151-A2BE-30740E7F6FE1" author="Yusef.Saraby">
+
+    <comment>Remove CosSignedRequired rule for the admit new born activities</comment>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=50 And ContextId=10 </where>
+    </delete>
+    
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>RuleId=50 And ContextId=23 </where>
+    </delete>
+
+    <rollback>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="50" />
+        <column name="ContextId" valueNumeric="10" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="RuleId" valueNumeric="50" />
+        <column name="ContextId" valueNumeric="23" />
+      </insert>
+    </rollback>
+  </changeSet>
+
+  <changeSet id="79F02D2D-FE20-4FA4-9CE2-0A42EAD2C19E" author="Yusef.Saraby">
+    
+    <comment>Add PatientAccess.Rules.COSSignedPreferred for the admit new born activities</comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="Ruleid" valueNumeric="397" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="Ruleid" valueNumeric="397" />
+    </insert>
+    
+    <rollback>
+    
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 10 And RuleId = 397 </where>
+      </delete>
+      
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 23 And RuleId = 397 </where>
+      </delete>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

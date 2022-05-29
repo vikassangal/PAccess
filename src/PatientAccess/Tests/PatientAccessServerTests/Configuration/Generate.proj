@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Main" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+  <PropertyGroup>
+    <SolutionRoot>$(MSBuildProjectDirectory)\..\..\..\..\..\</SolutionRoot>
+    <ToolsDirectory>$(SolutionRoot)\tools</ToolsDirectory>
+    <TasksDirectory>$(ToolsDirectory)\tasks</TasksDirectory>
+  </PropertyGroup>
+    
+  <UsingTask AssemblyFile="$(TasksDirectory)\XmlLab.NxsltTasks.MSBuild.dll" TaskName="XmlLab.NxsltTasks.MSBuild.Nxslt" />
+  <UsingTask AssemblyFile="$(TasksDirectory)\MSBuild.Community.Tasks.dll" TaskName="MSBuild.Community.Tasks.Script" />
+  <Import Project="$(TasksDirectory)\MSBuild.ExtensionPack.tasks"/>
+  <!-- 
+  This is the list of branch names in the Patient Access repository
+  -->
+  <ItemGroup>
+    <Branches Include="1">
+      <Name>Trunk</Name>
+      <DisplayName>Trunk</DisplayName>
+    </Branches>
+    <Branches Include="2">
+      <Name>Support</Name>
+      <DisplayName>Support</DisplayName>
+    </Branches>
+  </ItemGroup>
+
+  <!--
+  This is the list of environments to which the application can be deployed
+  -->
+  <ItemGroup>
+    <Environments Include="1">
+      <Name>Local</Name>
+      <DisplayName>Local</DisplayName>
+    </Environments>
+    <Environments Include="2">
+      <Name>Dev</Name>
+      <DisplayName>Development</DisplayName>
+    </Environments>
+    <Environments Include="3">
+      <Name>Test</Name>
+      <DisplayName>Test</DisplayName>
+    </Environments>
+    <Environments Include="4">
+      <Name>Model</Name>
+      <DisplayName>Model</DisplayName>
+    </Environments>
+    <Environments Include="5">
+      <Name>Beta</Name>
+      <DisplayName>Beta</DisplayName>
+    </Environments>
+    <Environments Include="6">
+      <Name>Prod</Name>
+      <DisplayName>Production</DisplayName>
+    </Environments>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ConfigurationFile Include="$(MSBuildProjectDirectory)\App.config.xslt">
+      <OutFile>$(MSBuildProjectDirectory)\..\App.config</OutFile>
+    </ConfigurationFile>
+  </ItemGroup>
+
+  <Target Name="Main">
+
+    <Message Text="Creating Server Test Configurations:" />
+    
+    <!-- Prompt for a branch -->
+    <Message Text="    [@(Branches)] %(Branches.DisplayName)" Condition="$(Branch)==''"/>
+    <MSBuild.ExtensionPack.UI.Console TaskAction="ReadLine" UserPrompt="Please choose a source branch number:" Condition="$(Branch)==''">
+      <Output TaskParameter="UserResponse" PropertyName="BranchNumber"/>
+    </MSBuild.ExtensionPack.UI.Console>
+    <Microsoft.Build.Tasks.FindInList List="@(Branches)" ItemSpecToFind="$(BranchNumber)" Condition="$(Branch)==''">
+      <Output TaskParameter="ItemFound" ItemName="SelectedBranch" />
+    </Microsoft.Build.Tasks.FindInList>
+    <CreateProperty Value="%(SelectedBranch.Name)" Condition="$(Branch)==''">
+      <Output TaskParameter="Value" PropertyName="Branch" />
+    </CreateProperty>
+
+    <!-- Prompt for an environment -->
+    <Message Text="    [@(Environments)] %(Environments.DisplayName)" Condition="$(Environment)==''"/>
+    <MSBuild.ExtensionPack.UI.Console TaskAction="ReadLine" UserPrompt="Please choose an environment number:" Condition="$(Environment)==''">
+      <Output TaskParameter="UserResponse" PropertyName="EnvironmentNumber"/>
+    </MSBuild.ExtensionPack.UI.Console>
+    <Microsoft.Build.Tasks.FindInList List="@(Environments)" ItemSpecToFind="$(EnvironmentNumber)" Condition="$(Environment)==''">
+      <Output TaskParameter="ItemFound" ItemName="SelectedEnvironment" />
+    </Microsoft.Build.Tasks.FindInList>
+    <CreateProperty Value="%(SelectedEnvironment.Name)" Condition="$(Environment)==''">
+      <Output TaskParameter="Value" PropertyName="Environment" />
+    </CreateProperty>
+
+    <PropertyGroup>
+      <SettingsFile>$(MSBuildProjectDirectory)\..\..\..\Solution Items\Configuration\Settings.xml</SettingsFile>
+      <XslParameters>
+         <Parameter Name="Branch" Value="$(Branch)" />
+         <Parameter Name="Environment" Value="$(Environment)" />
+      </XslParameters>
+    </PropertyGroup>
+    
+    <Nxslt In="$(SettingsFile)"
+       Style="%(ConfigurationFile.Identity)"
+       Out="%(ConfigurationFile.OutFile)"
+       Parameters="$(XslParameters)" />
+        
+    <CallTarget Targets="EncryptConnectionStrings" Condition="'$(NoEncrypt)'==''" />
+    <CallTarget Targets="EncryptKeys" Condition="'$(NoEncrypt)'==''" />    
+  </Target>
+  
+  <Target Name="EncryptConnectionStrings">
+
+    <PropertyGroup>
+      <ProgramSource>
+          public static string ScriptMain() 
+          {
+            ExeConfigurationFileMap map = new ExeConfigurationFileMap();
+            map.ExeConfigFilename = @"$(MSBuildProjectDirectory)\..\App.config";
+            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+
+            if(!config.ConnectionStrings.SectionInformation.IsProtected)
+            {
+                config.ConnectionStrings.SectionInformation.ProtectSection("PatientAccessProtectedConfigurationProvider");
+            }
+            config.Save();
+            return null;
+          }
+      </ProgramSource>
+    </PropertyGroup>
+
+    <Script Language="C#" Code="$(ProgramSource)" Imports="System.Configuration"/>
+
+  </Target>
+
+  <Target Name="EncryptKeys">
+
+    <PropertyGroup>
+      <ProgramSource>
+        public static string ScriptMain()
+        {
+        ExeConfigurationFileMap map = new ExeConfigurationFileMap();
+        map.ExeConfigFilename = @"$(MSBuildProjectDirectory)\..\App.config";
+        Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+
+        ConfigurationSection section = config.GetSection( "encryptionKeys" );
+        if ( !section.SectionInformation.IsProtected )
+        {
+        section.SectionInformation.ProtectSection( "PatientAccessProtectedConfigurationProvider" );
+        }
+        
+        config.Save();
+        return null;
+        }
+      </ProgramSource>
+    </PropertyGroup>
+
+    <Script Language="C#" Code="$(ProgramSource)" Imports="System.Configuration"/>
+
+  </Target>
+
+</Project>

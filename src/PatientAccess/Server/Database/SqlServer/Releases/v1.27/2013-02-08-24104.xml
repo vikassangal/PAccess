@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.27\2013-02-08-24104.xml">
+
+  <changeSet id="AE96A08F-ED2B-4469-B69D-9952592018EC" author="Srilakshmi Sudharshan">
+    <comment>Remove the Rule EmployerPhoneSubcscriberRequired from ContextsToRules table for Context PostMseRegistrationActivity</comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>
+        ContextId = 13 and RuleId = 5
+      </where>
+    </delete>
+  </changeSet>
+
+</databaseChangeLog>
+

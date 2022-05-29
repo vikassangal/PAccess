@@ -1,0 +1,11 @@
+﻿**
+!src/PatientAccess/Server/AppServer/obj/**
+!src/PatientAccess/Server/AppServer/PatientAccess/**
+!src/PatientAccess/Server/AppServer/Modules/**
+!src/PatientAccess/Server/AppServer/Properties/**
+!src/PatientAccess/Server/AppServer/Web References/**
+!src/PatientAccess/Server/AppServer/Resources/**
+!*.cs
+!*.csproj
+!*.resx
+!*.vspscc

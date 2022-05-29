@@ -1,0 +1,1246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{79381FD1-6AB7-4196-91BC-6A5D5DE72F38}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>PatientAccess.Database</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PatientAccess.Database</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccAuxPath>SAK</SccAuxPath>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/PatientAccess.Database/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Db2\Releases\v1.32\2014-03-04-8625.sql" />
+    <Content Include="Db2\Releases\v1.35\2015-01-21-9996.sql" />
+    <Content Include="Db2\Releases\v1.35\2014_11_27_9996.sql" />
+    <Content Include="Db2\Releases\v1.36\2015_06_12_10336.sql" />
+    <Content Include="Db2\Releases\v1.37\2015_09_20_10323.sql" />
+    <Content Include="Db2\Releases\v1.38\2016_01_24_10596.sql" />
+    <Content Include="Db2\Releases\v1.38\2016_02_17_10515.sql" />
+    <Content Include="Db2\Releases\v1.41\2016_11_25_11166.sql" />
+    <Content Include="Db2\Releases\v1.41\2016_11_26_11166.sql" />
+    <Content Include="Db2\Releases\v1.42\2017_03_17_20150.sql" />
+    <Content Include="Db2\Releases\v1.42\2017_03_20_11469.sql" />
+    <Content Include="Db2\Releases\v1.42\2017_03_21_11469.sql" />
+    <Content Include="Db2\Releases\v1.42\2017_03_30_10250.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_08_28_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_08_29_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_08_30_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_01_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_02_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_03_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_05_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_06_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_07_10708.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_08_11595.sql" />
+    <Content Include="Db2\Releases\v1.44\2017_09_25_10708.sql" />
+    <Content Include="Db2\Releases\v1.45\2017_12_01_10772.sql" />
+    <Content Include="Db2\Releases\v1.45\2018_01_03_10772.sql" />
+    <Content Include="Db2\Releases\v1.45\2018_01_04_10772.sql" />
+    <Content Include="Db2\Releases\v1.47\FINDPATIENTSBYGUARANTOR.SQL" />
+    <Content Include="Db2\Releases\v1.47\FindPatientsFor.sql" />
+    <Content Include="Db2\Releases\v1.47\Insurances.sql" />
+    <Content Include="Db2\Releases\v1.47\MPIACCOUNTDETAILSFOR.SQL" />
+    <Content Include="Db2\Releases\v1.47\PACCAPGM.sql" />
+    <Content Include="Db2\Releases\v1.47\PACCAPID.sql" />
+    <Content Include="Db2\Releases\v1.47\PACCAPMP.sql" />
+    <Content Include="Db2\Releases\v1.47\SELECTACCOUNTINSUREDDATA.SQL" />
+    <Content Include="Db2\Releases\v1.47\SELECTCONTACTPOINTSFORGUARANTOR.SQL" />
+    <Content Include="Db2\Releases\v1.47\SELECTCONTACTPOINTSFORPATIENT.SQL" />
+    <Content Include="Db2\Releases\v1.47\SELECTPREMSEINSDATA.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTRACEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTALLRACES.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTETHNICITYWITH.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTALLETHNICITIES.SQL" />
+    <Content Include="Db2\Releases\v1.48\PACCAPMP.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTALLAUTHORIZEDUSERSFOR.SQL" />
+    <Content Include="Db2\Releases\v1.48\MPIACCOUNTDETAILSFOR.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTDEMOGRAPHICSINFO.SQL" />
+    <Content Include="Db2\Releases\v1.48\SELECTALLLANGUAGES.sql" />
+    <Content Include="Db2\Releases\v1.50\SelectAdditionalRacesForAPatient.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTALLETHNICITIES.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTALLLANGUAGES.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTALLRACES.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTCONTACTPOINTSFORGUARANTOR.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTCONTACTPOINTSFORPATIENT.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTETHNICITYWITH.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTLANGUAGEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.51\SELECTRACEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTMARITALSTATUSWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLMARITALSTATUSES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLPATIENTTYPES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTPATIENTTYPEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTRELATIONSHIPWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLFINANCIALCLASSES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTFINANCIALCLASSWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTFINANCIALCLASSESFOR.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLRELATIONSHIPS.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLEMPLOYMENTSTATUSES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTEMPLOYMENTSTATUSWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTDISPOSITIONWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLDISPOSITIONS.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTSPANCODEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLSPANCODES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTSCHEDULECODEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLSCHEDULECODES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTOCCURANCECODEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTRELIGIONWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLRELIGIONS.SQL" />
+    <Content Include="Db2\Releases\v1.52\GETCONDITIONCODEWITH.SQL" />
+    <Content Include="Db2\Releases\v1.52\GETSELECTABLECONDITIONCODES.SQL" />
+    <Content Include="Db2\Releases\v1.52\SELECTALLOCCURANCECODES.SQL" />
+    <Content Include="Db2\Releases\v1.52\GETSELECTABLEOCCURANCECODES.SQL" />
+    <Content Include="Db2\Releases\v1.56\GETCHARGECODEFORMYTURNUPLOAD.SQL" />
+    <Content Include="Db2\Releases\v1.56\PATIENTMRNFORMYTURNUPLOADS.SQL" />
+    <Content Include="Db2\Releases\v1.56\PATIENTMYTURNUPLOADINSERT.SQL" />
+    <Content Include="Db2\Releases\v1.56\PATIENTMYTURNUPLOADS.SQL" />
+    <Content Include="Db2\Releases\v1.56\GETCOVIDVACCINEPATIENTMRN.SQL" />
+    <Content Include="Db2\Releases\v1.56\Tables\CHARGECODEMYTURNUPLOAD.SQL" />
+    <Content Include="Db2\Releases\v1.56\Tables\PATIENTMYTURNUPLOADINSERT.SQL" />
+    <Content Include="SqlServer\Releases\v1.35\2014-11-12-10027.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.35\2014-11-19-10086.xml" />
+    <Content Include="SqlServer\Releases\v1.35\2015_03_05_32266.xml" />
+    <Content Include="SqlServer\Releases\v1.35\2014_11_28_9996.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.35\2015_01_30_31918.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.35\2015_02_13_32075.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.35\2014-12-05-9957.xml" />
+    <Content Include="SqlServer\Releases\v1.35\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.36\2015-06-14-10336.xml" />
+    <Content Include="SqlServer\Releases\v1.36\2015_04_24_10047.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.36\2015_05_18_32621.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.36\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.37\2015_08_28_10323.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.37\2015_09_21_10364.xml" />
+    <Content Include="SqlServer\Releases\v1.37\2015_09_30_10364.xml" />
+    <Content Include="SqlServer\Releases\v1.37\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.38\2015_11_23_10596.xml" />
+    <Content Include="SqlServer\Releases\v1.38\2015_12_15_10596.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.38\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.40\2016_06_16_10369.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.40\2016_07_13_11076.xml" />
+    <Content Include="SqlServer\Releases\v1.40\2016_08_09_34767.xml" />
+    <Content Include="SqlServer\Releases\v1.40\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.41\2016_11_16_11228.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.41\2017_01_18_35327.xml" />
+    <Content Include="SqlServer\Releases\v1.41\2017_01_30_35374.xml" />
+    <Content Include="SqlServer\Releases\v1.41\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.42\2017_04_11_10250.xml" />
+    <Content Include="SqlServer\Releases\v1.42\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.43\2017_06_07_11605.xml" />
+    <Content Include="SqlServer\Releases\v1.43\2017_06_28_11595.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.43\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.44\2017_09_08_11595.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.44\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.45\2017_11_27_11772.xml" />
+    <Content Include="SqlServer\Releases\v1.45\2017_12_04_11595.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.45\2018_01_15_36893.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.45\2018_01_21_36936.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.45\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.46\2018_03_14_11050.xml" />
+    <Content Include="SqlServer\Releases\v1.46\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.47\2018_07_20_11753.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.47\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.48\2019_01_22_38655.xml" />
+    <Content Include="SqlServer\Releases\v1.48\2019_01_21_38630.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.48\2019_02_11_12268.xml" />
+    <Content Include="SqlServer\Releases\v1.48\2019_02_20_12196.xml" />
+    <Content Include="SqlServer\Releases\v1.48\2019_04_01_12173.xml" />
+    <Content Include="SqlServer\Releases\v1.48\2019_04_23_12174.xml" />
+    <Content Include="SqlServer\Releases\v1.48\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.49\2019_09_16_10002.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.49\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.50\2019_11_20_10011.xml" />
+    <Content Include="SqlServer\Releases\v1.50\2019_10_31_10011.xml" />
+    <Content Include="SqlServer\Releases\v1.50\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.52\2020_06_01_3278.xml" />
+    <Content Include="SqlServer\Releases\v1.52\2020_07_27.xml" />
+    <Content Include="SqlServer\Releases\v1.52\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.54\2020_11_04_40670.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.54\2020_10_29_2592.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.54\2020_10_23_2592.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.54\2020_10_14_1564.xml" />
+    <Content Include="SqlServer\Releases\v1.54\Schemas.xml" />
+    <Content Include="SqlServer\Releases\v1.54\ViWeb.VIWebViewDocument.xml" />
+    <Content Include="SqlServer\Releases\v1.54\ViWeb.ViWebScan_Parameter.xml" />
+    <Content Include="SqlServer\Releases\v1.54\ViWeb.GetVIwebScanParameter.xml" />
+    <Content Include="SqlServer\Releases\v1.54\ViWeb.GetVIwebViewParameter.xml" />
+    <Content Include="SqlServer\Releases\v1.54\ViWeb.AddVIWebViewParameter.xml" />
+    <Content Include="SqlServer\Releases\v1.54\ViWeb.AddVIWebScanParameter.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.54\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.56\2021_08_31_6448.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.56\2021_06_21_6448.xml" />
+    <Content Include="SqlServer\Releases\v1.56\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.55\2021_03_31_5041.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.55\2021-03-26-1954.xml" />
+    <Content Include="SqlServer\Releases\v1.55\2021_02_02_5041.xml" />
+    <Content Include="SqlServer\Releases\v1.55\2021_02_01_5041.xml" />
+    <Content Include="SqlServer\Releases\v1.55\2021_02_19_5041.xml" />
+    <Content Include="SqlServer\Releases\v1.55\2021_03_05_5041.xml" />
+    <Content Include="SqlServer\Releases\v1.55\2021_03_25_5041.xml" />
+    <Content Include="SqlServer\Releases\v1.55\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.60\2022_03_24_7542.xml" />
+    <Content Include="SqlServer\Releases\v1.60\2022_03_25_7542.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.60\2022_03_27_7542.xml" />
+    <Content Include="SqlServer\Releases\v1.60\2022_03_26_7542.xml" />
+    <Content Include="SqlServer\Releases\v1.59\2022_02_28_2157.xml" />
+    <Content Include="SqlServer\Releases\v1.60\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2021_12_17_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2021_12_16_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2021_12_15_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_08_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_02_15_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_01_22_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_01_14_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_01_13_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_01_12_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2021_12_18_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_02_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_03_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_04_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_05_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_06_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\2022_05_07_3704.xml" />
+    <Content Include="SqlServer\Releases\v1.61\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.59\ViWeb.AddVIWebScanParameter.xml" />
+    <Content Include="SqlServer\Releases\v1.59\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.58\2021_08_25_40860.xml" />
+    <Content Include="SqlServer\Releases\v1.58\_changelog.xml" />
+    <None Include="Db2\Releases\v1.34\2014-05-16-29996.sql" />
+    <None Include="Db2\Releases\v1.34\2014-05-15-29996.sql" />
+    <Content Include="SqlServer\Releases\v1.32\2014_02_24_8625.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.32\2014_02_21_8625.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.32\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.34\2014_07_07_8521.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.34\2014_07_15_9700.xml" />
+    <Content Include="SqlServer\Releases\v1.34\_changelog.xml" />
+    <None Include="Db2\Latest\Procedures\GetCptCodesFor.sql" />
+    <Content Include="Db2\Latest\Procedures\GetIpaForPatient.sql" />
+    <Content Include="Db2\Latest\Procedures\UpdateLastLoginDateForUser.sql" />
+    <Content Include="Db2\Latest\Tables\PACCAPMP.sql" />
+    <Content Include="Db2\Releases\v3.1\2014-01-30-28972.sql" />
+    <Content Include="SqlServer\Releases\v1.30\2013-10-09-26985.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.30\2013-11-06-8345.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.30\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.31\2014-02-03-28988.xml" />
+    <Content Include="SqlServer\Releases\v1.31\2014-01-30-28986.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.31\2014-07-01-8934.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.31\_changelog.xml" />
+    <None Include="Db2\Releases\v1.28\2013-07_25-26985.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-05-06-5411.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-11-08-12043.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-11-15-12046.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-11-16.12046.sql" />
+    <Content Include="Db2\Releases\v1.17\2010-12-07-12564.sql" />
+    <Content Include="Db2\Releases\v1.17\2010-12-08-12564.sql" />
+    <Content Include="Db2\Releases\v1.17\2010-12-09-12564.sql" />
+    <Content Include="Db2\Releases\v1.17\2010-12-10-12564.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-12-25-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-12-27-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-12-28-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-12-29-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-12-30-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2010-12-31-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-01-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-02-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-03-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-05-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-06-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-07-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-08-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-01-09-12753.sql" />
+    <Content Include="Db2\Releases\v1.18\2011-02-08-13540.sql" />
+    <Content Include="Db2\Releases\v1.19\2011-03-28-14524.sql" />
+    <Content Include="Db2\Releases\v1.19\2011-05-27-14435.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-18-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-11-16442.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-20-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-21-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-22-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-23-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-24-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-25-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-26-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-27-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-28-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-29-16576.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-07-30-16576.sql" />
+    <Content Include="Db2\Releases\v1.25\2012-09-06-22637.sql" />
+    <Content Include="Db2\Releases\v1.25\2012-09-06-23171.sql" />
+    <Content Include="Db2\Releases\v1.28\21013-08-02-20865.sql" />
+    <Content Include="SqlServer\Releases\v1.24\2012-04-17-20201.xml" />
+    <Content Include="SqlServer\Releases\v1.24\2012-03-08-20724.xml" />
+    <Content Include="SqlServer\Releases\v1.24\2012-04-30-20714.xml" />
+    <Content Include="SqlServer\Releases\v1.24\2012-05-17-21620.xml" />
+    <Content Include="SqlServer\Releases\v1.24\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.25\2012-07-20-22266.xml" />
+    <Content Include="SqlServer\Releases\v1.25\2012-08-09-22105.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.25\2012-07-20-22617.xml" />
+    <Content Include="SqlServer\Releases\v1.25\2012-29-09-23500.xml" />
+    <Content Include="SqlServer\Releases\v1.25\2012-29-09-23425.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.25\2012-10-11-23667.xml" />
+    <Content Include="SqlServer\Releases\v1.25\2012-07-20-23716.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.25\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.26\2013-01-04-24308.xml" />
+    <Content Include="SqlServer\Releases\v1.26\2013-14-01-24548.xml" />
+    <Content Include="SqlServer\Releases\v1.26\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.27\2013-02-08-24104.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.27\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.28\2013-07-08-26985.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.28\2013-07-30-26985.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.28\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Db2\Releases\v1.23\2012-01-28-1745.sql" />
+    <Content Include="SqlServer\Releases\v1.23\2012-01-17-12100.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.23\2012-01-25-20053.xml" />
+    <Content Include="SqlServer\Releases\v1.23\2012-01-30-10460.xml" />
+    <Content Include="SqlServer\Releases\v1.23\2012-02-07-10450.xml" />
+    <Content Include="SqlServer\Releases\v1.23\_changelog.xml" />
+    <None Include="Db2\Releases\v1.23\2011-12-19-1745.sql" />
+    <Content Include="Db2\Releases\v1.23\2011-12-20-1745.sql" />
+    <Content Include="Db2\Releases\v1.23\2012-01-20-2065.sql" />
+    <Content Include="Db2\Releases\v2.0\2011-09-13-17305.sql" />
+    <Content Include="Db2\Releases\v1.21\2011-09-13-16576.sql" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-22-11195.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-22-11199.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-28-11414.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-29-11451.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.17\2010-09-30-11467.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-30-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-10-01-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-10-07-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-10-14-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.17\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-08-9958.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.17\2010-07-29-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-08-17-10576.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-09-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-15-11157.xml" />
+    <Content Include="SqlServer\Releases\v1.17\2010-09-16-9958.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-01-12-1190.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-11-11-12046.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-10-15-10953.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-11-10-12065.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-11-08-9958.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2010-12-02-1190.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-12-03-1190.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-12-16-12713.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-01-14-12873.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2010-12-04-1190.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2010-12-05-1190.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2010-12-08-1190.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-07-13468.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-16-13468.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-18-13712.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-16-13656.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-17-13724.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-21-13752.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-22-13653.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-23-13721.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-23-13722.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-20-13720.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-22-13754.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-21-13743.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-18-13687.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-22-13685.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13852.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13713.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13817.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-03-10-14150.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-03-10-14158.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-03-11-14190.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-03-28-13947.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13802.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13879.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13880.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-13890.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-02-24-1190.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-03-01-13959.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-03-03-13951.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-03-05-13954.xml" />
+    <Content Include="SqlServer\Releases\v1.18\2011-03-04-14001.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\2011-03-18-14001.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.18\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.19\2011-05-18-14313.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.19\2011-04-14-15034.xml" />
+    <Content Include="SqlServer\Releases\v1.19\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.19\2011-03-25-14435.xml" />
+    <Content Include="SqlServer\Releases\v1.19\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.20\2011-05-30-1527.xml" />
+    <Content Include="SqlServer\Releases\v1.20\2011-07-08-16236.xml" />
+    <Content Include="SqlServer\Releases\v1.20\2011-07-11-16194.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.20\2011-07-15-16236.xml" />
+    <Content Include="SqlServer\Releases\v1.20\2011-07-15_16304.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.20\2011-07-20_16304.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.20\2011-07-28-16813.xml" />
+    <Content Include="SqlServer\Releases\v1.20\2011-07-29_16814.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.20\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.21\2011-08-16-17187.xml" />
+    <Content Include="SqlServer\Releases\v1.21\2011-08-08-15971.xml" />
+    <Content Include="SqlServer\Releases\v1.21\2011-06-15-1557.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.21\2011-09-19-18006.xml" />
+    <Content Include="SqlServer\Releases\v1.21\2011-09-19-15971.xml" />
+    <Content Include="SqlServer\Releases\v1.21\2011-09-21-18141.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.21\2011-09-29-18439.xml" />
+    <Content Include="SqlServer\Releases\v1.21\2011-09-29-18423.xml" />
+    <Content Include="SqlServer\Releases\v1.21\_changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.22\2011-10-12-18144.xml" />
+    <Content Include="SqlServer\Releases\v1.22\2011-09-21-18140.xml" />
+    <Content Include="SqlServer\Releases\v1.22\2011-11-07-19010.xml" />
+    <Content Include="SqlServer\Releases\v1.22\2011-10-12-18143.xml" />
+    <Content Include="SqlServer\Releases\v1.22\_changelog.xml" />
+    <None Include="Db2\Install\Tables\CreateBenefitCategoryTable.sql" />
+    <None Include="Db2\Latest\Triggers\CreateTempInsertTrigger.sql" />
+    <None Include="Db2\Install\Tables\CreateEmployerAddressforApprovalTable.sql" />
+    <None Include="Db2\Install\Tables\CreateEmployersForApprovalTable.sql" />
+    <None Include="Db2\Install\Tables\CreateHSVBenefitCategoryXrefTable.sql" />
+    <None Include="Db2\Install\Tables\CreateMedicarePlanHSVXref.sql" />
+    <None Include="Db2\Install\Tables\CreatePlanCategoryTable.sql" />
+    <None Include="Db2\Install\Tables\CreatePlanCategoryXrefTable.sql" />
+    <None Include="Db2\Install\Tables\CreatePlanMPSFourthCharTable.sql" />
+    <None Include="Db2\Install\Tables\CreateTenetPlanId.sql" />
+    <None Include="Db2\Install\Tables\CreateValidRelationshipContextsTable.sql" />
+    <None Include="Db2\Install\Tables\CreateWorklistTables.sql" />
+    <None Include="Db2\Utility\DROPFUNC.sql" />
+    <None Include="Db2\Utility\DROPPROC.sql" />
+    <None Include="Db2\Install\Tables\EMPADDR.sql" />
+    <None Include="Db2\Install\Tables\EMPTXN.sql" />
+    <None Include="Db2\Install\Data\Load.ValidRelationshipContext.sql" />
+    <None Include="Db2\Install\Tables\MDCRPLHSVX.sql" />
+    <None Include="Db2\Install\Indexes\Idx_AccountWorkListItems_1.sql" />
+    <None Include="Db2\Install\Sequences\WorklistItemsSeq.sql" />
+    <None Include="Db2\Install\Tables\PA_Create_Tables.sql" />
+    <None Include="Db2\Install\Tables\PLNCATGIES.sql" />
+    <None Include="Db2\Install\Tables\PLNCATGXRF.sql" />
+    <None Include="Db2\Latest\Functions\DateToCharYyyyMmDd.sql" />
+    <None Include="Db2\Latest\Functions\Dec6ToDate.sql" />
+    <None Include="Db2\Latest\Functions\Dec8ToDate.sql" />
+    <None Include="Db2\Latest\Functions\GetCategoryType.sql" />
+    <None Include="Db2\Latest\Functions\Lpad.sql" />
+    <None Include="Db2\Latest\Functions\PlanIsValid.sql" />
+    <None Include="Db2\Latest\Functions\TextToDate.sql" />
+    <None Include="Db2\Utility\Paccess Objects Final Source Checklist.xls" />
+    <None Include="Db2\Latest\Procedures\AccountFor.sql" />
+    <None Include="Db2\Latest\Procedures\AccountLockStatusFor.sql" />
+    <None Include="Db2\Latest\Procedures\AccountsMatching.sql" />
+    <None Include="Db2\Latest\Procedures\AccountsMatchingInsurance.sql" />
+    <None Include="Db2\Latest\Procedures\AccountsMatchingNursingStations.sql" />
+    <None Include="Db2\Latest\Procedures\AccountsMatchingPatient.sql" />
+    <None Include="Db2\Latest\Procedures\AccountsMatchingStr.sql" />
+    <None Include="Db2\Latest\Procedures\AccomodationCodesFor.sql" />
+    <None Include="Db2\Latest\Procedures\AccomodationCodesFor2.sql" />
+    <None Include="Db2\Latest\Procedures\AccomodationCodesFor4.sql" />
+    <None Include="Db2\Latest\Procedures\ActionWorklistMapping.sql" />
+    <None Include="Db2\Latest\Procedures\AdtAkaNamesFor.sql" />
+    <None Include="Db2\Latest\Procedures\AdtEmployerFor.sql" />
+    <None Include="Db2\Latest\Procedures\AdtGuarantorFor.sql" />
+    <None Include="Db2\Latest\Procedures\AdtPatientFor.sql" />
+    <None Include="Db2\Latest\Procedures\AllActions.sql" />
+    <None Include="Db2\Latest\Procedures\AllRules.sql" />
+    <None Include="Db2\Latest\Procedures\AllRulesById.sql" />
+    <None Include="Db2\Latest\Procedures\BloodlessTreatmentAccountsFor.sql" />
+    <None Include="Db2\Latest\Procedures\CheckForDupeLocations.sql" />
+    <None Include="Db2\Latest\Procedures\ClearNewEmployers.sql" />
+    <None Include="Db2\Latest\Procedures\CreatePatientType.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteWrklistProcessingRecFor.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteEmployerForApproval.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteEmployerAddressForApproval.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteEmployer.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteWorklistItemsForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteWorklistItems.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteWorklistItemsForMrn.sql" />
+    <None Include="Db2\Latest\Procedures\DeleteWorklistItemsForMrnAccounts.sql" />
+    <None Include="Db2\Latest\Procedures\DropFunc.sql" />
+    <None Include="Db2\Latest\Procedures\DropProc.sql" />
+    <None Include="Db2\Latest\Procedures\FindInvalidDates.sql" />
+    <None Include="Db2\Latest\Procedures\FindPatientsByGuarantorFor.sql" />
+    <None Include="Db2\Latest\Procedures\FindPatientsFor.sql" />
+    <None Include="Db2\Latest\Procedures\GetAcctBalancesWPlan.sql" />
+    <None Include="Db2\Latest\Procedures\GetAcctsBalancesWoPlan.sql" />
+    <None Include="Db2\Latest\Procedures\GetAcctCompsPresent.sql" />
+    <None Include="Db2\Latest\Procedures\GetAliasesForPatient.sql" />
+    <None Include="Db2\Latest\Procedures\GetAllEmployers.sql" />
+    <None Include="Db2\Latest\Procedures\GetBedStatus.sql" />
+    <None Include="Db2\Latest\Procedures\GetConditionCodeWith.sql" />
+    <None Include="Db2\Latest\Procedures\GetAllFinancialDataForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\GetNextAcctForWrkProcessingFor.sql" />
+    <None Include="Db2\Latest\Procedures\GetPriorAccounts.sql" />
+    <None Include="Db2\Latest\Procedures\GetSelectableConditionCodes.sql" />
+    <None Include="Db2\Latest\Procedures\GetSelectableOccuranceCodes.sql" />
+    <None Include="Db2\Latest\Procedures\InsertEmployerForApproval.sql" />
+    <None Include="Db2\Latest\Procedures\InsertNewEmployer.sql" />
+    <None Include="Db2\Latest\Procedures\InsertRemainingActions.sql" />
+    <None Include="Db2\Latest\Procedures\InsertWorklistItems.sql" />
+    <None Include="Db2\Latest\Procedures\InsertWorklistItemsForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\IsAccountLocked.sql" />
+    <None Include="Db2\Latest\Procedures\IsValidAccountNumber.sql" />
+    <None Include="Db2\Latest\Procedures\LocationMatching.sql" />
+    <None Include="Db2\Latest\Procedures\LocationMatchingWithGender.sql" />
+    <None Include="Db2\Latest\Procedures\LocationMatchingWoGender.sql" />
+    <None Include="Db2\Latest\Procedures\MpiAccountDetailsFor.sql" />
+    <None Include="Db2\Latest\Procedures\MpiAccountsFor.sql" />
+    <None Include="Db2\Latest\Procedures\MrnForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\NextAccountNumberSeedFor.sql" />
+    <None Include="Db2\Latest\Procedures\PatientsMatchingGuarantor.sql" />
+    <None Include="Db2\Latest\Procedures\PatientsMatching.sql" />
+    <None Include="Db2\Latest\Procedures\PatientsMatchingWithAcct.sql" />
+    <None Include="Db2\Latest\Procedures\PatientsMatchingWithMrn.sql" />
+    <None Include="Db2\Latest\Procedures\PatientsMatchingWithName.sql" />
+    <None Include="Db2\Latest\Procedures\PhysicianAccountsFor.sql" />
+    <None Include="Db2\Latest\Procedures\PhysiciansMatching.sql" />
+    <None Include="Db2\Latest\Procedures\PhysiciansDetails.sql" />
+    <None Include="Db2\Latest\Procedures\PhysicianSpecialty.sql" />
+    <None Include="Db2\Latest\Procedures\PhysiciansSpecialtyMatching.sql" />
+    <None Include="Db2\Latest\Procedures\PhysicianSummaryFor.sql" />
+    <None Include="Db2\Latest\Procedures\ReadNewEmployers.sql" />
+    <None Include="Db2\Latest\Procedures\ReleaseAccountLock.sql" />
+    <None Include="Db2\Latest\Procedures\ReleaseAssignedBed.sql" />
+    <None Include="Db2\Latest\Procedures\ReleaseReservedBed.sql" />
+    <None Include="Db2\Latest\Procedures\RemainingActionsFor.sql" />
+    <None Include="Db2\Latest\Procedures\RemainingActionsForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\Reserve.sql" />
+    <None Include="Db2\Latest\Procedures\ResetWrklstProcessingRecFor.sql" />
+    <None Include="Db2\Latest\Procedures\ReligionAccountsFor.sql" />
+    <None Include="Db2\Latest\Procedures\ReligionSummaryFor.sql" />
+    <None Include="Db2\Latest\Procedures\RuleToActionMappings.sql" />
+    <None Include="Db2\Latest\Procedures\RuleToWorklistMappings.sql" />
+    <None Include="Db2\Latest\Procedures\RuleActionMapping.sql" />
+    <None Include="Db2\Latest\Procedures\SaveEmployerAddress.sql" />
+    <None Include="Db2\Latest\Procedures\SaveNewEmployerAddress.sql" />
+    <None Include="Db2\Latest\Procedures\SaveWorklistSettings.sql" />
+    <None Include="Db2\Latest\Procedures\SelectDuplicatePreRegAcctsMatchingMrn.sql" />
+    <None Include="Db2\Latest\Procedures\SelectDuplicatePreRegAcctsNames.sql" />
+    <None Include="Db2\Latest\Procedures\SelectDuplicatePreRegAcctsMatchingSsn.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountInfo.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountLastUpdateInfo.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountNumbersPan.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountProxyFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountTestData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllAccomodationCodesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountsWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountsWithWorklists.sql" />
+    <None Include="Db2\Latest\Procedures\SelectActionCountForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\SelectActionCountForAccountFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountsWithWorklistsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllAccomodationCodes.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllActions.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllCountries.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllCountriesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllCountiesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllIpas.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPhysicianSpecialties.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPatientTypes.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllRules.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllStates.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllWorklists.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllWorklistRanges.sql" />
+    <None Include="Db2\Latest\Procedures\SelectBillingInfosForPlanId.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCodedDiagsForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCodedDiagsForPat.sql" />
+    <None Include="Db2\Latest\Procedures\SelectConfidentialCodeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCountryWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCountyWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContacts.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCoveredGroupsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCoveredGroupsWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectDetailAccountInfo.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPrevOpLocation.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForEmployer.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForEmployerApproval.sql" />
+    <None Include="Db2\Latest\Procedures\SelectEmployerForGuarantor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectEmployerByName.sql" />
+    <None Include="Db2\Latest\Procedures\SelectEmployerForPatient.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForFacility.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForGuarantor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectGuarantorForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForGuarEmployer.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllHospitalServicesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllHospitalServicesWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectInputLogNuberForInsert.sql" />
+    <None Include="Db2\Latest\Procedures\SelectInsurances.sql" />
+    <None Include="Db2\Latest\Procedures\SelectIpaByCode.sql" />
+    <None Include="Db2\Latest\Procedures\SelectIpasByName.sql" />
+    <None Include="Db2\Latest\Procedures\SelectIpas.sql" />
+    <None Include="Db2\Latest\Procedures\SelectModeOfArrivalWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectMrnSpan.sql" />
+    <None Include="Db2\Latest\Procedures\SelectMrnSpan2.sql" />
+    <None Include="Db2\Latest\Procedures\SelectMspForAccount.sql" />
+    <None Include="Db2\Latest\Procedures\SelectNextMrn.sql" />
+    <None Include="Db2\Latest\Procedures\SelectNppVersionWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectNursingStationsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectNonStaffPhysicianInfo.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPatientsMatchingSsn.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPatientsForName.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForPatient.sql" />
+    <None Include="Db2\Latest\Procedures\SelectContactPointsForPatEmployer.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPhysicianSpecsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPhysicianWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlansForBroker.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlanForPayorPlanCode.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlanForPayorPlanCodeWithDate.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPlanCategories.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlansForCoveredGroup.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlanFinancialClassesWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlansForPayor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPlanTypes.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPlaceOfWorshipWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPatientTypeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPayorBrokers.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPayorFinClassesWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectRangesByWorklist.sql" />
+    <None Include="Db2\Latest\Procedures\SelectRoomsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectRulesForRuleContext.sql" />
+    <None Include="Db2\Latest\Procedures\SelectSecurityCodeForPbarId.sql" />
+    <None Include="Db2\Latest\Procedures\SelectSpecIpaClinic.sql" />
+    <None Include="Db2\Latest\Procedures\SelectSpecificIpaClinic.sql" />
+    <None Include="Db2\Latest\Procedures\SelectStatus.sql" />
+    <None Include="Db2\Latest\Procedures\SelectStateWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectTransactionHeaderInformation.sql" />
+    <None Include="Db2\Latest\Procedures\SelectTxtionHeaderInfor2.sql" />
+    <None Include="Db2\Latest\Procedures\SelectWorklistSettings.sql" />
+    <None Include="Db2\Latest\Procedures\SelectBenefitValData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAcctEmergContact.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountFinancialData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAcctGarEmpData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAccountInsuredData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectNearestRelative.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAcctPreMeAcct.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAdmitSourceWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllAdmitSources.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllLanguages.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllBenefitsCategories.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllDispositions.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllEthnicities.sql" />
+    <None Include="Db2\Latest\Procedures\SelectFinancialClassWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllFinancialClasses.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllConfidentialCodesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllEmploymentStatuses.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllGenders.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllHospitalClinicFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllModeOfArrivalFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllNppVersionFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllReferralFacilityFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllReferralSources.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllMaritalStatuses.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllOccuranceCodes.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCountryWithFacility.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPlacesOfWorshipFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPlacesOfWorshipWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllRaces.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllReAdmitCodesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllRelationships.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPlacesOfReligionWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllReferralTypesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllRegions.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllScheduleCodes.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllSpanCodes.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllTenetEmpPlanIds.sql" />
+    <None Include="Db2\Latest\Procedures\SelectCategoriesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectDispositionWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectDemographicsInfo.sql" />
+    <None Include="Db2\Latest\Procedures\SelectEmploymentStatusWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectEthnicityWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllFacilityFlagsFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectFacilityFlagWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectFinancialClassesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectGenderWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectGeneralAcctData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectHospitalClinicWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectLanguageWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectMaritalStatusWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectNextAccountNumber.sql" />
+    <None Include="Db2\Latest\Procedures\SelectOccuranceCodeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPhysicianSpecialtiesFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPreAdmitClinicFor.sql" />
+    <None Include="Db2\Latest\Procedures\SelectPreMseInsData.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllPayorBrokersWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectRaceWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectReAdmitCodeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllReferralFacilityWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectReferralSourceWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectReligionWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectRelationshipWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectReferralTypeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectScheduleCodeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SelectSpanCodeWith.sql" />
+    <None Include="Db2\Latest\Procedures\SysNamingTestProc.sql" />
+    <None Include="Db2\Latest\Procedures\TxnCountFor.sql" />
+    <None Include="Db2\Latest\Procedures\UpdateNoShowWorklist.sql" />
+    <None Include="Db2\Latest\Procedures\UpdateNoShowWorklists.sql" />
+    <None Include="Db2\Latest\Procedures\ValidateLocation.sql" />
+    <None Include="Db2\Latest\Procedures\VerifyOfflineAccountNumber.sql" />
+    <None Include="Db2\Latest\Procedures\VerifyOfflineMrn.sql" />
+    <None Include="Db2\Latest\Procedures\SelectIsValidHsvPlanMapping.sql" />
+    <None Include="Db2\Latest\Procedures\WorklistItemIdFor.sql" />
+    <None Include="Db2\Utility\Queries\ClearNewEmployers.sql" />
+    <None Include="Db2\Utility\Queries\CREATEPATIENTTYPE.sql" />
+    <None Include="Db2\Utility\Queries\DeleteEmployer.sql" />
+    <None Include="Db2\Utility\Queries\GetAcctsBalancesWOPlan.sql" />
+    <None Include="Db2\Utility\Queries\GetAcctsBalancesWPlan.sql" />
+    <None Include="Db2\Utility\Queries\HeartBeat.sql" />
+    <None Include="Db2\Utility\Queries\InsertNewEmployer.sql" />
+    <None Include="Db2\Utility\Queries\ReadNewEmployers.sql" />
+    <None Include="Db2\Utility\Queries\SelectAccountInfo.sql" />
+    <None Include="Db2\Utility\Queries\SelectAccountNumberSpan.sql" />
+    <None Include="Db2\Utility\Queries\SelectContacts.sql" />
+    <None Include="Db2\Utility\Queries\SELECTDETAILACCOUNTINFO.sql" />
+    <None Include="Db2\Utility\Queries\SelectInsurances.sql" />
+    <None Include="Db2\Utility\Queries\SELECTIPAS.sql" />
+    <None Include="Db2\Utility\Queries\SelectMrnSpan.sql" />
+    <None Include="Db2\Utility\Queries\SELECTPATIENTSFORNAME.sql" />
+    <None Include="Db2\Utility\Queries\SelectTransactionHeader.sql" />
+    <None Include="Db2\Utility\Tables and Data From Oracle.sql" />
+    <None Include="Db2\Latest\Views\Accounts.sql" />
+    <None Include="Db2\Latest\Views\AccountProxies.sql" />
+    <None Include="Db2\Latest\Views\Insurances.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllResearchStudies.sql" />
+    <Content Include="Db2\README.txt" />
+    <Content Include="Db2\Releases\v1.16\2010-06-25-9681.sql" />
+    <Content Include="Db2\Releases\v1.17\2010-07-26-10059.sql" />
+    <Content Include="Db2\Utility\AS400_Header.txt" />
+    <Content Include="SqlServer\changelog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\README.txt" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-07-1868.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-07-2376.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Quartz.Locks.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Facility.Facilities.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Facility.FacilityExtendedSettings.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Facility.FollowUpUnits.xml" />
+    <Content Include="SqlServer\Install\Data\_changelog.xml" />
+    <Content Include="SqlServer\Install\Data\Load.DataValidation.TicketTypes.xml" />
+    <Content Include="SqlServer\Install\Data\Load.FinancialCounseling.CreditCardTypes.xml" />
+    <Content Include="SqlServer\Install\Data\Load.FinancialCounseling.CreditScoreAdviceMappings.xml" />
+    <Content Include="SqlServer\Install\Data\Load.FusNote.ActivityCodes.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Security.Roles.xml" />
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.Actions.xml" />
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.CompositeActions.xml" />
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.CompositeRules.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.CompositeRulesToRules.xml" />
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.RulesToActions.xml" />
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.ContextsToRules.xml" />
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.Rules.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Install\Data\Load.RuleEngine.Contexts.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Insurance.ProductTypes.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Insurance.VerificationRuleTypes.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Worklist.WorklistsToSelectionRanges.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Worklist.WorklistsToRules.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Worklist.Worklists.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Worklist.SelectionRanges.xml" />
+    <Content Include="SqlServer\Install\Data\Load.Worklist.Settings.xml" />
+    <Content Include="SqlServer\Install\Data\_template.xml" />
+    <Content Include="SqlServer\Install\Functions\RuleEngine.IsCompositeAction.xml" />
+    <Content Include="SqlServer\Install\Functions\Utility.ArrayItemAt.xml" />
+    <Content Include="SqlServer\Install\Functions\Utility.ArrayToTable.xml" />
+    <Content Include="SqlServer\Install\Functions\Utility.StringFind.xml" />
+    <Content Include="SqlServer\Install\Functions\Utility.StringReplace.xml" />
+    <Content Include="SqlServer\Install\Functions\Utility.StringToArray.xml" />
+    <Content Include="SqlServer\Install\Functions\_changelog.xml" />
+    <Content Include="SqlServer\Install\Functions\_template.xml" />
+    <Content Include="SqlServer\Install\Procedures\Logging.SaveLogEntry.xml" />
+    <Content Include="SqlServer\Install\Procedures\CrashDump.DeleteCrashReportsById.xml" />
+    <Content Include="SqlServer\Install\Procedures\CrashDump.DeleteCrashReportsByComment.xml" />
+    <Content Include="SqlServer\Install\Procedures\CrashDump.SaveCrashReport.xml" />
+    <Content Include="SqlServer\Install\Procedures\Logging.DeleteLogEntriesOlderThan.xml" />
+    <Content Include="SqlServer\Install\Procedures\CrashDump.DeleteCrashReportsOlderThan.xml" />
+    <Content Include="SqlServer\Install\Procedures\Locking.DeleteLockEntriesOlderThan.xml" />
+    <Content Include="SqlServer\Install\Procedures\Locking.UpdateLockEntry.xml" />
+    <Content Include="SqlServer\Install\Procedures\Locking.DeleteLockEntry.xml" />
+    <Content Include="SqlServer\Install\Procedures\Locking.SaveLockEntry.xml" />
+    <Content Include="SqlServer\Install\Procedures\Locking.GetLockEntryCount.xml" />
+    <Content Include="SqlServer\Install\Procedures\Locking.GetLockHandleCount.xml" />
+    <Content Include="SqlServer\Install\Procedures\Insurance.SelectAllTypesOfProducts.xml" />
+    <Content Include="SqlServer\Install\Procedures\Insurance.SelectAllTypesOfVerificationRules.xml" />
+    <Content Include="SqlServer\Install\Procedures\Insurance.SelectTypeOfProductWith.xml" />
+    <Content Include="SqlServer\Install\Procedures\Insurance.SelectTypeOfVerificationRulesWith.xml" />
+    <Content Include="SqlServer\Install\Procedures\RuleEngine.SelectRulesForRuleContext.xml" />
+    <Content Include="SqlServer\Install\Procedures\Announcement.SaveAnnouncement.xml" />
+    <Content Include="SqlServer\Install\Procedures\Worklist.SaveWorklistSettings.xml" />
+    <Content Include="SqlServer\Install\Procedures\Worklist.SelectAllWorklistRanges.xml" />
+    <Content Include="SqlServer\Install\Procedures\Worklist.SelectAllWorklists.xml" />
+    <Content Include="SqlServer\Install\Procedures\Worklist.SelectRangesByWorklist.xml" />
+    <Content Include="SqlServer\Install\Procedures\Worklist.SelectRangesForAllWorklists.xml" />
+    <Content Include="SqlServer\Install\Procedures\Worklist.SelectWorklistSettings.xml" />
+    <Content Include="SqlServer\Install\Procedures\_changelog.xml" />
+    <Content Include="SqlServer\Install\Procedures\_template.xml" />
+    <Content Include="SqlServer\Install\Security\_changelog.xml" />
+    <Content Include="SqlServer\Install\Security\Roles.xml" />
+    <Content Include="SqlServer\Install\Security\Schemas.xml" />
+    <Content Include="SqlServer\Install\Security\Users.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Blob_Triggers.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Simple_Triggers.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Job_Listeners.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Job_Details.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Locks.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Scheduler_State.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Paused_Trigger_Grps.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Fired_Triggers.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Cron_Triggers.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Calendars.xml" />
+    <Content Include="SqlServer\Install\Tables\Facility.Facilities.xml" />
+    <Content Include="SqlServer\Install\Tables\Logging.Events.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Trigger_Listeners.xml" />
+    <Content Include="SqlServer\Install\Tables\Quartz.Triggers.xml" />
+    <Content Include="SqlServer\Install\Tables\_changelog.xml" />
+    <Content Include="SqlServer\Install\Tables\Announcement.Announcements.xml" />
+    <Content Include="SqlServer\Install\Tables\Announcement.AnnouncementsToRolesToFacilities.xml" />
+    <Content Include="SqlServer\Install\Tables\CrashDump.BreadCrumbLogs.xml" />
+    <Content Include="SqlServer\Install\Tables\CrashDump.CrashReports.xml" />
+    <Content Include="SqlServer\Install\Tables\CrashDump.CrashReportScreenCaptures.xml" />
+    <Content Include="SqlServer\Install\Tables\DataValidation.BenefitsResponses.xml" />
+    <Content Include="SqlServer\Install\Tables\DataValidation.Tickets.xml" />
+    <Content Include="SqlServer\Install\Tables\DataValidation.TicketTypes.xml" />
+    <Content Include="SqlServer\Install\Tables\Facility.FacilityExtendedSettings.xml" />
+    <Content Include="SqlServer\Install\Tables\FinancialCounseling.CreditCardTypes.xml" />
+    <Content Include="SqlServer\Install\Tables\FinancialCounseling.CreditScroreAdviceMappings.xml" />
+    <Content Include="SqlServer\Install\Tables\Facility.FollowUpUnits.xml" />
+    <Content Include="SqlServer\Install\Tables\FusNote.ActivityCodes.xml" />
+    <Content Include="SqlServer\Install\Tables\Locking.OfflineLocks.xml" />
+    <Content Include="SqlServer\Install\Tables\Security.Roles.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.Actions.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.CompositeActions.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.CompositeActionsToActions.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.CompositeRules.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.CompositeRulesToRules.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.Rules.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.RulesToActions.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.Contexts.xml" />
+    <Content Include="SqlServer\Install\Tables\RuleEngine.ContextsToRules.xml" />
+    <Content Include="SqlServer\Install\Tables\Insurance.ProductTypes.xml" />
+    <Content Include="SqlServer\Install\Tables\Insurance.VerificationRuleTypes.xml" />
+    <Content Include="SqlServer\Install\Tables\Worklist.Worklists.xml" />
+    <Content Include="SqlServer\Install\Tables\Worklist.WorklistsToSelectionRanges.xml" />
+    <Content Include="SqlServer\Install\Tables\Worklist.WorklistsToRules.xml" />
+    <Content Include="SqlServer\Install\Tables\Worklist.SelectionRanges.xml" />
+    <Content Include="SqlServer\Install\Tables\Worklist.Settings.xml" />
+    <Content Include="SqlServer\Install\Functions\RuleEngine.IsCompositeRule.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-10-3471.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-09-2374.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-15-3513.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SqlServer\Releases\v1.12\2009-07-17-3539.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-23-3642.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-27-3648.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-28-3524.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-27-3673.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-28-3524.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-29-3701.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-28-3654.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-07-29-3534.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-09-01-4389.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-08-05-3690.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-08-06-3758.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-08-06-3710.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-08-12-3928.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-09-15-4745.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-09-17-4272.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-09-25-4745.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-09-28-5002.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-10-07-5152.xml" />
+    <Content Include="SqlServer\Releases\v1.12\2009-11-02-5711.xml" />
+    <Content Include="SqlServer\Releases\v1.12\_changelog.xml" />
+    <Content Include="SqlServer\Install\Tables\_template.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-08-24-2380.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-10-20-5293.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-10-10-4189.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-10-28-5606.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-11-02-5665.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-11-24-2380.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2009-11-16-4596.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2009-12-11-6232.xml" />
+    <Content Include="SqlServer\Releases\v1.13\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-07-22-2381.xml" />
+    <Content Include="SqlServer\Releases\v1.13\2009-07-31-2381.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2009-12-17-6341.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2009-12-18-6363.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2009-12-14-6275.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-01-10-6058.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-01-11-6058.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-01-15-6057.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-01-29-7076.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-02-05-6058.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-02-05-7277.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-02-05-7284.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-02-22-7534.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-03-15-7626.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-03-15-7939.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-02-19-7497.xml" />
+    <Content Include="SqlServer\Releases\v1.14\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-02-18-7499.xml" />
+    <Content Include="SqlServer\Releases\v1.14\2010-03-12-7922.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-03-19-7927.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-03-30-8052.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-04-16-8408.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-05-25-9004.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-05-04-5061.xml" />
+    <Content Include="SqlServer\Releases\v1.15\2010-05-25-9007.xml" />
+    <Content Include="SqlServer\Releases\v1.15\_changelog.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-05-06-4302.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-05-12-8822.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-05-24-8798.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-06-11-9325.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-06-21-9487.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-06-22-5061.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-07-01-9746.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-07-22-7789.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-07-14-5061.xml" />
+    <Content Include="SqlServer\Releases\v1.16\2010-07-13-9926.xml" />
+    <Content Include="SqlServer\Releases\v1.16\_changelog.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Db2\Install\Data\Load.TenetPlanIds.sql" />
+    <None Include="Db2\Install\Indexes\Idx_WorkListItems_WorklistId.sql" />
+    <None Include="Db2\Install\Indexes\Idx_RemainingActions_WorklistId.sql" />
+    <None Include="Db2\Install\Indexes\Idx_AccountWorkListItems_3.sql" />
+    <None Include="Db2\Install\Indexes\Idx_AccountWorkListItems_2.sql" />
+    <None Include="Db2\Latest\Procedures\GetAccountCreateDate.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllDetailAccountInfo.sql" />
+    <None Include="Db2\Latest\Procedures\SelectAllAlternateCareFacilities.sql" />
+    <None Include="Db2\Latest\Procedures\SelectResearchStudyWith.sql" />
+    <None Include="Db2\Releases\v1.13\2009-09-30-5049.sql" />
+    <None Include="Db2\Releases\v1.13\2009-10-08-2830.sql" />
+    <None Include="Db2\Releases\v1.13\2009-10-20-2830.sql" />
+    <None Include="Db2\Releases\v1.13\2009-11-12-2830.sql" />
+    <None Include="Db2\Releases\v1.13\2009-10-15-4189.sql" />
+    <None Include="Db2\Releases\v1.13\2009-10-14-4189.sql" />
+    <None Include="Db2\Releases\v1.13\2009-10-10-4189.sql" />
+    <None Include="Db2\Releases\v1.13\2009-10-30-4189.sql" />
+    <None Include="Db2\Releases\v1.14\2009-11-20-4596.sql" />
+    <None Include="Db2\Releases\v1.14\2009-12-23-4596.sql" />
+    <None Include="Db2\Releases\v1.14\2009-12-24-4596.sql" />
+    <None Include="Db2\Releases\v1.14\2009-12-24-6275.sql" />
+    <None Include="Db2\Releases\v1.14\2009-12-16-6275.sql" />
+    <None Include="Db2\Releases\v1.14\2009-12-15-6275.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-10-6058.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-11-6058.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-12-6057.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-13-6057.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-14-6057.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-15-6057.sql" />
+    <None Include="Db2\Releases\v1.14\2010-01-25-6057.sql" />
+    <None Include="Db2\Releases\v1.14\2010-03-09-7872.sql" />
+    <None Include="Db2\Releases\v1.15\2010-04-09-7862.sql" />
+    <None Include="Db2\Releases\v1.15\2010-03-28-8052.sql" />
+    <None Include="Db2\Releases\v1.16\2010-05-21-8916.sql" />
+    <None Include="Db2\Releases\v1.16\2010-05-26-8798.sql" />
+    <None Include="Db2\Releases\v1.16\2010-06-08-8798.sql" />
+    <None Include="Db2\Releases\v1.16\2010-06-14-9346.sql" />
+    <None Include="SqlServer\Utility\CreateLocalDatabase.sql" />
+    <None Include="SqlServer\Install\Procedures\DataValidation.GetDataValidationTicket.xml" />
+    <None Include="SqlServer\Install\Procedures\DataValidation.GetDataValidationTicketById.xml" />
+    <None Include="SqlServer\Install\Procedures\DataValidation.InsertTicket.xml" />
+    <None Include="SqlServer\Install\Procedures\DataValidation.UpdateAvailability.xml" />
+    <None Include="SqlServer\Install\Procedures\DataValidation.UpdateDataValidationTicket.xml" />
+    <None Include="SqlServer\Install\Procedures\Facility.SelectAllFacilities.xml" />
+    <None Include="SqlServer\Install\Procedures\Facility.SelectAllFollowUpUnits.xml" />
+    <None Include="SqlServer\Install\Procedures\Facility.SelectExtendedPropertiesFor.xml" />
+    <None Include="SqlServer\Install\Procedures\FinancialCounseling.GetCreditAdvice.xml" />
+    <None Include="SqlServer\Install\Procedures\FinancialCounseling.GetCreditCardTypes.xml" />
+    <None Include="SqlServer\Install\Procedures\FinancialCounseling.GetCreditCardTypeWith.xml" />
+    <None Include="SqlServer\Install\Procedures\FusNote.SelectActivityCodeWith.xml" />
+    <None Include="SqlServer\Install\Procedures\FusNote.SelectAllFusActivityCodes.xml" />
+    <None Include="SqlServer\Install\Procedures\FusNote.SelectAllWriteableActivityCodes.xml" />
+    <None Include="SqlServer\Install\Procedures\RuleEngine.SelectActionWorklistMappings.xml" />
+    <None Include="SqlServer\Install\Procedures\RuleEngine.SelectAllActions.xml" />
+    <None Include="SqlServer\Install\Procedures\RuleEngine.SelectAllRuleContexts.xml" />
+    <None Include="SqlServer\Install\Procedures\RuleEngine.SelectAllRules.xml" />
+    <None Include="SqlServer\Install\Procedures\RuleEngine.SelectAllRulesById.xml" />
+    <None Include="SqlServer\Install\Procedures\RuleEngine.SelectRuleActionMappings.xml" />
+    <None Include="SqlServer\Install\Procedures\Announcement.SelectAllAnnouncementsFor.xml" />
+    <None Include="SqlServer\Install\Procedures\Announcement.SelectCurrentAnnouncementsFor.xml" />
+    <None Include="SqlServer\Install\Procedures\Worklist.SelectRuleWorklistMappings.xml" />
+    <None Include="SqlServer\Install\Procedures\Security.SelectAllRoles.xml" />
+    <None Include="SqlServer\Install\Procedures\Security.SelectRoleWith.xml" />
+    <None Include="SqlServer\Migrate.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="AfterBuild">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\SqlServer\Migrate.proj" ToolsVersion="4.0" />
+  </Target>
+</Project>

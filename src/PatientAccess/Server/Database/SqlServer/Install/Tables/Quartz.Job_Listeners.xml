@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Job_Listeners.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Job_Listeners Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Job_Listeners">
+      <column name="Job_Name" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Job_Group" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Job_Listener" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_JobListeners" schemaName="Quartz" tableName="Job_Listeners" columnNames="Job_Name,Job_Group,Job_Listener" />
+    <addForeignKeyConstraint constraintName="FK_JobListenersToJobDetails" baseTableSchemaName="Quartz" baseTableName="Job_Listeners" baseColumnNames="Job_Name,Job_Group" referencedTableSchemaName="Quartz" referencedTableName="Job_Details" referencedColumnNames="Job_Name,Job_Group" />
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Job_Listeners TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

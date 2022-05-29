@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Functions\RuleEngine.IsCompositeAction.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create RuleEngine.IsCompositeAction()
+    </comment>
+    <createProcedure>
+      CREATE FUNCTION RuleEngine.IsCompositeAction(@ActionId int)
+        RETURNS int
+      AS
+      BEGIN
+
+      DECLARE @NumberOfHits int
+      DECLARE @ReturnValue int
+
+      SELECT @NumberOfHits = 
+        COUNT(1) FROM RuleEngine.CompositeActions Where Id = @ActionId
+
+      IF @NumberOfHits &gt; 0
+        SET @ReturnValue = 1
+      ELSE
+        SET @ReturnValue = 0        
+
+      RETURN @ReturnValue
+
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON RuleEngine.IsCompositeAction TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON RuleEngine.IsCompositeAction FROM db_apionly;
+      DROP FUNCTION RuleEngine.IsCompositeAction;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

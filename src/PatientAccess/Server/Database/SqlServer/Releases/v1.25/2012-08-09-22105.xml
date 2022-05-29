@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.25\2012-08-09-22105.xml">
+  <changeSet id="F35CF305-1764-4BD4-A3F3-8F7A861E55AB" author="Smitha.Krishnamurthy">
+    <comment>
+      SR 346 related rules - add rules to Transfer ER to outpatient context and 
+      Transfer Outpatient to ER patient activity
+    </comment>
+      <comment>
+      new Context for Transfer ER to bedded Outpatient activity
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="24" />
+      <column name="Type" value="PatientAccess.Domain.TransferERToOutpatientActivity" />
+    </insert>
+    
+    <comment>
+      new Context for Transfer Outpatient to ER patient activity
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Contexts">
+      <column name="Id" valueNumeric="25" />
+      <column name="Type" value="PatientAccess.Domain.TransferOutpatientToERActivity" />
+    </insert>
+    <comment>
+      Add rules as per BRS to Transfer ER to bedded Outpatient context (24)
+    </comment>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="55" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="57" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="58" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="60" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="61" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="62" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="63" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="81" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="82" />
+    </insert>
+       <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="83" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="106" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="163" />
+    </insert>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="164" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="165" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="461" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="203" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="213" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="214" />
+    </insert>
+    <comment>
+      Add rules as per BRS to Transfer Outpatient to ER patient context (25)
+    </comment>
+   <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="55" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="58" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="60" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="61" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="62" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="63" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="81" />
+    </insert>
+     <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="82" />
+    </insert>
+       <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="83" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="106" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="163" />
+    </insert>
+       <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="164" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="165" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="213" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="214" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="203" />
+    </insert>
+  </changeSet>
+
+  <changeSet id="5BD7CD2B-B664-4277-B1CD-B3AB88B5C77A" author="Smitha.Krishnamurthy">
+    
+    <comment>add missing rules for SR 346 - Create a single step function to change an ER patient to an out patient</comment>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="103" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="109" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="112" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="113" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="114" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="115" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="116" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="126" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="130" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="131" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="134" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="138" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="142" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="177" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="178" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="187" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="189" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="191" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="192" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="195" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="199" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="204" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="205" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="207" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="216" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="330" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="416" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="421" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="423" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="424" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="425" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="426" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="427" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="428" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="439" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="440" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="441" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="442" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="449" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="450" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="451" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="24" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="103" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="109" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="112" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="113" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="114" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="115" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="116" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="126" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="130" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="131" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="134" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="138" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="142" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="177" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="178" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="187" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="189" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="191" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="192" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="195" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="199" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="204" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="205" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="207" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="216" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="330" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="416" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="421" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="423" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="424" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="425" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="426" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="427" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="428" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="439" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="440" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="441" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="442" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="449" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="450" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="451" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="465" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="466" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="467" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="468" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="469" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="470" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="25" />
+      <column name="RuleId" valueNumeric="503" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="213" />
+      <column name="RuleId" valueNumeric="63" />
+    </insert>
+    
+  </changeSet>
+  
+</databaseChangeLog>

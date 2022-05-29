@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.32\2014_02_24_8625.xml">
+
+  <changeSet id="2C6DEB6E-5F85-4209-8E21-47B201EB2BEB" author="Srilakshmi.Sudharshan">
+    <comment>
+      SR 8625 - Add RGAPH and RGAPM FUS Activity Codes 
+    </comment>
+
+    <!--Delete if FUS Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RGAPH'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='RGAPM'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RGAPH" />
+      <column name="Description" value="CHG TO GUARANTOR CELL PHONE #" />
+      <column name="NoteType" valueNumeric="0" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="RGAPM" />
+      <column name="Description" value="CHG TO GAR CELL PHONE CONSENT FLAG" />
+      <column name="NoteType" valueNumeric="0" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+    
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RGAPH'</where>
+      </delete>
+      
+     <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='RGAPM'</where>
+      </delete>
+      
+     </rollback>
+    
+  </changeSet>
+</databaseChangeLog>
+
+

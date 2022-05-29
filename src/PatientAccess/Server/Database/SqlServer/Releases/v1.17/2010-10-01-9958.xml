@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.17\2010-10-01-9958.xml">
+
+  <changeSet id="0AA23175-E6E2-4DED-891C-1DB4453EFA54" author="Deepa.Raju" context="Prod">
+    <comment>
+      Make PLA and PLX as Pilot facilities enabled for accepting Online Pre registration submissions - SR878.
+    </comment>
+
+    <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+      <where> Name = 'IsAcceptingPreRegistrationSubmissions' and FacilityId in ( 35, 935 ) </where>
+    </delete>
+
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="35" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="935" />
+      <column name="Name" value="IsAcceptingPreRegistrationSubmissions" />
+      <column name="Value" value="True" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="Facility" tableName="FacilityExtendedSettings">
+        <where> Name = 'IsAcceptingPreRegistrationSubmissions' and FacilityId in ( 35, 935 ) </where>
+      </delete>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

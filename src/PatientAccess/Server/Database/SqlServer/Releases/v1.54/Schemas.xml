@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.54\Schemas.xml">
+  <changeSet id="D76FA359-8327-43B3-8978-D0F0EC8A9BCA" author="vikas11.sangal">
+    <comment>
+      Create schemas
+    </comment>
+    <sql>
+      CREATE SCHEMA [ViWeb] AUTHORIZATION [dbo];
+    </sql>
+    <rollback>
+      <sql>
+        DROP SCHEMA [ViWeb];
+      </sql>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

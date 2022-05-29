@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\_changelog.xml">
+  <include relativeToChangelogFile="true" file="2009-07-07-1868.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-07-2376.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-09-2374.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-10-3471.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-15-3513.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-17-3539.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-23-3642.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-27-3673.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-28-3524.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-28-3654.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-29-3701.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-29-3534.xml" />
+  <include relativeToChangelogFile="true" file="2009-07-27-3648.xml" />
+  <include relativeToChangelogFile="true" file="2009-08-05-3690.xml" />
+  <include relativeToChangelogFile="true" file="2009-08-06-3758.xml" />  
+  <include relativeToChangelogFile="true" file="2009-08-06-3710.xml" />
+  <include relativeToChangelogFile="true" file="2009-08-12-3928.xml" />
+  <include relativeToChangelogFile="true" file="2009-09-01-4389.xml" />
+  <include relativeToChangelogFile="true" file="2009-09-15-4745.xml" />
+  <include relativeToChangelogFile="true" file="2009-09-17-4272.xml" />
+  <include relativeToChangelogFile="true" file="2009-09-25-4745.xml" />
+  <include relativeToChangelogFile="true" file="2009-09-28-5002.xml" />
+  <include relativeToChangelogFile="true" file="2009-10-07-5152.xml" />
+  <include relativeToChangelogFile="true" file="2009-11-02-5711.xml" />
+</databaseChangeLog>

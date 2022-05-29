@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-29_16814.xml">
+  
+  <changeSet id="F48E6D5E-000D-46BE-AEC1-D82C34243BF1" author="Smitha.Krishnamurthy">
+
+   
+
+    <comment>
+      Add PlanIDInPrimaryDisplayPreferred(102) and PlanNameInPrimaryDisplayRequired(108)
+      to QuickAccountCreation (22 ) ContextToRules
+      and OnQuickAccountCreationForm ( 483 ) compositeRuleToRule
+    </comment>
+    
+   
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="102" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="108" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="483" />
+      <column name="RuleId" valueNumeric="102" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="483" />
+      <column name="RuleId" valueNumeric="108" />
+    </insert>
+    
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value=" Primary plan name" />
+      <where>Id=108</where>
+    </update>
+    
+     <rollback>
+            
+       <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+         <where>RuleId=102  and CompositeRuleId = 483</where>
+       </delete>    
+       
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where> RuleId=102 and ContextId = 22 </where>
+       </delete>
+       <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+         <where>RuleId=108  and CompositeRuleId = 483</where>
+       </delete>
+
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where> RuleId=108 and ContextId = 22 </where>
+       </delete>
+
+       <update schemaName="RuleEngine" tableName="Rules">
+         <column name="Description" value="Primary plan" />
+         <where>Id=108</where>
+       </update>
+       
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

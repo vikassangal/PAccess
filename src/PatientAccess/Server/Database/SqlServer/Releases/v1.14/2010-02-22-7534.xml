@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2010-02-22-7534.xml">
+  <changeSet id="1" author="Jon.Lent" context="Prod">
+    <comment>
+      Load MOX Training Facility
+    </comment>
+    <insert schemaName="Facility" tableName="Facilities">
+      <column name="Id" value="912" />
+      <column name="HospitalCode" value="MOX" />
+      <column name="Name" value="DOCTOR MODESTO TRAINING" />
+      <column name="ServerId" value="172.18.219.204" />
+      <column name="DatabaseName" value="MODB" />
+      <column name="FollowUpUnitId" value="997" />
+      <column name="ModType" value="10" />
+      <column name="OrderComm" value="Y" />
+      <column name="DstOffset" value="1" />
+      <column name="UtcOffset" value="-8" />
+      <column name="TenetCare" value="N" />
+      <column name="ReRegister" value="Y" />
+      <column name="StatusCode" value="" />
+      <column name="LastUpdated" value="4/18/2007 2:30:30 PM" />
+      <column name="TaxId" value="752918774" />
+      <column name="MedicaidIssuedDateRequired" value="" />
+      <column name="UseUscMrn" value=" " />
+      <column name="IsEnabled" value="Y" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.Facilities WHERE Id in ( 912 )
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

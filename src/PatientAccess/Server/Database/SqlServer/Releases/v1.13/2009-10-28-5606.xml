@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.13\2009-10-28-5606.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      Update RuleEngine.Rules for bug 5606. Changed the severity of a rule from 4 to 2.
+    </comment>
+
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Severity" valueNumeric="2" />>
+      <where>Type='PatientAccess.Rules.PatientInClinicalstudyPreferred'</where>
+    </update>
+
+    <rollback>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Severity" valueNumeric="4" />>
+        <where>Type='PatientAccess.Rules.PatientInClinicalstudyPreferred'</where>
+      </update>
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>

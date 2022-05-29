@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\_template.xml">
+  <changeSet id="1" author="">
+    <comment>
+      Load SchemaName.TableName
+    </comment>
+    <insert schemaName="SchemaName" tableName="TableName">
+      <column name="ColumnOne" valueNumeric="0" />
+      <column name="ColumnTwo" valueNumeric="599" />
+      <column name="ColunThree" value="Be skeptical." />
+    </insert>
+    <insert schemaName="SchemaName" tableName="TableName">
+      <column name="ColumnOne" valueNumeric="1" />
+      <column name="ColumnTwo" valueNumeric="599" />
+      <column name="ColunThree" value="Be skeptical." />
+    </insert>
+    <rollback>
+      DELETE FROM SchemaName.TableName WHERE ColumnOne IN (0,1);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

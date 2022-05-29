@@ -1,0 +1,96 @@
+using System;
+using Extensions.UI.Builder;
+using PatientAccess.Annotations;
+using PatientAccess.Domain;
+
+namespace PatientAccess.Rules
+{
+	/// <summary>
+	/// Summary description for AdmitDateWithinSpecifiedSpan.
+	/// </summary>
+	[Serializable]
+    [UsedImplicitly]
+    public class AdmitDateWithinSpecifiedSpan : LeafRule
+	{
+        #region Events
+        public event EventHandler AdmitDateWithinSpecifiedSpanEvent;
+        #endregion
+
+        #region Methods
+        public override bool RegisterHandler( EventHandler eventHandler )
+        {
+            this.AdmitDateWithinSpecifiedSpanEvent += eventHandler;
+            return true;
+        }
+
+        public override bool UnregisterHandler( EventHandler eventHandler )
+        {
+            this.AdmitDateWithinSpecifiedSpanEvent -= eventHandler;
+            return true;
+        }
+                                
+        public override void UnregisterHandlers()
+        {
+            this.AdmitDateWithinSpecifiedSpanEvent = null;  
+        }
+
+        public override bool ShouldStopProcessing()
+        {
+            return true;
+        }
+
+        public override void ApplyTo( object context )
+        {
+        }
+
+        public override bool CanBeAppliedTo( object context )
+        {
+		
+            if( context.GetType() != typeof( Account ) )
+            {
+                return true;
+            }
+            Account anAccount = context as Account;
+            if( anAccount == null )
+            {
+                return true;
+            }
+            // the admit date must be within 8 1/2 months
+            // sophie: admit date must be within 12 months
+            if (anAccount.AdmitDate.Date > DateTime.Now.AddMonths(12).AddDays(0))
+            {
+                if( this.FireEvents && AdmitDateWithinSpecifiedSpanEvent != null )
+                {
+                    AdmitDateWithinSpecifiedSpanEvent( this, null );
+                }
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Private Methods
+        #endregion
+
+        #region Private Properties
+        #endregion
+
+        #region Construction and Finalization
+
+        public AdmitDateWithinSpecifiedSpan()
+        {
+        }
+
+        #endregion
+
+        #region Data Elements
+        #endregion
+
+        #region Constants
+        #endregion
+    
+	}
+}

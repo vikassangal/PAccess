@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-03-18-14001.xml">
+
+  <changeSet id="4FCAD4B7-9A90-43FB-9C74-EC771A132DB7" author="Smitha.Krishnamurthy">
+
+    <comment>
+      Delete PrimaryInsuredDateOfBirthRequired(410 )  from ShortPrereg(20)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 410</where>
+    </delete>
+   
+
+    <comment>
+      Defect 14379 Add PersonLastNameRequired(Guarantor) (131)  from ShortPrereg(20)
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId in (130, 131)</where>
+    </delete>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="131" />
+    </insert>
+    <comment>
+      Defect 14379 Add PersonFirstNameRequired(Guarantor) (130)  from ShortPrereg(20)
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="130" />
+    </insert>
+    
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="20" />
+        <column name="RuleId" valueNumeric="410" />
+      </insert>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 20 and RuleId in (130, 131)</where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

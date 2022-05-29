@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.19\2011-04-14-15034.xml">
+
+  <changeSet id="16B08AB0-9890-4be9-A248-84684A12775B" author="Sharanabasappa.Vitha">
+    <comment>
+      FUS Activity Code changes for April 2011
+    </comment>
+
+    <!--Delete if FUS Activity codes are present-->
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ZDNCC'</where>
+    </delete>
+
+    <delete schemaName="FusNote" tableName="ActivityCodes">
+      <where>ActivityCode='ZFCOV'</where>
+    </delete>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ZDNCC" />
+      <column name="Description" value="ORDER CHECKER NOT COMPLETED" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <insert schemaName="FusNote" tableName="ActivityCodes">
+      <column name="ActivityCode" value="ZFCOV" />
+      <column name="Description" value="VERIFIER TO REVIEW ACCOUNT" />
+      <column name="NoteType" valueNumeric="7" />
+      <column name="DefaultWorklistDays" valueNumeric="0" />
+      <column name="MaxWorklistDays" valueNumeric="0" />
+      <column name="Writeable" value="Y" />
+    </insert>
+
+    <rollback>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ZDNCC'</where>
+      </delete>
+
+      <delete schemaName="FusNote" tableName="ActivityCodes">
+        <where>ActivityCode='ZFCOV'</where>
+      </delete>
+
+    </rollback>
+  </changeSet>
+</databaseChangeLog>
+
+

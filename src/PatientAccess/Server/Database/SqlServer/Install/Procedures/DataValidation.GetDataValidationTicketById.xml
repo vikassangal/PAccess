@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\DataValidation.GetDataValidationTicketById.xml">
+  <changeSet author="Jon.Lent" id="1">
+    <comment>
+      Create DataValidation.GetDataValidationTicketById
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE DataValidation.GetDataValidationTicketById
+       @TicketId varchar(36)
+      AS 
+     BEGIN
+        SELECT 
+           DataValidation.Tickets.FacilityId, 
+           DataValidation.Tickets.Id as TicketId, 
+           DataValidation.Tickets.ResultsAreAvailable, 
+           DataValidation.Tickets.InitiatedOnDate, 
+           DataValidation.Tickets.TicketTypeId, 
+           DataValidation.Tickets.AccountNumber, 
+           DataValidation.Tickets.MedicalRecordNumber, 
+           DataValidation.Tickets.Viewed, 
+           DataValidation.Tickets.FusNoteSent, 
+           DataValidation.BenefitsResponses.ResponseParseStrategy, 
+           DataValidation.BenefitsResponses.CoverageOrderId, 
+           DataValidation.BenefitsResponses.PlanCategoryId, 
+           DataValidation.BenefitsResponses.InsurancePlanCode, 
+           DataValidation.BenefitsResponses.ResponseGroupNumber, 
+           DataValidation.BenefitsResponses.ResponseInsuredDob, 
+           DataValidation.BenefitsResponses.ResponsePayor, 
+           DataValidation.BenefitsResponses.ResponseStatus, 
+           DataValidation.BenefitsResponses.ResponseSubscriberId, 
+           DataValidation.BenefitsResponses.RequestInsuredFirstName, 
+           DataValidation.BenefitsResponses.RequestInsuredLastName, 
+           DataValidation.BenefitsResponses.RequestInsuredMiddleInit, 
+           DataValidation.BenefitsResponses.RequestInsuredDob, 
+           DataValidation.BenefitsResponses.RequestPayor, 
+           DataValidation.BenefitsResponses.RequestSubscriberId, 
+           DataValidation.BenefitsResponses.ResponseInsuredFirstName, 
+           DataValidation.BenefitsResponses.ResponseInsuredLastName, 
+           DataValidation.BenefitsResponses.ResponseInsuredMiddleInit, 
+           DataValidation.BenefitsResponses.ResponseAuthCo, 
+           DataValidation.BenefitsResponses.ResponseAuthCoPhone
+        FROM 
+           DataValidation.Tickets
+        LEFT OUTER JOIN 
+           DataValidation.BenefitsResponses ON DataValidation.Tickets.Id = 
+            DataValidation.BenefitsResponses.TicketId
+        WHERE 
+           DataValidation.Tickets.Id = @TicketId
+     END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON DataValidation.GetDataValidationTicketById TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON DataValidation.GetDataValidationTicketById FROM db_apionly;
+      DROP PROCEDURE DataValidation.GetDataValidationTicketById;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

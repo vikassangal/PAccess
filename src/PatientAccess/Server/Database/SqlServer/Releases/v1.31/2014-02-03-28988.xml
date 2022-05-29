@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.31\2014-02-03-28988.xml">
+  <changeSet id="F575EEB7-6959-4F7E-B17C-AEAA9971E1D1" author="Smitha.Krishnamurthy">
+    <comment>
+      SR 8934 - Rename PAI walkin to Walkin activity 
+    </comment>
+    <update schemaName="RuleEngine" tableName="Actions">
+      <column name="Description" value="Provide missing WalkIn registration information"  />
+      <where>Id=57</where>
+    </update>
+  
+    <comment>
+      CompositeActions
+    </comment>
+    <update schemaName="RuleEngine" tableName="CompositeActions">
+     <column name="Description" value="Provide missing WalkIn registration information" />
+     <where>Id=57</where>
+    </update>
+
+    <comment>
+      Rules
+    </comment>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Complete missing fields on the WalkinAccountCreation form" />
+     <where>Id=509</where>
+    </update>
+
+    <comment>
+      CompositeRules
+    </comment>
+    <update schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Description" value="Complete missing fields on the WalkinAccountCreation form " />
+     <where>Id=509</where>
+    </update>
+  
+  </changeSet>
+</databaseChangeLog>

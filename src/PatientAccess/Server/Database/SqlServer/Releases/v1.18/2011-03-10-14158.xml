@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-03-10-14158.xml">
+
+  <changeSet id="50EEE703-85F7-4243-83E8-54209CC48CE6" author="Deepa.Raju">
+    <comment>
+      SR1190 - Defect 14158 - Modify Descriptions for Short Diagnosis and Regulatory forms to match the 8-tab name format in
+      - Rules (474, 477),  CompositeRules (474, 477), Actions (51, 54), CompositeActions (51, 54)
+    </comment>
+
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Complete missing fields on the Diagnosis/Clinical form" />
+      <where>Id=474</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Complete missing fields on the Regulatory/Documents form" />
+      <where>Id=477</where>
+    </update>
+
+    
+    <update schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Description" value="Complete missing fields on the Diagnosis/Clinical form" />
+      <where>Id=474</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Description" value="Complete missing fields on the Regulatory/Documents form" />
+      <where>Id=477</where>
+    </update>
+
+    
+    <update schemaName="RuleEngine" tableName="Actions">
+      <column name="Description" value="Provide missing diagnosis/clinical information" />
+      <where>Id=51</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Actions">
+      <column name="Description" value="Provide missing regulatory/documents information" />
+      <where>Id=54</where>
+    </update>
+
+    
+    <update schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Description" value="Provide missing diagnosis/clinical information" />
+      <where>Id=51</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Description" value="Provide missing regulatory/documents information" />
+      <where>Id=54</where>
+    </update>
+
+
+    <rollback>
+
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="Complete missing fields on the Diagnosis form" />
+        <where>Id=474</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="Complete missing fields on the Regulatory form" />
+        <where>Id=477</where>
+      </update>
+
+      
+      <update schemaName="RuleEngine" tableName="CompositeRules">
+        <column name="Description" value="Complete missing fields on the Diagnosis form" />
+        <where>Id=474</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="CompositeRules">
+        <column name="Description" value="Complete missing fields on the Regulatory form" />
+        <where>Id=477</where>
+      </update>
+
+      
+      <update schemaName="RuleEngine" tableName="Actions">
+        <column name="Description" value="Provide missing diagnosis information" />
+        <where>Id=51</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Actions">
+        <column name="Description" value="Provide missing regulatory information" />
+        <where>Id=54</where>
+      </update>
+
+      
+      <update schemaName="RuleEngine" tableName="CompositeActions">
+        <column name="Description" value="Provide missing diagnosis information" />
+        <where>Id=51</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="CompositeActions">
+        <column name="Description" value="Provide missing regulatory information" />
+        <where>Id=54</where>
+      </update>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

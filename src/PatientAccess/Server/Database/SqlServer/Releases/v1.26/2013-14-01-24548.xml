@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.26\2013-14-01-24548.xml">
+  <changeSet id="CDFBA752-6F9A-4E61-B8EF-9A4C1D6EECCE" author="Smitha.Krishnamurthy">
+    <comment>
+      Delete OccurrenceCode3DateRequired(239) rule OnDemographicView composite rule (198)
+    </comment>
+   <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>
+        RuleId = 239 and CompositeRuleId = 198
+      </where>
+    </delete>
+     <rollback>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="198" />
+        <column name="Ruleid" valueNumeric="239" />
+      </insert>
+    </rollback>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Worklist.SelectRangesByWorklist.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Worklist.SelectRangesByWorklist
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Worklist.SelectRangesByWorklist
+        @WorklistId int = NULL
+      AS
+      BEGIN
+
+      SELECT
+        WorklistsToSelectionRanges.WorklistId,
+        SelectionRanges.Id as SelectionRangeId,
+        SelectionRanges.Description,
+        SelectionRanges.RangeInDays
+      FROM
+        Worklist.WorklistsToSelectionRanges,
+        Worklist.SelectionRanges
+      WHERE
+        Worklist.SelectionRanges.Id = WorklistsToSelectionRanges.SelectionRangeId
+        AND
+        ( WorklistsToSelectionRanges.WorklistId = @WorklistId 
+      			OR
+		      @WorklistId IS NULL )
+        ORDER BY
+        WorklistsToSelectionRanges.WorklistId,
+        SelectionRanges.DisplayOrder
+
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Worklist.SelectRangesByWorklist TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Worklist.SelectRangesByWorklist FROM db_apionly;
+      DROP PROCEDURE Worklist.SelectRangesByWorklist;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

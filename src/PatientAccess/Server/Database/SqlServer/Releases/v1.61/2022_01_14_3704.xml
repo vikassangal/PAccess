@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_01_14_3704.xml">
+	<changeSet id="5F3E6025-614D-4572-99DE-E78757FBE859" author="Abhijeet.Hambir">
+		<comment>
+			DOFR DMND3704- Add DOFRInsurancePartIPA Required Rule to form and activities
+		</comment>
+		
+		<insert schemaName="RuleEngine" tableName="Rules">
+			<column name="Id" valueNumeric="539" />
+			<column name="Description" value="Insurance plan part of IPA/Medical Group" />
+			<column name="Type" value="PatientAccess.Rules.DOFRInsurancePartIPARequired" />
+			<column name="Severity" valueNumeric="4" />
+		</insert>
+
+		<comment>
+			Add rule 539 to ContextRules to Rules for contexts 7,13,21
+		</comment>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="7" />
+			<column name="RuleId" valueNumeric="539" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="13" />
+			<column name="RuleId" valueNumeric="539" />
+		</insert>
+
+		<insert schemaName="RuleEngine" tableName="ContextsToRules">
+			<column name="ContextId" valueNumeric="21" />
+			<column name="RuleId" valueNumeric="539" />
+		</insert>
+
+		<comment>
+			Add rule 539 to CompositeRulesToRules for composite rules 204
+		</comment>
+
+		<insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+			<column name="CompositeRuleId" valueNumeric="204" />
+			<column name="Ruleid" valueNumeric="539" />
+		</insert>
+	
+	</changeSet>
+  
+  <changeSet id="C7123484-6350-4222-9B2C-A467DDF30BD0" author="Abhijeet.Hambir">
+    <comment>
+      Add rule 539 to ContextRules to Rules for contexts 28
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="28" />
+      <column name="RuleId" valueNumeric="539" />
+    </insert>
+
+  </changeSet>
+
+  <changeSet id="C1C4097D-42F0-4E9A-83B8-09BAFD25BE41" author="Abhijeet.Hambir">
+    <comment>
+      Create DOFR.InsurancePlanPartOfIPA Table
+    </comment>
+    <createTable schemaName="DOFR" tableName="InsurancePlanPartOfIPA">
+      <column name="Id" type="int" autoIncrement="true">
+        <constraints nullable="false" />
+      </column>
+      <column name="FacilityId" type="int">
+        <constraints nullable="false" foreignKeyName="FK_InsurancePlanPartOfIPA_Facility" references="Facility.Facilities(Id)" />
+      </column>
+      <column name="AccountNumber" type="varchar(20)">
+        <constraints nullable="false" />
+      </column>
+      <column name="PlanId" type="varchar(10)">
+        <constraints nullable="false" />
+      </column>
+      <column name="InsurancePlanPartOfIPA" type="varchar(10)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_InsurancePlanPartOfIPA" schemaName="DOFR" tableName="InsurancePlanPartOfIPA" columnNames="FacilityId,AccountNumber,PlanId" />
+  </changeSet>
+
+  <changeSet id="F742DB51-284B-42A2-8412-076512FD9E20" author="Abhijeet.Hambir">
+    <comment>
+      CREATE PROCEDURE [DOFR].[GetInsurancePlanPartOfIPA]
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE [DOFR].[GetInsurancePlanPartOfIPA]
+      @FacilityId int,
+      @AccountNumber varchar(20),
+      @PlanId varchar(10)
+      AS
+      BEGIN
+      SET NOCOUNT ON;
+      SELECT [InsurancePlanPartOfIPA]
+      FROM [DOFR].[InsurancePlanPartOfIPA]
+      Where [FacilityId] = @FacilityId and [AccountNumber]= @AccountNumber and [PlanId]= @PlanId
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON [DOFR].[GetInsurancePlanPartOfIPA] TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON [DOFR].[GetInsurancePlanPartOfIPA] FROM db_apionly;
+      DROP PROCEDURE [DOFR].[GetInsurancePlanPartOfIPA];
+    </rollback>
+  </changeSet>
+
+  <changeSet id="EAEC74E5-672C-4C2D-ABBF-FA7CB20EBCED" author="Abhijeet.Hambir">
+    <comment>
+      CREATE PROCEDURE [DOFR].[SetInsurancePlanPartOfIPA]
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE [DOFR].[SetInsurancePlanPartOfIPA]
+      @FacilityId int,
+      @AccountNumber varchar(20),
+      @PlanId varchar(10),
+      @InsurancePlanPartOfIPA varchar(10)
+      AS
+      BEGIN
+      SET NOCOUNT ON;
+      IF EXISTS (SELECT [InsurancePlanPartOfIPA] FROM [DOFR].[InsurancePlanPartOfIPA] Where [FacilityId] =@FacilityId and [AccountNumber]=@AccountNumber and [PlanId]=@PlanId)
+      BEGIN
+      UPDATE [DOFR].[InsurancePlanPartOfIPA] SET [InsurancePlanPartOfIPA] = @InsurancePlanPartOfIPA Where [FacilityId] =@FacilityId and [AccountNumber]=@AccountNumber and [PlanId]=@PlanId
+      END
+      ELSE
+      BEGIN
+      INSERT INTO [DOFR].[InsurancePlanPartOfIPA]	([FacilityId], [AccountNumber], [PlanId],[InsurancePlanPartOfIPA]) VALUES (@FacilityId,@AccountNumber,@PlanId,@InsurancePlanPartOfIPA)
+      END
+      END
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON [DOFR].[SetInsurancePlanPartOfIPA] TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON [DOFR].[SetInsurancePlanPartOfIPA] FROM db_apionly;
+      DROP PROCEDURE [DOFR].[SetInsurancePlanPartOfIPA];
+    </rollback>
+  </changeSet>
+  
+</databaseChangeLog>

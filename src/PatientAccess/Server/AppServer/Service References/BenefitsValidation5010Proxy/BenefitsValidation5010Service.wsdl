@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:BenefitsValidation5010Service/wsdl" xmlns:ns2="urn:BenefitsValidation5010Service/types" name="BenefitsValidation5010Service" targetNamespace="urn:BenefitsValidation5010Service/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:BenefitsValidation5010Service/types" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn:BenefitsValidation5010Service/types">
+      <xsd:complexType name="initiate">
+        <xsd:sequence>
+          <xsd:element name="BenefitsValidation5010Request_1" nillable="true" type="tns:BenefitsValidation5010Request" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BenefitsValidation5010Request">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="hspcd" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="beginServiceDate" nillable="true" type="xsd:string" />
+          <xsd:element name="endServiceDate" nillable="true" type="xsd:string" />
+          <xsd:element name="patient" nillable="true" type="tns:Patient" />
+          <xsd:element name="subscriber" nillable="true" type="tns:Subscriber" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="diagnosisCodes" nillable="true" type="tns:HealthCareCodeInformation" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="eligibilityOrBenefitInquiries" nillable="true" type="tns:EligibilityOrBenefitInquiry" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Patient">
+        <xsd:sequence>
+          <xsd:element name="dateOfBirth" nillable="true" type="xsd:string" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="middleName" nillable="true" type="xsd:string" />
+          <xsd:element name="relationshipToSubscriber" nillable="true" type="xsd:string" />
+          <xsd:element name="sex" nillable="true" type="xsd:string" />
+          <xsd:element name="ssn" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Subscriber">
+        <xsd:sequence>
+          <xsd:element name="cardIssueDate" nillable="true" type="xsd:string" />
+          <xsd:element name="dateOfBirth" nillable="true" type="xsd:string" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="groupId" nillable="true" type="xsd:string" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="memberId" nillable="true" type="xsd:string" />
+          <xsd:element name="middleName" nillable="true" type="xsd:string" />
+          <xsd:element name="planId" nillable="true" type="xsd:string" />
+          <xsd:element name="sex" nillable="true" type="xsd:string" />
+          <xsd:element name="ssn" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="zip" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HealthCareCodeInformation">
+        <xsd:sequence>
+          <xsd:element name="diagnosisCode" nillable="true" type="xsd:string" />
+          <xsd:element name="diagnosisCodeType" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EligibilityOrBenefitInquiry">
+        <xsd:sequence>
+          <xsd:element name="diagnosisCodePointer1" nillable="true" type="xsd:string" />
+          <xsd:element name="diagnosisCodePointer2" nillable="true" type="xsd:string" />
+          <xsd:element name="diagnosisCodePointer3" nillable="true" type="xsd:string" />
+          <xsd:element name="diagnosisCodePointer4" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="serviceTypeCodes" nillable="true" type="xsd:string" />
+          <xsd:element name="subscriberSpendDownAmount" nillable="true" type="xsd:string" />
+          <xsd:element name="subscriberSpendDownTotalBilledAmount" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="initiateResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EDVServiceException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="obtainResult">
+        <xsd:sequence>
+          <xsd:element name="ServiceKey_1" nillable="true" type="tns:ServiceKey" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ServiceKey">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="hspcd" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="uuid" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="obtainResultResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:BenefitsValidationResult" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BenefitsValidationResult">
+        <xsd:sequence>
+          <xsd:element name="eligible" nillable="true" type="xsd:string" />
+          <xsd:element name="messageUUID" nillable="true" type="xsd:string" />
+          <xsd:element name="payorMessage" nillable="true" type="xsd:string" />
+          <xsd:element name="payorXmlMessage" nillable="true" type="xsd:string" />
+          <xsd:element name="success" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="initiate" type="tns:initiate" />
+      <xsd:element name="initiateResponse" type="tns:initiateResponse" />
+      <xsd:element name="EDVServiceException" type="tns:EDVServiceException" />
+      <xsd:element name="obtainResult" type="tns:obtainResult" />
+      <xsd:element name="obtainResultResponse" type="tns:obtainResultResponse" />
+    </xsd:schema>
+  </types>
+  <message name="BenefitsValidation5010ServiceSEI_initiate">
+    <part name="parameters" element="ns2:initiate" />
+  </message>
+  <message name="BenefitsValidation5010ServiceSEI_initiateResponse">
+    <part name="result" element="ns2:initiateResponse" />
+  </message>
+  <message name="EDVServiceException">
+    <part name="EDVServiceException" element="ns2:EDVServiceException" />
+  </message>
+  <message name="BenefitsValidation5010ServiceSEI_obtainResult">
+    <part name="parameters" element="ns2:obtainResult" />
+  </message>
+  <message name="BenefitsValidation5010ServiceSEI_obtainResultResponse">
+    <part name="result" element="ns2:obtainResultResponse" />
+  </message>
+  <portType name="BenefitsValidation5010ServiceSEI">
+    <operation name="initiate">
+      <input message="tns:BenefitsValidation5010ServiceSEI_initiate" />
+      <output message="tns:BenefitsValidation5010ServiceSEI_initiateResponse" />
+      <fault name="EDVServiceException" message="tns:EDVServiceException" />
+    </operation>
+    <operation name="obtainResult">
+      <input message="tns:BenefitsValidation5010ServiceSEI_obtainResult" />
+      <output message="tns:BenefitsValidation5010ServiceSEI_obtainResultResponse" />
+      <fault name="EDVServiceException" message="tns:EDVServiceException" />
+    </operation>
+  </portType>
+  <binding name="BenefitsValidation5010ServiceSEIBinding" type="tns:BenefitsValidation5010ServiceSEI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="initiate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="EDVServiceException">
+        <soap:fault use="literal" name="EDVServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="obtainResult">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="EDVServiceException">
+        <soap:fault use="literal" name="EDVServiceException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="BenefitsValidation5010Service">
+    <port name="BenefitsValidation5010ServiceSEIPort" binding="tns:BenefitsValidation5010ServiceSEIBinding">
+      <soap:address location="http://edvdev2.tenethealth.net:8080/edv/services/BenefitsValidation5010Service" />
+    </port>
+  </service>
+</definitions>

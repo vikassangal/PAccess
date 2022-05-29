@@ -1,0 +1,193 @@
+/*************I********************************************************/
+/*            I                                                       */
+/* iSeries400 I  MPIACCOUNTDETAILSFOR - SQL PROC FOR PX               */
+/*            I                                                       */
+/*    ************************************************************    */
+/*    * Perot Systems, Copyright 2003, All rights reserved(U.S.) *    */
+/*    *       I                                                  *    */
+/*    * This unpublished material is proprietary to Perot Sys.   *    */
+/*    * The methods and techniques described herein are          *    */
+/*    * considered trade secrets and/or confidential.            *    */
+/*    * Reproduction or distribution, in whole or in part, is    *    */
+/*    * forbidden except by express written permission of        *    */
+/*    * Perot Systems, Inc.                                      *    */
+/*    ************************************************************    */
+/*            I                                                       */
+/*************I********************I***********************************/
+/*  Date      I  Programmer        I  Modification Description        */
+/*************I********************I***********************************/
+/* 04/27/2006 I  Melissa Bouse     I NEW STORED PROCEDURE             */
+/* 11/27/06   I  Deepa		       I Modified Stored Proc             */
+/* 07/23/2007 I  Sophie Zhang      I Added two columns passport &     */
+/*								   country to 1st cursor for SR 39493 */
+/* 05/20/2009 I Deepa Raghavaraju  I Modified DNR field mapping to    */
+/*                                   HXMRRVP.RVPCNY				      */
+/*************I********************I***********************************/
+
+SET PATH *LIBL ;
+
+CREATE PROCEDURE  MPIACCOUNTDETAILSFOR (
+IN P_FACILITYID INTEGER ,
+IN P_ACCTNO INTEGER )
+DYNAMIC RESULT SETS 2
+LANGUAGE SQL
+SPECIFIC MPIACCDTL
+NOT DETERMINISTIC
+READS SQL DATA
+CALLED ON NULL INPUT
+SET OPTION DBGVIEW =*SOURCE
+P1 : BEGIN
+	
+DECLARE CURSOR1 CURSOR FOR
+SELECT
+MDP . MDPLNM AS LASTNAME ,
+MDP . MDPFNM AS FIRSTNAME ,
+MDP . MDPMI AS MIDDLEINITIAL ,
+MDP . MDNMTL AS SUFFIX ,
+AKA . AKPLNM AS AKLASTNAME ,
+AKA . AKPFNM AS AKFIRSTNAME ,
+MDP . MDMRC# AS MEDICALRECORDNUMBER ,
+MDP . MDSSN AS SSN ,
+MDP . MDSEX AS GENDER ,
+MDP . MDDOB AS DOB ,
+MDP . MDMAR AS MARITALSTATUS ,
+MDP . MDRACE AS RACE ,
+MDP . MDETHC AS ETHNICITY ,
+MDP . MDAGE AS AGE ,
+MDP . MDPADR AS LOCALADDRESS ,  --MDP.MDPCTY AS LOCALCITY,
+MDP . MDPCIT AS LOCALADDRESSCITY ,
+MDP . MDPSTE AS LOCALSTATEID ,
+MDP . MDPZIP AS ZIPCODE ,
+MDP . MDPACD AS AREACODE ,
+MDP . MDPPH# AS PHONENUMBER ,
+MDP . MDCLPH AS CELLPHONE ,
+MDP . MDPCUN AS COUNTRYCODE ,
+MDP . MDPZPA AS LOCALZIP ,
+MDP . MDPZ4A AS LOCALZIPEXTN ,
+MDP . MDMADR AS PERMANENTADDRESS ,
+MDP . MDMCIT AS PERMANENTCITY ,
+MDP . MDMSTE AS PERMANENTSTATECODE ,
+MDP . MDPZIP AS PERMANENTZIP ,
+MDP . MDMZP4 AS PERMANENTZIPEXTN ,
+MDP . MDMACD AS PERMANENTAREACODE ,
+MDP . MDMPH# AS PERMANENTPHONE ,
+MDP . MDMZPA AS PATPERMANENTZIP ,
+MDP . MDPZ4A AS PATPERMANENTZIPEXTN ,
+MDP . MDDL# AS DRIVINGLICENSE ,
+MDP . MDPPT# AS PASSPORTNUMBER,
+MDP . MDICUN AS PASSPORTCOUNTRY,
+MDP . MDMNM AS MAIDENNAME ,
+MDP . MDMONM AS MOTHERSNAME ,
+MDP . MDFANM AS FATHERSNAME ,
+MDP . MDBLDL AS BLOODLESS ,
+RVP . RVPCNY AS DNR ,
+MDP . MDPMRC AS PREVIOUSMRN ,
+MDP . MDNTPP AS NPP ,
+MDP . MDNPPV AS NPPVER ,
+MDP . MDDTRC AS NPPVERSIONDATE ,
+MDP . MDNPPS AS NPPSIGNATURESTATUS ,
+MDP . MDNPPD AS NPPDATESIGNED ,
+MDP . MDLSDT AS LASTUPDATED ,
+MDP . MDLMD AS LASTMAINTENANCEDATE ,
+RWP . RWCNFG AS CONFIDENTIALFLAG ,
+RWP . RWACCT AS ACCOUNTNUMBER ,
+RWP . RWAFAD AS ABSTRACTAGE ,
+RWP . RWPTYP AS PATIENTTYPE ,
+RWP . RWZB10 AS HOSPITALSERVICECODE ,
+RWP . RWDIAG AS CHIEFCOMPLAINT ,
+RWP . RWLAD AS ADMITDATE ,
+RWP . RWLAT AS ADMITTIME ,
+RWP . RWPSRC AS ADMITSOURCE ,
+RWP . RWLDD AS DISCHARGEDATE ,
+RWP . RWLDT AS DISCHARGETIME ,
+RWP . RWDCOD AS DISCHARGECODE ,
+RWP . RWRDR# AS REFERINGDRID ,
+RWP . RWADR# AS ATTENDINGDRID ,
+RWP . RWMDR# AS ADMITTINGDRID ,
+RWP . RWODR# AS OPERATINGDRID ,
+RWP . RWTDR# AS OTHERDRID ,
+RVP . RVOB04 AS SEENINED ,
+RWP . RWCL01 AS CLINICCODE1 ,
+RWP . RWCL02 AS CLINICCODE2 ,
+RWP . RWCL03 AS CLINICCODE3 ,
+RWP . RWCL04 AS CLINICCODE4 ,
+RWP . RWCL05 AS CLINICCODE5 ,
+RWP . RWCL25 AS SITECODE ,
+QCP . QCSST5 AS MULTISITEFLG ,
+RWP . RWFC AS FINANCIALCODE ,
+RWP . RWLMD AS LASTMAINTENCEDATEABSTRACT
+		
+		FROM HXMRRWP RWP
+		LEFT OUTER JOIN HPADMDP MDP
+		ON ( MDP . MDHSP# = RWP . RWHSP#
+		AND MDP . MDMRC# = RWP . RWMRC#
+		AND MDHSP# = P_FACILITYID )
+			
+			LEFT OUTER JOIN
+			( SELECT
+			RVOB04 ,
+			RVPCNY ,
+			RVHSP# ,
+			RVACCT
+			FROM HXMRRVP
+			WHERE RVHSP# = P_FACILITYID ) RVP
+			ON ( RVP . RVHSP# = RWP . RWHSP#
+			AND RWP . RWACCT = RVP . RVACCT )
+			LEFT OUTER JOIN (
+		SELECT
+		AKPLNM,
+		AKPFNM,
+		AKEDAT,
+		AKHSP#,
+		AKTITL,
+		AKMRC#
+		FROM NMNHAKAP
+		WHERE AKEDAT = (
+		SELECT SUBSTR
+		( MAX
+		( INTEGER
+		(
+		CASE AKEDAT
+		WHEN 0 THEN NULL
+		ELSE RTRIM ( CASE
+		WHEN LENGTH ( TRIM ( AKEDAT ) ) = 5
+		THEN '200' || SUBSTR ( TRIM ( AKEDAT ) , 1 , 1 )
+		ELSE ( CASE
+		WHEN INTEGER ( SUBSTR ( TRIM ( AKEDAT ) , 1 , 2 ) ) < 50
+		THEN '20' || SUBSTR ( TRIM ( AKEDAT ) , 1 , 2 )
+		ELSE '19' || SUBSTR ( TRIM ( AKEDAT ) , 1 , 2 )
+		END )
+		END ) || CASE WHEN LENGTH ( TRIM ( AKEDAT ) ) = 5
+		THEN SUBSTR ( TRIM ( AKEDAT ) , 2 , 2 )
+		ELSE SUBSTR ( TRIM ( AKEDAT ) , 3 , 2 )
+		END || CASE WHEN LENGTH ( TRIM ( AKEDAT ) ) = 5
+		THEN SUBSTR ( TRIM ( AKEDAT ) , 4 , 2 )
+		ELSE SUBSTR ( AKEDAT , 5 , 2 )
+		END
+		END
+		)
+		)
+		, 3 ) AS ENTRYDATE
+		FROM NMNHAKAP
+		WHERE ( AKHSP# = P_FACILITYID )
+		AND ( AKMRC# = (
+			SELECT
+			RWMRC#
+			FROM HXMRRWP
+			WHERE RWHSP# = P_FACILITYID
+			AND RWACCT = P_ACCTNO
+				)
+		     )
+		) ORDER BY
+		AKPLNM ,
+		AKPFNM ,
+		AKTITL
+		FETCH FIRST 1 ROW ONLY ) AS AKA
+		ON ( AKA . AKHSP# = RWP . RWHSP#
+		AND AKA . AKMRC# = MDP . MDMRC# )
+		LEFT OUTER JOIN HPADQCP1 QCP	
+		ON ( QCP . QCHSP# = RWP . RWHSP# )
+		WHERE RWP . RWHSP# = P_FACILITYID
+		AND RWP . RWACCT = P_ACCTNO	;
+	OPEN CURSOR1 ;
+	END P1  ;

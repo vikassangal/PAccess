@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_05_03_3704.xml">
+
+	<changeSet  id="0AAD4AE3-E9FC-4925-84AE-B01405AA3CC7" author="Abhijeet.Hambir" context="Local,Dev,Test" >
+		<comment>
+			Load data for DOFR.CalOptimaPlanIds Table for facility ICE(98) and DEL(6) 
+		</comment>
+		<sql>
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'CS074', N'CALOPTIMA MCE PROGRAM', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'JK4GY', N'NOBLE COMM MID ORANGE', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'JK5GE', N'NOBLE COMM MED ASSOC/CA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'JQ37D', N'CHOC HLTH ALLNC/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'JQ37Q', N'CHOC HLTH ALLNC/CALOPTI', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'JR072', N'CALOPTIMA DIRECT / FFS', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'JR8GE', N'UNITEDCARE MEDICAL NETW', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'NB2GY', N'ARTA WESTERN IPA/ CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'NE5GE', N'MONARCH HEALTHPLAN/CALO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'NE5GY', N'MONARCH HLTHPLN/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'OP3GE', N'OPTUM DAVITA/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'RU9JD', N'CAL OPTIMA EXCH AMVI RI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'RV7XE', N'ALTA MED IPA/CALOPTMA O', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'SN6GE', N'TALBERT/MEMRL HLTHNTWK/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'SN6GY', N'TALBERT MEDICAL GROUP I', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'TP972', N'HERITAGE MEDI-CAL HMO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'TZ3GE', N'PROSPECT HLTH PLN/CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'TZ3GW', N'PROSPECT HLTH PLN/CALOP', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'UG1GE', N'ARTA WESTERN HLTH NTWK', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'UJ2GE', N'FAMILY CHOICE/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'UJ2GZ', N'FAMILY CHOICE/CALOPTIMA', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'UJ2JI', N'FAMILY CHOICE/CALOPTIM/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'UJ2UE', N'FAMILY CHOICE/CMS', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'WK6GE', N'AMVI/PROSPECT/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'98', N'WK6JI', N'AMVI / CALOPTIMA / CAP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'CS074', N'CALOPTIMA MCE PROGRAM', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'JK4GY', N'NOBLE COMM MID ORANGE', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'JK5GE', N'NOBLE COMM MED ASSOC/CA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'JQ37D', N'CHOC HLTH ALLNC/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'JQ37Q', N'CHOC HLTH ALLNC/CALOPTI', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'JR072', N'CALOPTIMA DIRECT / FFS', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'JR8GE', N'UNITEDCARE MEDICAL NETW', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'NB2GY', N'ARTA WESTERN IPA/ CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'NE5GE', N'MONARCH HEALTHPLAN/CALO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'NE5GY', N'MONARCH HLTHPLN/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'OP3GE', N'OPTUM DAVITA/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'RU9JD', N'CAL OPTIMA EXCH AMVI RI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'RV7XE', N'ALTA MED IPA/CALOPTMA O', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'SN6GE', N'TALBERT/MEMRL HLTHNTWK/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'SN6GY', N'TALBERT MEDICAL GROUP I', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'TP972', N'HERITAGE MEDI-CAL HMO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'TZ3GE', N'PROSPECT HLTH PLN/CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'TZ3GW', N'PROSPECT HLTH PLN/CALOP', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'UG1GE', N'ARTA WESTERN HLTH NTWK', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'UJ2GE', N'FAMILY CHOICE/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'UJ2GZ', N'FAMILY CHOICE/CALOPTIMA', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'UJ2JI', N'FAMILY CHOICE/CALOPTIM/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'UJ2UE', N'FAMILY CHOICE/CMS', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'WK6GE', N'AMVI/PROSPECT/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'6', N'WK6JI', N'AMVI / CALOPTIMA / CAP', N'Non-Expansion');
+
+		</sql>
+		<rollback>
+			<sql>
+				DELETE FROM [DOFR].[CalOptimaPlanIds] WHERE [FacilityId] in (98,6);
+			</sql>
+		</rollback>
+	</changeSet>
+
+	<changeSet  id="79966B09-79C0-4E74-A9DB-48D4A652E5CE" author="Abhijeet.Hambir" context="Model" >
+		<comment>
+			Load data for DOFR.CalOptimaPlanIds Table for facility FVX(978)
+		</comment>
+		<sql>
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'CS074', N'CALOPTIMA MCE PROGRAM', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'JK4GY', N'NOBLE COMM MID ORANGE', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'JK5GE', N'NOBLE COMM MED ASSOC/CA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'JQ37D', N'CHOC HLTH ALLNC/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'JQ37Q', N'CHOC HLTH ALLNC/CALOPTI', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'JR072', N'CALOPTIMA DIRECT / FFS', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'JR8GE', N'UNITEDCARE MEDICAL NETW', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'NB2GY', N'ARTA WESTERN IPA/ CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'NE5GE', N'MONARCH HEALTHPLAN/CALO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'NE5GY', N'MONARCH HLTHPLN/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'OP3GE', N'OPTUM DAVITA/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'RU9JD', N'CAL OPTIMA EXCH AMVI RI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'RV7XE', N'ALTA MED IPA/CALOPTMA O', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'SN6GE', N'TALBERT/MEMRL HLTHNTWK/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'SN6GY', N'TALBERT MEDICAL GROUP I', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'TP972', N'HERITAGE MEDI-CAL HMO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'TZ3GE', N'PROSPECT HLTH PLN/CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'TZ3GW', N'PROSPECT HLTH PLN/CALOP', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'UG1GE', N'ARTA WESTERN HLTH NTWK', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'UJ2GE', N'FAMILY CHOICE/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'UJ2GZ', N'FAMILY CHOICE/CALOPTIMA', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'UJ2JI', N'FAMILY CHOICE/CALOPTIM/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'UJ2UE', N'FAMILY CHOICE/CMS', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'WK6GE', N'AMVI/PROSPECT/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'978', N'WK6JI', N'AMVI / CALOPTIMA / CAP', N'Non-Expansion');
+
+
+		</sql>
+		<rollback>
+			<sql>
+				DELETE FROM [DOFR].[CalOptimaPlanIds] WHERE [FacilityId] in (978);
+			</sql>
+		</rollback>
+	</changeSet>
+
+	<changeSet  id="26AE83DD-D939-4FD5-BFEF-9C7984992EB4" author="Abhijeet.Hambir" context="Prod" >
+		<comment>
+			Load data for DOFR.CalOptimaPlanIds Table for facility FVR(778)
+		</comment>
+		<sql>
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'CS074', N'CALOPTIMA MCE PROGRAM', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'JK4GY', N'NOBLE COMM MID ORANGE', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'JK5GE', N'NOBLE COMM MED ASSOC/CA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'JQ37D', N'CHOC HLTH ALLNC/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'JQ37Q', N'CHOC HLTH ALLNC/CALOPTI', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'JR072', N'CALOPTIMA DIRECT / FFS', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'JR8GE', N'UNITEDCARE MEDICAL NETW', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'NB2GY', N'ARTA WESTERN IPA/ CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'NE5GE', N'MONARCH HEALTHPLAN/CALO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'NE5GY', N'MONARCH HLTHPLN/CALOPTI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'OP3GE', N'OPTUM DAVITA/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'RU9JD', N'CAL OPTIMA EXCH AMVI RI', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'RV7XE', N'ALTA MED IPA/CALOPTMA O', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'SN6GE', N'TALBERT/MEMRL HLTHNTWK/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'SN6GY', N'TALBERT MEDICAL GROUP I', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'TP972', N'HERITAGE MEDI-CAL HMO', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'TZ3GE', N'PROSPECT HLTH PLN/CALOP', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'TZ3GW', N'PROSPECT HLTH PLN/CALOP', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'UG1GE', N'ARTA WESTERN HLTH NTWK', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'UJ2GE', N'FAMILY CHOICE/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'UJ2GZ', N'FAMILY CHOICE/CALOPTIMA', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'UJ2JI', N'FAMILY CHOICE/CALOPTIM/', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'UJ2UE', N'FAMILY CHOICE/CMS', N'Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'WK6GE', N'AMVI/PROSPECT/CALOPTIMA', N'Non-Expansion');
+			INSERT [DOFR].[CalOptimaPlanIds] ([FacilityId], [PlanId], [PlanDescription],[Type]) VALUES (N'778', N'WK6JI', N'AMVI / CALOPTIMA / CAP', N'Non-Expansion');
+
+
+		</sql>
+		<rollback>
+			<sql>
+				DELETE FROM [DOFR].[CalOptimaPlanIds] WHERE [FacilityId] in (778);
+			</sql>
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

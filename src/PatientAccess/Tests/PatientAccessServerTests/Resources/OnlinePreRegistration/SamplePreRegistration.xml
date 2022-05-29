@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<preRegistration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.dell.com/services/healthcare/patientaccess/pre-registration/v1.0 PreRegistrationData.xsd" xmlns="http://www.dell.com/services/healthcare/patientaccess/pre-registration/v1.0">
+
+  <id>9C27A5B8-AB75-4BFE-BB39-83B9A6202C8C</id>
+
+  <dateTimeOfSubmission>2002-10-10T12:00:00-05:00</dateTimeOfSubmission>
+
+  <facility>
+    <code>DHF</code>
+    <serviceLocation>
+      <name>CHILDREN'S HOSPITAL - BUILDING NO.2</name>
+    </serviceLocation>
+  </facility>
+
+  <patient>
+    <name>
+      <first>FIRST NAME</first>
+      <last>LAST NAME</last>
+      <!--Element maiden is optional -->
+      <maiden>FIRSTNAME LASTNAME</maiden>
+      <!--Element middleInitial is optional -->
+      <middleInitial>A</middleInitial>
+    </name>
+    <placeOfBirth>A</placeOfBirth>
+    <dateOfBirth>2002-10-10</dateOfBirth>
+    <!--Element socialSecurityNumber is optional -->
+    <socialSecurityNumber>123-12-1234</socialSecurityNumber>
+    <gender>CODE_M_VALUE_MALE</gender>
+    <maritalStatus>CODE_L_VALUE_LIFE PARTN</maritalStatus>
+    <race>CODE_1_VALUE_WHITE</race>
+    <!--Element ethnicity is optional -->
+    <ethnicity>CODE_3_VALUE_UNKNOWN</ethnicity>
+    <!--Element preferredLanguage is optional -->
+    <preferredLanguage>
+
+      <predefinedLanguge>CODE_YD_VALUE_YIDDISH</predefinedLanguge>
+      <!--<otherLanguage>SOME-OTHER LANGUAGE,</otherLanguage>-->
+
+    </preferredLanguage>
+    <!--Element religiousPreference is optional -->
+    <religiousPreference>CODE_YA_VALUE_YAHWEH</religiousPreference>
+    <address>
+      <usAddress>
+        <addressLine>100 SOME STREET</addressLine>
+        <city>A</city>
+        <stateOrTerritory>CODE_AL_VALUE_ALABAMA</stateOrTerritory>
+        <zipCode>00000-0000</zipCode>
+      </usAddress>
+    </address>
+
+    <phoneNumber>123-456-0000</phoneNumber>
+    <!--Element cellPhoneNumber is optional -->
+    <cellPhoneNumber>123-456-0000</cellPhoneNumber>
+    <!--Element emailAddress is optional -->
+    <emailAddress>TEST$%&amp;@TEST.COM</emailAddress>
+    <employment>
+      <fullTimePartTimeMilitaryOrOther>
+        <status>CODE_1_VALUE_EMPLOYED FULL TIME</status>
+        <name>SOME COMPANY</name>
+        <address>
+          <usAddress>
+            <addressLine>400 SOME STREET</addressLine>
+            <city>PLANO</city>
+            <stateOrTerritory>CODE_TX_VALUE_TEXAS</stateOrTerritory>
+            <zipCode>12345-1234</zipCode>
+          </usAddress>
+        </address>
+      </fullTimePartTimeMilitaryOrOther>
+      <!--Element telephoneNumber is optional -->
+      <telephoneNumber>123-000-0000</telephoneNumber>
+      <!--Element industry is optional -->
+      <industry>HEALTHCARE</industry>
+    </employment>
+    <emergencyContact1>
+      <name>FIRSTNAME, LASTNAME</name>
+      <address>
+        <canadianAddress>
+          <addressLine>100 SOME STREET</addressLine>
+          <city>A</city>
+          <province>CODE_AB_VALUE_ALBERTA</province>
+          <zipCode>A3A 3A3</zipCode>
+        </canadianAddress>
+      </address>
+      <relationship>CODE_51_VALUE_EMANCIPATED MINOR</relationship>
+      <phoneNumber>123-000-0000</phoneNumber>
+    </emergencyContact1>
+    <emergencyContact2>
+      <name>FIRSTNAME, LASTNAME</name>
+      <address>
+        <nonUSNonCanadaAddress>
+          <country>CODE_MEX_VALUE_Mexico</country>
+          <addressLine>100 SOME STREET</addressLine>
+          <city>A</city>
+          <zipCode>1ABS0 -Z0</zipCode>
+        </nonUSNonCanadaAddress>
+      </address>
+      <relationship>CODE_01_VALUE_SELF</relationship>
+      <phoneNumber>123-000-0000</phoneNumber>
+    </emergencyContact2>
+    <guarantor>
+      <name>
+        <first>FIRST NAME</first>
+        <last>LAST NAME</last>
+      </name>
+      <relationship>CODE_26_VALUE_SISTER</relationship>
+      <!--Element socialSecurityNumber is optional -->
+      <socialSecurityNumber>000-00-0000</socialSecurityNumber>
+      <!--Element address is optional -->
+      <address>
+        <mexicanAddress>
+          <addressLine>100 SOME STREET</addressLine>
+          <city>A</city>
+          <state>CODE_AG_VALUE_AGUASCALIENTES</state>
+          <!-- Element zipCode is optional -->
+          <zipCode>12345-1234</zipCode>
+        </mexicanAddress>
+      </address>
+      <phoneNumber>111-111-1111</phoneNumber>
+      <businessPhoneNumber>333-444-5555</businessPhoneNumber>
+      <employment>
+        <retiredNotEmployedOrSelfEmployed>CODE_3_VALUE_NOT-EMPLOYED</retiredNotEmployedOrSelfEmployed>
+        <!--Element telephoneNumber is optional -->
+        <telephoneNumber>222-222-2222</telephoneNumber>
+        <!--Element industry is optional -->
+        <industry>HEALTHCARE</industry>
+      </employment>
+    </guarantor>
+  </patient>
+  <visit>
+    <!--Element returningPatient is optional -->
+    <returningPatient>true</returningPatient>
+    <!--Element previousVisitName is optional -->
+    <previousVisitName>FIRSTNAME, LASTNAME</previousVisitName>
+    <admittingPhysicianName>A</admittingPhysicianName>
+    <!--Element treatingPhysicianName is optional -->
+    <treatingPhysicianName>A</treatingPhysicianName>
+    <!--Element primaryCarePhysician is optional -->
+    <primaryCarePhysician>A</primaryCarePhysician>
+    <expectedAdmissionDateTime>2010-10-10T12:00:00-05:00</expectedAdmissionDateTime>
+    <procedureTreatmentOrTest>0</procedureTreatmentOrTest>
+    <!--Element insuranceInformation is optional -->
+    <insuranceInformation>
+      <!-- Element primaryInsurance is optional -->
+      <primaryInsurance>
+        <companyName>Some insurance company</companyName>
+        <preCertificationTelephoneNumber>123-000-0000</preCertificationTelephoneNumber>
+        <subscriberName>
+          <first>FIRST NAME1</first>
+          <last>LAST NAME1</last>
+        </subscriberName>
+        <subscriberSocialSecurityNumber>100-00-0000</subscriberSocialSecurityNumber>
+        <subscriberDateOfBirth>1999-01-11</subscriberDateOfBirth>
+        <policyNumber>ABC -123</policyNumber>
+        <policyGroupName>A</policyGroupName>
+        <address>
+          <usAddress>
+            <addressLine>100 SOME STREET</addressLine>
+            <city>A</city>
+            <stateOrTerritory>CODE_AZ_VALUE_ARIZONA</stateOrTerritory>
+            <zipCode>12340-0001</zipCode>
+          </usAddress>
+        </address>
+        <phoneNumber>111-000-0000</phoneNumber>
+      </primaryInsurance>
+      <!-- Element secondaryInsurance is optional -->
+      <secondaryInsurance>
+        <companyName>Some other insurance company</companyName>
+        <preCertificationTelephoneNumber>000-000-0000</preCertificationTelephoneNumber>
+        <subscriberName>
+          <first>FIRST NAME2</first>
+          <last>LAST NAME2</last>
+        </subscriberName>
+        <subscriberSocialSecurityNumber>200-00-0000</subscriberSocialSecurityNumber>
+        <subscriberDateOfBirth>1999-02-22</subscriberDateOfBirth>
+        <policyNumber>-ABC -123</policyNumber>
+        <policyGroupName>B</policyGroupName>
+        <address>
+          <usAddress>
+            <addressLine>200 SOME STREET</addressLine>
+            <city>B</city>
+            <stateOrTerritory>CODE_CO_VALUE_COLORADO</stateOrTerritory>
+            <zipCode>22222-0002</zipCode>
+          </usAddress>
+        </address>
+        <phoneNumber>222-000-0000</phoneNumber>
+      </secondaryInsurance>
+    </insuranceInformation>
+    <!-- Optional element -->
+    <bestWayToContact>Email</bestWayToContact>
+    <!-- Optional element -->
+    <bestTimeToContact>Evening</bestTimeToContact>
+    <!-- Optional element -->
+    <preferredMethodOfPayment>Credit Card</preferredMethodOfPayment>
+    <newsletterRegistration>
+      <receiveNewsletter>false</receiveNewsletter>
+    </newsletterRegistration>
+  </visit>
+
+</preRegistration>

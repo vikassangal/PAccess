@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.59\2022_02_28_2157.xml">
+  <changeSet id= "FD8D788A-5E07-42CC-9E3D-E5D8807EB079" author="Vikas11.sangal" context="Local,Dev,Test">
+  
+    <comment>
+      Load Facility.FacilityExtendedSettings for SATX Enabled value for ACO,T38 is True and False for other Facilities.
+    </comment>
+  
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="99" />
+      <column name="Name" value="IsSATXEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+	<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		<column name="FacilityId" value="900" />
+		<column name="Name" value="IsSATXEnabled" />
+		<column name="Value" value="True" />
+	</insert>
+  
+  </changeSet>
+
+  <changeSet id="755C1625-A350-4887-A2A1-735B31733A1C" author="vikas11.sangal" context="Model">
+   
+    <comment>
+      Load Facility.FacilityExtendedSettings for SATX Enabled value for SATX facility (TAA,TAB,TAC,TAD,TAE) is True
+      and False for other Facilities.
+    </comment>
+   
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="835" />
+      <column name="Name" value="IsSATXEnabled" />
+      <column name="Value" value="True" />
+    </insert>
+	<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		<column name="FacilityId" value="836" />
+		<column name="Name" value="IsSATXEnabled" />
+		<column name="Value" value="True" />
+	</insert>
+	<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		<column name="FacilityId" value="837" />
+		<column name="Name" value="IsSATXEnabled" />
+		<column name="Value" value="True" />
+	</insert>
+	<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		<column name="FacilityId" value="838" />
+		<column name="Name" value="IsSATXEnabled" />
+		<column name="Value" value="True" />
+	</insert>
+	<insert schemaName="Facility" tableName="FacilityExtendedSettings">
+		<column name="FacilityId" value="839" />
+		<column name="Name" value="IsSATXEnabled" />
+		<column name="Value" value="True" />
+	</insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.21\2011-09-29-18423.xml">
+
+  <changeSet id="B1E64C42-D88D-443A-8E56-28A8767D6542" author="Nereid.Tavares">
+    <comment>Add the "PatientAccess.Rules.NoMedicarePrimaryPayorForAutoAccident" rule to the Pre-Admit Newborn context</comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="450" />
+    </insert>
+
+    <rollback>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId=23 AND RuleId=450</where>
+      </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

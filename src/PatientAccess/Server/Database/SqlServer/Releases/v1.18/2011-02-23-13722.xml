@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-02-23-13722.xml">
+  
+  <changeSet id="E16239F2-DCF9-4210-AC9F-8BB2500DDB2C" author="Smitha.Krishnamurthy">
+
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 20 and RuleId = 84</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="ContextsToRules">
+      <where>ContextId = 21 and RuleId = 84</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 474 and RuleId in ( 78, 84, 93, 94, 95 )</where>
+    </delete>
+
+    <comment>
+      Defect - 13722 - SR1190 – Short Reg - Diagnosis - System is not able to refresh the to do list
+      Add AccidentTypeRequired,DateOfAccidentOrCrimeRequired,HourOfAccidentOrCrimeRequired,
+      StateOfAccidentOrCrimeRequired rules to OnShortDiagnosisForm
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="93" />
+    </insert>   
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="94" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="95" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="84" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="474" />
+      <column name="RuleId" valueNumeric="78" />
+    </insert>
+
+    <comment>
+      AccidentCountryRequired(93)  to Short Registration and ShortPreRegistration contexts
+    </comment>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="84" />
+    </insert>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="20" />
+      <column name="RuleId" valueNumeric="84" />
+    </insert>
+       
+    <rollback>
+
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 20 and RuleId = 84</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="ContextsToRules">
+        <where>ContextId = 21 and RuleId = 84</where>
+      </delete>
+      <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <where>CompositeRuleId = 474 and RuleId in ( 78, 84, 93, 94, 95 )</where>
+      </delete>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PatientAccess.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PatientAccess_AppServer_AddressValidationProxy_AddressValidationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://edvdev2.tenethealth.net:8080/edv/services/AddressValidationService</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_BenefitsValidationFusProxy_BenefitsValidationFusService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://edvdev2.tenethealth.net:8080/edv/services/BenefitsValidationFusService</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_CFDBLookupProxy_CFDBLookupService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://facilityweb.testtenethealth.net/FacilitywebService/CFDBLookupService.asmx</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_ComplianceCheckerProxy_ComplianceCheckerService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://edvdev2.tenethealth.net:8080/edv/services/ComplianceCheckerService</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_CreditValidationProxy_CreditValidationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://edvdev2.tenethealth.net:8080/edv/services/CreditValidationService</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_HDI_PatientAccessService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://HDI.Testtenethealth.net/HDI_4_0/PatientAccess</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_VIWeb_PreviousVisitServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://dvld.tenethealth.com:8060/viwebserv/services/PreviousVisitService</Value>
+    </Setting>
+    <Setting Name="PatientAccess_AppServer_AdamSecurityService_SecurityService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://adamsecurityservice.testtenethealth.net/4.0/SecurityService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Quartz.Locks.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Quartz.Locks
+    </comment>
+    <insert schemaName="Quartz" tableName="Locks">
+      <column name="Lock_Name" value="TRIGGER_ACCESS" />
+    </insert>
+    <insert schemaName="Quartz" tableName="Locks">
+      <column name="Lock_Name" value="JOB_ACCESS" />
+    </insert>
+    <insert schemaName="Quartz" tableName="Locks">
+      <column name="Lock_Name" value="CALENDAR_ACCESS" />
+    </insert>
+    <insert schemaName="Quartz" tableName="Locks">
+      <column name="Lock_Name" value="STATE_ACCESS" />
+    </insert>
+    <insert schemaName="Quartz" tableName="Locks">
+      <column name="Lock_Name" value="MISFIRE_ACCESS" />
+    </insert>
+    <rollback>
+      DELETE FROM Quartz.Locks WHERE LockName IN ( 'TRIGGER_ACCESS','JOB_ACCESS','CALENDAR_ACCESS','STATE_ACCESS','MISFIRE_ACCESS' );
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

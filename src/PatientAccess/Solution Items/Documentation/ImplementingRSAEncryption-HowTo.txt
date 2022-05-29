@@ -1,0 +1,70 @@
+PROCEDURE TO IMPLEMENT RSA ENCRYPTION IN CONFIGURATION FILES
+=============================================================
+
+
+This 'How-To' shows how to use RSA Encryption and the Aspnet_regiis.exe tool to encrypt
+sections of the configuration files, using the PowerShell script RSAEncryption.ps1.
+
+
+1) RSAEncryption PowerShell script and RSA Encrypted Keys file location:
+-------------------------------------------------------------------------
+The PowerShell script 'RSAEncryption.ps1' and RSA Encrypted Keys file 'PatientAccessKeys.xml' are 
+available in the Configurations folder under your local Patient Access Source location.
+	Eg: <your trunk check-out folder>\src\PatientAccess\Server\AppServer\Configuration\
+
+
+2) Open PowerShell Command Prompt:
+-----------------------------------
+Open a PowerShell Command Prompt from the location specified above. If PowerShell has not
+been installed yet on your machine, please install the same for the Command Prompt to appear.
+
+
+3) Change Execution Policy:
+----------------------------
+At the PowerShell command prompt, change the Execution Policy using the following 
+command, since scripts cannot execute by default as a security measure in PowerShell.
+	> set-executionpolicy remotesigned
+
+
+4) Run RSAEncryption.ps1 PowerShell script:
+--------------------------------------------
+At the PowerShell command prompt, use the following command to run the PowerShell script RSAEncryption.ps1.
+	> ./RSAEncryption.ps1
+
+This script uses aspnet_regiis.exe tool to do the following:
+	a) Import the RSA Keys from PatientAccessKeys.xml file using
+			> aspnet_regiis -pi "PatientAccessKeys" "PatientAccessKeys.xml"
+			
+	b) Enable ASP.NET applications to run using the NT Authority\Network Service account
+			> aspnet_regiis -pa "PatientAccessKeys" "NT AUTHORITY\NETWORK SERVICE"
+			
+	c) Grant access to the ASP.NET application identity
+			> aspnet_regiis -pa "PatientAccessKeys" "<YOUR-SYSTEM-NAME>\ASPNET"
+			
+	d) Using PowerShell, Create a function to add a new ProtectionProvider called 
+		PatientAccessProtectedConfigurationProvider to the <providers> section of Machine.config.
+		Your machine.config file should be located at the location -
+		C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\CONFIG\
+		Your <configProtectedData> section should look like the following after adding the above:
+
+		<configProtectedData defaultProvider="RsaProtectedConfigurationProvider">
+		<providers>
+	                                                
+			<add name="RsaProtectedConfigurationProvider" type="System.Configuration.RsaProtectedConfigurationProvider,System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" description="Uses RsaCryptoServiceProvider to encrypt and decrypt" keyContainerName="NetFrameworkConfigurationKey" cspProviderName="" useMachineContainer="true" useOAEP="false"/>
+	                                                
+			<add name="DataProtectionConfigurationProvider" type="System.Configuration.DpapiProtectedConfigurationProvider,System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" description="Uses CryptProtectData and CryptUnProtectData Windows APIs to encrypt and decrypt" useMachineProtection="true" keyEntropy=""/>
+	            
+			<add name="PatientAccessProtectedConfigurationProvider" type="System.Configuration.RsaProtectedConfigurationProvider,System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" description="Uses RsaCryptoServiceProvider to encrypt and decrypt" keyContainerName="PatientAccessKeys" cspProviderName="" useMachineContainer="true" useOAEP="false"/>
+
+		</providers>
+		</configProtectedData>
+
+
+5) Get Latest on the config files:
+-----------------------------------
+Do a Get Latest on Base.Web.Config and on all the delta config files. When opened 
+through the Enterprise Library Configuration tool, you will notice that the 
+'ProtectionProvider' property of the 'Data Access Application Block' and the deltas 
+under the 'Environments' folder will be set to 'PatientAccessProtectedConfigurationProvider'.
+
+

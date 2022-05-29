@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Triggers.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Triggers Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Triggers">
+      <column name="Trigger_Name" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Trigger_Group" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Job_Name" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Job_Group" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Is_Volatile" type="VARCHAR(1)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Description" type="VARCHAR(250)" />
+      <column name="Next_Fire_Time" type="BIGINT" />
+      <column name="Prev_Fire_Time" type="BIGINT" />
+      <column name="Priority" type="INTEGER" />
+      <column name="Trigger_State" type="VARCHAR(16)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Trigger_Type" type="VARCHAR(8)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Start_Time" type="BIGINT">
+        <constraints nullable="false" />
+      </column>
+      <column name="End_Time" type="BIGINT" />
+      <column name="Calendar_Name" type="VARCHAR(200)" />
+      <column name="Misfire_Instr" type="SMALLINT" />
+      <column name="Job_Data" type="IMAGE" />
+    </createTable>
+    <addPrimaryKey constraintName="PK_Triggers" schemaName="Quartz" tableName="Triggers" columnNames="Trigger_Name,Trigger_Group" />
+    <addForeignKeyConstraint constraintName="FK_TriggersToJobDetails" baseTableSchemaName="Quartz" baseTableName="Job_Listeners" baseColumnNames="Job_Name,Job_Group" referencedTableSchemaName="Quartz" referencedTableName="Job_Details" referencedColumnNames="Job_Name,Job_Group" />
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Triggers TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

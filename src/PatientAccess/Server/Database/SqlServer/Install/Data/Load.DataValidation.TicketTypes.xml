@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.DataValidation.TicketTypes.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load DataValidation.TicketTypes
+    </comment>
+    <insert schemaName="DataValidation" tableName="TicketTypes">
+      <column name="Id" valueNumeric="0" />
+      <column name="Description" value="Unknown" />
+    </insert>
+    <insert schemaName="DataValidation" tableName="TicketTypes">
+      <column name="Id" valueNumeric="1" />
+      <column name="Description" value="Primary Insurance" />
+    </insert>
+    <insert schemaName="DataValidation" tableName="TicketTypes">
+      <column name="Id" valueNumeric="2" />
+      <column name="Description" value="Secondary Insurance" />
+    </insert>
+    <insert schemaName="DataValidation" tableName="TicketTypes">
+      <column name="Id" valueNumeric="3" />
+      <column name="Description" value="Guarantor Verification" />
+    </insert>
+    <rollback>
+      DELETE FROM DataValidation.TicketTypes WHERE Id IN (0,1,2,3);
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

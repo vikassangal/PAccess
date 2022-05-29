@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define ProductName = "Patient Access (Local on Trunk)"?>
+  <?define ProductId = "448137BF-2CAD-43a2-AB5E-7B824101BDED"?>
+  <?define ProductVersion = "1.0.0.0"?>
+  <?define ProductDescription = "Patient Access Local on Trunk"?>
+</Include>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.41\2016_11_16_11228.xml">
+
+  <changeSet id="84601EBD-51BA-4C5A-AB4B-C26F5748CB61" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      SR11228 – PAS - Relocate Email and reason with opt-ins and revise logic
+    </comment>
+    <comment>
+      insert EmailReasonPreferred (524) to Rules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="524" />
+      <column name="Description" value="Email reason" />
+      <column name="Type" value="PatientAccess.Rules.EmailReasonPreferred" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+
+    <comment>
+      Insert EmailReasonRequired(524) to Contexts (8-PreRegistrationActivity) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="524" />
+    </insert>
+
+    <comment>
+      Insert HospitalCommunicationOptInRequired(517) to Contexts (198-DemographicsRequired ) in CompositeRulesToRules table
+    </comment>
+
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="517" />
+    </insert>
+
+    <comment>
+      Insert PatientPortalOptInRequired(507) to Contexts (198-DemographicsRequired ) in CompositeRulesToRules table
+    </comment>
+
+
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="198" />
+      <column name="Ruleid" valueNumeric="507" />
+    </insert>
+
+
+    <comment>
+      Delete  Patient portal opt in Reqired(507) from   in CompositeRulesToRules table(211-OnRegulatoryForm,)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 211 AND RuleId = 507</where>
+    </delete>
+
+    <comment>
+      Delete  Hospital Communication opt in Reqired(517) from   in CompositeRulesToRules table(211-OnRegulatoryForm)
+    </comment>
+    <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <where>CompositeRuleId = 211 AND RuleId = 517</where>
+    </delete>
+    
+    <comment>
+      Insert EmailAddressRequired(508) to Contexts (8-PreRegistrationActivity) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="508" />
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

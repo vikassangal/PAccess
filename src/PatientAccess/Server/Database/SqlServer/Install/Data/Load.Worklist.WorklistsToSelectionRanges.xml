@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Worklist.WorklistsToSelectionRanges.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load Worklist.WorklistsToSelectionRanges
+    </comment>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="SelectionRangeId" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="SelectionRangeId" valueNumeric="3" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="SelectionRangeId" valueNumeric="4" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="SelectionRangeId" valueNumeric="7" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="SelectionRangeId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="SelectionRangeId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="1" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="7" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="3" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="4" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="3" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="7" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="2" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="3" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="4" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="4" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="SelectionRangeId" valueNumeric="7" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="SelectionRangeId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="SelectionRangeId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="5" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="SelectionRangeId" valueNumeric="8" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="SelectionRangeId" valueNumeric="7" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="SelectionRangeId" valueNumeric="5" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="SelectionRangeId" valueNumeric="6" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="6" />
+      <column name="SelectionRangeId" valueNumeric="9" />
+    </insert>
+    <insert schemaName="Worklist" tableName="WorklistsToSelectionRanges">
+      <column name="WorklistId" valueNumeric="2" />
+      <column name="SelectionRangeId" valueNumeric="1" />
+    </insert>
+    <rollback>
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=1 and SelectionRangeId=2;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=1 and SelectionRangeId=3;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=1 and SelectionRangeId=4;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=1 and SelectionRangeId=8;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=1 and SelectionRangeId=9;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=2 and SelectionRangeId=7;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=2 and SelectionRangeId=5;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=2 and SelectionRangeId=6;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=2 and SelectionRangeId=9;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=2 and SelectionRangeId=8;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=1 and SelectionRangeId=1;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=8;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=6;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=5;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=7;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=1;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=2;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=3;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=4;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=3 and SelectionRangeId=9;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=8;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=6;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=5;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=7;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=1;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=2;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=3;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=4;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=4 and SelectionRangeId=9;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=5 and SelectionRangeId=8;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=5 and SelectionRangeId=1;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=5 and SelectionRangeId=7;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=5 and SelectionRangeId=5;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=5 and SelectionRangeId=6;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=5 and SelectionRangeId=9;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=6 and SelectionRangeId=8;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=6 and SelectionRangeId=1;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=6 and SelectionRangeId=7;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=6 and SelectionRangeId=5;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=6 and SelectionRangeId=6;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=6 and SelectionRangeId=9;
+      delete from Worklists.WorklistsToSelectionRanges where WorklistId=2 and SelectionRangeId=1;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

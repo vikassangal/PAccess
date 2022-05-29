@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.12\2009-08-05-3690.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Remove rule entries for EmployerPhoneAreaCodePreferred and EmployerPhoneSubscriberPreferred
+    </comment>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=36</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id=37</where>
+    </delete>
+    
+    <rollback>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="36" />
+        <column name="Description" value="Employer phone area code" />
+        <column name="Type" value="PatientAccess.Rules.EmployerPhoneAreaCodePreferred" />
+        <column name="Severity" valueNumeric="2" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="37" />
+        <column name="Description" value="Employer phone subscriber" />
+        <column name="Type" value="PatientAccess.Rules.EmployerPhoneSubscriberPreferred" />
+        <column name="Severity" valueNumeric="2" />
+      </insert>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

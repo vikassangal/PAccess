@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.40\2016_06_16_10369.xml">
+
+  <changeSet id="0A4EAB22-3DB0-48F0-B741-49FCF955333B" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      SR 10369 - Make PCP field Required on  Registration Activities
+    </comment>
+
+
+    <comment>
+      Insert PrimaryCarePhysicianRequiredRule(479) to Contexts - RegistrationActivity-7,PreRegistrationActivity-8,AdmitNewbornActivity-10,PreMseRegistrationACtivity-12,PostMSERegistrationActivity-13,
+      PreAdmitnewBornActivity-23,UCCPreMseRegistrationActivity27) in ContextsToRules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="8" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="12" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="23" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="27" />
+      <column name="RuleId" valueNumeric="479" />
+    </insert>
+
+    <comment>
+      Insert PrimaryCarePhysicianRequired(479) to Composite Rule (212-PreMse) in CompositeRulestoRules table
+    </comment>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="212"/>
+      <column name="RuleId" valueNumeric="479"/>
+    </insert>
+
+  </changeSet>
+</databaseChangeLog>

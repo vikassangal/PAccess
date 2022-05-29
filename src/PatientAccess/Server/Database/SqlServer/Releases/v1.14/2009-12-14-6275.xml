@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2009-12-14-6275.xml">
+  <changeSet id="2" author="Smitha Krishnamurthy">
+    <comment>
+      Remove Remove Resistant Organism related rules
+    </comment>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id = 291</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id = 357</where>
+    </delete>
+    <rollback>
+      
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="357" />
+        <column name="Description" value="Resistant organism" />
+        <column name="Type" value="PatientAccess.Rules.InvalidResistantOrganismCodeChange" />
+        <column name="Severity" valueNumeric="32" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="291" />
+        <column name="Description" value="Resistant organism" />
+        <column name="Type" value="PatientAccess.Rules.InvalidResistantOrganismCode" />
+        <column name="Severity" valueNumeric="16" />
+      </insert>
+      
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="291" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="291" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="CompositeRuleId" valueNumeric="10" />
+        <column name="RuleId" valueNumeric="291" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="CompositeRuleId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="291" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="357" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="357" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="CompositeRuleId" valueNumeric="10" />
+        <column name="RuleId" valueNumeric="357" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="CompositeRuleId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="357" />
+      </insert>
+
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="202" />
+        <column name="RuleId" valueNumeric="291" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="202" />
+        <column name="RuleId" valueNumeric="357" />
+      </insert>
+
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

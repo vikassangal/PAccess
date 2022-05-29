@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Procedures\Worklist.SaveWorklistSettings.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create Worklist.SaveWorklistSettings
+    </comment>
+    <createProcedure>
+      CREATE PROCEDURE Worklist.SaveWorklistSettings
+        @UserID int,
+        @StartingLetters varchar(15) = NULL,
+        @EndingLetters varchar(15) = NULL,
+        @StartDate datetime = NULL,
+        @EndDate datetime = NULL,
+        @WorklistID int,
+        @RangeTypeID int,
+        @SortedColumn int = NULL,
+        @SortedColumnDirection int = NULL
+      AS
+      BEGIN
+
+        DELETE FROM
+          Worklist.Settings
+        WHERE
+          UserId = @UserID
+        AND
+          WorklistId = @WorklistID
+
+        INSERT Worklist.Settings(
+          StartLetters,
+          EndLetters,
+          SelectionRangeId,
+          WorklistId,
+          UserId,
+          StartDate,
+          EndDate,
+          SortedColumn,
+          SortedColumnDirection)
+        VALUES(
+          @StartingLetters,
+          @EndingLetters,
+          @RangeTypeId,
+          @WorklistId,
+          @UserId,
+          @StartDate,
+          @EndDate,
+          @SortedColumn,
+          @SortedColumnDirection)
+
+      END;      
+    </createProcedure>
+    <sql>
+      GRANT EXECUTE ON Worklist.SaveWorklistSettings TO db_apionly;
+    </sql>
+    <rollback>
+      REVOKE EXECUTE ON Worklist.SaveWorklistSettings FROM db_apionly;
+      DROP PROCEDURE Worklist.SaveWorklistSettings;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,1585 @@
+/**********************************************************************/        
+/* AS400 Short Name: PATSMATCH                                        */        
+/* iSeries400        PATIENTSMATCHING -SQL PROC                       */        
+/*                                                                    */        
+/*    ************************************************************    */        
+/*    * Perot Systems, Copyright 2003, All rights reserved(U.S.) *    */        
+/*    *                                                          *    */        
+/*    * This unpublished material is proprietary to Perot Sys.   *    */        
+/*    * The methods AND techniques described herein are          *    */        
+/*    * considered trade secrets AND/or confidential.            *    */        
+/*    * Reproduction or distribution, in whole or in part, is    *    */        
+/*    * forbidden except by express written permission of        *    */        
+/*    * Perot Systems, Inc.                                      *    */        
+/*    ************************************************************    */        
+/*                                                                    */        
+/*                                                                    */        
+/**************I*******************I***********************************/        
+/*  Date       I Programmer        I  Modification Description        */        
+/**************I*******************I***********************************/        
+/* 02/13/2008  I Tom Gauthreaux    I   New Stored Procedure           */ 
+/* 02/28/2008 I  KJS               I remove CHGQRYA call              */      
+/* 03/18/2008 I  KJS               I start using search names         */      
+/* 03/20/2008 I  KJS               I REWORK TO PULL ACCT NUMBERS FROM */
+/* NOTE CONTINUATION - PROPER PLACE & NO SEARCH ACCT TBL FOR NAMES    */
+/* 04/28/2008 I MSB                I CHANGING COMMIT=*NONE            */
+/* 04/30/2008 I KJS                I ADDED CLOSQLCSR = *ENDMOD        */
+/* 05/06/2008 I MSB                I MODIFIED TEMP TABLE NAME         */
+/* 05/09/2008 I Deepa Raju         I MODIFIED SP around P_Month and   */
+/*	      I                    I P_Year to handle blank or        */
+/*	      I                    I incomplete DOB data              */
+/* 5/13/2008  I JITHIN             I PERFORMANCE TUNING               */
+/**********************************************************************/        
+
+  
+SET PATH *LIBL ; 
+  
+CREATE PROCEDURE PATIENTSMATCHING ( 
+	IN @P_FACILITYID INTEGER , 
+	IN @P_FNAME VARCHAR(25) , 
+	IN @P_LNAME VARCHAR(25) , 
+	IN @P_SSN VARCHAR(11) , 
+	IN @P_GENDER VARCHAR(1) , 
+	IN @P_ACCOUNTNUMBER INTEGER , 
+	IN @P_MRN INTEGER , 
+	IN @P_MONTH INTEGER , 
+	IN @P_YEAR INTEGER , 
+	IN @P_HSPCODE VARCHAR(3) ) 
+	DYNAMIC RESULT SETS 2 
+	LANGUAGE SQL 
+	SPECIFIC PATSMATCH
+	NOT DETERMINISTIC 
+	MODIFIES SQL DATA 
+	CALLED ON NULL INPUT 
+	SET OPTION  ALWBLK = *ALLREAD , 
+	ALWCPYDTA = *OPTIMIZE , 
+	COMMIT = *NONE , 
+	DBGVIEW = *SOURCE , 
+	DECRESULT = (31, 31, 00) , 
+	DFTRDBCOL = *NONE , 
+	DYNDFTCOL = *NO , 
+	DYNUSRPRF = *USER , 
+	SRTSEQ = *HEX   
+	P1 : BEGIN 
+  
+DECLARE ROW_COUNT INTEGER DEFAULT 0 ; 
+  
+DECLARE CURSOR1 CURSOR FOR		 
+		 
+	 	--IF FIST NAME IS NOT NULL && LAST NAME IS NOT NULL
+		-- PULL ALL ALIASES WITH TYPE OF CONTACT AS MAILING
+		--SET REAL NAME FROM AKA TABLE AND ALIAS NAMES FROM HPADMDP
+				 
+					SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( DEM . MDPFNM ) AS FIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS LASTNAME , 
+					TRIM ( DEM . MDPMI ) AS MIDDLEINITIAL , 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKA . AKPFNM ) AS	DISPLAYFIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,	 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+  
+							 
+			FROM HPADMDP DEM	 
+			LEFT OUTER JOIN HPADLPP PAT 
+			ON LPHSP# = @P_FACILITYID 
+			AND LPMRC# = DEM . MDMRC#	 
+			LEFT OUTER JOIN NMNHAKAP AKA 
+			ON DEM . MDHSP# = AKA . AKHSP# 
+			AND DEM . MDMRC# = AKA . AKMRC# 
+			LEFT OUTER JOIN NMNHAKAP AKA2	 
+			ON AKA . AKMRC# = AKA2 . AKMRC# 
+			AND	AKA2 . AKHSP# = AKA . AKHSP# 
+			WHERE DEM . MDHSP# = @P_FACILITYID 
+			AND	DEM . MDMRC# = DEM . MDMRC# 
+			AND ( @P_MRN IS NULL			 
+			OR DEM . MDMRC# = @P_MRN ) 
+			AND ( @P_ACCOUNTNUMBER IS NULL 
+			OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+			AND ( @P_FNAME IS NOT NULL			 
+			OR @P_LNAME IS NOT NULL ) 
+			AND	( @P_FNAME IS NULL			 
+			OR AKA . AKPFSN 
+			LIKE UPPER ( @P_FNAME ) || '%' ) 
+			AND	( @P_LNAME IS NULL			 
+			OR AKA . AKPLSN 
+			LIKE UPPER ( @P_LNAME ) || '%' )									 
+			AND	( 
+			( @P_YEAR IS NULL 
+			AND @P_MONTH IS NULL ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NOT NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_MONTH IS NOT NULL	 
+			AND @P_YEAR IS NULL 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH ) 
+				) 
+				AND	( @P_SSN IS NULL			 
+				OR DEM . MDSSN9 = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+				OR DEM . MDSEX = @P_GENDER ) 
+				 
+				 
+				UNION 
+  	--IF FIST NAME IS NOT NULL && LAST NAME IS NOT NULL
+	-- PULL ALL ALIASES WITH TYPE OF CONTACT AS PHYSICAL
+  --SET REAL NAME FROM AKA TABLE AND ALIAS NAMES FROM HPADMDP
+					SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					'0001-01-01' AS ENTRYDATE , 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( DEM . MDPFNM ) AS FIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS LASTNAME , 
+					TRIM ( DEM . MDPMI ) AS MIDDLEINITIAL , 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKA . AKPFNM ) AS	DISPLAYFIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,	 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+  
+							 
+				FROM HPADMDP DEM	 
+			LEFT OUTER JOIN HPADLPP PAT 
+			ON LPHSP# = @P_FACILITYID 
+			AND LPMRC# = DEM . MDMRC#	 
+			LEFT OUTER JOIN NMNHAKAP AKA 
+			ON DEM . MDHSP# = AKA . AKHSP# 
+			AND DEM . MDMRC# = AKA . AKMRC# 
+			LEFT OUTER JOIN NMNHAKAP AKA2	 
+			ON AKA . AKMRC# = AKA2 . AKMRC# 
+			AND	AKA2 . AKHSP# = AKA . AKHSP# 
+			WHERE DEM . MDHSP# = @P_FACILITYID 
+			AND	DEM . MDMRC# = DEM . MDMRC# 
+			AND ( @P_MRN IS NULL			 
+			OR DEM . MDMRC# = @P_MRN ) 
+			AND ( @P_ACCOUNTNUMBER IS NULL 
+			OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+			AND ( @P_FNAME IS NOT NULL			 
+			OR @P_LNAME IS NOT NULL ) 
+			AND	( @P_FNAME IS NULL			 
+			OR AKA . AKPFSN 
+			LIKE UPPER ( @P_FNAME ) || '%' ) 
+			AND	( @P_LNAME IS NULL			 
+			OR AKA . AKPLSN 
+			LIKE UPPER ( @P_LNAME ) || '%' )									 
+			AND	( 
+			( @P_YEAR IS NULL 
+			AND @P_MONTH IS NULL ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NOT NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_MONTH IS NOT NULL	 
+			AND @P_YEAR IS NULL 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH ) 
+				) 
+				AND	( @P_SSN IS NULL			 
+				OR DEM . MDSSN9 = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+				OR DEM . MDSEX = @P_GENDER ) 
+					 
+	/************************************************************/ 
+	--IF FIST NAME IS NOT NULL && LAST NAME IS NOT NULL
+	 -- PULL PATIENTS THAT ARE ONLY IN DEMOGRAPHICS 
+	 -- TYPE OF CONTACT IS MAILING
+	 --SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM HPADMDP TABLE
+				UNION 
+	 
+				SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					2 TYPEOFNAMEID , 
+					TRIM ( AKA . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					1 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( DEM . MDPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS DISPLAYLASTNAME , 
+					TRIM ( DEM . MDPMI ) AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+				 
+				FROM HPADMDP DEM 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON PAT . LPHSP# = DEM . MDHSP# 
+				AND PAT . LPMRC# = DEM . MDMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKA 
+				ON DEM . MDHSP# = AKA . AKHSP# 
+				AND DEM . MDMRC# = AKA . AKMRC# 
+					 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND ( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND ( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND ( @P_FNAME IS NOT NULL			 
+				OR @P_LNAME IS NOT NULL )						 
+				AND ( @P_FNAME IS NULL			 
+			 
+					OR DEM . MDPFSN LIKE UPPER ( @P_FNAME ) || '%' ) 
+				AND ( @P_LNAME IS NULL			 
+					 
+					OR DEM . MDPLSN LIKE UPPER ( @P_LNAME ) || '%' )						 
+				 
+				AND ( 
+				( @P_YEAR IS NULL 
+				AND @P_MONTH IS NULL ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NOT NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_MONTH IS NOT NULL	 
+				AND @P_YEAR IS NULL 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH ) 
+				) 
+				AND ( @P_SSN IS NULL			 
+					OR DEM . MDSSN9 = @P_SSN ) 
+				AND ( @P_GENDER IS NULL		 
+					OR DEM . MDSEX = @P_GENDER )	 
+					 
+					 
+					UNION 
+	--IF FIST NAME IS NOT NULL && LAST NAME IS NOT NULL
+	 -- PULL PATIENTS THAT ARE ONLY IN DEMOGRAPHICS 
+	 -- TYPE OF CONTACT IS PHYSICAL
+	--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM HPADMDP TABLE		 
+					SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					2 TYPEOFNAMEID , 
+					TRIM ( AKA . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					1 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( DEM . MDPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS DISPLAYLASTNAME , 
+					TRIM ( DEM . MDPMI ) AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+				 
+				FROM HPADMDP DEM 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON PAT . LPHSP# = DEM . MDHSP# 
+				AND PAT . LPMRC# = DEM . MDMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKA 
+				ON DEM . MDHSP# = AKA . AKHSP# 
+				AND DEM . MDMRC# = AKA . AKMRC# 
+					 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND ( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND ( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND ( @P_FNAME IS NOT NULL			 
+				OR @P_LNAME IS NOT NULL )							 
+				AND ( @P_FNAME IS NULL			 
+			 
+					OR DEM . MDPFSN LIKE UPPER ( @P_FNAME ) || '%' ) 
+				AND ( @P_LNAME IS NULL			 
+					 
+					OR DEM . MDPLSN LIKE UPPER ( @P_LNAME ) || '%' )						 
+				AND ( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND ( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND ( 
+				( @P_YEAR IS NULL 
+				AND @P_MONTH IS NULL ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NOT NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_MONTH IS NOT NULL	 
+				AND @P_YEAR IS NULL 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH ) 
+				) 
+				AND ( @P_SSN IS NULL			 
+					OR DEM . MDSSN9 = @P_SSN ) 
+				AND ( @P_GENDER IS NULL		 
+					OR DEM . MDSEX = @P_GENDER )			 
+/**************************************************************/ 
+  
+		UNION 
+--IF FIST NAME IS NOT NULL && LAST NAME IS NOT NULL	 
+-- PULL ALIASES FOR DEM-ONLY PATIENTS 
+ -- TYPE OF CONTACT IS MAILING
+ --SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE
+
+SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+					 
+				FROM HPADMDP DEM 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON PAT . LPHSP# = DEM . MDHSP# 
+				AND PAT . LPMRC# = DEM . MDMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKAJ		 
+				ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+				AND DEM . MDMRC#	= AKAJ . AKMRC# 
+				LEFT OUTER JOIN NMNHAKAP AKASJ		 
+				ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+				AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKA3	 
+				ON AKAJ . AKMRC# = AKA3 . AKMRC# 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND	( @P_MRN IS NULL			 
+				OR DEM . MDMRC# = @P_MRN ) 
+				AND	( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND ( @P_FNAME IS NOT NULL			 
+				OR @P_LNAME IS NOT NULL )	 
+				AND	( @P_FNAME IS NULL			 
+				 --OR UPPER(AKAJ.AKPFNM) 
+				OR AKAJ . AKPFSN 
+				LIKE UPPER ( @P_FNAME ) || '%' ) 
+				AND	( @P_LNAME IS NULL			 
+				 --OR UPPER(AKAJ.AKPLNM) 
+				OR AKAJ . AKPLSN 
+				LIKE UPPER ( @P_LNAME ) || '%' )							 
+			 
+				AND	( 
+				( @P_YEAR IS NULL 
+				AND @P_MONTH IS NULL ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NOT NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_MONTH IS NOT NULL	 
+				AND @P_YEAR IS NULL 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH ) 
+								) 
+				AND ( @P_SSN IS NULL			 
+					OR DEM . MDSSN9 = @P_SSN ) 
+				AND ( @P_GENDER IS NULL			 
+					OR DEM . MDSEX = @P_GENDER ) 
+					 
+					UNION 
+					
+--IF FIST NAME IS NOT NULL && LAST NAME IS NOT NULL	 
+-- PULL ALIASES FOR DEM-ONLY PATIENTS 
+-- TYPE OF CONTACT IS PHYSICAL 
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE				 
+					SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+					 
+				FROM HPADMDP DEM 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON PAT . LPHSP# = DEM . MDHSP# 
+				AND PAT . LPMRC# = DEM . MDMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKAJ		 
+				ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+				AND DEM . MDMRC#	= AKAJ . AKMRC# 
+				LEFT OUTER JOIN NMNHAKAP AKASJ		 
+				ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+				AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKA3	 
+				ON AKAJ . AKMRC# = AKA3 . AKMRC# 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND ( @P_FNAME IS NOT NULL			 
+				OR @P_LNAME IS NOT NULL ) 
+				AND	( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND	( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND	( @P_FNAME IS NULL			 
+				 --OR UPPER(AKAJ.AKPFNM) 
+				OR AKAJ . AKPFSN 
+				LIKE UPPER ( @P_FNAME ) || '%' ) 
+				AND	( @P_LNAME IS NULL			 
+				 --OR UPPER(AKAJ.AKPLNM) 
+				OR AKAJ . AKPLSN 
+				LIKE UPPER ( @P_LNAME ) || '%' )							 
+				 
+				AND	( 
+				( @P_YEAR IS NULL 
+				AND @P_MONTH IS NULL ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NOT NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_MONTH IS NOT NULL	 
+				AND @P_YEAR IS NULL 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH ) 
+								) 
+				AND ( @P_SSN IS NULL			 
+					OR DEM . MDSSN9 = @P_SSN ) 
+				AND ( @P_GENDER IS NULL			 
+					OR DEM . MDSEX = @P_GENDER ) 
+					
+/************************************************************************/ 
+--MONTH IS NULL & PULL ALIASES 
+-- TYPE OF CONTACT IS MALING 
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE
+				UNION 
+				 
+				SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+					FROM HPADMDP DEM	 
+					 
+					LEFT OUTER JOIN HPADLPP PAT 
+				ON PAT . LPHSP# = DEM . MDHSP# 
+				AND PAT . LPMRC# = DEM . MDMRC# 
+				 
+					 
+				LEFT OUTER JOIN NMNHAKAP AKAJ		 
+				ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+				AND DEM . MDMRC#	= AKAJ . AKMRC# 
+					 
+				LEFT OUTER JOIN NMNHAKAP AKASJ		 
+				ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+				AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKA3	 
+				ON	AKAJ . AKMRC# =	AKA3 . AKMRC#		 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NULL 
+				AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )	 
+				AND	AKA3 . AKHSP# = @P_FACILITYID										 
+				AND	( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND	( @P_ACCOUNTNUMBER IS NULL 
+					OR PAT . LPACCT = @P_ACCOUNTNUMBER )						 
+				AND	( @P_SSN IS NULL			 
+					OR DEM . MDSSN = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+					OR DEM . MDSEX = @P_GENDER ) 
+					 
+					 
+					UNION 
+					
+--MONTH IS NULL & PULL ALIASES 
+-- TYPE OF CONTACT IS PHYSICAL 
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE					 
+				SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION	 
+					 
+				FROM HPADMDP DEM	 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON PAT . LPHSP# = DEM . MDHSP# 
+				AND PAT . LPMRC# = DEM . MDMRC# 
+				 
+					 
+				LEFT OUTER JOIN NMNHAKAP AKAJ		 
+				ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+				AND DEM . MDMRC#	= AKAJ . AKMRC# 
+					 
+				LEFT OUTER JOIN NMNHAKAP AKASJ		 
+				ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+				AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKA3	 
+				ON	AKAJ . AKMRC# =	AKA3 . AKMRC#		 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NULL 
+				AND ( @P_FNAME IS NULL			 
+				AND @P_LNAME IS NULL )			 
+				AND	AKA3 . AKHSP# = @P_FACILITYID										 
+				AND	( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND	( @P_ACCOUNTNUMBER IS NULL 
+					OR PAT . LPACCT = @P_ACCOUNTNUMBER )						 
+				AND	( @P_SSN IS NULL			 
+					OR DEM . MDSSN = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+					OR DEM . MDSEX = @P_GENDER ) 
+/*********************************************************************/					 
+--MONTH IS NULL  & PULL DEM 0NLY PATIENTS 
+-- TYPE OF CONTACT IS MALING 
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM HPADMDP TABLE		
+			UNION 
+SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					2 TYPEOFNAMEID , 
+					TRIM ( AKA . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					1 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( DEM . MDPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS DISPLAYLASTNAME , 
+					TRIM ( DEM . MDPMI ) AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+					FROM HPADMDP DEM 
+						 
+								 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON LPHSP# = @P_FACILITYID 
+				AND LPMRC# = DEM . MDMRC#		 
+				LEFT OUTER JOIN NMNHAKAP AKA 
+				ON DEM . MDHSP# = AKA . AKHSP# 
+				AND DEM . MDMRC# = AKA . AKMRC# 
+				 
+				WHERE	DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				AND	( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND	( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT )						 
+					 
+				AND	( @P_SSN IS NULL			 
+					OR DEM . MDSSN9 = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+					OR DEM . MDSEX = @P_GENDER ) 
+					 
+					UNION 
+					 
+--MONTH IS NULL  & PULL DEM 0NLY PATIENTS 
+-- TYPE OF CONTACT IS PHYSICAL
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM HPADMDP TABLE	
+					SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					2 TYPEOFNAMEID , 
+					TRIM ( AKA . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					1 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( DEM . MDPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS DISPLAYLASTNAME , 
+					TRIM ( DEM . MDPMI ) AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+						FROM HPADMDP DEM 
+						 
+								 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON LPHSP# = @P_FACILITYID 
+				AND LPMRC# = DEM . MDMRC#		 
+				LEFT OUTER JOIN NMNHAKAP AKA 
+				ON DEM . MDHSP# = AKA . AKHSP# 
+				AND DEM . MDMRC# = AKA . AKMRC# 
+				 
+				WHERE	DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				AND	( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND	( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT )						 
+				AND	( @P_SSN IS NULL			 
+					OR DEM . MDSSN9 = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+					OR DEM . MDSEX = @P_GENDER ) 
+/**************************************************************************/ 
+  
+		UNION 
+		 --MONTH IS NULL && PULL DEM PATIENT ALIASES 
+		 -- TYPE OF CONTACT IS MALING
+		 --SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE	
+		SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+				FROM HPADMDP DEM 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON LPHSP# = @P_FACILITYID 
+				AND LPMRC# = DEM . MDMRC#	 
+				LEFT OUTER JOIN NMNHAKAP AKAJ		 
+				ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+				AND DEM . MDMRC#	= AKAJ . AKMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKASJ		 
+				ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+				AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+				LEFT OUTER JOIN NMNHAKAP AKA3	 
+				ON DEM . MDHSP# = AKA3 . AKHSP# 
+				AND DEM . MDMRC# = AKA3 . AKMRC# 
+				AND AKAJ . AKMRC# = AKA3 . AKMRC# 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NULL		 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )									 
+					AND ( @P_MRN IS NULL			 
+						OR DEM . MDMRC# = @P_MRN ) 
+					AND ( @P_ACCOUNTNUMBER IS NULL 
+						OR PAT . LPACCT = @P_ACCOUNTNUMBER )						 
+					AND ( @P_SSN IS NULL		 
+						OR DEM . MDSSN = @P_SSN ) 
+					AND ( @P_GENDER IS NULL			 
+						OR DEM . MDSEX = @P_GENDER ) 
+						 
+						UNION 
+	
+	 --MONTH IS NULL && PULL DEM PATIENT ALIASES 
+	 -- TYPE OF CONTACT IS PHYSICAL	
+	 --SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE	
+	 				 
+						SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+				FROM HPADMDP DEM 
+				LEFT OUTER JOIN HPADLPP PAT 
+				ON LPHSP# = @P_FACILITYID 
+				AND LPMRC# = DEM . MDMRC#	 
+				LEFT OUTER JOIN NMNHAKAP AKAJ		 
+				ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+				AND DEM . MDMRC#	= AKAJ . AKMRC# 
+				 
+				LEFT OUTER JOIN NMNHAKAP AKASJ		 
+				ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+				AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+				LEFT OUTER JOIN NMNHAKAP AKA3	 
+				ON DEM . MDHSP# = AKA3 . AKHSP# 
+				AND DEM . MDMRC# = AKA3 . AKMRC# 
+				AND AKAJ . AKMRC# = AKA3 . AKMRC# 
+				WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+								 
+					AND ( @P_MRN IS NULL			 
+						OR DEM . MDMRC# = @P_MRN ) 
+					AND ( @P_ACCOUNTNUMBER IS NULL 
+						OR PAT . LPACCT = @P_ACCOUNTNUMBER )						 
+					AND ( @P_SSN IS NULL		 
+						OR DEM . MDSSN = @P_SSN ) 
+					AND ( @P_GENDER IS NULL			 
+						OR DEM . MDSEX = @P_GENDER ) 
+/********************************************************************/						 
+	 --ELSE		 
+	 
+		 --PULL ALL ALIASES 
+		 -- TYPE OF CONTACT IS MAILING		
+		 --SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE	
+				UNION 
+			SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+					FROM HPADMDP DEM	 
+					 
+					LEFT OUTER JOIN HPADLPP PAT	 
+						ON DEM . MDHSP# = PAT . LPHSP# 
+						AND DEM . MDMRC# = PAT . LPMRC# 
+					 
+					LEFT OUTER JOIN NMNHAKAP AKAJ	 
+					ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+					AND DEM . MDMRC#	= AKAJ . AKMRC# 
+					 
+					LEFT OUTER JOIN NMNHAKAP AKASJ		 
+					ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+					AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+					LEFT OUTER JOIN NMNHAKAP AKA3 
+					ON DEM . MDHSP# = AKA3 . AKHSP# 
+					AND DEM . MDMRC# = AKA3 . AKMRC# 
+					AND AKAJ . AKMRC# = AKA3 . AKMRC# 
+					WHERE DEM . MDHSP# = @P_FACILITYID 
+						AND @P_MONTH IS NOT NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+						AND	( @P_MRN IS NULL			 
+							OR PAT . LPMRC# = @P_MRN ) 
+						AND	( @P_ACCOUNTNUMBER IS NULL 
+							OR PAT . LPACCT = @P_ACCOUNTNUMBER )						 
+				AND		( 
+			( @P_YEAR IS NULL 
+			AND @P_MONTH IS NULL ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NOT NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_MONTH IS NOT NULL	 
+			AND @P_YEAR IS NULL 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH ) 
+						)						 
+						AND		( @P_SSN IS NULL			 
+						OR DEM . MDSSN = @P_SSN ) 
+						AND		( @P_GENDER IS NULL			 
+						OR DEM . MDSEX = @P_GENDER ) 
+						 
+						UNION 
+		--PULL ALL ALIASES 
+	    -- TYPE OF CONTACT IS PHYSICAL		 
+	     --SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE				 
+						SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	  
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+					FROM HPADMDP DEM	 
+					 
+					LEFT OUTER JOIN HPADLPP PAT	 
+						ON DEM . MDHSP# = PAT . LPHSP# 
+						AND DEM . MDMRC# = PAT . LPMRC# 
+					 
+					LEFT OUTER JOIN NMNHAKAP AKAJ	 
+					ON DEM . MDHSP#	= AKAJ . AKHSP#	 
+					AND DEM . MDMRC#	= AKAJ . AKMRC# 
+					 
+					LEFT OUTER JOIN NMNHAKAP AKASJ		 
+					ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+					AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+					LEFT OUTER JOIN NMNHAKAP AKA3 
+					ON DEM . MDHSP# = AKA3 . AKHSP# 
+					AND DEM . MDMRC# = AKA3 . AKMRC# 
+					AND AKAJ . AKMRC# = AKA3 . AKMRC# 
+					WHERE DEM . MDHSP# = @P_FACILITYID 
+					AND @P_MONTH IS NOT NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+				 
+						AND	( @P_MRN IS NULL			 
+							OR PAT . LPMRC# = @P_MRN ) 
+						AND	( @P_ACCOUNTNUMBER IS NULL 
+							OR PAT . LPACCT = @P_ACCOUNTNUMBER )						 
+				AND		( 
+			( @P_YEAR IS NULL 
+			AND @P_MONTH IS NULL ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NOT NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_MONTH IS NOT NULL	 
+			AND @P_YEAR IS NULL 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH ) 
+						)						 
+						AND		( @P_SSN IS NULL			 
+						OR DEM . MDSSN = @P_SSN ) 
+						AND		( @P_GENDER IS NULL			 
+						OR DEM . MDSEX = @P_GENDER ) 
+			 
+		/*********************************************/ 
+
+--PULL DEM ONLY PATIENTS 
+-- TYPE OF CONTACT IS MAILING	
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM HPADMDP TABLE		
+		UNION 
+  
+SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					2 TYPEOFNAMEID , 
+					TRIM ( AKA . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					1 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( DEM . MDPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS DISPLAYLASTNAME , 
+					TRIM ( DEM . MDPMI ) AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+			FROM HPADMDP DEM 
+			LEFT OUTER JOIN HPADLPP PAT 
+			ON LPHSP# = @P_FACILITYID 
+			AND LPMRC# = DEM . MDMRC#		 
+			 
+			LEFT OUTER JOIN NMNHAKAP AKA 
+			ON DEM . MDHSP# = AKA . AKHSP# 
+			AND DEM . MDMRC# = AKA . AKMRC# 
+			 
+			WHERE	DEM . MDHSP# = @P_FACILITYID 
+			AND @P_MONTH IS NOT NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+			AND ( @P_MRN IS NULL			 
+				OR DEM . MDMRC# = @P_MRN ) 
+			AND ( @P_ACCOUNTNUMBER IS NULL 
+				OR @P_ACCOUNTNUMBER = PAT . LPACCT )	 
+			AND ( 
+			( @P_YEAR IS NULL 
+			AND @P_MONTH IS NULL ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NOT NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_MONTH IS NOT NULL	 
+			AND @P_YEAR IS NULL 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH ) 
+						)										 
+			AND	( @P_SSN IS NULL		 
+			OR DEM . MDSSN9 = @P_SSN ) 
+			AND	( @P_GENDER IS NULL			 
+			OR DEM . MDSEX = @P_GENDER )		 
+			 
+			 
+			UNION 
+			
+
+--PULL DEM ONLY PATIENTS 
+-- TYPE OF CONTACT IS 'PHYSICAL 
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM HPADMDP TABLE		
+			SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKA.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					2 TYPEOFNAMEID , 
+					TRIM ( AKA . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKA . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					1 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( DEM . MDPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( DEM . MDPLNM ) AS DISPLAYLASTNAME , 
+					TRIM ( DEM . MDPMI ) AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+			FROM HPADMDP DEM 
+			LEFT OUTER JOIN HPADLPP PAT 
+			ON LPHSP# = @P_FACILITYID 
+			AND LPMRC# = DEM . MDMRC#		 
+			 
+			LEFT OUTER JOIN NMNHAKAP AKA 
+			ON DEM . MDHSP# = AKA . AKHSP# 
+			AND DEM . MDMRC# = AKA . AKMRC# 
+			 
+			WHERE	DEM . MDHSP# = @P_FACILITYID 
+			AND @P_MONTH IS NOT NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+			AND ( @P_MRN IS NULL			 
+				OR DEM . MDMRC# = @P_MRN ) 
+			AND ( @P_ACCOUNTNUMBER IS NULL 
+				OR @P_ACCOUNTNUMBER = PAT . LPACCT )	 
+			AND ( 
+			( @P_YEAR IS NULL 
+			AND @P_MONTH IS NULL ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NOT NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_YEAR IS NOT NULL	 
+			AND @P_MONTH IS NULL	 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) >= @P_YEAR - 2 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+			AS INTEGER ) <= @P_YEAR + 2 ) 
+			OR 
+			( @P_MONTH IS NOT NULL	 
+			AND @P_YEAR IS NULL 
+			AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+			AS INTEGER ) = @P_MONTH ) 
+						)										 
+			AND	( @P_SSN IS NULL		 
+			OR DEM . MDSSN9 = @P_SSN ) 
+			AND	( @P_GENDER IS NULL			 
+			OR DEM . MDSEX = @P_GENDER )	 
+/************************************************************************/ 
+
+--PULL DEM ONLY PATIENTS 
+-- TYPE OF CONTACT IS MAILING		
+-- THEIR ALIASES 
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE		
+			UNION 
+			 
+	SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					0 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'MAILING' AS TYPEOFCONTACTPOINT , 
+					DEM . MDPADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+			FROM HPADMDP DEM 
+			LEFT OUTER JOIN HPADLPP PAT 
+			ON LPHSP# = @P_FACILITYID 
+			AND LPMRC# = DEM . MDMRC#	 
+			 
+			LEFT OUTER JOIN NMNHAKAP AKAJ		 
+			ON DEM . MDHSP#	= AKAJ . AKHSP# 
+			AND DEM . MDMRC#	= AKAJ . AKMRC# 
+			LEFT OUTER JOIN NMNHAKAP AKASJ		 
+			ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+			AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+			 
+			LEFT OUTER JOIN NMNHAKAP AKA3	 
+			ON DEM . MDHSP# = AKA3 . AKHSP# 
+			AND DEM . MDMRC# = AKA3 . AKMRC# 
+			AND AKAJ . AKMRC# = AKA3 . AKMRC# 
+			WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NOT NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+				AND ( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND ( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND ( 
+				( @P_YEAR IS NULL 
+				AND @P_MONTH IS NULL ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NOT NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_MONTH IS NOT NULL	 
+				AND @P_YEAR IS NULL 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH ) 
+						) 
+				AND	( @P_SSN IS NULL			 
+				OR DEM . MDSSN = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+				OR DEM . MDSEX = @P_GENDER ) 
+				 
+					 
+	UNION	 
+	 
+	 
+--PULL DEM ONLY PATIENTS 
+-- TYPE OF CONTACT IS PHYSICAL		
+--THEIR ALIASES
+--SET  ALIAS NAMES FROM  NMNHAKAP AND REAL NAME FROM NMNHAKAP TABLE		
+
+	SELECT	DISTINCT 
+					DEM . MDHSP# AS FACILITYID , 
+					0 AS PERSONID , 
+					AKAJ.AKEDAT					AS ENTRYDATE,	 
+					DEM . MDSSN9 AS SSN , 
+					@P_HSPCODE AS HSPCODE , 
+					DEM . MDSEX AS SEXCODE , 
+					DEM . MDMRC# AS MRN , 
+					DEM . MDDOB8 AS DOB , 
+					1 TYPEOFNAMEID , 
+					TRIM ( AKAJ . AKPFNM ) AS	FIRSTNAME , 
+					TRIM ( AKAJ . AKPLNM ) AS LASTNAME , 
+					'' AS MIDDLEINITIAL ,	 
+					2 AS DISPLAYTYPEOFNAMEID ,	 
+					TRIM ( AKASJ . AKPFNM ) AS DISPLAYFIRSTNAME , 
+					TRIM ( AKASJ . AKPLNM ) AS DISPLAYLASTNAME , 
+					'' AS DISPLAYMIDDLEINITIAL ,		 
+					DEM . MDNMTL AS TITLE , 
+					'' AS CONFIDENTIALFLAG ,  -- MPI.RWCNFG	 
+					6 AS CONTACTPOINTTYPEID ,  -- PHYSICAL/PERMANENT CONTACT POINT 
+					'PHYSICAL' AS TYPEOFCONTACTPOINT , 
+					DEM . MDMADR AS ADDRESS1 , 
+					'' AS ADDRESS2 ,  -- ADDRESS 2 IS BLANK                               
+					DEM . MDPCIT AS CITY , 
+					RTRIM ( DEM . MDPZPA ) || RTRIM ( DEM . MDPZ4A ) AS POSTALCODE , 
+					0 AS STATEID , 
+					DEM . MDPSTE AS STATECODE , 
+					'' AS STATEDESCRIPTION ,  -- STATE DESCRIPTION 
+					0 AS COUNTRYID , 
+					'' AS COUNTRYCODE , 
+					'' AS COUNTRYDESCRIPTION 
+					 
+			FROM HPADMDP DEM 
+			LEFT OUTER JOIN HPADLPP PAT 
+			ON LPHSP# = @P_FACILITYID 
+			AND LPMRC# = DEM . MDMRC#	 
+			 
+			LEFT OUTER JOIN NMNHAKAP AKAJ		 
+			ON DEM . MDHSP#	= AKAJ . AKHSP# 
+			AND DEM . MDMRC#	= AKAJ . AKMRC# 
+			LEFT OUTER JOIN NMNHAKAP AKASJ		 
+			ON AKAJ . AKHSP#	= AKASJ . AKHSP#	 
+			AND AKAJ . AKMRC#	= AKASJ . AKMRC# 
+			 
+			LEFT OUTER JOIN NMNHAKAP AKA3	 
+			ON DEM . MDHSP# = AKA3 . AKHSP# 
+			AND DEM . MDMRC# = AKA3 . AKMRC# 
+			AND AKAJ . AKMRC# = AKA3 . AKMRC# 
+			WHERE DEM . MDHSP# = @P_FACILITYID 
+				AND @P_MONTH IS NOT NULL	 
+					AND ( @P_FNAME IS NULL			 
+					AND @P_LNAME IS NULL )		 
+				 
+				AND ( @P_MRN IS NULL			 
+					OR DEM . MDMRC# = @P_MRN ) 
+				AND ( @P_ACCOUNTNUMBER IS NULL 
+					OR @P_ACCOUNTNUMBER = PAT . LPACCT ) 
+				AND ( 
+				( @P_YEAR IS NULL 
+				AND @P_MONTH IS NULL ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NOT NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_YEAR IS NOT NULL	 
+				AND @P_MONTH IS NULL	 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) >= @P_YEAR - 2 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 5 , 4 ) ) 
+				AS INTEGER ) <= @P_YEAR + 2 ) 
+				OR 
+				( @P_MONTH IS NOT NULL	 
+				AND @P_YEAR IS NULL 
+				AND CAST ( ( SUBSTRING ( DEM . MDDOB8 , 1 , 2 ) ) 
+				AS INTEGER ) = @P_MONTH ) 
+						) 
+				AND	( @P_SSN IS NULL			 
+				OR DEM . MDSSN = @P_SSN ) 
+				AND	( @P_GENDER IS NULL			 
+				OR DEM . MDSEX = @P_GENDER ) 
+				 
+				ORDER BY MRN , 
+		DISPLAYTYPEOFNAMEID ASC , 
+		LASTNAME , 
+		FIRSTNAME , 
+		MIDDLEINITIAL , 
+		ENTRYDATE DESC 
+		FOR	READ ONLY 
+		OPTIMIZE FOR 10 ROWS ;				 
+					 
+OPEN CURSOR1 ; 
+	 
+END P1  ;

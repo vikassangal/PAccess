@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\Quartz.Trigger_Listeners.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <!-- 
+    The underscores are non-standard naming for this project, but are preserved
+    to accommodate the Quartz.NET code.
+    -->
+    <comment>
+      Create Quartz.Trigger_Listeners Table
+    </comment>
+    <createTable schemaName="Quartz" tableName="Trigger_Listeners">
+      <column name="Trigger_Name" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Trigger_Group" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Trigger_Listener" type="VARCHAR(200)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+    <addPrimaryKey constraintName="PK_TriggerListeners" schemaName="Quartz" tableName="Trigger_Listeners" columnNames="Trigger_Name,Trigger_Group,Trigger_Listener" />
+    <addForeignKeyConstraint constraintName="FK_TriggerListenersToTriggers" baseTableSchemaName="Quartz" baseTableName="Trigger_Listeners" baseColumnNames="Trigger_Name,Trigger_Group" referencedTableSchemaName="Quartz" referencedTableName="Triggers" referencedColumnNames="Trigger_Name,Trigger_Group" />
+    <sql>
+      GRANT SELECT,INSERT,UPDATE,DELETE ON Quartz.Trigger_Listeners TO db_apionly;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

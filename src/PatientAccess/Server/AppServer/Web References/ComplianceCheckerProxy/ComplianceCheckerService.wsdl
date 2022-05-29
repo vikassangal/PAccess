@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:ComplianceCheckerService/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="urn:ComplianceCheckerService/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ComplianceCheckerService" targetNamespace="urn:ComplianceCheckerService/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:tns="urn:ComplianceCheckerService/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:ComplianceCheckerService/types">
+      <xsd:complexType name="createComplianceCheckerRequest">
+        <xsd:sequence>
+          <xsd:element name="ComplianceCheckerRequest_1" nillable="true" type="tns:ComplianceCheckerRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ComplianceCheckerRequest">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="hspcd" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="accRefDocCode" nillable="true" type="xsd:string" />
+          <xsd:element name="autoTrigger" nillable="true" type="xsd:string" />
+          <xsd:element name="insuredMemberID" nillable="true" type="xsd:string" />
+          <xsd:element name="insuredPlanCd" nillable="true" type="xsd:string" />
+          <xsd:element name="patientAccount" nillable="true" type="xsd:string" />
+          <xsd:element name="patientDOB" nillable="true" type="xsd:string" />
+          <xsd:element name="patientFirstName" nillable="true" type="xsd:string" />
+          <xsd:element name="patientLastName" nillable="true" type="xsd:string" />
+          <xsd:element name="patientMedRecNum" nillable="true" type="xsd:string" />
+          <xsd:element name="patientMiddleName" nillable="true" type="xsd:string" />
+          <xsd:element name="patientPhone" nillable="true" type="xsd:string" />
+          <xsd:element name="patientSSN" nillable="true" type="xsd:string" />
+          <xsd:element name="patientSex" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createComplianceCheckerRequestResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EDVServiceException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="createComplianceCheckerRequest" type="tns:createComplianceCheckerRequest" />
+      <xsd:element name="createComplianceCheckerRequestResponse" type="tns:createComplianceCheckerRequestResponse" />
+      <xsd:element name="EDVServiceException" type="tns:EDVServiceException" />
+    </xsd:schema>
+  </types>
+  <message name="ComplianceCheckerServiceSEI_createComplianceCheckerRequest">
+    <part name="parameters" element="ns2:createComplianceCheckerRequest" />
+  </message>
+  <message name="ComplianceCheckerServiceSEI_createComplianceCheckerRequestResponse">
+    <part name="result" element="ns2:createComplianceCheckerRequestResponse" />
+  </message>
+  <message name="EDVServiceException">
+    <part name="EDVServiceException" element="ns2:EDVServiceException" />
+  </message>
+  <portType name="ComplianceCheckerServiceSEI">
+    <operation name="createComplianceCheckerRequest">
+      <input message="tns:ComplianceCheckerServiceSEI_createComplianceCheckerRequest" />
+      <output message="tns:ComplianceCheckerServiceSEI_createComplianceCheckerRequestResponse" />
+      <fault name="EDVServiceException" message="tns:EDVServiceException" />
+    </operation>
+  </portType>
+  <binding name="ComplianceCheckerServiceSEIBinding" type="tns:ComplianceCheckerServiceSEI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="createComplianceCheckerRequest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="EDVServiceException">
+        <soap:fault use="literal" name="EDVServiceException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ComplianceCheckerService">
+    <port name="ComplianceCheckerServiceSEIPort" binding="tns:ComplianceCheckerServiceSEIBinding">
+      <soap:address location="http://edvdev2.tenethealth.net:8080/edv/services/ComplianceCheckerService" />
+    </port>
+  </service>
+</definitions>

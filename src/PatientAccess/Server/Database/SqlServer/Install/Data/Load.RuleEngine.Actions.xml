@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.RuleEngine.Actions.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Load RuleEngine.Actions
+    </comment>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="1" />
+      <column name="Description" value="Provide missing billing information" />
+      <column name="Type" value="PatientAccess.Actions.OnBillingForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="2" />
+      <column name="Description" value="Provide missing clinical information" />
+      <column name="Type" value="PatientAccess.Actions.OnClinicalForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="3" />
+      <column name="Description" value="Provide missing contact and diagnosis information" />
+      <column name="Type" value="PatientAccess.Actions.OnContactAndDiagnosisForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="4" />
+      <column name="Description" value="Provide missing contact information" />
+      <column name="Type" value="PatientAccess.Actions.OnContactsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="5" />
+      <column name="Description" value="Provide missing diagnosis information" />
+      <column name="Type" value="PatientAccess.Actions.OnDiagnosisForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="6" />
+      <column name="Description" value="Provide missing employment information" />
+      <column name="Type" value="PatientAccess.Actions.OnEmploymentForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="7" />
+      <column name="Description" value="Provide missing guarantor information" />
+      <column name="Type" value="PatientAccess.Actions.OnGuarantorForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="8" />
+      <column name="Description" value="Provide missing insurance information" />
+      <column name="Type" value="PatientAccess.Actions.OnInsuranceForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="9" />
+      <column name="Description" value="Provide missing primary insured information" />
+      <column name="Type" value="PatientAccess.Actions.OnInsuredFormForPrimaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="10" />
+      <column name="Description" value="Provide missing secondary insured information" />
+      <column name="Type" value="PatientAccess.Actions.OnInsuredFormForSecondaryInsurance" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="11" />
+      <column name="Description" value="Provide missing demographics information" />
+      <column name="Type" value="PatientAccess.Actions.OnPatientDemographics" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="12" />
+      <column name="Description" value="Provide missing primary payor information" />
+      <column name="Type" value="PatientAccess.Actions.OnPayorDetailsFormForPrimaryPayor" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="13" />
+      <column name="Description" value="Provide missing secondary payor information" />
+      <column name="Type" value="PatientAccess.Actions.OnPayorDetailsFormForSecondaryPayor" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="14" />
+      <column name="Description" value="Provide missing physician information" />
+      <column name="Type" value="PatientAccess.Actions.OnPhysiciansForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="15" />
+      <column name="Description" value="Provide missing demographic information" />
+      <column name="Type" value="PatientAccess.Actions.OnPreMSEDemographicsForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="16" />
+      <column name="Description" value="Provide missing regulatory information" />
+      <column name="Type" value="PatientAccess.Actions.OnRegulatoryForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="17" />
+      <column name="Description" value="Provide missing transfer information" />
+      <column name="Type" value="PatientAccess.Actions.OnTransferToForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="18" />
+      <column name="Description" value="Complete Post-MSE Registration" />
+      <column name="Type" value="PatientAccess.Actions.CompletePostMSERegistration" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="19" />
+      <column name="Description" value="Reschedule, cancel, or activate the account" />
+      <column name="Type" value="PatientAccess.Actions.NoShow" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="20" />
+      <column name="Description" value="Complete the benefits verification task for the primary insurance." />
+      <column name="Type" value="PatientAccess.Actions.BenefitsVerificationIncomplete" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="21" />
+      <column name="Description" value="Complete the authorization task for the primary insurance." />
+      <column name="Type" value="PatientAccess.Actions.AuthorizationIncomplete" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="22" />
+      <column name="Description" value="Incorrect PlanID. The plan you have selected is not a workers's comp plan. Review insurance plan and diagnosis selections." />
+      <column name="Type" value="PatientAccess.Actions.IncorrectPlanID" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="23" />
+      <column name="Description" value="Determine Patient Liability" />
+      <column name="Type" value="PatientAccess.Actions.DeterminePatientLiability" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="24" />
+      <column name="Description" value="Redetermine Patient Liability" />
+      <column name="Type" value="PatientAccess.Actions.RedeterminePatientLiability" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="25" />
+      <column name="Description" value="Collect Patient Liability" />
+      <column name="Type" value="PatientAccess.Actions.CollectPatientLiability" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="26" />
+      <column name="Description" value="Complete the benefits verification task for the secondary insurance." />
+      <column name="Type" value="PatientAccess.Actions.BenefitsVerificationInCompleteForSecondary" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="27" />
+      <column name="Description" value="Complete the authorization task for the secondary insurance." />
+      <column name="Type" value="PatientAccess.Actions.AuthorizationIncompleteOnSecondary" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="28" />
+      <column name="Description" value="Review electronic results for primary required" />
+      <column name="Type" value="PatientAccess.Actions.ReviewElectronicResultsForPrimaryRequired" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="29" />
+      <column name="Description" value="Review electronic results for secondary required" />
+      <column name="Type" value="PatientAccess.Actions.ReviewElectronicResultsForSecondaryRequired" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="30" />
+      <column name="Description" value="Review electronic results for guarantor required" />
+      <column name="Type" value="PatientAccess.Actions.GuarantorValidationMustBeViewed" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="31" />
+      <column name="Description" value="Review electronic results for guarantor credit report" />
+      <column name="Type" value="PatientAccess.Actions.ReviewGuarantorCreditReport" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="32" />
+      <column name="Description" value="Unknown patient gender" />
+      <column name="Type" value="PatientAccess.Actions.UnknownPatientGender" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="33" />
+      <column name="Description" value="Unknown SSN status" />
+      <column name="Type" value="PatientAccess.Actions.UnknownSocialSecurityNumberStatus" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="34" />
+      <column name="Description" value="Patient signature is required on COS form. Update COS field as applicable." />
+      <column name="Type" value="PatientAccess.Actions.RequiredSignatureOnCOSForm" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="35" />
+      <column name="Description" value="Patient refused to sign COS form. Update payor code and financial class to self-pay." />
+      <column name="Type" value="PatientAccess.Actions.COSFormNotSigned" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="36" />
+      <column name="Description" value="Unknown selected for guarantors SSN status" />
+      <column name="Type" value="PatientAccess.Actions.FollowUpGuarantorValidation" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="37" />
+      <column name="Description" value="Adjust Admit date, Primary Authorization Effective date, or Expiration date. Admit date currently falls outside of Primary Authorization date range." />
+      <column name="Type" value="PatientAccess.Actions.AuthorizationDatesToAdmitDate" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="38" />
+      <column name="Description" value="Adjust Admit date, or Primary Authorization Expiration date. Admit date currently is later than Primary Authorization Expiration date." />
+      <column name="Type" value="PatientAccess.Actions.AuthorizationExpDateToAdmitDate" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="39" />
+      <column name="Description" value="Adjust Admit date, or Primary Authorization Effective date. Admit date currently is earlier than Primary Authorization Effective date." />
+      <column name="Type" value="PatientAccess.Actions.AuthorizationEffDateToAdmitDate" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="40" />
+      <column name="Description" value="Adjust Admit date, Secondary Auth.Effective date, or Secondary Auth.Expiration date.Admit date currently falls outside of Secondary Auth. date range." />
+      <column name="Type" value="PatientAccess.Actions.SecondaryAuthorizationDatesToAdmitDate" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="41" />
+      <column name="Description" value="Adjust Admit date, or Secondary Authorization Expiration date. Admit date currently is later than Secondary Authorization Expiration date." />
+      <column name="Type" value="PatientAccess.Actions.SecondaryAuthorizationExpDateToAdmitDate" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="42" />
+      <column name="Description" value="Adjust Admit date, or Secondary Authorization Effective date. Admit date currently is earlier than Secondary Authorization Effective date." />
+      <column name="Type" value="PatientAccess.Actions.SecondaryAuthorizationEffDateToAdmitDate" />
+    </insert>
+    <rollback>
+      delete from RuleEngine.Actions where Id between 1 and 42;
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

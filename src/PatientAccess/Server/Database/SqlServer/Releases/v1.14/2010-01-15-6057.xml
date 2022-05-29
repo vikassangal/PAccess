@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.14\2010-01-15-6057.xml">
+  <changeSet id="1" author="Deepa.Raju">
+    <comment>
+      SR446 - Remove DoesPatientShowProofOfConsentRequired and ResearchSponsorRequired related rules
+    </comment>
+    
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id = 459</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Rules">
+      <where>Id = 460</where>
+    </delete>
+    
+    <rollback>
+      
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="459" />
+        <column name="Description" value="Does patient show proof of consent" />
+        <column name="Type" value="PatientAccess.Rules.DoesPatientShowProofOfConsentRequired" />
+        <column name="Severity" valueNumeric="4" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="Rules">
+        <column name="Id" valueNumeric="460" />
+        <column name="Description" value="Research sponsor" />
+        <column name="Type" value="PatientAccess.Rules.ResearchSponsorRequired" />
+        <column name="Severity" valueNumeric="4" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="459" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="459" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="CompositeRuleId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="459" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="7" />
+        <column name="RuleId" valueNumeric="460" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="ContextId" valueNumeric="8" />
+        <column name="RuleId" valueNumeric="460" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="ContextsToRules">
+        <column name="CompositeRuleId" valueNumeric="13" />
+        <column name="RuleId" valueNumeric="460" />
+      </insert>
+
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="202" />
+        <column name="RuleId" valueNumeric="459" />
+      </insert>
+      <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+        <column name="CompositeRuleId" valueNumeric="202" />
+        <column name="RuleId" valueNumeric="460" />
+      </insert>
+
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

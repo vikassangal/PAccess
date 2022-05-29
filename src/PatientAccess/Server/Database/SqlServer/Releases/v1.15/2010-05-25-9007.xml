@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2010 Dell Services, Inc. All Rights Reserved
+
+This source and information are the confidential property of Dell. Do not
+distribute any portion of the code to any party outside of Dell or
+its susidiaries.
+-->
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+  logicalFilePath="SqlServer\Releases\v1.15\2010-05-25-9007.xml">
+  <!--
+  These changes will only go into the production environment
+  -->
+  <changeSet id="DD875B9D-B954-47db-B02B-D47D3A71302E" author="Ahmed.Chaudhary" context="Prod">
+
+    <comment>Update names of Sierra Vista Regional, Sierra Vista Training, Twin Cities and Twin Cities Training facilities to all caps</comment>
+
+    <update schemaName="Facility" tableName="Facilities">
+      <column name="Name" value="SIERRA VISTA REGIONAL" />
+      <where>Id=737</where>
+    </update>
+
+    <update schemaName="Facility" tableName="Facilities">
+      <column name="Name" value="SIERRA VISTA TEST HOSPITAL" />
+      <where>Id=686</where>
+    </update>
+
+    <update schemaName="Facility" tableName="Facilities">
+      <column name="Name" value="TWIN CITIES COMMUNITY HOSPITAL" />
+      <where>Id=42</where>
+    </update>
+
+    <update schemaName="Facility" tableName="Facilities">
+      <column name="Name" value="TWIN CITIES TEST HOSPITAL" />
+      <where>Id=142</where>
+    </update>
+
+    <rollback>
+      <update schemaName="Facility" tableName="Facilities">
+        <column name="Name" value="Sierra Vista Regional" />
+        <where>Id=737</where>
+      </update>
+
+      <update schemaName="Facility" tableName="Facilities">
+        <column name="Name" value="Sierra Vista Test Hospital" />
+        <where>Id=686</where>
+      </update>
+
+      <update schemaName="Facility" tableName="Facilities">
+        <column name="Name" value="Twin Cities Community Hospital" />
+        <where>Id=42</where>
+      </update>
+
+      <update schemaName="Facility" tableName="Facilities">
+        <column name="Name" value="Twin Cities Test Hospital" />
+        <where>Id=142</where>
+      </update>
+
+    </rollback>
+    
+  </changeSet>
+  
+</databaseChangeLog>

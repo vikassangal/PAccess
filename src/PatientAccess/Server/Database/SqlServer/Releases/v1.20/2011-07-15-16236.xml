@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-15-16236.xml">
+  
+  <changeSet id="D19BDE1E-C718-4AE7-9F12-236BE5CF6798" author="Smitha.Krishnamurthy">  
+
+    <comment>
+      Add rules AddressCountryRequired(64), AddressCityRequired (66) , AddressStateRequired(67) 
+      and AddressZipRequired(68) to the QuickAccountCreation(22) Activity
+    </comment>
+    
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="64" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="66" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="67" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="22" />
+      <column name="RuleId" valueNumeric="68" />
+    </insert>
+
+    <rollback>
+       <delete schemaName="RuleEngine" tableName="ContextsToRules">
+         <where> RuleId=461 and ContextId in (64,66,67,68 ) </where>
+       </delete>
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

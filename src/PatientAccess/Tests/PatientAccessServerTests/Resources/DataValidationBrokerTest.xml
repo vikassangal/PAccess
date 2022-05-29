@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestObjects>
+  <TestObject id="TestInitiateBenefitsValidationRequestMappingRequest">
+    <PatientAccess.Domain.AccountDetailsRequest assembly="PatientAccess.Common">
+      <facilityOid>900</facilityOid>
+      <accountNumber>111476</accountNumber>
+      <admitDate>632855808000000000</admitDate>
+      <isAccountNull>False</isAccountNull>
+      <referringPhysicianNumber null="True" />
+      <coverages type="System.Collections.ArrayList">
+        <_items />
+        <_size>0</_size>
+        <_version>0</_version>
+        <_syncRoot null="True" />
+      </coverages>
+      <upn>patientaccess.user03</upn>
+      <isUserNull>False</isUserNull>
+      <patientSex>F</patientSex>
+      <patientDOB>608891904000000000</patientDOB>
+      <patientLastName>TEA</patientLastName>
+      <patientFirstName>JASMINE</patientFirstName>
+      <patientMidInitial>G</patientMidInitial>
+      <medicalRecordNumber>789807</medicalRecordNumber>
+      <patientMailingCP null="True" />
+      <patientSSN>
+        <i_AreaNumber>999</i_AreaNumber>
+        <i_GroupNumber>99</i_GroupNumber>
+        <i_Series>9999</i_Series>
+        <i_SSNStatus>
+          <i_Description>Unknown</i_Description>
+          <i_Oid>1</i_Oid>
+          <i_Timestamp>0</i_Timestamp>
+          <i_ChangedEvent null="True" />
+        </i_SSNStatus>
+        <i_Oid>0</i_Oid>
+        <i_Timestamp>0</i_Timestamp>
+        <i_ChangedEvent null="True" />
+      </patientSSN>
+      <patientInsuredRelationship>
+        <i_Code>12</i_Code>
+        <i_IsValid>True</i_IsValid>
+        <i_Description>CADAVER DONOR</i_Description>
+        <i_Oid>13</i_Oid>
+        <i_Timestamp>0</i_Timestamp>
+        <i_ChangedEvent null="True" />
+      </patientInsuredRelationship>
+      <insuredSex>F</insuredSex>
+      <insuredDOB>621514944000000000</insuredDOB>
+      <insuredFirstName>JASMINE</insuredFirstName>
+      <insuredMiddleInitial>G</insuredMiddleInitial>
+      <insuredLastName>TEA</insuredLastName>
+      <insuredGroupNumber />
+      <insuredPhysicalCP>
+        <i_Address>
+          <i_Address1>2300 W PLANO PKWY</i_Address1>
+          <i_Address2 />
+          <i_City>PLANO</i_City>
+          <i_Country>
+            <i_Code>USA</i_Code>
+            <i_IsValid>True</i_IsValid>
+            <i_Description>UNITED STATES</i_Description>
+            <i_Oid>559</i_Oid>
+            <i_Timestamp>0</i_Timestamp>
+            <i_ChangedEvent null="True" />
+          </i_Country>
+          <i_State>
+            <i_Code>TX</i_Code>
+            <i_IsValid>True</i_IsValid>
+            <i_Description>TEXAS</i_Description>
+            <i_Oid>69</i_Oid>
+            <i_Timestamp>0</i_Timestamp>
+            <i_ChangedEvent null="True" />
+          </i_State>
+          <i_County null="True" />
+          <i_ZipCode>
+            <i_PostalCode>0</i_PostalCode>
+            <i_ZipCodePrimary>0</i_ZipCodePrimary>
+            <i_ZipCodeExtended>0000</i_ZipCodeExtended>
+            <i_PostalCodeAsInt>0</i_PostalCodeAsInt>
+            <i_ZipCodePrimaryAsInt>0</i_ZipCodePrimaryAsInt>
+            <i_ZipCodeExtendedAsInt>0</i_ZipCodeExtendedAsInt>
+            <i_ZipCodeStatus>
+              <i_Description />
+              <i_Oid>0</i_Oid>
+              <i_Timestamp>0</i_Timestamp>
+              <i_ChangedEvent null="True" />
+            </i_ZipCodeStatus>
+            <i_Oid>0</i_Oid>
+            <i_Timestamp>0</i_Timestamp>
+            <i_ChangedEvent null="True" />
+          </i_ZipCode>
+          <RollingAddress />
+          <isUnitedStatesAddress>True</isUnitedStatesAddress>
+          <USStateCodes>
+            <string>AA</string>
+            <string>AE</string>
+            <string>AK</string>
+            <string>AL</string>
+            <string>AP</string>
+            <string>AR</string>
+            <string>AS</string>
+            <string>AZ</string>
+            <string>CA</string>
+            <string>CO</string>
+            <string>CT</string>
+            <string>DC</string>
+            <string>DE</string>
+            <string>FL</string>
+            <string>FM</string>
+            <string>GA</string>
+            <string>GU</string>
+            <string>HI</string>
+            <string>IA</string>
+            <string>ID</string>
+            <string>IL</string>
+            <string>IN</string>
+            <string>KS</string>
+            <string>KY</string>
+            <string>LA</string>
+            <string>MA</string>
+            <string>MD</string>
+            <string>ME</string>
+            <string>MI</string>
+            <string>MN</string>
+            <string>MO</string>
+            <string>MS</string>
+            <string>MT</string>
+            <string>NC</string>
+            <string>ND</string>
+            <string>NE</string>
+            <string>NH</string>
+            <string>NJ</string>
+            <string>NM</string>
+            <string>NV</string>
+            <string>NY</string>
+            <string>OH</string>
+            <string>OK</string>
+            <string>OR</string>
+            <string>PA</string>
+            <string>PR</string>
+            <string>RI</string>
+            <string>SC</string>
+            <string>SD</string>
+            <string>TN</string>
+            <string>TX</string>
+            <string>UT</string>
+            <string>VA</string>
+            <string>VI</string>
+            <string>VT</string>
+            <string>WA</string>
+            <string>WI</string>
+            <string>WV</string>
+            <string>WY</string>
+          </USStateCodes>
+          <i_Oid>0</i_Oid>
+          <i_Timestamp>0</i_Timestamp>
+          <i_ChangedEvent null="True" />
+        </i_Address>
+        <i_EmailAddress>
+          <i_Uri />
+        </i_EmailAddress>
+        <i_PhoneNumber>
+          <i_CountryCode />
+          <i_AreaCode />
+          <i_Number />
+          <i_IsValid>True</i_IsValid>
+        </i_PhoneNumber>
+        <i_CellPhoneNumber>
+          <i_CountryCode />
+          <i_AreaCode />
+          <i_Number />
+          <i_IsValid>True</i_IsValid>
+        </i_CellPhoneNumber>
+        <i_TypeOfContactPoint>
+          <i_Description>PHYSICAL</i_Description>
+          <i_Oid>6</i_Oid>
+          <i_Timestamp>0</i_Timestamp>
+          <i_ChangedEvent null="True" />
+        </i_TypeOfContactPoint>
+        <i_Oid>0</i_Oid>
+        <i_Timestamp>0</i_Timestamp>
+        <i_ChangedEvent null="True" />
+      </insuredPhysicalCP>
+      <coverageOrderOid>1</coverageOrderOid>
+      <coverageMemberId>123456</coverageMemberId>
+      <coverageIssueDate>0</coverageIssueDate>
+      <isCoverageNull>False</isCoverageNull>
+      <coverageInsurancePlanId>070Q2</coverageInsurancePlanId>
+      <i_RequestPayorName>BLUE CROSS</i_RequestPayorName>
+      <typeOfCoverage>PatientAccess.Domain.CommercialCoverage</typeOfCoverage>
+    </PatientAccess.Domain.AccountDetailsRequest>    
+  </TestObject>
+</TestObjects>

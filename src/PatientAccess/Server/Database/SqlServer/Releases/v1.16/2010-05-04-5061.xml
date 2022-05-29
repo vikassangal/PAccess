@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+  logicalFilePath="SqlServer\Releases\v1.16\2010-05-04-5061.xml">
+  
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Add new actions to include items under Authorization form - Defect 5061
+    </comment>
+
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>RuleId=429 and ActionId = 48</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="RulesToActions">
+      <where>RuleId=430 and ActionId = 49</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=48</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="CompositeActions">
+      <where>Id=49</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=48</where>
+    </delete>
+    <delete schemaName="RuleEngine" tableName="Actions">
+      <where>Id=49</where>
+    </delete>
+
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="48" />
+      <column name="Description" value="Provide missing primary authorization information" />
+      <column name="Type" value="PatientAccess.Actions.OnAuthorizationFormForPrimaryCoverage" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="Actions">
+      <column name="Id" valueNumeric="49" />
+      <column name="Description" value="Provide missing secondary authorization information" />
+      <column name="Type" value="PatientAccess.Actions.OnAuthorizationFormForSecondaryCoverage" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="48" />
+      <column name="Description" value="Provide missing primary authorization information" />
+      <column name="Type" value="PatientAccess.Actions.OnAuthorizationFormForPrimaryCoverage" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeActions">
+      <column name="Id" valueNumeric="49" />
+      <column name="Description" value="Provide missing secondary authorization information" />
+      <column name="Type" value="PatientAccess.Actions.OnAuthorizationFormForSecondaryCoverage" />
+    </insert>
+
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="429" />
+      <column name="ActionId" valueNumeric="48" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="RulesToActions">
+      <column name="RuleId" valueNumeric="430" />
+      <column name="ActionId" valueNumeric="49" />
+    </insert>
+    
+    <rollback>
+      delete from RuleEngine.RulesToActions where RuleId = 429 and ActionId = 48;
+      delete from RuleEngine.RulesToActions where RuleId = 430 and ActionId = 49;
+      delete from RuleEngine.CompositeActions where Id = 48 ;
+      delete from RuleEngine.CompositeActions where Id = 49;
+      delete from RuleEngine.Actions where Id = 48 ;
+      delete from RuleEngine.Actions where Id = 49;
+    </rollback>
+
+  </changeSet>
+</databaseChangeLog>

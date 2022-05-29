@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.56\2021_08_31_6448.xml">
+
+  <changeSet id="A092C7F9-80A9-464E-B236-F085A9EFA817" author="vikas11.sangal" context="Local,Dev,Test">
+
+    <comment>
+     DMND 6448 – Enable DEL for iTest testing
+    </comment>
+    
+    <update schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="6" />
+      <where>Name='IsOKTAEnabled'</where>
+    </update>
+       
+  </changeSet>
+
+</databaseChangeLog>

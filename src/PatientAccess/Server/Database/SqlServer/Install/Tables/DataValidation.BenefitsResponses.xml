@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\DataValidation.BenefitsResponses.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create DataValidation.BenefitResponses Table
+    </comment>
+    <createTable schemaName="DataValidation" tableName="BenefitsResponses">
+      <column name="TicketId" type="varchar(36)" />
+      <column name="CoverageOrderId" type="int" />
+      <column name="PlanCategoryId" type="int" />
+      <column name="InsurancePlanCode" type="varchar(30)" />
+      <column name="RequestInsuredFirstName" type="varchar(35)" />
+      <column name="RequestInsuredLastName" type="varchar(35)" />
+      <column name="RequestInsuredMiddleInit" type="char(1)" />
+      <column name="RequestInsuredDob" type="varchar(35)" />
+      <column name="RequestPayor" type="varchar(60)" />
+      <column name="RequestSubscriberId" type="varchar(80)" />
+      <column name="ResponseParseStrategy" type="varchar(100)" />
+      <column name="ResponseGroupNumber" type="varchar(30)" />
+      <column name="ResponseInsuredDob" type="varchar(35)" />
+      <column name="ResponsePayor" type="varchar(60)" />
+      <column name="ResponseStatus" type="varchar(60)" />
+      <column name="ResponseSubscriberId" type="varchar(80)" />
+      <column name="ResponseInsuredFirstName" type="varchar(35)" />
+      <column name="ResponseInsuredLastName" type="varchar(35)" />
+      <column name="ResponseInsuredMiddleInit" type="char(1)" />
+      <column name="ResponseAuthCo" type="varchar(100)" />
+      <column name="ResponseAuthCoPhone" type="varchar(20)" />
+    </createTable>
+    <createIndex indexName="IXU_Id" schemaName="DataValidation" tableName="BenefitsResponses" unique="true">
+      <column name="TicketId" />
+    </createIndex>
+    <addForeignKeyConstraint constraintName="FK_BenefitsResponses_Tickets" baseTableSchemaName="DataValidation" baseTableName="BenefitsResponses" baseColumnNames="TicketId" referencedTableSchemaName="DataValidation" referencedTableName="Tickets" referencedColumnNames="Id" />
+  </changeSet>
+</databaseChangeLog>

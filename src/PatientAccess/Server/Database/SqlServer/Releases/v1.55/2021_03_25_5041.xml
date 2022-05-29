@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.55\2021_03_25_5041.xml">
+
+  <changeSet id="16FE61DE-978A-498C-905F-345C7DD390B1" author="vikas11.sangal" context="Model">
+   
+    <comment>
+      Load Facility.FacilityExtendedSettings default value for DefaultForShareHIEData is blank in ASX
+      and DefaultForNotifyPCPOfVisit is No in ASX for Facility.
+    </comment>
+   
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="967" />
+      <column name="Name" value="DefaultForShareHIEData" />
+      <column name="Value" value="" />
+    </insert>
+    
+    <insert schemaName="Facility" tableName="FacilityExtendedSettings">
+      <column name="FacilityId" value="967" />
+      <column name="Name" value="DefaultForNotifyPCPOfVisit" />
+      <column name="Value" value="No" />
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_05_07_3704.xml">
+	<changeSet id="A1ACA196-CAB8-4B17-823F-38AE03F2C550" author="Abhijeet.Hambir">
+		<comment>
+			CREATE PROCEDURE [DOFR].[GetAidCodeMapping]
+		</comment>
+		<createProcedure>
+			CREATE PROCEDURE [DOFR].[GetAidCodeMapping]
+			@FacilityId int
+			AS
+			BEGIN
+			SET NOCOUNT ON;
+			SELECT [AidCode],[Type]
+			FROM [DOFR].[AidCodeMapping]
+			Where [FacilityId]= @FacilityId
+			END
+		</createProcedure>
+		<sql>
+			GRANT EXECUTE ON [DOFR].[GetAidCodeMapping] TO db_apionly;
+		</sql>
+		<rollback>
+			REVOKE EXECUTE ON [DOFR].[GetAidCodeMapping] FROM db_apionly;
+			DROP PROCEDURE [DOFR].[GetAidCodeMapping];
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

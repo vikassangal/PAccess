@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:BenefitsValidationFusService/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="urn:BenefitsValidationFusService/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BenefitsValidationFusService" targetNamespace="urn:BenefitsValidationFusService/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:tns="urn:BenefitsValidationFusService/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:BenefitsValidationFusService/types">
+      <xsd:complexType name="dropFusNote">
+        <xsd:sequence>
+          <xsd:element name="BenefitsValidationFusRequest_1" nillable="true" type="tns:BenefitsValidationFusRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BenefitsValidationFusRequest">
+        <xsd:sequence>
+          <xsd:element name="customerId" type="xsd:int" />
+          <xsd:element name="hspcd" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="accountNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="benefitsValidationUniqueId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="dropFusNoteResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EDVServiceException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="dropFusNote" type="tns:dropFusNote" />
+      <xsd:element name="dropFusNoteResponse" type="tns:dropFusNoteResponse" />
+      <xsd:element name="EDVServiceException" type="tns:EDVServiceException" />
+    </xsd:schema>
+  </types>
+  <message name="BenefitsValidationFusServiceSEI_dropFusNote">
+    <part name="parameters" element="ns2:dropFusNote" />
+  </message>
+  <message name="BenefitsValidationFusServiceSEI_dropFusNoteResponse">
+    <part name="result" element="ns2:dropFusNoteResponse" />
+  </message>
+  <message name="EDVServiceException">
+    <part name="EDVServiceException" element="ns2:EDVServiceException" />
+  </message>
+  <portType name="BenefitsValidationFusServiceSEI">
+    <operation name="dropFusNote">
+      <input message="tns:BenefitsValidationFusServiceSEI_dropFusNote" />
+      <output message="tns:BenefitsValidationFusServiceSEI_dropFusNoteResponse" />
+      <fault name="EDVServiceException" message="tns:EDVServiceException" />
+    </operation>
+  </portType>
+  <binding name="BenefitsValidationFusServiceSEIBinding" type="tns:BenefitsValidationFusServiceSEI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="dropFusNote">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="EDVServiceException">
+        <soap:fault use="literal" name="EDVServiceException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="BenefitsValidationFusService">
+    <port name="BenefitsValidationFusServiceSEIPort" binding="tns:BenefitsValidationFusServiceSEIBinding">
+      <soap:address location="http://edvdev2.tenethealth.net:8080/edv/services/BenefitsValidationFusService" />
+    </port>
+  </service>
+</definitions>

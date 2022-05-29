@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+                   logicalFilePath="SqlServer\Releases\v1.18\2011-02-21-13743.xml">
+  
+  <changeSet id="D99978EB-4559-49D1-9CC3-446885DCAF8D" author="Smitha.Krishnamurthy">
+                 
+                <comment>
+                Defect 13743 - add AreaCodeRequiresPhoneNumber(440) and 
+                PhoneNumberPrefersPhoneNumber(439) to ShortPrereg and Short Reg contexts
+                </comment>
+    
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 21 and RuleId = 439</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 21 and RuleId = 440</where>
+                </delete>
+
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 20 and RuleId = 439</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 20 and RuleId = 440</where>
+                </delete>
+
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 482 and RuleId = 439</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 482 and RuleId = 440</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 476 and RuleId = 440</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 574 and RuleId = 440</where>
+                </delete>
+
+                <insert schemaName="RuleEngine" tableName="ContextsToRules">
+                  <column name="ContextId" valueNumeric="20" />
+                  <column name="RuleId" valueNumeric="439" />
+                </insert>
+    
+                <insert schemaName="RuleEngine" tableName="ContextsToRules">
+                  <column name="ContextId" valueNumeric="20" />
+                  <column name="RuleId" valueNumeric="440" />
+                </insert>
+
+              <insert schemaName="RuleEngine" tableName="ContextsToRules">
+                <column name="ContextId" valueNumeric="21" />
+                <column name="RuleId" valueNumeric="439" />
+              </insert>
+
+              <insert schemaName="RuleEngine" tableName="ContextsToRules">
+                <column name="ContextId" valueNumeric="21" />
+                <column name="RuleId" valueNumeric="440" />
+              </insert>
+    
+                <comment>
+                  Defect 13743 - add AreaCodeRequiresPhoneNumber(440) to OnShortDemographicsForm(482) ; OnShortGuarantor(476) and OnShortDiagnosis(474) and
+                  PhoneNumberPrefersPhoneNumber(439) to OnShortDemographicsForm(482) ;
+                </comment>
+    
+                <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <column name="CompositeRuleId" valueNumeric="482" />
+                  <column name="RuleId" valueNumeric="439" />
+                </insert>
+    
+                <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                <column name="CompositeRuleId" valueNumeric="482" />
+                <column name="RuleId" valueNumeric="440" />
+                </insert>
+    
+                <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <column name="CompositeRuleId" valueNumeric="476" />
+                  <column name="RuleId" valueNumeric="440" />
+                </insert>
+      
+                <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <column name="CompositeRuleId" valueNumeric="474" />
+                  <column name="RuleId" valueNumeric="440" />
+                </insert>
+      
+      
+    
+                <rollback>
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 21 and RuleId = 439</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 21 and RuleId = 440</where>
+                </delete>
+
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 20 and RuleId = 439</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="ContextsToRules">
+                  <where>ContextId = 20 and RuleId = 440</where>
+                </delete>
+
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 482 and RuleId = 439</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 482 and RuleId = 440</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 476 and RuleId = 440</where>
+                </delete>
+                <delete schemaName="RuleEngine" tableName="CompositeRulesToRules">
+                  <where>CompositeRuleId = 574 and RuleId = 440</where>
+                </delete>
+                    
+                </rollback>
+
+  </changeSet>
+</databaseChangeLog>

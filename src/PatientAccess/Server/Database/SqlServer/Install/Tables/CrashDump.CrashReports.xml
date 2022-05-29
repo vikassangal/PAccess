@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Tables\CrashDump.CrashReports.xml">
+  <changeSet id="1" author="Jon.Lent">
+    <comment>
+      Create CrashDump.CrashReports Table
+    </comment>
+    <createTable schemaName="CrashDump" tableName="CrashReports">
+      <column name="Id" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_CrashReports" />
+      </column>
+      <column name="UserUpn" type="varchar(50)" />
+      <column name="UserEmail" type="varchar(100)" />
+      <column name="UserPhoneNumber" type="varchar(10)" />
+      <column name="UserComments" type="varchar(2000)" />
+      <column name="UserLocalPermissions" type="varchar(256)" />
+      <column name="FacilityHospitalCode" type="varchar(5)" />
+      <column name="TimeOnPc" type="datetime" />
+      <column name="PbarWorkstationId" type="varchar(10)" />
+      <column name="VersionOfPatientAccess" type="varchar(50)" />
+      <column name="RamTotalOnSystem" type="int" />
+      <column name="RamUsedByPatientAccess" type="int" />
+      <column name="HddUtilization" type="varchar(50)" />
+      <column name="DotNetFrameworkVersion" type="varchar(50)" />
+      <column name="OperatingSystemVersion" type="varchar(256)" />
+      <column name="HotFixesInstalled" type="varchar(2000)" />
+      <column name="InternetExplorerVersion" type="varchar(50)" />
+      <column name="BitsVersion" type="varchar(50)" />
+      <column name="ExceptionType" type="varchar(256)" />
+      <column name="ClassName" type="varchar(256)" />
+      <column name="MethodName" type="varchar(256)" />
+      <column name="ExceptionMessage" type="varchar(2000)" />
+      <column name="ExceptionDetail" type="varchar(max)" />
+      <column name="DateAdded" type="datetime" defaultValueDate="getdate()" />
+      <column name="ClientIp" type="varchar(100)" />
+      <column name="ComputerName" type="varchar(100)" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Data\Load.Facility.FollowUpUnits.xml">
+  <changeSet id="1" author="Jon.Lent" context="Local,Dev,Test">
+    <comment>
+      Load Facility.FollowUpUnits
+    </comment>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="98" />
+      <column name="Name" value="PBAR/ICE TEST HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="04-02-2008 23:46:32" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="93" />
+      <column name="Name" value="ACCOUNT CYCLE OVERVIEW HO" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="04-02-2008 23:46:32" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="999" />
+      <column name="Name" value="DELRAY TEST HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="04-02-2008 23:46:32" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="40" />
+      <column name="Name" value="DELRAY TEST HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="04-02-2008 23:46:32" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.FollowUpUnits WHERE Id in ( 98, 93, 999, 40 )
+    </rollback>
+  </changeSet>
+  <changeSet id="2" author="Jon.Lent" context="Model">
+    <comment>
+      Load Facility.FollowUpUnits
+  </comment>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="996" />
+      <column name="Name" value="LINDY BOGGS TRAINING HOSP" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="6/21/2006 4:56:45 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="8" />
+      <column name="Name" value="LINDY BOGGS MEDICAL CENTE" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="6/21/2006 7:08:45 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="78" />
+      <column name="Name" value="SPALDING REGIONAL MEDICAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="6/22/2006 2:23:16 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="3" />
+      <column name="Name" value="GARDEN GROVE HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/11/2006 11:23:21 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="999" />
+      <column name="Name" value="STANDARD COPY HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/4/2007 6:52:56 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="40" />
+      <column name="Name" value="DOCTORS' HOSPITAL (DHF)" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="8/29/2006 9:34:50 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="10" />
+      <column name="Name" value="DELRAY MEDICAL CENTER" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/20/2006 7:25:42 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="79" />
+      <column name="Name" value="SYLVAN GROVE HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="12/28/2006 8:04:34 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="56" />
+      <column name="Name" value="HILTON HEAD REG MED CENTE" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/12/2007 4:12:29 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="145" />
+      <column name="Name" value="ST CHRISTOPHER`S HSP F/CH" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/18/2007 10:56:12 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="911" />
+      <column name="Name" value="SAN DIMAS TEST HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/25/2007 11:02:44 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="21" />
+      <column name="Name" value="COMM HOSP OF LOS GATOS" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="2/21/2007 8:36:10 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="73" />
+      <column name="Name" value="SOUTH FULTON MEDICAL CENT" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/16/2007 3:56:27 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="42" />
+      <column name="Name" value="SIERRA MEDICAL CENTER    " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="6/15/2007 10:47:19 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="998" />
+      <column name="Name" value="PROVIDENCE MEM TRAINING H" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/5/2007 2:46:40 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="143" />
+      <column name="Name" value="EAST COOPER REGIONAL MED." />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/11/2007 1:54:07 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="80" />
+      <column name="Name" value="CENTRAL CAROLINA HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/19/2007 8:34:35 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="150" />
+      <column name="Name" value="LAKE POINTE MEDICAL CENTE" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/19/2007 2:57:43 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="81" />
+      <column name="Name" value="NACOGDOCHES MEDICAL CENTE" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="8/7/2007 9:31:16 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="17" />
+      <column name="Name" value="JOHN F KENNEDY MEMORIAL H" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="8/28/2007 10:52:14 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="142" />
+      <column name="Name" value="DESERT REGIONAL MEDICAL C" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="8/31/2007 9:28:19 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="152" />
+      <column name="Name" value="DES PERES HOSPITAL       " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/25/2007 8:55:23 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="997" />
+      <column name="Name" value="EL PASO EASTSIDE TESTING " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="12/11/2007 9:35:25 AM" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.FollowUpUnits WHERE Id in ( 996,8,78,3,999,40,10,79,56,145,911,21,73,42,998,143,80,150,81,17,142,152,997 )
+  </rollback>
+  </changeSet>
+  <changeSet id="3" author="Jon.Lent" context="Beta">
+    <comment>
+      Load Facility.FollowUpUnits
+    </comment>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="8" />
+      <column name="Name" value="NORTHSHORE REGIONAL MEDIC" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/15/2007 12:54:33 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="997" />
+      <column name="Name" value="NORTHSHORE REG MED TRAINI" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/7/2007 11:47:49 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="808" />
+      <column name="Name" value="DES PERES TRAINING HOSP  " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/5/2007 10:30:33 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="152" />
+      <column name="Name" value="DES PERES HOSPITAL       " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/26/2007 7:05:51 PM" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.FollowUpUnits WHERE Id in ( 8,997,808,152 )
+    </rollback>
+  </changeSet>
+  <changeSet id="4" author="Jon.Lent" context="Prod">
+    <comment>
+      Load Facility.FollowUpUnits
+    </comment>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="8" />
+      <column name="Name" value="NORTHSHORE REGIONAL MEDIC" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/15/2007 12:54:33 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="78" />
+      <column name="Name" value="SPALDING REGIONAL MEDICAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/8/2006 8:54:06 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="999" />
+      <column name="Name" value="SPALDING TRAINING HOSPITA" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/8/2006 4:36:33 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="40" />
+      <column name="Name" value="DOCTORS' HOSPITAL (DHF)" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/21/2006 10:53:54 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="3" />
+      <column name="Name" value="LOS ALAMITOS MEDICAL CENTER" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/28/2007 11:13:28 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="10" />
+      <column name="Name" value="DELRAY MEDICAL CENTER" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="10/5/2006 11:45:12 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="145" />
+      <column name="Name" value="HAHNEMANN UNIVERSITY HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="11/8/2007 4:30:23 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="56" />
+      <column name="Name" value="HILTON HEAD REG MED CENTE" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/23/2007 11:16:40 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="73" />
+      <column name="Name" value="SOUTH FULTON MEDICAL CENT" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/13/2007 8:54:08 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="998" />
+      <column name="Name" value="DOCTORS MED CNTR TRAINING" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="4/10/2007 7:14:04 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="173" />
+      <column name="Name" value="NORRIS CANCER HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/27/2009 10:37:10 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="21" />
+      <column name="Name" value="COMM HOSP OF LOS GATOS" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/1/2007 2:57:16 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="170" />
+      <column name="Name" value="SAN DIMAS HOSP (DIVESTED)" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/1/2008 8:07:47 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="169" />
+      <column name="Name" value="GARDEN GROVE HOSPITAL - DIV." />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/1/2008 8:37:12 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="997" />
+      <column name="Name" value="NORTHSHORE REG MED TRAINI" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="3/7/2007 11:47:49 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="79" />
+      <column name="Name" value="SYLVAN GROVE HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/10/2007 8:12:35 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="99" />
+      <column name="Name" value="PINECREST REHAB CENTER TR" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/10/2007 1:43:33 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="801" />
+      <column name="Name" value="ST. CHRISTOPHER'S HSP. TR" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/10/2007 1:09:41 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="911" />
+      <column name="Name" value="SAN DIMAS TEST HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/2/2007 12:02:16 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="42" />
+      <column name="Name" value="SIERRA MEDICAL CENTER" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="11/8/2007 11:14:27 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="143" />
+      <column name="Name" value="EAST COOPER REGIONAL MED." />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="7/18/2007 9:42:44 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="150" />
+      <column name="Name" value="LAKE POINTE MEDICAL CENTER" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="2/5/2008 5:05:14 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="81" />
+      <column name="Name" value="NACOGDOCHES MEDICAL CENTE" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="8/22/2007 6:54:09 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="17" />
+      <column name="Name" value="JOHN F KENNEDY MEMORIAL H" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="8/30/2007 7:02:35 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="808" />
+      <column name="Name" value="DES PERES TRAINING HOSP  " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/5/2007 10:30:33 AM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="142" />
+      <column name="Name" value="DESERT REGIONAL MEDICAL C" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/5/2007 7:04:39 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="152" />
+      <column name="Name" value="DES PERES HOSPITAL       " />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="9/26/2007 7:05:51 PM" />
+    </insert>
+    <insert schemaName="Facility" tableName="FollowUpUnits">
+      <column name="Id" valueNumeric="80" />
+      <column name="Name" value="CENTRAL CAROLINA HOSPITAL" />
+      <column name="StatusCode" />
+      <column name="LastUpdated" value="1/16/2008 7:05:32 PM" />
+    </insert>
+    <rollback>
+      DELETE FROM Facility.FollowUpUnits WHERE Id in ( 8,78,999,40,3,10,145,56,73,998,173,21,170,169,997,79,99,801,911,42,143,150,81,17,808,142,152,80  )
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.20\2011-07-28-16813.xml">
+
+  <changeSet id="FF706003-2BA5-4A4E-9BF1-967B9163A285" author="Ahmed.Chaudhary">
+
+    <comment>
+      Fix rule descriptions to fix text formatting for the quick account creation todo list items
+    </comment>
+
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Complete missing fields on the Quick Account Creation form" />
+      <where>Id=483</where>
+    </update>
+
+    <update schemaName="RuleEngine" tableName="CompositeRules">
+      <column name="Description" value="Complete missing fields on the Quick Account Creation form" />
+      <where>Id=483</where>
+    </update>
+
+    <rollback>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="Complete missing fields on the QuickAccountCreation  form  " />
+        <where>Id=483</where>
+      </update>
+
+      <update schemaName="RuleEngine" tableName="CompositeRules">
+        <column name="Description" value="Complete missing fields on the QuickAccountCreation form " />
+        <where>Id=483</where>
+      </update>
+
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>

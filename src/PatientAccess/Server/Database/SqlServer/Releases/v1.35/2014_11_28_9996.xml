@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"
+                   logicalFilePath="SqlServer\Releases\v1.35\2014_11_28_9996.xml">
+
+  <changeSet id="C10AE81E-49D7-463B-A17B-7E86583A9702" author="Leelavathi.Vanniya">
+
+
+    <comment>
+      SR 9996 – Meaningful Use - Marketing Email opt in
+    </comment>
+
+    <comment>
+      insert MarketingEmailOptInRequired (517) to Rules table
+    </comment>
+
+    <insert schemaName="RuleEngine" tableName="Rules">
+      <column name="Id" valueNumeric="517" />
+      <column name="Description" value="Marketing Email opt in" />
+      <column name="Type" value="PatientAccess.Rules.MarketingEmailOptInRequired" />
+      <column name="Severity" valueNumeric="4" />
+    </insert>
+    
+    <comment>
+      Insert MarketingEmailOptInRequired(517) to Contexts (7,10,13,21) in ContextsToRules table
+    </comment>
+  
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="7" />
+      <column name="RuleId" valueNumeric="517" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="10" />
+      <column name="RuleId" valueNumeric="517" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="13" />
+      <column name="RuleId" valueNumeric="517" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="ContextsToRules">
+      <column name="ContextId" valueNumeric="21" />
+      <column name="RuleId" valueNumeric="517" />
+    </insert>
+    <comment>
+      Insert MarketingEmailOptInRequired(517) to Contexts ( 211, 477 ) in CompositeRulesToRules table
+    </comment>
+  
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="211" />
+      <column name="Ruleid" valueNumeric="517" />
+    </insert>
+    <insert schemaName="RuleEngine" tableName="CompositeRulesToRules">
+      <column name="CompositeRuleId" valueNumeric="477" />
+      <column name="Ruleid" valueNumeric="517" />
+    </insert>
+
+
+
+  </changeSet>
+</databaseChangeLog>

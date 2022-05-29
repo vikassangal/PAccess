@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2022_05_04_3704.xml">
+
+	<changeSet id="CD04FA9E-2842-4694-8672-8D5E7AB7C82A" author="Abhijeet.Hambir">
+		<comment>
+			Create DOFR.AidCodeMapping Table
+		</comment>
+		<createTable schemaName="DOFR" tableName="AidCodeMapping">
+			<column name="Id" type="int" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="FacilityId" type="int">
+				<constraints nullable="false" foreignKeyName="FK_AidCodeMapping_Facility" references="Facility.Facilities(Id)" />
+			</column>
+			<column name="AidCode" type="varchar(05)">
+				<constraints nullable="false" />
+			</column>
+			<column name="Benefits" type="varchar(250)">
+				<constraints nullable="false" />
+			</column>
+			<column name="Type" type="varchar(20)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey constraintName="PK_AidCodeMapping" schemaName="DOFR" tableName="AidCodeMapping" columnNames="FacilityId,AidCode,Type" />
+	</changeSet>
+
+</databaseChangeLog>

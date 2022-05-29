@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.54\ViWeb.ViWebScan_Parameter.xml">
+  <changeSet id="D2E246F7-1351-4B59-80A5-83B7B109C79D" author="vikas11.sangal">
+    <comment>
+      Create ViWeb.ViWebScan_Parameter Table
+    </comment>
+    <createTable schemaName="ViWeb" tableName="ViWebScan_Parameter">
+      <column name="ID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_VIWEB_SCAN" />
+      </column>
+      <column name="hspCd" type="varchar(50)" >
+        <constraints nullable="false" />
+      </column>
+      <column name="patNumber" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="patName" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="Payor" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="admitDate" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="mrNumber" type="varchar(50)"/>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

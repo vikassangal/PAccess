@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Releases\v1.18\2010-01-12-1190.xml">
+  <changeSet id="1" author="Smitha.Krishnamurthy">
+    <comment>
+      Update Emergency contact rules descritoin to contact text
+    </comment>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact name" />
+      <where>Id=92</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact name" />
+      <where>Id=80</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact relationship" />
+      <where>Id=88</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact relationship" />
+      <where>Id=89</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact phone" />
+      <where>Id=90</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact phone" />
+      <where>Id=91</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact area code" />
+      <where>Id=443</where>
+    </update>
+    <update schemaName="RuleEngine" tableName="Rules">
+      <column name="Description" value="Contact area code" />
+      <where>Id=443</where>
+    </update>
+    <rollback>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value= "name"  />
+        <where>Id=92</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value= "name"  />
+        <where>Id=80</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="relationship" />
+        <where>Id=88</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="relationship" />
+        <where>Id=89</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="phone" />
+        <where>Id=90</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="phone" />
+        <where>Id=91</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="area code" />
+        <where>Id=443</where>
+      </update>
+      <update schemaName="RuleEngine" tableName="Rules">
+        <column name="Description" value="area code" />
+        <where>Id=443</where>
+      </update>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

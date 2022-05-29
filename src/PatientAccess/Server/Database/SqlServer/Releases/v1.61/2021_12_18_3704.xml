@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" 
+				   logicalFilePath="SqlServer\Releases\v1.61\2021_12_18_3704.xml">
+	<changeSet id="42EFE2C0-59D8-43C8-8A81-B02CCDE9352D" author="Abhijeet.Hambir">
+		<comment>
+			CREATE PROCEDURE [DOFR].[GetServiceCategoryForClinicCode]
+		</comment>
+		<createProcedure>
+			CREATE PROCEDURE [DOFR].[GetServiceCategoryForClinicCode]
+			@FacilityId int,
+			@ClinicCode varchar(20)
+			AS
+			BEGIN
+			SET NOCOUNT ON;
+			;WITH CTE AS
+			(
+			SELECT [FacilityId],LTRIM(RTRIM(UPPER(ITEM))) as [ClinicCode],UPPER([ServiceCategory]) as [ServiceCategory],[ServiceCategoryCode]
+			FROM [DOFR].[ServiceCategory]
+			CROSS APPLY [Utility].[ArrayToTable]([Utility].[StringToArray]([ClinicCode],','))
+			WHERE [FacilityID] = @FacilityId
+			)
+			SELECT [ServiceCategory],[ServiceCategoryCode] FROM CTE WHERE ClinicCode = UPPER(@ClinicCode)
+			END
+		</createProcedure>
+		<sql>
+			GRANT EXECUTE ON [DOFR].[GetServiceCategoryForClinicCode] TO db_apionly;
+		</sql>
+		<rollback>
+			REVOKE EXECUTE ON [DOFR].[GetServiceCategoryForClinicCode] FROM db_apionly;
+			DROP PROCEDURE [DOFR].[GetServiceCategoryForClinicCode];
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

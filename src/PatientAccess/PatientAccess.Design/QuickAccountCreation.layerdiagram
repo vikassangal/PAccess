@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="fe92e436-cb87-421a-b443-7bce00d29519" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="2130a791-ec7b-40db-950e-5a7adefba3f0" name="Comment1">
+      <body>The dependency between the Presenters and System.Windows needs to be broken
+
+In order to see the details of this dependency right click and delete  the dependency line, right click blank area on the diagram and click on "validate architechture" and look at the errors</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="2195951c-90df-46d3-a932-103492e4f854" />
+        </linkFromCommentToLayerElement>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="21d552a0-7879-41d1-b2f6-3b63c8b12653" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+    <comment Id="5fd45457-b524-4b90-b011-302e2ef3ffee" name="Comment2">
+      <body>The dependency between the View implementations and PatientAccess.Rules needs to be broken
+
+In order to see the details of this dependency right click and delete  the dependency line, right click blank area on the diagram and click on "validate architechture" and look at the errors</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="7b3b7785-10d9-4e44-880c-9186dbd0286b" />
+        </linkFromCommentToLayerElement>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="214d95e5-4bfc-41fd-a6d8-0e55cece365b" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="2195951c-90df-46d3-a932-103492e4f854" name="Presenters">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="97630106-3ffd-44e8-98df-70f5ced34d0c" direction="Forward">
+          <layerMoniker Id="dcfb08ae-a8bb-4e44-a6bd-d5dbb87209fd" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="b676b977-99e2-4bc3-aa7c-798b171f5fc1" direction="Forward">
+          <layerMoniker Id="214d95e5-4bfc-41fd-a6d8-0e55cece365b" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c8f8c64f-c3c0-4770-8734-da837c58b665" direction="Forward">
+          <layerMoniker Id="21d552a0-7879-41d1-b2f6-3b63c8b12653" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="a1444bb9-22e5-40f2-a858-a1791b872fe6" name="PatientAccess.UI.QuickAccountCreation.Presenters">
+          <ArtifactNode Label="PatientAccess.UI.QuickAccountCreation.Presenters" Category="CodeSchema_Namespace" Id="(Namespace=PatientAccess.UI.QuickAccountCreation.Presenters)" />
+          <ExpandedNode Id="(Assembly=PatientAccess)" Label="PatientAccess.exe" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=PatientAccess.UI.QuickAccountCreation.Presenters)" Label="PatientAccess.UI.QuickAccountCreation.Presenters" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="7b3b7785-10d9-4e44-880c-9186dbd0286b" name="ViewImpl">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="d2823085-c67a-438c-ad8b-5b6511782e35" direction="Forward">
+          <layerMoniker Id="2195951c-90df-46d3-a932-103492e4f854" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="1835793e-dbd2-445f-b58e-a68dd53aa952" direction="Forward">
+          <layerMoniker Id="dcfb08ae-a8bb-4e44-a6bd-d5dbb87209fd" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="cbe2fda9-a1f7-496b-8979-2002d545f23e" direction="Forward">
+          <layerMoniker Id="21d552a0-7879-41d1-b2f6-3b63c8b12653" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c499408f-5510-4a61-9b66-15cecbd2228b" direction="Forward">
+          <layerMoniker Id="214d95e5-4bfc-41fd-a6d8-0e55cece365b" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="71ee66a5-63ec-434e-af76-ee579e0da8af" name="PatientAccess.UI.QuickAccountCreation.ViewImpl">
+          <ArtifactNode Label="PatientAccess.UI.QuickAccountCreation.ViewImpl" Category="CodeSchema_Namespace" Id="(Namespace=PatientAccess.UI.QuickAccountCreation.ViewImpl)" />
+          <ExpandedNode Id="(Assembly=PatientAccess)" Label="PatientAccess.exe" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=PatientAccess.UI.QuickAccountCreation.ViewImpl)" Label="PatientAccess.UI.QuickAccountCreation.ViewImpl" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="dcfb08ae-a8bb-4e44-a6bd-d5dbb87209fd" name="Views">
+      <references>
+        <reference Id="ad7ecb89-d248-45da-a389-dd5925307472" name="PatientAccess.UI.QuickAccountCreation.Views">
+          <ArtifactNode Label="PatientAccess.UI.QuickAccountCreation.Views" Category="CodeSchema_Namespace" Id="(Namespace=PatientAccess.UI.QuickAccountCreation.Views)" />
+          <ExpandedNode Id="(Assembly=PatientAccess)" Label="PatientAccess.exe" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=PatientAccess.UI.QuickAccountCreation.Views)" Label="PatientAccess.UI.QuickAccountCreation.Views" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="214d95e5-4bfc-41fd-a6d8-0e55cece365b" name="PatientAccess.Rules">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="55eb331f-4783-4570-86d1-8e0991b76e91" direction="Forward">
+          <layerMoniker Id="21d552a0-7879-41d1-b2f6-3b63c8b12653" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="f718ab22-3466-4acf-9359-4099a7b6fc9e" name="PatientAccess.Rules">
+          <ArtifactNode Label="PatientAccess.Rules" Category="CodeSchema_Namespace" Id="(Namespace=PatientAccess.Rules)" />
+          <ExpandedNode Id="(Assembly=PatientAccess.Common)" Label="PatientAccess.Common.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=PatientAccess.Rules)" Label="PatientAccess.Rules" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="21d552a0-7879-41d1-b2f6-3b63c8b12653" name="System.Windows">
+      <references>
+        <reference Id="2143b74f-7112-4bbe-a308-1c58e139bba4" name="System.Windows">
+          <ArtifactNode Label="System.Windows" Category="CodeSchema_Namespace" Id="(Namespace=System.Windows)" />
+          <ExpandedNode Id="(Namespace=System.Windows)" Label="System.Windows" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd" logicalFilePath="SqlServer\Install\Security\Users.xml">
+  <changeSet id="0" author="Jon.Lent" runInTransaction="false" context="Local">
+    <comment>
+      Create service user for local
+    </comment>
+    <sql>
+      IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'service')
+      CREATE USER [service] FOR LOGIN [${computer.name}\ASPNET] WITH DEFAULT_SCHEMA=[dbo];
+    </sql>
+    <rollback>
+      <sql>
+        IF EXISTS (SELECT * FROM sys.database_principals WHERE name = N'service')
+        DROP USER [service];
+      </sql>
+    </rollback>
+  </changeSet>
+  <changeSet id="1" author="Jon.Lent" runInTransaction="false" context="Local,Dev">
+    <comment>
+      Grant dbo impersonation to service
+    </comment>
+    <sql>
+      GRANT IMPERSONATE ON USER::dbo TO [service];
+    </sql>
+    <rollback>
+      <sql>
+        REVOKE IMPERSONATE ON USER::dbo FROM [service];
+      </sql>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

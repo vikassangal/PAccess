@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s0="urn:PriorAccountBalanceService/types" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:PriorAccountBalanceService/types" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:PriorAccountBalanceService/types">
+      <s:element name="identifyPriorAccountBalances">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="PriorAccountBalanceRequest_1" type="s0:priorAccountBalanceRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="priorAccountBalanceRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:serviceRequest">
+            <s:sequence>
+              <s:element minOccurs="0" name="medicalRecordNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="serviceRequest">
+        <s:sequence>
+          <s:element name="customerId" type="s:int" />
+          <s:element minOccurs="0" name="hspcd" type="s:string" />
+          <s:element minOccurs="0" name="userId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="identifyPriorAccountBalancesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="s0:priorAccountBalanceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="priorAccountBalanceResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="accounts" nillable="true" type="s0:account" />
+          <s:element minOccurs="0" name="status" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfaccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="account" nillable="true" type="s0:account" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="account">
+        <s:sequence>
+          <s:element minOccurs="0" name="aceDebtorId" type="s:string" />
+          <s:element minOccurs="0" name="dischargeDate" type="s:string" />
+          <s:element minOccurs="0" name="financialClass" type="s0:financialClass" />
+          <s:element minOccurs="0" name="patientAccountNumber" type="s:string" />
+          <s:element minOccurs="0" name="patientType" type="s0:patientType" />
+          <s:element name="paymentPlan" type="s:boolean" />
+          <s:element name="principalBalance" type="s:float" />
+          <s:element name="totalBalance" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="financialClass">
+        <s:sequence>
+          <s:element minOccurs="0" name="code" type="s:string" />
+          <s:element minOccurs="0" name="description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="patientType">
+        <s:sequence>
+          <s:element minOccurs="0" name="code" type="s:string" />
+          <s:element minOccurs="0" name="description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="identifyPriorAccountBalancesSoapIn">
+    <wsdl:part name="parameters" element="s0:identifyPriorAccountBalances" />
+  </wsdl:message>
+  <wsdl:message name="identifyPriorAccountBalancesSoapOut">
+    <wsdl:part name="parameters" element="s0:identifyPriorAccountBalancesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PriorAccountBalanceServiceSoap">
+    <wsdl:operation name="identifyPriorAccountBalances">
+      <wsdl:input message="s0:identifyPriorAccountBalancesSoapIn" />
+      <wsdl:output message="s0:identifyPriorAccountBalancesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PriorAccountBalanceServiceSoap" type="s0:PriorAccountBalanceServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="identifyPriorAccountBalances">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PriorAccountBalanceService">
+    <wsdl:port name="PriorAccountBalanceServiceSoap" binding="s0:PriorAccountBalanceServiceSoap">
+      <soap:address location="http://localhost:52773/csp/healthshare/EDVPBS/EDVPBS.WS.PBS.V1.WebService.PriorAccountBalanceService.cls" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
