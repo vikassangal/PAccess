@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="CreateDeploymentPackage" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+  <!-- Globals -->
+  <PropertyGroup>
+    <SolutionRoot>$(MSBuildProjectDirectory)\..</SolutionRoot>
+    <ToolsDirectory>$(SolutionRoot)\tools</ToolsDirectory>
+    <TasksDirectory>$(ToolsDirectory)\tasks</TasksDirectory>
+    <ClientTestsDirectory>$(SolutionRoot)\src\PatientAccess\Tests\PatientAccessClientTests</ClientTestsDirectory>
+    <ServerTestsDirectory>$(SolutionRoot)\src\PatientAccess\Tests\PatientAccessServerTests</ServerTestsDirectory>
+    <Version Condition="'$(Version)'==''">$(CCNetLabel)</Version>
+  </PropertyGroup>
+
+  <!-- Import all the custom tasks we use -->
+  <Import Project="$(TasksDirectory)\MSBuild.ExtensionPack.tasks" />
+
+  <Import Project="$(TasksDirectory)\MSBuild.Community.Tasks.Targets" />
+
+  <Import Project="$(TasksDirectory)\Microsoft.Sdc.Common.tasks" />
+
+  <Import Project="$(MSBuildProjectDirectory)\ContinuousIntegrationSettings.proj"
+          Condition="Exists('$(MSBuildProjectDirectory)\ContinuousIntegrationSettings.proj')"/>
+
+  <!-- These need to move to the database ASAP -->
+  <PropertyGroup>
+    <DboName>pid.PatientAccess.Admin</DboName>
+    <DboPassword>ud5nNctZCblyhfmWlcms</DboPassword>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Environment)'=='Dev' Or '$(Environment)'=='Test'">
+    <DeployName>HDC\pid.citools</DeployName>
+    <DeployPassword>5t0rm</DeployPassword>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Environment)'=='Model'">
+    <DeployName>MDLTENETHEALTH\PatientAccess.Deploy</DeployName>
+    <DeployPassword>Mat3rh0rn</DeployPassword>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Environment)'=='Beta' Or '$(Environment)'=='Prod'">
+    <DeployName>TENETHEALTH\PatientAccess.Deploy</DeployName>
+    <DeployPassword>Mat3rh0rn</DeployPassword>
+  </PropertyGroup>
+
+  <!--
+   Call the master configuration script located in the solution items folder. GenerationOption
+   is set to All, so the script will run the generate script in the configuration directory
+   of all projects in the solution, including tests and installers. This is used to configure
+   the solution for building and testing and, since it does not cause compilation, is also
+   used to reconfigure a build drop once it has been promoted to a new environment.
+  -->
+  <Target Name="Configure" Condition="'$(SkipConfigureStep)'==''">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Configuring Solution ..." />
+    <Message Text="==========================================================================" />
+
+    <Error Text="Branch variable has not been set" Condition="'$(Branch)'==''" />
+    <Error Text="Environment variable has not been set" Condition="'$(Environment)'==''" />
+    <Error Text="Version variable has not been set" Condition="'$(Version)'==''" />
+
+    <MSBuild Projects="$(SolutionRoot)\src\PatientAccess\Solution Items\Configuration\Configure.proj"
+             StopOnFirstFailure="true"
+             ToolsVersion="4.0"
+             Properties="Branch=$(Branch);Environment=$(Environment);Version=$(Version);GenerationOption=All" />
+     
+  </Target>
+
+
+  <!--
+   This builds the solution in release configuration. Prior to the acutal build, it will 
+   modify the version information in the SolutionInfo.cs file so that all binaries built
+   from it will share the same version number.
+  -->
+  <Target Name="Build" Condition="'$(SkipBuildStep)'==''" DependsOnTargets="Configure">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Updating Assembly Version and Building Solution ..." />
+    <Message Text="==========================================================================" />
+
+    <Attrib Files="$(SolutionRoot)\src\PatientAccess\Solution Items\SolutionInfo.cs"
+            ReadOnly="false" />
+
+    <FileUpdate Files="$(SolutionRoot)\src\PatientAccess\Solution Items\SolutionInfo.cs"
+                Regex='\[assembly: (AssemblyVersion|AssemblyFileVersion)\( "\d+\.\d+\.\d+\.\d+" \)\]'
+                ReplacementText='[assembly: $1( "$(Version)" )]' />
+
+    <MSBuild Projects="$(SolutionRoot)\src\PatientAccess\PatientAccess.sln"
+             StopOnFirstFailure="true"
+             ToolsVersion="4.0"
+             Properties="Configuration=Release" />
+
+  </Target>
+
+
+  <!--
+   Once a build drop has been moved to a new environment, this task will rebuild the client
+   installer and client ZIP arhives used by the application updater mechanism. The result of
+   this task will be placed directly into the Downloads directory of the AppServer for
+   immediate use by the application updater mechanism.
+  -->
+  <Target Name="CreateInstallationFiles" Condition="'$(SkipCreateInstallationFilesStep)'==''">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Creating ZIP Package ..." />
+    <Message Text="==========================================================================" />
+
+    <ItemGroup>
+      <FilesToZip Include="$(SolutionRoot)\src\PatientAccess\Client\Winforms\bin\**" Exclude="$(SolutionRoot)\src\PatientAccess\Client\Winforms\bin\Oracle.DataAccess.dll;$(SolutionRoot)\src\PatientAccess\Client\Winforms\bin\*.xml" />
+    </ItemGroup>
+
+    <MSBuild.Community.Tasks.Zip ZipLevel="9"
+                                 Files="@(FilesToZip)"
+                                 Flatten="true"
+                                 ZipFileName="$(SolutionRoot)\src\PatientAccess\Server\AppServer\Downloads\PatientAccessClientWin32.zip" />
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Creating Client Installer ..." />
+    <Message Text="==========================================================================" />
+
+    <MSBuild Projects="$(SolutionRoot)\src\PatientAccess\Client\ClientInstaller\ClientInstaller.wixproj"
+             StopOnFirstFailure="true"
+             ToolsVersion="4.0"
+             Properties="Configuration=Release" />
+
+  </Target>
+
+
+  <!--
+   Execute the unit test in the solution. This currently requires using the Exec task to
+   wrap MSTEST. Results are stored in a TestResults directory for use in reports on the
+   build server.
+  -->
+  <Target Name="Test" DependsOnTargets="Build">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Running Tests ..." />
+    <Message Text="==========================================================================" />
+
+    <CallTarget Targets="MigrateDatabase" />
+
+    <ItemGroup>
+      <TestAssemblies Include="$(ServerTestsDirectory)\bin\PatientAccessServerTests.dll">
+        <ResultFile>$(SolutionRoot)\src\PatientAccess\TestResults\ServerTestResults.trx</ResultFile>
+        <RunConfig>$(SolutionRoot)\src\PatientAccess\PatientAccess.Testrunconfig</RunConfig>
+      </TestAssemblies>
+      <TestAssemblies Include="$(ClientTestsDirectory)\bin\PatientAccessClientTests.dll">
+        <ResultFile>$(SolutionRoot)\src\PatientAccess\TestResults\ClientTestResults.trx</ResultFile>
+        <RunConfig>$(SolutionRoot)\src\PatientAccess\PatientAccess.Testrunconfig</RunConfig>
+      </TestAssemblies>
+    </ItemGroup>
+
+    <RemoveDir Directories="$(SolutionRoot)\src\PatientAccess\TestResults" />
+
+    <MakeDir Directories="$(SolutionRoot)\src\PatientAccess\TestResults" />
+
+   <!--there is a known bug where on certain OSes mstest.exe sometimes returns 128 whether	successful or not	-->
+	
+	<Exec Command="&quot;$(VS100COMNTOOLS)\..\IDE\mstest.exe&quot; /testcontainer:&quot;%(TestAssemblies.Identity)&quot; /resultsfile:&quot;%(TestAssemblies.ResultFile)&quot; /runconfig:&quot;%(TestAssemblies.RunConfig)&quot;" >
+		<Output TaskParameter="ExitCode" PropertyName="ErrorCode"/>
+	</Exec>
+	
+	<Message Text="The exit code is $(ErrorCode)"/>
+	
+	<Warning Text="Error code 128 was returned by MSTest" Condition="'$(ErrorCode)' == '128'" />
+	
+	<Error Text="One or more tests failed" Condition="'$(ErrorCode)' != '0' And '$(ErrorCode)' != '128'" />	
+
+  </Target>
+
+
+  <!--
+   Call the Migrate project in the Database project to apply any updates to the application's
+   SqlServer database.
+  -->
+  <Target Name="MigrateDatabase">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Migrating Changes for SqlServer 2012 ..." />
+    <Message Text="==========================================================================" />
+
+    <Error Text="Branch variable has not been set" Condition="'$(Branch)'==''" />
+    <Error Text="Environment variable has not been set" Condition="'$(Environment)'==''" />
+
+    <MSBuild Projects="$(SolutionRoot)\src\PatientAccess\Server\Database\SqlServer\Migrate.proj"
+             StopOnFirstFailure="true"
+             ToolsVersion="4.0"
+             Properties="Branch=$(Branch);Environment=$(Environment);Password=$(DboPassword)" />
+
+  </Target>
+
+
+  <!--
+   This is only used immediately after the build. It creates the first deployment
+   package in the Dev environment and configured it.
+  -->
+  <Target Name="CreateDeploymentPackage" DependsOnTargets="Test">
+
+    <PropertyGroup>
+      <DestinationPath>$(BuildDropPath)\Dev\$(Version)</DestinationPath>
+      <AppServerPath>$(SolutionRoot)\src\PatientAccess\Server\AppServer</AppServerPath>
+    </PropertyGroup>
+
+    <!-- Copy a stripped-down version of the solution workspace-->
+    <ItemGroup>
+      <ApplicationFiles Include="$(AppServerPath)\**\*.*;"
+                        Exclude="$(AppServerPath)\obj\**\*.*;$(AppServerPath)\PatientAccess\**\*.*;$(AppServerPath)\Modules\**\*.*;$(AppServerPath)\Properties\**\*.*;$(AppServerPath)\Web References\**\*.*;$(AppServerPath)\**\*.cs;$(AppServerPath)\PatientAccess.*;$(AppServerPath)\Resources\**\*.*;$(AppServerPath)\**\*.resx">
+      </ApplicationFiles>
+      <ProjectConfigurationFiles Include="$(SolutionRoot)\src\PatientAccess\**\Configuration\*.*"
+                                 Exclude="$(SolutionRoot)\src\PatientAccess\Tests\**\*.*">
+      </ProjectConfigurationFiles>
+      <ClientInstallerFiles Include="$(SolutionRoot)\src\PatientAccess\Client\ClientInstaller\**\*.*"
+                            Exclude="$(SolutionRoot)\src\PatientAccess\Client\ClientInstaller\bin\**\*.*;$(SolutionRoot)\src\PatientAccess\Client\ClientInstaller\obj\**\*.*">
+      </ClientInstallerFiles>
+      <ToolFiles Include="$(ToolsDirectory)\**\*.*"
+                 Exclude="$(ToolsDirectory)\**\*.chm;$(ToolsDirectory)\**\*.pdb;$(ToolsDirectory)\servicemocks\**\*.*">
+      </ToolFiles>
+      <WinFormFiles Include="$(SolutionRoot)\src\PatientAccess\Client\WinForms\**\bin\*.*">
+      </WinFormFiles>
+      <DocumentationFiles Include="$(SolutionRoot)\docs\**\*.*"
+                          Exclude="$(SolutionRoot)\docs\**\*.doc">
+      </DocumentationFiles>
+      <DatabaseFiles Include="$(SolutionRoot)\src\PatientAccess\Server\Database\SqlServer\**\*.*">
+
+      </DatabaseFiles>
+    </ItemGroup>
+
+    <!-- Create (purge if needed) a new build-drop folder in the Dev folder -->
+    <RemoveDir Directories="$(DestinationPath)" Condition="Exists('$(DestinationPath)')" />
+    <MakeDir Directories="$(DestinationPath)" Condition="!Exists('$(DestinationPath)')" />
+
+    <!-- Move the files from the build workspace to the drop folder -->
+    <Copy SourceFiles="@(ApplicationFiles)"
+          DestinationFiles="@(ApplicationFiles->'$(DestinationPath)\src\PatientAccess\Server\AppServer\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(ToolFiles)"
+          DestinationFiles="@(ToolFiles->'$(DestinationPath)\tools\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="$(SolutionRoot)\build\ContinuousIntegration.proj"
+          DestinationFiles="$(DestinationPath)\build\ContinuousIntegration.proj" />
+    <Copy SourceFiles="@(ProjectConfigurationFiles)"
+          DestinationFiles="@(ProjectConfigurationFiles->'$(DestinationPath)\src\PatientAccess\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(ClientInstallerFiles)"
+          DestinationFiles="@(ClientInstallerFiles->'$(DestinationPath)\src\PatientAccess\Client\ClientInstaller\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(WinFormFiles)"
+          DestinationFiles="@(WinFormFiles->'$(DestinationPath)\src\PatientAccess\Client\WinForms\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DocumentationFiles)"
+          DestinationFiles="@(DocumentationFiles->'$(DestinationPath)\src\PatientAccess\Server\AppServer\Documentation\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(DatabaseFiles)"
+          DestinationFiles="@(DatabaseFiles->'$(DestinationPath)\src\PatientAccess\Server\Database\SqlServer\%(RecursiveDir)%(Filename)%(Extension)')" />
+
+    <!-- Save the current Branch and Version information so the script can re-use it during future
+         deployments -->
+    <ItemGroup>
+      <Tokens Include="Branch">
+        <ReplacementValue>$(Branch)</ReplacementValue>
+      </Tokens>
+      <Tokens Include="Environment">
+        <ReplacementValue>Dev</ReplacementValue>
+      </Tokens>
+      <Tokens Include="Version">
+        <ReplacementValue>$(Version)</ReplacementValue>
+      </Tokens>
+      <Tokens Include="BuildDropPath">
+        <ReplacementValue>$(BuildDropPath)</ReplacementValue>
+      </Tokens>
+    </ItemGroup>
+
+    <TemplateFile Template="$(SolutionRoot)\build\ContinuousIntegrationSettings.template"
+                  OutputFileName="$(DestinationPath)\build\ContinuousIntegrationSettings.proj"
+                  Tokens="@(Tokens)" />
+
+    <!-- Shell out to the copy of this file in the build drop and have it reconfigure
+         the drop for the new environment. This include re-gen of the configurtion
+         files and re-building the client installer -->
+    <MSBuild Projects="$(DestinationPath)\build\ContinuousIntegration.proj"
+             StopOnFirstFailure="true"
+             ToolsVersion="4.0"
+             Targets="Configure;CreateInstallationFiles;Deploy"
+             Properties="Branch=$(Branch);Environment=Dev;Version=$(Version);GenerationOption=All" />
+
+  </Target>
+
+
+  <!--
+   This will actually copy to the machine or machines which make up the deployment target
+   environment
+  -->
+  <Target Name="Deploy">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Deploying to Servers ..." />
+    <Message Text="==========================================================================" />
+
+    <ItemGroup Condition="'$(Environment)'=='Dev' And '$(Branch)'=='Trunk'">
+      <DeploymentMachine Include="psdpdchdcpad01.hdc.net" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Environment)'=='Test' And '$(Branch)'=='Trunk'">
+      <!--<DeploymentMachine Include="hsdpdchdcpat02.hdc.net" />-->
+      <DeploymentMachine Include="hssopathdcweb01.hdc.net" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Environment)'=='Dev' And '$(Branch)'=='Support'">
+      <DeploymentMachine Include="psdpdchdcpas01.hdc.net" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Environment)'=='Test' And '$(Branch)'=='Support'">
+      <!--<DeploymentMachine Include="psdpdchdcpast1.hdc.net" />-->
+      <DeploymentMachine Include="hssopathdcweb02.hdc.net" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Environment)'=='Model' And '$(Branch)'=='Support'">      
+      <DeploymentMachine Include="10.11.22.87" /> 
+      <DeploymentMachine Include="10.11.11.51" /> 
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Environment)'=='Beta' And '$(Branch)'=='Support'">      
+      <DeploymentMachine Include="10.11.11.244" />
+      <DeploymentMachine Include="10.11.11.17" />
+      <DeploymentMachine Include="10.11.11.63" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Environment)'=='Prod' And '$(Branch)'=='Support'">      
+      <DeploymentMachine Include="10.11.11.171" />
+      <DeploymentMachine Include="10.11.11.172" />      
+      <DeploymentMachine Include="10.11.11.21" />
+      <DeploymentMachine Include="10.11.11.19" />
+      <DeploymentMachine Include="10.11.11.20" />
+      <DeploymentMachine Include="10.11.11.28" />
+      <DeploymentMachine Include="10.11.11.158" />	  
+      <DeploymentMachine Include="10.11.11.164" />
+    </ItemGroup>
+
+    <Share.Disconnect
+            ShareName="PatientAccess"
+            Machine="%(DeploymentMachine.Identity)"
+            SuppressWarnings="true" />
+
+    <Share.Connect
+            ShareName="PatientAccess"
+            Machine="%(DeploymentMachine.Identity)"
+            UserName="$(DeployName)"
+            Password="$(DeployPassword)"
+            ResourceType="Disk"
+            Connections="1" />
+
+    <!-- ASP.NET should see this and immediately take the process offline -->
+    <WriteLinesToFile File="\\%(DeploymentMachine.Identity)\PatientAccess\AppServer\app_offline.htm"
+                      Lines="Application is Offline"
+                      Overwrite="false"
+                      Condition="Exists('\\%(DeploymentMachine.Identity)\PatientAccess\AppServer')"/>
+
+    <Folder.CleanFolder Path="\\%(DeploymentMachine.Identity)\PatientAccess\AppServer"
+                        Force="true"
+                        Condition="Exists('\\%(DeploymentMachine.Identity)\PatientAccess\AppServer')"/>
+
+    <Folder.CopyFolder
+            Source="$(SolutionRoot)\src\PatientAccess\Server\AppServer"
+            Destination="\\%(DeploymentMachine.Identity)\PatientAccess\AppServer" />
+
+    <MSBuild.ExtensionPack.FileSystem.Folder
+            TaskAction="DeleteAll"
+            Path="\\%(DeploymentMachine.Identity)\PatientAccess\AppServer" Match="Configuration"/>
+
+    <CallTarget Targets="MigrateDatabase" />
+
+  </Target>
+
+  <Target Name="DeploymentNotification">
+
+    <Message Text="==========================================================================" />
+    <Message Text=" Sending email notification ..." />
+    <Message Text="==========================================================================" />
+
+    <ItemGroup>
+      <Recipient Include="DL-PABuildManagement@ps.net"/>
+      <Recipient Include="DL-PADefectManagement@ps.net"/>
+      <Recipient Include="DL-PADevelopment@ps.net"/>
+    </ItemGroup>
+
+    <MSBuild.ExtensionPack.Communication.Email TaskAction="Send"
+                                               Subject="Patient Access $(Branch) version $(Version) deployed to $(Environment)"
+                                               SmtpServer="mail.hdc.net"
+                                               MailFrom="DL-PABuildManagement@ps.net"
+                                               MailTo="@(Recipient)" />
+
+  </Target>
+</Project>

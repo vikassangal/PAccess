@@ -1,0 +1,499 @@
+<Facilities>
+  <Facility name="SRE">
+    <Addresses xmlns="">
+      <Address AddressID="8645" TypeCD="MT" Address1="601 SOUTH 8TH STREET" Address2="" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="Spalding" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11530" TypeCD="BT" Address1="P. O. DRAWER V" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11531" TypeCD="ST" Address1="601 SOUTH EIGHTH STREET" Address2="" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12363" TypeCD="BT" Address1="P. O. DRAWER V" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16215" TypeCD="HQ" Address1="601 South 8th Street" Address2="" Address3="" City="Griffin" StateCD="GA" ZipCD="30224" County="Spalding" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SPX">
+    <Addresses xmlns="">
+      <Address AddressID="16439" TypeCD="HQ" Address1="601 South 8th Street" Address2="" Address3="" City="Griffin" StateCD="GA" ZipCD="30224" County="Spalding" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="STD">
+    <Addresses xmlns="" />
+  </Facility>
+  <Facility name="DHX">
+    <Addresses xmlns="">
+      <Address AddressID="16417" TypeCD="HQ" Address1="9330 Poppy Dr.  #205 West" Address2="" Address3="" City="Dallas" StateCD="TX" ZipCD="75218" County="Dallas" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="GGX">
+    <Addresses xmlns="">
+      <Address AddressID="16421" TypeCD="HQ" Address1="12601 Garden Grove Blvd." Address2="" Address3="" City="Garden Grove" StateCD="CA" ZipCD="92843" County="Orange" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SDC">
+    <Addresses xmlns="">
+      <Address AddressID="8866" TypeCD="MT" Address1="1350 W Covina Blvd" Address2="" Address3="" City="San Dimas" StateCD="CA" ZipCD="91773" County="Los Angeles" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11486" TypeCD="BT" Address1="P.O. BOX 3009" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="SAN DIMAS" StateCD="CA" ZipCD="91773" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11487" TypeCD="ST" Address1="1350 WEST COVINA BOULEVARD" Address2="" Address3="" City="SAN DIMAS" StateCD="CA" ZipCD="917730308" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12340" TypeCD="BT" Address1="P.O. BOX 3009" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="SAN DIMAS" StateCD="CA" ZipCD="91773" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16164" TypeCD="HQ" Address1="1350 W Covina Blvd" Address2="" Address3="" City="San Dimas" StateCD="CA" ZipCD="91773" County="Los Angeles" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="FVX">
+    <Addresses xmlns="">
+      <Address AddressID="16444" TypeCD="HQ" Address1="17100 Euclid Street" Address2="" Address3="" City="Fountain Valley" StateCD="CA" ZipCD="92708" County="" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DEL">
+    <Addresses xmlns="">
+      <Address AddressID="8661" TypeCD="MT" Address1="5352 LINTON BLVD" Address2="" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33484" County="Palm Beach" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11129" TypeCD="BT" Address1="5352 LINTON BOULEVARD" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33484" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11130" TypeCD="ST" Address1="1065 S.W. 15TH AVENUE" Address2="BUILDING C BAYS 10, 11, 12" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33444" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12150" TypeCD="BT" Address1="5352 LINTON BOULEVARD" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33484" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16177" TypeCD="HQ" Address1="5352 Linton Blvd" Address2="" Address3="" City="Delray Beach" StateCD="FL" ZipCD="33484" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SYL">
+    <Addresses xmlns="">
+      <Address AddressID="8898" TypeCD="MT" Address1="1050 Mcdonough Rd" Address2="" Address3="" City="Jackson" StateCD="GA" ZipCD="30233" County="Charleston" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11544" TypeCD="BT" Address1="C/O SPALDING REGIONAL" Address2="601 S. 8TH ST" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11545" TypeCD="ST" Address1="C/O SPALDING REGIONAL" Address2="601 S. 8TH ST" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12370" TypeCD="BT" Address1="C/O SPALDING REGIONAL" Address2="601 S. 8TH ST" Address3="" City="GRIFFIN" StateCD="GA" ZipCD="30224" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12962" TypeCD="HQ" Address1="1050 Mcdonough Rd" Address2="" Address3="" City="Jackson" StateCD="GA" ZipCD="30233" County="Charleston" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DHF">
+    <Addresses xmlns="">
+      <Address AddressID="9481" TypeCD="MT" Address1="9330 POPPY DR #205 WEST" Address2="" Address3="" City="DALLAS" StateCD="TX" ZipCD="75218" County="Dallas" CountryCD="" MailToInd="true" />
+      <Address AddressID="11143" TypeCD="BT" Address1="9440 POPPY DRIVE" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="DALLAS" StateCD="TX" ZipCD="75218" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11144" TypeCD="ST" Address1="9440 POPPY DRIVE" Address2="" Address3="" City="DALLAS" StateCD="TX" ZipCD="75218" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12158" TypeCD="BT" Address1="9440 POPPY DRIVE" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="DALLAS" StateCD="TX" ZipCD="75218" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16179" TypeCD="HQ" Address1="9330 Poppy Dr.  #205 West" Address2="" Address3="" City="Dallas" StateCD="TX" ZipCD="75218" County="Dallas" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DLX">
+    <Addresses xmlns="">
+      <Address AddressID="16418" TypeCD="HQ" Address1="5352 Linton Blvd" Address2="" Address3="" City="Delray Beach" StateCD="FL" ZipCD="33484" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="GGH">
+    <Addresses xmlns="">
+      <Address AddressID="8889" TypeCD="MT" Address1="12601 GARDEN GROVE BLVD" Address2="" Address3="" City="GARDEN GROVE" StateCD="CA" ZipCD="92843" County="Orange" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11227" TypeCD="BT" Address1="12601 GARDEN GROVE BOULEVARD" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="GARDEN GROVE" StateCD="CA" ZipCD="926431959" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11228" TypeCD="ST" Address1="12601 GARDEN GROVE BOULEVARD" Address2="" Address3="" City="GARDEN GROVE" StateCD="CA" ZipCD="926431959" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12208" TypeCD="BT" Address1="12601 GARDEN GROVE BOULEVARD" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="GARDEN GROVE" StateCD="CA" ZipCD="926431959" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16183" TypeCD="HQ" Address1="12601 Garden Grove Blvd." Address2="" Address3="" City="Garden Grove" StateCD="CA" ZipCD="92843" County="Orange" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="HXX">
+    <Addresses xmlns="">
+      <Address AddressID="16423" TypeCD="HQ" Address1="Broad and Vine" Address2="" Address3="" City="Philadelphia" StateCD="PA" ZipCD="19102" County="Philadelphia" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="MAX">
+    <Addresses xmlns="">
+      <Address AddressID="16445" TypeCD="HQ" Address1="1441 Florida Avenue" Address2="" Address3="" City="Modesto" StateCD="CA" ZipCD="95352" County="Stanislaus" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LAK">
+    <Addresses xmlns="">
+      <Address AddressID="8691" TypeCD="MT" Address1="3700 EAST SOUTH STREET" Address2="" Address3="" City="LAKEWOOD" StateCD="CA" ZipCD="90712" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16191" TypeCD="HQ" Address1="3700 East South Street" Address2="" Address3="" City="Lakewood" StateCD="CA" ZipCD="90712" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SFX">
+    <Addresses xmlns="">
+      <Address AddressID="16450" TypeCD="HQ" Address1="1170 Cleveland" Address2="" Address3="" City="East Point" StateCD="GA" ZipCD="30344" County="Fulton" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="IMX">
+    <Addresses xmlns="">
+      <Address AddressID="16424" TypeCD="HQ" Address1="16200 Sand Canyon Avenue" Address2="" Address3="" City="Irvine" StateCD="CA" ZipCD="92618" County="Orange" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SIE">
+    <Addresses xmlns="">
+      <Address AddressID="8826" TypeCD="MT" Address1="1625 MEDICAL CENTER DR" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="El Paso" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11506" TypeCD="BT" Address1="P.O. BOX 431" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="EL PASO" StateCD="TX" ZipCD="79943" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11507" TypeCD="ST" Address1="1625 MEDICAL CENTER DRIVE" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12351" TypeCD="BT" Address1="P.O. BOX 431" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="EL PASO" StateCD="TX" ZipCD="79943" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12892" TypeCD="HQ" Address1="1625 MEDICAL CENTER DR" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="El Paso" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PLA">
+    <Addresses xmlns="">
+      <Address AddressID="8876" TypeCD="MT" Address1="1301 ROSE DR" Address2="" Address3="" City="PLACENTIA" StateCD="CA" ZipCD="92870" County="Orange" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11412" TypeCD="BT" Address1="1301 ROSE DRIVE" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="PLACENTIA" StateCD="CA" ZipCD="92870" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11413" TypeCD="ST" Address1="1301 ROSE DRIVE" Address2="" Address3="" City="PLACENTIA" StateCD="CA" ZipCD="92870" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12303" TypeCD="BT" Address1="1301 ROSE DRIVE" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="PLACENTIA" StateCD="CA" ZipCD="92870" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16208" TypeCD="HQ" Address1="1301 Rose Dr." Address2="" Address3="" City="Placentia" StateCD="CA" ZipCD="92870" County="Orange" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="IMC">
+    <Addresses xmlns="">
+      <Address AddressID="8827" TypeCD="MT" Address1="16200 SAND CANYON AVENUE" Address2="" Address3="" City="IRVINE" StateCD="CA" ZipCD="92618" County="Orange" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11267" TypeCD="BT" Address1="16200 SAND CANYON AVENUE" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="IRVINE" StateCD="CA" ZipCD="92618" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11268" TypeCD="ST" Address1="16200 SAND CANYON AVE." Address2="" Address3="" City="IRVINE" StateCD="CA" ZipCD="92618" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12228" TypeCD="BT" Address1="16200 SAND CANYON AVENUE" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="IRVINE" StateCD="CA" ZipCD="92618" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16189" TypeCD="HQ" Address1="16200 Sand Canyon Avenue" Address2="" Address3="" City="Irvine" StateCD="CA" ZipCD="92618" County="Orange" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="CCA">
+    <Addresses xmlns="">
+      <Address AddressID="8903" TypeCD="MT" Address1="1135 Carthage St" Address2="" Address3="" City="Sanford" StateCD="NC" ZipCD="27330" County="Lee" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11078" TypeCD="BT" Address1="1135 CARTHAGE STREET" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="SANFORD" StateCD="NC" ZipCD="27330" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11079" TypeCD="ST" Address1="1135 CARTHAGE STREET" Address2="" Address3="" City="SANFORD" StateCD="NC" ZipCD="27330" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12123" TypeCD="BT" Address1="1135 CARTHAGE STREET" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="SANFORD" StateCD="NC" ZipCD="27330" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12966" TypeCD="HQ" Address1="1135 Carthage St" Address2="" Address3="" City="Sanford" StateCD="NC" ZipCD="27330" County="Lee" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SCH">
+    <Addresses xmlns="">
+      <Address AddressID="8610" TypeCD="MT" Address1="ERIE AVE AT FRONT ST" Address2="" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="19134" County="Philadelphia" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11482" TypeCD="BT" Address1="ACCOUNTS PAYABLE" Address2="P.O. BOX 26968" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="191346968" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11483" TypeCD="ST" Address1="3601 &quot;A&quot; STREET" Address2="&quot;B&quot; STREET SERVICE ENTRANCE" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="19134" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12338" TypeCD="BT" Address1="ACCOUNTS PAYABLE" Address2="P.O. BOX 26968" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="191346968" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16211" TypeCD="HQ" Address1="E. Erie Ave. &amp; N. Front St." Address2="" Address3="" City="Philadelphia" StateCD="PA" ZipCD="19134" County="Philadelphia" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LPX">
+    <Addresses xmlns="">
+      <Address AddressID="8630" TypeCD="MT" Address1="6800 SCENIC DRIVE" Address2="" Address3="" City="ROWLETT" StateCD="TX" ZipCD="75088" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="9434" TypeCD="BT" Address1="6800 SCENIC DRIVE" Address2="" Address3="" City="ROWLETT" StateCD="TX" ZipCD="75088" County="" CountryCD="" MailToInd="true" />
+      <Address AddressID="16193" TypeCD="HQ" Address1="6800 Scenic Drive" Address2="" Address3="" City="Rowlett" StateCD="TX" ZipCD="75088" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="NTX">
+    <Addresses xmlns="">
+      <Address AddressID="16431" TypeCD="HQ" Address1="100 Medical Center Dr." Address2="" Address3="" City="Slidell" StateCD="LA" ZipCD="70461" County="St. Tammany" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="NMX">
+    <Addresses xmlns="">
+      <Address AddressID="16446" TypeCD="HQ" Address1="4920 N.E. Stallings Drive" Address2="" Address3="" City="Nacogdoches" StateCD="TX" ZipCD="75961" County="Nacogdoches" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SES">
+    <Addresses xmlns="">
+      <Address AddressID="16371" TypeCD="HQ" Address1="3280 Joe Battle Boulevard" Address2="" Address3="" City="El Paso" StateCD="TX" ZipCD="79938" County="El Paso" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="USC">
+    <Addresses xmlns="">
+      <Address AddressID="8830" TypeCD="MT" Address1="1500 SAN PABLO STREET" Address2="" Address3="" City="LOS ANGELES" StateCD="CA" ZipCD="90033" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="9443" TypeCD="BT" Address1="PO BOX 33804" Address2="Attn: Accounts Payable" Address3="" City="Los Angeles" StateCD="CA" ZipCD="90033" County="Los Angeles" CountryCD="" MailToInd="true" />
+      <Address AddressID="9444" TypeCD="ST" Address1="1441 Eastlake Avenue" Address2="Attn: Receiving" Address3="" City="Los Angeles" StateCD="CA" ZipCD="90033" County="" CountryCD="" MailToInd="false" />
+      <Address AddressID="11928" TypeCD="BT" Address1="ATTN: ACCOUNTS PAYABLE" Address2="PO BOX 33227" Address3="" City="LOS ANGELES" StateCD="CA" ZipCD="90033" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12563" TypeCD="BT" Address1="ATTN: ACCOUNTS PAYABLE" Address2="PO BOX 33227" Address3="" City="LOS ANGELES" StateCD="CA" ZipCD="90033" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16240" TypeCD="HQ" Address1="1500 San Pablo St." Address2="" Address3="" City="Los Angeles" StateCD="CA" ZipCD="90033" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DXX">
+    <Addresses xmlns="">
+      <Address AddressID="16419" TypeCD="HQ" Address1="2345 Dougherty Ferry Rd" Address2="" Address3="" City="St. Louis" StateCD="MO" ZipCD="63122" County="St Louis" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="WBX">
+    <Addresses xmlns="">
+      <Address AddressID="16442" TypeCD="HQ" Address1="21644 State Road 7" Address2="" Address3="" City="Boca Raton" StateCD="FL" ZipCD="33428" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="ECX">
+    <Addresses xmlns="">
+      <Address AddressID="16420" TypeCD="HQ" Address1="1200 Johnnie Dodds Blvd" Address2="" Address3="" City="Mt. Pleasant" StateCD="SC" ZipCD="29464" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SYX">
+    <Addresses xmlns="">
+      <Address AddressID="16451" TypeCD="HQ" Address1="1050 Mcdonough Rd" Address2="" Address3="" City="Jackson" StateCD="GA" ZipCD="30233" County="Charleston" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SXX">
+    <Addresses xmlns="">
+      <Address AddressID="16440" TypeCD="HQ" Address1="1350 W Covina Blvd" Address2="" Address3="" City="San Dimas" StateCD="CA" ZipCD="91773" County="Los Angeles" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PCR">
+    <Addresses xmlns="">
+      <Address AddressID="8659" TypeCD="MT" Address1="5360 LINTON BLVD" Address2="" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33484" County="Palm Beach" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11398" TypeCD="BT" Address1="5360 LINTON BLVD." Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33484" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11399" TypeCD="ST" Address1="1065 S.W. 15TH AVENUE" Address2="BUILDING C, BAYS 10, 11, 12" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33444" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12296" TypeCD="BT" Address1="5360 LINTON BLVD." Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="DELRAY BEACH" StateCD="FL" ZipCD="33484" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16239" TypeCD="HQ" Address1="5360 Linton Blvd." Address2="" Address3="" City="Delray Beach" StateCD="FL" ZipCD="33484" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="CMX">
+    <Addresses xmlns="">
+      <Address AddressID="16447" TypeCD="HQ" Address1="602 HURST ST." Address2="" Address3="" City="CENTER" StateCD="TX" ZipCD="75935" County="Shelby" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SFM">
+    <Addresses xmlns="">
+      <Address AddressID="8900" TypeCD="MT" Address1="1170 CLEVELAND" Address2="" Address3="" City="EAST POINT" StateCD="GA" ZipCD="30344" County="Fulton" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11494" TypeCD="BT" Address1="1170 CLEVELAND AVE" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="EAST POINT" StateCD="GA" ZipCD="30344" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11495" TypeCD="ST" Address1="1170 CLEVELAND AVE" Address2="" Address3="" City="EAST POINT" StateCD="GA" ZipCD="30344" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12344" TypeCD="BT" Address1="1170 CLEVELAND AVE" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="EAST POINT" StateCD="GA" ZipCD="30344" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16212" TypeCD="HQ" Address1="1170 Cleveland" Address2="" Address3="" City="East Point" StateCD="GA" ZipCD="30344" County="Fulton" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DES">
+    <Addresses xmlns="">
+      <Address AddressID="8902" TypeCD="MT" Address1="1150 N INDIAN CANYON DR" Address2="" Address3="" City="PALM SPRINGS" StateCD="CA" ZipCD="92262" County="Riverside" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11131" TypeCD="BT" Address1="ATT: ACCOUNTS PAYABLE" Address2="1150 N. INDIAN CANYON DRIVE" Address3="" City="PALM SPRINGS" StateCD="CA" ZipCD="92262" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11132" TypeCD="ST" Address1="210 E. TACHEVAH" Address2="" Address3="" City="PALM SPRINGS" StateCD="CA" ZipCD="92262" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12151" TypeCD="BT" Address1="ATT: ACCOUNTS PAYABLE" Address2="1150 N. INDIAN CANYON DRIVE" Address3="" City="PALM SPRINGS" StateCD="CA" ZipCD="92262" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="13453" TypeCD="HQ" Address1="1150 N Indian Canyon Dr" Address2="" Address3="" City="Palm Springs" StateCD="CA" ZipCD="92262" County="" CountryCD="" MailToInd="true" />
+    </Addresses>
+  </Facility>
+  <Facility name="HAH">
+    <Addresses xmlns="">
+      <Address AddressID="8611" TypeCD="MT" Address1="BROAD AND VINE" Address2="" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="19102" County="Philadelphia" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11240" TypeCD="BT" Address1="ACCOUNTS PAYABLE" Address2="P.O. BOX 42487" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="19101" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11241" TypeCD="ST" Address1="1400 RACE STREET (WEST OF BROAD)" Address2="RECEIVING HRS 8-3 PM M-F" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="19102" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12215" TypeCD="BT" Address1="ACCOUNTS PAYABLE" Address2="P.O. BOX 42487" Address3="" City="PHILADELPHIA" StateCD="PA" ZipCD="19101" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16185" TypeCD="HQ" Address1="Broad and Vine" Address2="" Address3="" City="Philadelphia" StateCD="PA" ZipCD="19102" County="Philadelphia" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PRV">
+    <Addresses xmlns="">
+      <Address AddressID="8782" TypeCD="MT" Address1="2001 N OREGON STREET" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12851" TypeCD="HQ" Address1="2001 N OREGON STREET" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="NOT">
+    <Addresses xmlns="">
+      <Address AddressID="8925" TypeCD="MT" Address1="100 MEDICAL CENTER DR" Address2="" Address3="" City="SLIDELL" StateCD="LA" ZipCD="70461" County="St. Tammany" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11371" TypeCD="BT" Address1="100 MEDICAL CENTER DRIVE" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="SLIDELL" StateCD="LA" ZipCD="70461" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11372" TypeCD="ST" Address1="100 MEDICAL CENTER DRIVE" Address2="" Address3="" City="SLIDELL" StateCD="LA" ZipCD="704618572" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12282" TypeCD="BT" Address1="100 MEDICAL CENTER DRIVE" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="SLIDELL" StateCD="LA" ZipCD="70461" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16202" TypeCD="HQ" Address1="100 Medical Center Dr." Address2="" Address3="" City="Slidell" StateCD="LA" ZipCD="70461" County="St. Tammany" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="CCX">
+    <Addresses xmlns="">
+      <Address AddressID="16443" TypeCD="HQ" Address1="1135 Carthage St" Address2="" Address3="" City="Sanford" StateCD="NC" ZipCD="27330" County="Lee" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SPT">
+    <Addresses xmlns="">
+      <Address AddressID="16449" TypeCD="HQ" Address1="3280 Joe Battle Boulevard" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79938" County="El Paso" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LOM">
+    <Addresses xmlns="">
+      <Address AddressID="8685" TypeCD="MT" Address1="3751 Katella Ave" Address2="" Address3="" City="Los Alamitos" StateCD="CA" ZipCD="90720" County="Orange" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11297" TypeCD="BT" Address1="ATTN: ACCOUNTS PAYABLE" Address2="3751 KATELLA AVE." Address3="" City="LOS ALAMITOS" StateCD="CA" ZipCD="90720" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11298" TypeCD="ST" Address1="16331 ARTHUR STREET" Address2="" Address3="" City="CERRITOS" StateCD="CA" ZipCD="90703" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12244" TypeCD="BT" Address1="ATTN: ACCOUNTS PAYABLE" Address2="3751 KATELLA AVE." Address3="" City="LOS ALAMITOS" StateCD="CA" ZipCD="90720" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12757" TypeCD="HQ" Address1="3751 Katella Ave" Address2="" Address3="" City="Los Alamitos" StateCD="CA" ZipCD="90720" County="Orange" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="RIX">
+    <Addresses xmlns="">
+      <Address AddressID="16436" TypeCD="HQ" Address1="1740 CURIE" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="El Paso" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SIX">
+    <Addresses xmlns="">
+      <Address AddressID="16438" TypeCD="HQ" Address1="1625 MEDICAL CENTER DR" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="El Paso" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="MOD">
+    <Addresses xmlns="">
+      <Address AddressID="8839" TypeCD="MT" Address1="1441 FLORIDA AVE" Address2="" Address3="" City="MODESTO" StateCD="CA" ZipCD="95352" County="Stanislaus" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11329" TypeCD="BT" Address1="ATT: ACCOUNTS PAYABLE" Address2="PO BOX 4138" Address3="" City="MODESTO" StateCD="CA" ZipCD="95352" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11330" TypeCD="ST" Address1="1441 FLORIDA AVE" Address2="" Address3="" City="MODESTO" StateCD="CA" ZipCD="95350" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12261" TypeCD="BT" Address1="ATT: ACCOUNTS PAYABLE" Address2="PO BOX 4138" Address3="" City="MODESTO" StateCD="CA" ZipCD="95352" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16197" TypeCD="HQ" Address1="1441 Florida Avenue" Address2="" Address3="" City="Modesto" StateCD="CA" ZipCD="95352" County="Stanislaus" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DHW">
+    <Addresses xmlns="">
+      <Address AddressID="8815" TypeCD="MT" Address1="2345 Dougherty Ferry Rd" Address2="" Address3="" City="St. Louis" StateCD="MO" ZipCD="63122" County="St Louis" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11152" TypeCD="BT" Address1="6150 OAKLAND" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="ST. LOUIS" StateCD="MO" ZipCD="63139" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11153" TypeCD="ST" Address1="2345 DOUGHERTY FERRY RD" Address2="" Address3="" City="DES PERES" StateCD="MO" ZipCD="63122" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12163" TypeCD="BT" Address1="6150 OAKLAND" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="ST. LOUIS" StateCD="MO" ZipCD="63139" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12882" TypeCD="HQ" Address1="2345 Dougherty Ferry Rd" Address2="" Address3="" City="St. Louis" StateCD="MO" ZipCD="63122" County="St Louis" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SET">
+    <Addresses xmlns="">
+      <Address AddressID="16448" TypeCD="HQ" Address1="3280 Joe Battle Boulevard" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79938" County="El Paso" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="CGX">
+    <Addresses xmlns="">
+      <Address AddressID="16415" TypeCD="HQ" Address1="3100 Douglas Rd" Address2="" Address3="" City="Coral Gables" StateCD="FL" ZipCD="33134" County="Dade" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="NCI">
+    <Addresses xmlns="">
+      <Address AddressID="11351" TypeCD="BT" Address1="P.O. BOX 33804" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="LOS ANGELES" StateCD="CA" ZipCD="90033" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11352" TypeCD="ST" Address1="1441 EASTLAKE AVENUE" Address2="" Address3="ATTN: RECEIVING" City="LOS ANGELES" StateCD="CA" ZipCD="90033" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12272" TypeCD="BT" Address1="P.O. BOX 33804" Address2="" Address3="ATTN: ACCOUNTS PAYABLE" City="LOS ANGELES" StateCD="CA" ZipCD="90033" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16198" TypeCD="HQ" Address1="1441 Eastlake Ave." Address2="" Address3="" City="Los Angeles" StateCD="CA" ZipCD="90033" County="Los Angeles" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="INX">
+    <Addresses xmlns="">
+      <Address AddressID="16425" TypeCD="HQ" Address1="47111 Monroe St" Address2="" Address3="" City="Indio" StateCD="CA" ZipCD="92201" County="" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="NMC">
+    <Addresses xmlns="">
+      <Address AddressID="8666" TypeCD="MT" Address1="4920 NE STALLINGS DR" Address2="" Address3="" City="NACOGDOCHES" StateCD="TX" ZipCD="75961" County="Nacogdoches" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11363" TypeCD="BT" Address1="P.O. BOX 631578" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="NACOGDOCHES" StateCD="TX" ZipCD="759631578" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11364" TypeCD="ST" Address1="4920 NORTHEAST STALLINGS DRIVE" Address2="P.O. BOX 1604" Address3="" City="NACOGDOCHES" StateCD="TX" ZipCD="75965" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12278" TypeCD="BT" Address1="P.O. BOX 631578" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="NACOGDOCHES" StateCD="TX" ZipCD="759631578" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16200" TypeCD="HQ" Address1="4920 N.E. Stallings Drive" Address2="" Address3="" City="Nacogdoches" StateCD="TX" ZipCD="75961" County="Nacogdoches" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="FVR">
+    <Addresses xmlns="">
+      <Address AddressID="8904" TypeCD="MT" Address1="17100 Euclid Street" Address2="" Address3="" City="Fountain Valley" StateCD="CA" ZipCD="92708" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12967" TypeCD="HQ" Address1="17100 Euclid Street" Address2="" Address3="" City="Fountain Valley" StateCD="CA" ZipCD="92708" County="" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LAX">
+    <Addresses xmlns="">
+      <Address AddressID="16426" TypeCD="HQ" Address1="3700 East South Street" Address2="" Address3="" City="Lakewood" StateCD="CA" ZipCD="90712" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LOX">
+    <Addresses xmlns="">
+      <Address AddressID="16427" TypeCD="HQ" Address1="3751 Katella Ave" Address2="" Address3="" City="Los Alamitos" StateCD="CA" ZipCD="90720" County="Orange" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="SCX">
+    <Addresses xmlns="">
+      <Address AddressID="16437" TypeCD="HQ" Address1="E. Erie Ave. &amp; N. Front St." Address2="" Address3="" City="Philadelphia" StateCD="PA" ZipCD="19134" County="Philadelphia" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PXX">
+    <Addresses xmlns="">
+      <Address AddressID="16435" TypeCD="HQ" Address1="2001 N OREGON STREET" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="CGH">
+    <Addresses xmlns="">
+      <Address AddressID="8753" TypeCD="MT" Address1="3100 Douglas Rd" Address2="" Address3="" City="Coral Gables" StateCD="FL" ZipCD="33134" County="Dade" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11087" TypeCD="BT" Address1="3100 DOUGLAS ROAD" Address2="" Address3="" City="CORAL GABLES" StateCD="FL" ZipCD="33134" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11088" TypeCD="ST" Address1="2601 S.W. 37TH AVENUE" Address2="" Address3="" City="MIAMI" StateCD="FL" ZipCD="33133" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12128" TypeCD="BT" Address1="3100 DOUGLAS ROAD" Address2="" Address3="" City="CORAL GABLES" StateCD="FL" ZipCD="33134" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12823" TypeCD="HQ" Address1="3100 Douglas Rd" Address2="" Address3="" City="Coral Gables" StateCD="FL" ZipCD="33134" County="Dade" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="WBO">
+    <Addresses xmlns="">
+      <Address AddressID="8764" TypeCD="MT" Address1="21644 STATE ROAD 7" Address2="" Address3="" City="WEST BOCA RATON" StateCD="FL" ZipCD="33428" County="Palm Beach" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11931" TypeCD="BT" Address1="ATTN: ACCOUNTS PAYABLE" Address2="21644 N. STATE ROAD 7" Address3="" City="BOCA RATON" StateCD="FL" ZipCD="33428" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11932" TypeCD="ST" Address1="21644 N-STATE RD 7" Address2="ATTN: PURCHASING" Address3="" City="BOCA RATON" StateCD="FL" ZipCD="33428" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12565" TypeCD="BT" Address1="ATTN: ACCOUNTS PAYABLE" Address2="21644 N. STATE ROAD 7" Address3="" City="BOCA RATON" StateCD="FL" ZipCD="33428" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16299" TypeCD="HQ" Address1="21644 State Road 7" Address2="" Address3="" City="Boca Raton" StateCD="FL" ZipCD="33428" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="HHH">
+    <Addresses xmlns="">
+      <Address AddressID="8759" TypeCD="MT" Address1="25 HOSPITAL CENTER BLVD" Address2="" Address3="" City="HILTON HEAD" StateCD="SC" ZipCD="29926" County="Beaufort" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11251" TypeCD="BT" Address1="P.O. BOX 21117" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="HILTON HEAD ISLAND" StateCD="SC" ZipCD="29925" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11252" TypeCD="ST" Address1="25 HOSPITAL CENTER BLVD." Address2="" Address3="" City="HILTON HEAD ISLAND" StateCD="SC" ZipCD="29926" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12220" TypeCD="BT" Address1="P.O. BOX 21117" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="HILTON HEAD ISLAND" StateCD="SC" ZipCD="29925" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="14711" TypeCD="HQ" Address1="25 Hospital Center Blvd." Address2="" Address3="" City="Hilton Head" StateCD="SC" ZipCD="29926" County="Beaufort" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="HH1">
+    <Addresses xmlns="">
+      <Address AddressID="16422" TypeCD="HQ" Address1="25 Hospital Center Blvd." Address2="" Address3="" City="Hilton Head" StateCD="SC" ZipCD="29926" County="Beaufort" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PCX">
+    <Addresses xmlns="">
+      <Address AddressID="16433" TypeCD="HQ" Address1="5360 Linton Blvd." Address2="" Address3="" City="Delray Beach" StateCD="FL" ZipCD="33484" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LTX">
+    <Addresses xmlns="">
+      <Address AddressID="16428" TypeCD="HQ" Address1="815 Pollard Road" Address2="" Address3="" City="Los Gatos" StateCD="CA" ZipCD="95030" County="Santa Clara" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="RIO">
+    <Addresses xmlns="">
+      <Address AddressID="8818" TypeCD="MT" Address1="1740 CURIE" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="El Paso" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11442" TypeCD="BT" Address1="P.O. BOX 431" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="EL PASO" StateCD="TX" ZipCD="79943" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11443" TypeCD="ST" Address1="1740 CURIE DRIVE" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="799022901" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12318" TypeCD="BT" Address1="P.O. BOX 431" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="EL PASO" StateCD="TX" ZipCD="79943" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12885" TypeCD="HQ" Address1="1740 CURIE" Address2="" Address3="" City="EL PASO" StateCD="TX" ZipCD="79902" County="El Paso" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="MAN">
+    <Addresses xmlns="">
+      <Address AddressID="8893" TypeCD="MT" Address1="1205 EAST NORTH STREET" Address2="" Address3="" City="MANTECA" StateCD="CA" ZipCD="95336" County="San Joaquin" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11307" TypeCD="BT" Address1="1205 E. NORTH STREET" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="MANTECA" StateCD="CA" ZipCD="95336" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11308" TypeCD="ST" Address1="1205 E. NORTH STREET" Address2="" Address3="" City="MANTECA" StateCD="CA" ZipCD="95336" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12249" TypeCD="BT" Address1="1205 E. NORTH STREET" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="MANTECA" StateCD="CA" ZipCD="95336" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16194" TypeCD="HQ" Address1="1205 East North Street" Address2="" Address3="" City="Manteca" StateCD="CA" ZipCD="95336" County="San Joaquin" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="NCX">
+    <Addresses xmlns="">
+      <Address AddressID="16430" TypeCD="HQ" Address1="1441 Eastlake Ave." Address2="" Address3="" City="Los Angeles" StateCD="CA" ZipCD="90033" County="Los Angeles" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="LXX">
+    <Addresses xmlns="">
+      <Address AddressID="16429" TypeCD="HQ" Address1="6800 Scenic Drive" Address2="" Address3="" City="Rowlett" StateCD="TX" ZipCD="75088" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="IND">
+    <Addresses xmlns="">
+      <Address AddressID="8669" TypeCD="MT" Address1="47111 Monroe St" Address2="" Address3="" City="Indio" StateCD="CA" ZipCD="92201" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11269" TypeCD="BT" Address1="P.O. DRAWER LLLL" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="INDIO" StateCD="CA" ZipCD="92202" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11270" TypeCD="ST" Address1="47-111 MONROE ST." Address2="" Address3="" City="INDIO" StateCD="CA" ZipCD="92201" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12229" TypeCD="BT" Address1="P.O. DRAWER LLLL" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="INDIO" StateCD="CA" ZipCD="92202" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12741" TypeCD="HQ" Address1="47111 Monroe St" Address2="" Address3="" City="Indio" StateCD="CA" ZipCD="92201" County="" CountryCD="US" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PLX">
+    <Addresses xmlns="">
+      <Address AddressID="16434" TypeCD="HQ" Address1="1301 Rose Dr." Address2="" Address3="" City="Placentia" StateCD="CA" ZipCD="92870" County="Orange" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="USX">
+    <Addresses xmlns="">
+      <Address AddressID="16441" TypeCD="HQ" Address1="1500 San Pablo St." Address2="" Address3="" City="Los Angeles" StateCD="CA" ZipCD="90033" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="DEX">
+    <Addresses xmlns="">
+      <Address AddressID="16416" TypeCD="HQ" Address1="1150 N Indian Canyon Dr" Address2="" Address3="" City="Palm Springs" StateCD="CA" ZipCD="92262" County="" CountryCD="" MailToInd="true" />
+    </Addresses>
+  </Facility>
+  <Facility name="LOG">
+    <Addresses xmlns="">
+      <Address AddressID="8623" TypeCD="MT" Address1="815 POLLARD ROAD" Address2="" Address3="" City="LOS GATOS" StateCD="CA" ZipCD="95030" County="Santa Clara" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11295" TypeCD="BT" Address1="815 POLLARD ROAD" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="LOS GATOS" StateCD="CA" ZipCD="95032" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11296" TypeCD="ST" Address1="815 POLLARD ROAD" Address2="" Address3="" City="LOS GATOS" StateCD="CA" ZipCD="95032" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12243" TypeCD="BT" Address1="815 POLLARD ROAD" Address2="ATTN: ACCOUNTS PAYABLE" Address3="" City="LOS GATOS" StateCD="CA" ZipCD="95032" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16192" TypeCD="HQ" Address1="815 Pollard Road" Address2="" Address3="" City="Los Gatos" StateCD="CA" ZipCD="95030" County="Santa Clara" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PBX">
+    <Addresses xmlns="">
+      <Address AddressID="16432" TypeCD="HQ" Address1="3360 Burns Rd." Address2="" Address3="" City="Palm Beach Gardens" StateCD="FL" ZipCD="33410" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="PBG">
+    <Addresses xmlns="">
+      <Address AddressID="8698" TypeCD="MT" Address1="3360 BURNS RD" Address2="" Address3="" City="PALM BEACH GDNS" StateCD="FL" ZipCD="33410" County="Palm Beach" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11394" TypeCD="BT" Address1="3360 BURNS ROAD" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="PALM BEACH GARDENS" StateCD="FL" ZipCD="33410" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11395" TypeCD="ST" Address1="3360 BURNS ROAD" Address2="ATTENTION: RECEIVING" Address3="" City="PALM BEACH GARDENS" StateCD="FL" ZipCD="33410" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12294" TypeCD="BT" Address1="3360 BURNS ROAD" Address2="ATTN:  ACCOUNTS PAYABLE" Address3="" City="PALM BEACH GARDENS" StateCD="FL" ZipCD="33410" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16205" TypeCD="HQ" Address1="3360 Burns Rd." Address2="" Address3="" City="Palm Beach Gardens" StateCD="FL" ZipCD="33410" County="Palm Beach" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+  <Facility name="ECH">
+    <Addresses xmlns="">
+      <Address AddressID="8884" TypeCD="MT" Address1="1200 Johnnie Dodds Blvd" Address2="" Address3="" City="Mt Pleasant" StateCD="SC" ZipCD="29464" County="Charleston" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11188" TypeCD="BT" Address1="P. O. BOX 2018" Address2="ATTN:  ACCOUNT PAYABLE" Address3="" City="MT PLEASANT" StateCD="SC" ZipCD="29465" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="11189" TypeCD="ST" Address1="1200 JOHNNIE DODDS BLVD" Address2="" Address3="" City="MOUNT PLEASANT" StateCD="SC" ZipCD="29464" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="12189" TypeCD="BT" Address1="P. O. BOX 2018" Address2="ATTN:  ACCOUNT PAYABLE" Address3="" City="MT PLEASANT" StateCD="SC" ZipCD="29465" County="" CountryCD="US" MailToInd="false" />
+      <Address AddressID="16180" TypeCD="HQ" Address1="1200 Johnnie Dodds Blvd" Address2="" Address3="" City="Mt. Pleasant" StateCD="SC" ZipCD="29464" County="" CountryCD="" MailToInd="false" />
+    </Addresses>
+  </Facility>
+</Facilities>

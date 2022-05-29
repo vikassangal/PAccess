@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SRE</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SPX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MEAB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.139.200</ipAddress>
+		<hospitalCode>STD</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>DHX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>GGX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>SDC</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>FVX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>DEL</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SYL</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>DHF</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>DLX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>GGH</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>HXX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MODB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.219.204</ipAddress>
+		<hospitalCode>MAX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>LAK</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SFX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>IMX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>SIE</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>PLA</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>IMC</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>CCA</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SCH</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>LPX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MEAB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.139.200</ipAddress>
+		<hospitalCode>NTX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>NMX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>SES</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>USC</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MEAB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.139.200</ipAddress>
+		<hospitalCode>DXX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>WBX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>ECX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SYX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>SXX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>PCR</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>CMX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SFM</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>DES</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>HAH</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>PRV</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MEAB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.139.200</ipAddress>
+		<hospitalCode>NOT</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>CCX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>SPT</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>LOM</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>RIX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>SIX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MODB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.219.204</ipAddress>
+		<hospitalCode>MOD</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MEAB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.139.200</ipAddress>
+		<hospitalCode>DHW</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>SET</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>CGX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>NCI</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>INX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>NMC</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>FVR</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>LAX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>LOX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>SCX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>PXX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>CGH</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>WBO</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>HHH</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>HH1</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>PCX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MODB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.219.204</ipAddress>
+		<hospitalCode>LTX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>SIEB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.30</ipAddress>
+		<hospitalCode>RIO</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MODB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.219.204</ipAddress>
+		<hospitalCode>MAN</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>NCX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>DHFB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.19</ipAddress>
+		<hospitalCode>LXX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>IND</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>PLX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>USX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>USCA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.155.29</ipAddress>
+		<hospitalCode>DEX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>MODB</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>172.18.219.204</ipAddress>
+		<hospitalCode>LOG</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>PBX</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>HOLA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.174</ipAddress>
+		<hospitalCode>PBG</hospitalCode>
+	</ConnectionSpecification>
+	<ConnectionSpecification>
+		<hubName>ESTA</hubName>
+		<description>Connection Spec Request</description>
+		<ipAddress>155.16.44.138</ipAddress>
+		<hospitalCode>ECH</hospitalCode>
+	</ConnectionSpecification>
+</ArrayOfConnectionSpecification>

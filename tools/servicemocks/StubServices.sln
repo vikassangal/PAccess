@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViWebDocumentStub", "ViWebDocumentStub\ViWebDocumentStub.csproj", "{87C6FD2F-DEAC-4D8C-B528-94F9DA2632A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CfdbStub", "CfdbStub\CfdbStub.csproj", "{CA0F181E-6D76-4665-BA80-702546559609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HdiStub", "HdiStub\HdiStub.csproj", "{263D414C-82B3-444E-9050-813961219E96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViWebPreviousVisitStub", "ViWebPreviousVisitStub\ViWebPreviousVisitStub.csproj", "{8FD63168-3A48-42B2-A828-FBDADB306063}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.hdc.net:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CfdbStub\\CfdbStub.csproj
+		SccProjectName1 = CfdbStub
+		SccLocalPath1 = CfdbStub
+		SccProjectUniqueName2 = HdiStub\\HdiStub.csproj
+		SccProjectName2 = HdiStub
+		SccLocalPath2 = HdiStub
+		SccProjectUniqueName3 = ViWebDocumentStub\\ViWebDocumentStub.csproj
+		SccProjectName3 = ViWebDocumentStub
+		SccLocalPath3 = ViWebDocumentStub
+		SccProjectUniqueName4 = ViWebPreviousVisitStub\\ViWebPreviousVisitStub.csproj
+		SccProjectName4 = ViWebPreviousVisitStub
+		SccLocalPath4 = ViWebPreviousVisitStub
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PatientAccess3.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87C6FD2F-DEAC-4D8C-B528-94F9DA2632A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C6FD2F-DEAC-4D8C-B528-94F9DA2632A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C6FD2F-DEAC-4D8C-B528-94F9DA2632A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C6FD2F-DEAC-4D8C-B528-94F9DA2632A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0F181E-6D76-4665-BA80-702546559609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0F181E-6D76-4665-BA80-702546559609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0F181E-6D76-4665-BA80-702546559609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0F181E-6D76-4665-BA80-702546559609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{263D414C-82B3-444E-9050-813961219E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263D414C-82B3-444E-9050-813961219E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263D414C-82B3-444E-9050-813961219E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263D414C-82B3-444E-9050-813961219E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD63168-3A48-42B2-A828-FBDADB306063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD63168-3A48-42B2-A828-FBDADB306063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD63168-3A48-42B2-A828-FBDADB306063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD63168-3A48-42B2-A828-FBDADB306063}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+liquibase --driver=com.microsoft.sqlserver.jdbc.SQLServerDriver --classpath="C:\Program Files\Microsoft SQL Server\sqljdbc_1.2\enu\sqljdbc.jar" --changeLogFile=C:\Temp\db.changelog.xml --url="jdbc:sqlserver://localhost:1433;integratedSecurity=true;database=master" generateChangeLog
