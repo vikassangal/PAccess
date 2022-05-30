@@ -28,7 +28,7 @@ commant prompt in the directory containing the .proj file and type
     <Db2 Environment="Test">Datasource={0}; LibraryList=*USRLIBL,PACCESS;NAMING=System;UserID=PACCESS;Password={2};Database={1};CheckConnectionOnOpen=true;Pooling=true;QueryOptionsFileLibrary=PACCESS;</Db2>
     <Db2 Environment="Model,Beta,Prod">Datasource={0}; LibraryList=PACCESS,*USRLIBL;NAMING=System;UserID=PACCESS;Password={2};Database={1};CheckConnectionOnOpen=true;Pooling=true;QueryOptionsFileLibrary=PACCESS;</Db2>
 
-    <SqlServer Environment="Local" Branch="Trunk">Database=PatientAccessTrunkLocal;Server=localhost1;Integrated Security=SSPI</SqlServer>
+    <SqlServer Environment="Local" Branch="Trunk">Database=PatientAccessTrunkLocal;Server=localhost;Integrated Security=SSPI</SqlServer>
     <SqlServer Environment="Local" Branch="Support">Database=PatientAccessSupportLocal;Server=localhost;Integrated Security=SSPI</SqlServer>
 
     <SqlServer Environment="Dev" Branch="Trunk">Database=PatientAccessTrunkDev;Server=PSDPDCHDCDB04;Integrated Security=SSPI</SqlServer>
